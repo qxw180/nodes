@@ -81,6 +81,11 @@
 4. 点击`Add key`按钮完成添加
 5. 再次进行Github远程操作时无须输入密码
 
+> windows下生成密钥对
+> 1. 安装git客户端
+> 2. 运行gitbash
+> 3. 输入`ssh-keygen -t rsa`，会在`C:\Users\Administrator[这里替换成你的用户名]\.ssh`目录下生成密钥对
+> 4. 同上操作在Github中添加公钥
 ---
 
 ##服务配置
