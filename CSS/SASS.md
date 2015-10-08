@@ -11,7 +11,7 @@ Sass&Compass笔记
 		4. 设置默认版本：`rvm use --default [2.2.9]`
 	2. ruby包管理工具gem，安装ruby过程中已经自动安装
 		1. 修改软件包sources（国内网路问题）
-			1. 删除现有sources：`gem sources --remove htt://rubygems.org/`
+			1. 删除现有sources：`gem sources --remove https://rubygems.org/`
 			2. 添加淘宝sources：`gem sources -a https://ruby.taobao.org/`
 			3. 查看sources：`get sources -l`
 		2. 安装ruby程序：`gem install [程序名]`
