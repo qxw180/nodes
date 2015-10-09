@@ -23,7 +23,7 @@
 6. 删除用户：`userdel [-r] username`
 > <small>*-r:同时删除用户的家目录*</small>
 7. 修改用户：`usermod [-cdefgGlLsuU]`
-> -c<备注>：修改用户帐号的备注文字；
+> <small>-c<备注>：修改用户帐号的备注文字；
 > -d<登入目录>：修改用户登入时的目录； 
 > -e<有效期限>：修改帐号的有效期限； 
 > -f<缓冲天数>：修改在密码过期后多少天即关闭该帐号； 
@@ -33,9 +33,14 @@
 > -L：锁定用户密码，使密码无效； 
 > -s：修改用户登入后所使用的shell； 
 > -u：修改用户ID； 
-> -U:解除密码锁定；
+> -U:解除密码锁定；</small>
 8. 创建修改用户密码：`passwd [-username] value username`
 > <small>*用户创建后默认没有密码，也不可以登录；*</small>
 > <small>*passwd后面不跟用户名表示修改当前用户密码；*</small>
 9. 切换登录用户 `su [-] username`
 > <small>*-表示同时切换环境变量，默认家目录切换*</small>
+10. 修改文件组 `chgrp [-R] groupname filename`
+> <small>-R或——recursive：递归处理，将指令目录下的所有文件及子目录一并处理；</small>
+11. 修改文件所属者 `chown [-R] username:groupname filename`
+> <small>-R或——recursive：递归处理，将指令目录下的所有文件及子目录一并处理；
+> 当省略“：组”，仅改变文件所有者；</small>
