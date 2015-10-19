@@ -1,0 +1,141 @@
+#RequireJS和模块化
+
+##模块化
+
+###为什么要模块化
+1. 解决全局变量污染问题
+> javascript不支持类和模块(ECMAScript第六版将支持类和模块)，变量和方法均挂载到window对象下，多人协同开发或者引用一些插件时可能会发送命名冲突
+2. 解决依赖问题
+> 
+###什么是模块化
+	模块化是一种编程方式，每个文件都是一个模块。
+
+
+
+##RequireJS
+
+###是什么
+
+###怎么用
+
+####模块定义
+
+	独立模块
+	define({
+		return {
+			a:functionA(){},
+			b:functionB(){}
+		}
+	})
+
+
+
+	非独立模块
+	define([jquery,tools],function($,tools){
+		$.function_get();
+		tools.function_fix();
+	})
+	
+> 第一个参数是数组，数组成员是当前模块所依赖的模块
+> 第二个参数是一个回调函数，依赖模块加载完成后会执行该方法；函数的参数与之前的依赖模块一一对应；
+> 如果依赖模块非常多那么伊朗模块和回调函数参数的对应就会非常麻烦，像下面一样；
+
+	define([m1,m2,m3,m4....],function(a1,a2,a3,a4...){
+
+	})
+
+> 我们可以使用下面这种简写的方式
+
+	define(function(require){
+		var a1 = require("m1"),
+			a2 = require("m2"),
+			a3 = require("m3"),
+			a4 = require("m4"),
+			...
+	});
+
+#####小技巧
+
+> 判断浏览器选择加载zepto或jquery
+
+	define(("__proto__" in {} ? ["zepto"] : ["jquery"]),function("$"){
+		...
+	})
+
+
+####模块调用
+
+	require([m1,m2],function("a1","a2"){
+
+	});
+
+> 参数与模块定义相同
+
+
+####错误处理
+
+> require方法支持三个参数， 第三个参数为错误处理回调函数，接受一个error对象参数
+
+	require(
+		[m1],
+		function(a1){
+
+		},
+		function(error){
+
+		}
+	)
+
+> 全局Error事件监听
+
+	requirejs.onError = function(e){
+
+	}
+
+####配置
+
+	require.config = {
+		paths:{
+			jquery:[
+				'//cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js',
+	            'lib/jquery'
+			],
+			...
+		},
+		shim:{
+			"zepot":{
+				exports:"$"
+			},
+			"tools":{
+				deps:["zepto"],
+				exports:"tools"
+			}
+		}
+	}
+
+> 参数介绍
+> 1. paths：指定各模块位置，该位置为同服务器相对位置，也可以是互联网位置；可以使用数组声明多个位置，如果第一个失败就加载第二个位置；指定模块位置可以省略`.js`后缀
+> 2. baseUrl：本地模块根路径，以`.js`和含有版本协议的模块不受此属性映像；**通常该属性由加载require..js时的`data-main`属性指定**；
+> 3. shim：处理未实现AMD规范的库，
+>> 		1. deps：依赖关系
+>>		2. exports：输出符号
+> 4. urlArgs：加载模块时，在模块路径后加的额外参数，可以用来进行模块版本控制，处理浏览器缓存；
+> 5. 
+
+
+
+
+####打包优化 r.js
+
+	r.js是一个基于node命令行工具，用来压缩多个js文件，可以将多个模块合并成一个脚步文件，以减少http请求数；
+
+1. 安装：`npm install -g reqirejs`
+2. 打包：`node r.js -o bulid.js`
+
+> build.js是r.js打包过程的一些配置项，主要配置内容如下
+> 1. appDir：项目目录，相对应参数文件位置
+> 2. baseUrl：js文件位置
+> 3. dir：速出目录
+> 4. modules：保护对象的数组，每个对象就是一个要被优化的模块
+> 5. paths：各模块的相对路径，可以省略`.js`后缀
+> 6. fileExclusionRegExp：排除文件正则表达式，匹配的文件都不会被处理

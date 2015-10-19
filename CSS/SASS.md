@@ -92,7 +92,7 @@
 	- CSS3：css3属性前缀相关
 	- Helpers：浏览器兼容设置，会影响其它模块的输出结果
 	- Typography：文本样式相关
-	- Utilities
+	- Utilities：
 	- Browser
 4. 常见问题处理
 	- 原文件中包含中文编译报错：修改`C:\Ruby\lib\ruby\gems\1.9.1\gems\sass-3.3.14\lib\sass\engine.rb`，在最下面插入`Encoding.default_external = Encoding.find('utf-8')`
