@@ -1,5 +1,45 @@
 #JavaScript基础
 
+##变量
++ 变量声明使用`var`关键字；`var`关键字也可以省略，不实用`var`声明的变量为全局变量，不推荐这么使用；
++ 未赋值的变量的值为`undefined`；
++ 变量提升：javascript引擎的运行方式是先进行代码解析，获取所有被声明的变量，然后再一行一行的运行，所有声明的变量都会被提到代码头部，这就是变量提升；
+>	console.log(a);
+>	var a = 1;
+> 这段代码不会报错；运行结果为`undefinde`；相当于
+> 	var a;
+> 	console.log(a);
+> 	a = 1;
++ 区块：javascrip中大括号`{}`称为区块，但是javascript中的区块不构成单独的作用域，区块里的变量可以在区块外引用；
+
+
+## 数据类型
+> javascript的所有数据都可视视为对象
++ number：
+	* typeof：`"number"`
+	* NaN：(Not a Number)字符串转数字出差时
+		- NaN不等于任何值，包括不等于本身
+		- NaN与任何数运算结果均为NaN
+		- 使用`isNaN`方法判断是否为NaN
+
++ string：
+	* typeof：`"string"`
++ boolean：
+	* typeof：`"boolean"`
+	* undefined、null、false、0、NaN、""会转换为false，其它均为true
++ undefined：
+	* typeof：`"undefined"`
++ null：
+	* typeof：`"object"`
++ object：
+	* typeof：`"object"`
++ array：
+	* typeof：`"object"`
++ function：
+	* function：`"function"`
+
+
+
 ###String对象方法
 + replace
 > <small>字符串替换方法
