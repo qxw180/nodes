@@ -3,12 +3,12 @@
 ##选择器
 + 属性选择器
 	* `[attribute]`：有某属性
-	* `[attribute=xxx]`：属性值为..
-	* `[attribute~=xxx]`：属性值包含..
-	* `[attribute|=xxx]`：属性值以..开头
-	* `[attribute^=xxx]`：属性值以..开头
-	* `[attribute$=xxx]`：属性值以..结尾
-	* `[attribute*=xxx]`：某属中包含..
+	* `[attribute=value]`：属性值为`value`
+	* `[attribute~=value]`：属性有多个属性值，且`value`为其中之一
+	* `[attribute*=value]`：属性值中包含`value`
+	* `[attribute^=value]`：属性值以`value`开头
+	* `[attribute$=value]`：属性值以`value`结尾
+	* `[attribute|=value]`：属性值是`value`或以`value-`开头
 + 结构性伪类选择器
 	* `:root`：根选择器，等于`html{}`
 	* `:not`：否定选择器
@@ -33,6 +33,15 @@
 	* `:disabled`
 	* `:checked`：选中checkbox
 	* `::selection`：鼠标拖动选中文本样式
+	* `:read-only`
+	* `:read-write`
+	* `:::before` and `::after`
+	> 双冒号和单冒号是为了进行规范，区分伪元素(单引号)和伪类(双引号)，在css2中这部分伪元素和伪类均使用单引号，两者实现的功能是一致的；
++ 嵌套选择器
+	* `s1 s2`:s1下所有的s2子元素
+	* `s1>s2`:s1下直接s2子元素
+	* `s1+s2`:s1之后的紧接的兄弟元素
+	* `s1~s2`:s1之前的紧接的兄弟元素
 
 ##样式相关
 
