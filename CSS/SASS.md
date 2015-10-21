@@ -89,6 +89,9 @@
 > Compass有七大主要模块，只有Reset和Layout模块需要特殊声明引入，其它默认引入
 	- Reset：`@import "compass/reset"`
 	- Layout：`@import "compass/layout"`
+		+ Grid Backgrounds
+		+ Sticky Footer
+		+ 
 	- CSS3：css3属性前缀相关
 	- Helpers：浏览器兼容设置，会影响其它模块的输出结果
 	- Typography：文本样式相关
