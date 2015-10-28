@@ -27,29 +27,32 @@
 	- 编译：`sass [source.scss] [compiled.css]`;
 	- sass scss互转：`sass-convert main.scss main.sass`;
 2. Sass 语法
-	- 变量：
+	- 变量 Variables：
 		* 普通变量：`$var_name: var_value`;例：`$title-font:"Microsoft Yahei"`;
 		* 默认变量：在普通变量后加上 `!default`；
 		* 作用域：sass支持局部变量和全局变量
-	- 引入文件：`@import [file_name],[file_name2],...`
+	- 类嵌套 Nesting：
+		<pre><code>.main{
+			.title{ }
+			.content{ }
+		}</code></pre>
+		+ 属性嵌套
+			<pre><code>font{
+				family:"Yahei";
+				color:#fff;
+				size:12px;
+			}</code></pre>
+	- 分割 Partials、模块化
+	 	* 引入文件：`@import [file_name],[file_name2],...`
+	 	* Partial File：以下划线开头，Sass不会单独编译，可以用这种方式定义引用模块
+	- mixin 可重用代码块 `@include` 方式调用；传入列表参数（1px solid #fff）可以用$border...这种形式声明；
+	- 继承 `@extend`：，不可以继承嵌套选择器；
+	- 计算 Operators：，而且可以带单位（px等），所以在数值计算过程中不允许单位混用
 	- 注释
 		// 不会输入到生成css文件
 		/\* 会输入到生成css文件 \*/ 
-	- 类嵌套
-		.main{
-			.title{ }
-		}
 	- 父类选择器 `&:hover{}`
-	- 属性嵌套
-		font{
-			family:"Yahei";
-			color:#fff;
-			size:12px;
-		}
 	- function 跟代码块无关的函数
-	- mixin 可重用代码块 `@include` 方式调用；传入列表参数（1px solid #fff）可以用$border...这种形式声明；
-	- Sass支持数值计算，而且可以带单位（px等），所以在数值计算过程中不允许单位混用
-	- `@extend` 类继承，不可以继承嵌套选择器；
 	- 占位符%：使用占位符代替.表示只用于继承的选择器，不会输出到css中；
 	- `@media` 可以嵌套在css规则中，最后生成css会提到样式最高级；
 	- `@at-root` 顶层输出，在sass编写过程中保持嵌套规则，避免输出css嵌套过深影响效率；
