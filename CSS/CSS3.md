@@ -153,6 +153,7 @@
 						|	}
 		}				|
 	}					|
+
 调用动画：`animation: name duration timing-function delay iteration-count direction;`
 + 动画名称：`animation-name: keyframename|none;`
 + 动画时间：`animation-duration: time;`
@@ -163,3 +164,48 @@
 + 动画状态：`animation-play-state: paused|running;`
 
 ##布局相关
+
++ 多列布局：`columns: column-width column-count;`
+	* 列数：`column-count: number|auto;` 
+	* 列宽：`column-width: auto|length;`
+	* 间隔：`column-gap: length|normal;`如果列之间设置了 `column-rule`，它会在间隔中间显示。
+	* 分割线：`column-rule: column-rule-width column-rule-style column-rule-color;`
+		- 宽度：`column-rule-width`
+		- 样式：`column-rule-style`
+		- 颜色：`column-rule-color`
+	* 跨越列数：`column-span: 1|all;`
++ 盒模型 `box-sizing: content-box|border-box|inherit;`
+	* `content-box`：宽度和高度分别应用到元素的内容框。在宽度和高度之外绘制元素的内边距和边框。
+	* `border-box`：为元素设定的宽度和高度决定了元素的边框盒。
+	* `inherit`
++ 弹性布局
+	* 父容器
+		- `.container{display:flex}`
+		- 子元素对齐：`box-align: start|end|center|baseline|stretch;`
+		- 排列方向：`box-orient: horizontal|vertical|inline-axis|block-axis|inherit;`
+		- 显示顺序：`box-direction: normal|reverse|inherit;`
+		- 
+	2. 可伸缩子元素：`box-flex: value;` 
+
+
+#媒体查询
+
+使用方式：
+1. link方式：`<link rel="stylesheet" type="text/css" href="style.css" media="screen" />`
+2. import方式：`@importurl(reset.css) screen; `
+3. meida方式：`@media 媒体类型and （媒体特性）{你的样式}`
+参数说明
+1. 媒体类型：`All`、`Braille`、`Embossed`、`Handheld`、`Print`、`Projection`、`Screen`、`Speech`、`Tv`、`Tty`
+2. 最大宽度：`max-width` 小于该宽度时样式
+3. 最小宽度：`min-width` 大于该宽度时样式
+
+##其它
+
++ 轮廓偏移：`outline-offset: length|inherit;`
++ 尺寸变化：`resize: none|both|horizontal|vertical;`
++ 元素展示形式改变：`appearance: normal|icon|window|button|menu|field;`
+
+
+
+##其它实践属性
++ -webkit-tap-highlight-color: rgba(0, 0, 0, 0);链接、表单获取焦点时高亮颜色
