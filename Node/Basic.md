@@ -37,7 +37,13 @@
 	* contributors：项目贡献者
 	* dependencies：项目生成环境依赖模块
 	* devDependencies：项目开发环境依赖模块
+		- 版本号前缀：`"grunt":"^0.4.1"`  
+			+ `^`：表示非主板本变更自动更新
+			+ `~`：表示值自动更新补丁版本
+			+ 
 	* repository：代码托管信息
+	* engines：nodejs版本限制
+	* scripts：配置命令语句名称，方便调用
 
 
 ##核心模块

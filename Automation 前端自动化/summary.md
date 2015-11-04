@@ -13,19 +13,6 @@
 + 更改提醒（gulp-notify）
 ---
 
-####Node
-
-- 常用命令
-	+ 查看nodejs版本：`node -v`
-	+ 查看npm版本：`npm -v`
-	+ 新建package.json：`npm init`
-	+ 安装插件：`npm install <name> [-g] [--save-dev]`
-	+ 卸载插件：`npm uninstall <name> [-g] [--save-dev]`
-	+ 更新插件：`npm update <name> [-g] [--save-dev]`
-	+ 查看已安装插件：`npm list`
-
----
-
 ####gulp
 
 - 使用步骤
@@ -59,22 +46,38 @@
 
 - Grunt
 	自动化工具，自动完成压缩、编译、单元测试、代码校验等工作
-	+ 安装：`npm install -g grunt-cli`
-	+ 查看版本：`gulp -v`
+
++ 安装：`npm install -g grunt-cli`
++ 查看版本：`gulp -v`
 
 ---
 
 - Yeoman
 	用来在项目立项阶段生成项目的文件和代码结构；
-	+ 安装：`npm install -g yo`
+
++ 安装：`npm install -g yo`
++ generator：Yoman Generator实际为npm安装包，Yoman为运行环境
+	* 查找：
+	* 安装：`npm install <generator-name>`
+	* 生成：`yo <name>`
+	* 
+
 
 ---
 
 - Bower
 	Web包管理器，用来跟踪管理web项目框架、库、公共部分等；
-	+ 安装：`npm install -g bower`
-	+ 使用：`bower install plugin`
-	> <small>plugin可以是bower维护的插件名。在`http://bower.io/search`可以进行搜索
-	> 也可以输入github短写，例如：`jquery/juquery`
-	> 也可以是github的路径，例如：`https://github.com/jquery/jquery.git`
-	> 也可以通过各大网站维护的CDN安装，例如：`http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js`</small>
+	安装：`npm install -g bower`
+
++ 安装：`bower install <plugin> --save-dev`
++ 卸载：`bower uninstall <plugin> -S-D`
+
+> <small>plugin可以是bower维护的插件名。在`http://bower.io/search`可以进行搜索
+> 也可以输入github短写，例如：`jquery/juquery`
+> 也可以是github的路径，例如：`https://github.com/jquery/jquery.git`
+> 也可以通过各大网站维护的CDN安装，例如：`http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js`</small>
+
++ 配置文件
+	* `boser.json`
+		- 创建：`bower init`
+
