@@ -57,15 +57,65 @@
 ##重命名文件：[`gulp-rename`](https://www.npmjs.com/package/gulp-rename "官方网站")
 
 > 插件安装：`npm install --save-dev gulp-rename`
+	
+	var rename = require("gulp-rename");
+	 
+	// rename via string 
+	gulp.src("./src/main/text/hello.txt")
+	  .pipe(rename("main/text/ciao/goodbye.md"))
+	  .pipe(gulp.dest("./dist")// ./dist/main/text/ciao/goodbye.md 
+	); 
+	 
+	// rename via function 
+	gulp.src("./src/**/hello.txt")
+	  .pipe(rename(function (path) {
+	    path.dirname += "/ciao";
+	    path.basename += "-goodbye";
+	    path.extname = ".md"
+	  }))
+	  .pipe(gulp.dest("./dist")); // ./dist/main/text/ciao/hello-goodbye.md 
+	 
+	// rename via hash 
+	gulp.src("./src/main/text/hello.txt", { base: process.cwd() })
+	  .pipe(rename({
+	    dirname: "main/text/ciao",
+	    basename: "aloha",
+	    prefix: "bonjour-",
+	    suffix: "-hola",
+	    extname: ".md"
+	  }))
+	  .pipe(gulp.dest("./dist")); // ./dist/main/text/ciao/bonjour-aloha-hola.md
 
+##文件合并：[`gulp-concat`](https://www.npmjs.com/package/gulp-concat "官方网站")
 
-##文件合并：`gulp-concat`
+> 插件安装：`npm install --save-dev gulp-concat`
+
+	var concat = require('gulp-concat');
+	 
+	gulp.task('scripts', function() {
+	  return gulp.src('./lib/*.js')
+	    .pipe(concat('all.js'))
+	    .pipe(gulp.dest('./dist/'));
+	});
+
+插件默认以换行分割合并的各个文件；可以通过`concat`方法的第二个参数设置`newLine`属性来定义连接分割；
+
+	.pipe(concat('main.js', {newLine: ';'}))
+
+插件接受通过第一个参数传入object对象来设置`cwd,path`等[`vinyl`](https://github.com/gulpjs/vinyl)属性
+
+	gulp.task('scripts', function() {
+	  return gulp.src(['./lib/file3.js', './lib/file1.js', './lib/file2.js'])
+	    .pipe(concat({ path: 'new.js', stat: { mode: 0666 }}))
+	    .pipe(gulp.dest('./dist'));
+	});
+
 ##文本替换：`gulp-replace`
-##图片压缩：`gulp-imagemin`
 ##JS压缩：`gulp-uglify`
 ##JS检测：`gulp-jshint`、`gulp-jslint`
 > jshint是一个侦测javascript代码中错误和潜在问题的工具。
 > jslint是一个javascript代码质量检测工具。
+##图片压缩：`gulp-imagemin`
 ##CSS压缩：`gulp-minify-css`
 ##SASS编译：`gulp-sass`
 ##HTML压缩：`gulp-minifu-html`
