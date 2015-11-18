@@ -26,7 +26,7 @@
 ###Node项目目录
 
 + `node_modules`目录：本地模块存放目录
-+ `package.json`文件：项目描述文件
++ `package.json`文件：项目描述文件，`npm install`命令会根据`package.json`下载所需要的包
 	* name：项目名称
 	* version：项目版本
 	> <small>npm版本规则：X.Y.Z三位分别为主板本、次版本、补丁版本。</small>
