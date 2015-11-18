@@ -1,0 +1,72 @@
+#Gulp
+	`npm install gulp`
+	gulp借鉴了Unix的管道(pipe)思想，前一级输出，直接变成后一级的输入；
+
+##Gulp API
++ <b>src方法：</b>`gulp.src(globs[,options])`指定需要处理的原文件，pipe到可用的插件；
+	* <small>globs：必填，`String or StringArray`类型，文件路径；采用`node-glob`模块实现文件匹配；
+		+ `src/a.js`：指定具体文件；
+		+ `*`：匹配所有文件    例：src/*.js(包含src下的所有js文件)；
+		+ `**`：匹配0个或多个子文件夹    例：src/**/*.js(包含src的0个或多个子文件夹下的js文件)；
+		+ `{}`：匹配多个属性    例：src/{a,b}.js(包含a.js和b.js文件)  src/*.{jpg,png,gif}(src下的所有jpg/png/gif文件)；
+		+ `!`：排除文件    例：!src/a.js(不包含src下的a.js文件)；
+	* options:选填
+		+ `options.buffer`：类型：Boolean  默认：true 设置为false，将返回file.content的流并且不缓冲文件，处理大文件时非常有用；
+		+ `options.read`：类型：Boolean  默认：true 设置false，将不执行读取文件操作，返回null；
+		+ `options.base`：类型：String  设置输出路径以某个路径的某个组成部分为基础向后拼接，具体看下面示例：</small>
++ <b>dest方法：</b>`gulp.dest(path[,options])`指定处理完成文件输出路径；只能指定生成文件的目录，不能指定生成文件的文件名；
+	* <small>path：必填，`String or Function`，指定文件的输出路径，或者通过函数返回文件输出路径；
+		- String路径中不包含通配符的情况下，输入路径为`path`+匹配文件；
+		- String路径中包含通配符的情况下，输入路径为`path`+通配符起始位置后路径；
+		- 可以通过`gulp.src()`中的`base`属性灵活指定生成文件路径；`base`属性可以指定输入路径的匹配位置；
+	* option：选填
+		- `options.cwd`：类型：String  默认：process.cwd()：前脚本的工作目录的路径 当文件输出路径为相对路径将会用到；
+		- `options.mode`：类型：String  默认：0777 指定被创建文件夹的权限；</small>
++ <b>tasl方法：</b>`gulp.task(name[,deps],function)`，定义gulp任务；
+	* <small>name：必填，`String`，指定任务名称，不应该有空格
+	* deps：选填，`StringArray`指定该任务的依赖任务，被依赖任务需要返回当前任务的事件流
+	* function：必填，`Function`，该任务调用的插件操作；</small>
++ <b>watch方法：</b>`gulp.watch(glob,[,opts],task)`or`gulp.watch(glob[,opts,cb])`，监听文件变化，执行特定任务；
+	* <small>glob：需要处理的源文件匹配符路径。类型(必填)：String or StringArray；
+	* opts：(可选)：Object 具体参看https://github.com/shama/gaze；
+	* tasks：(必填)：StringArray 需要执行的任务的名称数组；
+	* cb(event)：类型(可选)：Function 每个文件变化执行的回调函数；</small>
+
+##文件清理：[`gulp-clean`](https://www.npmjs.com/package/gulp-clean "官方网站")
+
+> 插件安装：`npm install --save-dev gulp-clean`
+
+	var gulp = require('gulp');
+	var clean = require('gulp-clean');
+	 
+	gulp.task('default', function () {
+	    return gulp.src('app/tmp', {read: false})
+	        .pipe(clean());
+	});
+
+`read:false`属性阻止从文件读取内容，是任务运行更加快捷，如果在删除之后任然需要操作这些文件，那么需要将这些文件读取到`stream`中，这时不要设置`read:false`
+
+	gulp.task('default', function () {
+	    return gulp.src('app/tmp/index.js')
+	        .pipe(clean({force: true}))
+	        .pipe(gulp.dest('dist'));
+	});
+
+因为安全限制原因，在工作目录外的文件和目录是不允许删除的，除非设置`force:true`
+
+##重命名文件：[`gulp-rename`](https://www.npmjs.com/package/gulp-rename "官方网站")
+
+> 插件安装：`npm install --save-dev gulp-rename`
+
+
+##文件合并：`gulp-concat`
+##文本替换：`gulp-replace`
+##图片压缩：`gulp-imagemin`
+##JS压缩：`gulp-uglify`
+##JS检测：`gulp-jshint`、`gulp-jslint`
+> jshint是一个侦测javascript代码中错误和潜在问题的工具。
+> jslint是一个javascript代码质量检测工具。
+##CSS压缩：`gulp-minify-css`
+##SASS编译：`gulp-sass`
+##HTML压缩：`gulp-minifu-html`
+##HTML处理：`gulp-processhtml`
