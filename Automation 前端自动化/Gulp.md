@@ -110,7 +110,32 @@
 	    .pipe(gulp.dest('./dist'));
 	});
 
-##文本替换：`gulp-replace`
+##文本替换：[`gulp-replace`](https://www.npmjs.com/package/gulp-replace 官网网站)
+
+> 插件安装：`npm install --save-dev gulp-replace`
+> API:`replace(string|reg, replacement[, options])`
+> <small>string|reg：String|RegExp类型，匹配字符串；
+> replacement：String或Function类型，替换字符串或这替换方法，function会传入匹配字符串做为参数；
+> options：选填，Object类型，options.skipBinary：跳过二进制文件，默认false；</small>
+
+正则匹配替换
+
+	var replace = require('gulp-replace');
+
+	gulp.task('templates', function(){
+	  gulp.src(['file.txt'])
+	    .pipe(replace(/foo(.{3})/g, '$1foo'))
+	    .pipe(gulp.dest('build/file.txt'));
+	});
+
+字符串匹配替换
+	
+	gulp.task('templates', function(){
+	  gulp.src(['file.txt'])
+	    .pipe(replace('bar', 'foo'))
+	    .pipe(gulp.dest('build/file.txt'));
+	});
+
 ##JS压缩：`gulp-uglify`
 ##JS检测：`gulp-jshint`、`gulp-jslint`
 > jshint是一个侦测javascript代码中错误和潜在问题的工具。
