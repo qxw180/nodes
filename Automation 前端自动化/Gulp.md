@@ -136,6 +136,40 @@
 	    .pipe(gulp.dest('build/file.txt'));
 	});
 
+##静态资源版本生成：[`gulp-rev`](https://www.npmjs.com/package/gulp-rev 官方网站)
+
+> 根据静态资源的修改时间，生成带版本前最的文件，并生成配置文件；
+> 插件安装：`npm install --save-dev gulp-rev`
+> API：
+> `rev()`：生成带版本前缀的文件
+> `rev.manifest([path], [options])`：生成配置文件
+> <small>path:：String类型，配置文件路径，默认`rev-manifest.json`
+> options：
+> > base：String类型，默认`process.cwd()`,覆盖配置文件的base
+> > cwd：String类型，默认`process.cwd()`,覆盖配置文件的当前工作目录(Current Working Directory)
+> > merge：Boolean类型，默认`false`，是否合并已存在的配置文件；</small>
+
+	var rev = require('gulp-rev');
+	 
+	gulp.task('default', function () {
+	    return gulp.src('src/*.css')
+	        .pipe(rev())
+	        .pipe(gulp.dest('dist'));
+	});
+
+
+##页面引用版本控制：[`gulp-rev-easy`](https://www.npmjs.com/package/gulp-rev-easy 官方网站)
+
+> 方便的为引用静态资源添加版本号
+> API:`reveasy([options])`
+> <small>`options.base`：type:String;默认：file.cwd；设置静态资源的base directory
+> `options.revType`：type:['hash'|date']；default:'hash'；设置版本号类型；
+> `options.dateFormat`：type:string；default:'yyyymmddHHMM'；定义date版本号类型
+> `options.hashLength`：type:integer；default:8；定义hash版本号长度
+> `options.suffix`；type:string；default:v；定义版本号名称；
+> `options.fileTypes`：type:array；default:['js','css','img']；定义处理静态资源类型；
+> </small>
+
 ##JS压缩：`gulp-uglify`
 ##JS检测：`gulp-jshint`、`gulp-jslint`
 > jshint是一个侦测javascript代码中错误和潜在问题的工具。
