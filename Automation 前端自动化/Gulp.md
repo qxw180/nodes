@@ -32,6 +32,23 @@
 	* tasks：(必填)：StringArray 需要执行的任务的名称数组；
 	* cb(event)：类型(可选)：Function 每个文件变化执行的回调函数；</small>
 
+##插件加载：[`gulp-load-plugins`](https://www.npmjs.com/package/gulp-load-plugins "官方网站")
+
+> 插件安装：`npm install --save-dev gulp-load-plugins`
+> 自动加载package.json中的插件
+
+	var gulp = require('gulp');
+	var var plugins = require('gulp-load-plugins')();
+
+插件读取package.json文件并自动加载了插件，加载后插件的名字是去掉`gulp-`然后将改为驼峰命名
+
+	plugins.jshint = require('gulp-jshint');	
+
+我们可以通过以下这种方式调用插件
+
+	plugins.jshint();
+
+
 ##文件清理：[`gulp-clean`](https://www.npmjs.com/package/gulp-clean "官方网站")
 
 > 插件安装：`npm install --save-dev gulp-clean`
@@ -168,7 +185,23 @@
 > `options.hashLength`：type:integer；default:8；定义hash版本号长度
 > `options.suffix`；type:string；default:v；定义版本号名称；
 > `options.fileTypes`：type:array；default:['js','css','img']；定义处理静态资源类型；
+> `options.elementAttributes`：type:Object；自定义版本号管理标签；
 > </small>
+
+	gulp.task("revJs",function () {
+		gulp.src("resources/views/**/*.php")
+			.pipe(rev({
+						base:"public",
+						fileTypes:["jsr"],//自定义匹配规则
+						elementAttributes:{
+				            jsr:{
+				                name:'script',//被匹配的html标签名
+				                src:'data-main'//被匹配的标签属性
+				            }
+				        }
+					}))
+			.pipe(gulp.dest("resources/views/"))
+	})
 
 ##JS压缩：`gulp-uglify`
 ##JS检测：`gulp-jshint`、`gulp-jslint`

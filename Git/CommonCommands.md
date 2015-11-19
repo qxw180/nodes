@@ -52,7 +52,7 @@
 
 
 ###回退相关
-- 回退到具体版本：`git rest --hard <HEAD|commitId> [file_name]`
+- 回退到具体版本：`git reset --hard <HEAD|commitId> [file_name]`
 - 回退到最新一次的`add`或`commit`状态：`git checkout -- <filename>`
 - 回退指定文件到指定版本：`git checkout <commitid> -- <file>`
 
