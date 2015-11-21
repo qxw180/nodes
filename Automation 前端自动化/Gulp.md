@@ -180,7 +180,9 @@
 	gulp.task('default', function () {
 	    return gulp.src('src/*.css')
 	        .pipe(rev())
-	        .pipe(gulp.dest('dist'));
+	        .pipe(gulp.dest('dist'))
+	        .pipe(rev.manifest())
+            .pipe(gulp.dest('build/assets'));
 	});
 
 
@@ -245,8 +247,30 @@
 	</head>
 
 
+##根据`mainfests`文件，替换HTML模版静态资源链接：[`gulp-rev-collector`](https://www.npmjs.com/package/gulp-rev-collector/ "官方网站")
+
+> 插件安装：`npm install --save-dev gulp-rev-collector`
+> 插件可以从多个`mainfests`文件中获取rev信息，然后根据收集的信息替换模版中的静态资源；
+
+	gulp.task('rev', function () {
+	    return gulp.src(['rev/**/*.json', 'templates/**/*.html'])
+	        .pipe( revCollector({
+	            replaceReved: true,
+	            dirReplacements: {
+	                'css': '/dist/css',
+	                '/js/': '/dist/js/',
+	                'cdn/': function(manifest_value) {
+	                    return '//cdn' + (Math.floor(Math.random() * 9) + 1) + '.' + 'exsample.dot' + '/img/' + manifest_value;
+	                }
+	            }
+	        }) )
+	        .pipe( gulp.dest('dist') );
+	});
 
 
+> API：revCollector(options)//options：Object类型；
+>> replaceReved：默认：false，标记是否替换模版中已经替换的链接；
+>> dirReplacements：设置替换链接的目录地址；
 
 ##JS压缩：`gulp-uglify`
 ##JS检测：`gulp-jshint`、`gulp-jslint`
