@@ -12,8 +12,17 @@
 		+ `!`：排除文件    例：!src/a.js(不包含src下的a.js文件)；
 	* options:选填
 		+ `options.buffer`：类型：Boolean  默认：true 设置为false，将返回file.content的流并且不缓冲文件，处理大文件时非常有用；
-		+ `options.read`：类型：Boolean  默认：true 设置false，将不执行读取文件操作，返回null；
+		+ `options.read`：类型：Boolean  默认：true 设置false，将不执行读取文件操作，`file.contents`返回null；
 		+ `options.base`：类型：String  设置输出路径以某个路径的某个组成部分为基础向后拼接，具体看下面示例：</small>
+		<small><code><pre>
+			gulp.src('client/js/**/*.js') // 匹配 'client/js/somedir/somefile.js' 并且将 `base` 解析为 `client/js/`
+			  .pipe(minify())
+			  .pipe(gulp.dest('build'));  // 写入 'build/somedir/somefile.js'
+			gulp.src('client/js/**/*.js', { base: 'client' })
+			  .pipe(minify())
+			  .pipe(gulp.dest('build'));  // 写入 'build/js/somedir/somefile.js'
+		</pre></code></small>
+
 + <b>dest方法：</b>`gulp.dest(path[,options])`指定处理完成文件输出路径；只能指定生成文件的目录，不能指定生成文件的文件名；
 	* <small>path：必填，`String or Function`，指定文件的输出路径，或者通过函数返回文件输出路径；
 		- String路径中不包含通配符的情况下，输入路径为`path`+匹配文件；
@@ -22,7 +31,7 @@
 	* option：选填
 		- `options.cwd`：类型：String  默认：process.cwd()：前脚本的工作目录的路径 当文件输出路径为相对路径将会用到；
 		- `options.mode`：类型：String  默认：0777 指定被创建文件夹的权限；</small>
-+ <b>tasl方法：</b>`gulp.task(name[,deps],function)`，定义gulp任务；
++ <b>task方法：</b>`gulp.task(name[,deps],function)`，定义gulp任务；
 	* <small>name：必填，`String`，指定任务名称，不应该有空格
 	* deps：选填，`StringArray`指定该任务的依赖任务，被依赖任务需要返回当前任务的事件流
 	* function：必填，`Function`，该任务调用的插件操作；</small>
@@ -127,7 +136,7 @@
 	    .pipe(gulp.dest('./dist'));
 	});
 
-##文本替换：[`gulp-replace`](https://www.npmjs.com/package/gulp-replace 官网网站)
+##文本替换：[`gulp-replace`](https://www.npmjs.com/package/gulp-replace "官方网站")
 
 > 插件安装：`npm install --save-dev gulp-replace`
 > API:`replace(string|reg, replacement[, options])`
@@ -153,7 +162,7 @@
 	    .pipe(gulp.dest('build/file.txt'));
 	});
 
-##静态资源版本生成：[`gulp-rev`](https://www.npmjs.com/package/gulp-rev 官方网站)
+##静态资源版本生成：[`gulp-rev`](https://www.npmjs.com/package/gulp-rev "官方网站")
 
 > 根据静态资源的修改时间，生成带版本前最的文件，并生成配置文件；
 > 插件安装：`npm install --save-dev gulp-rev`
@@ -175,9 +184,10 @@
 	});
 
 
-##页面引用版本控制：[`gulp-rev-easy`](https://www.npmjs.com/package/gulp-rev-easy 官方网站)
+##页面引用版本控制：[`gulp-rev-easy`](https://www.npmjs.com/package/gulp-rev-easy "官方网站")
 
 > 方便的为引用静态资源添加版本号
+> > 插件安装：`npm install --save-dev gulp-rev-easy`
 > API:`reveasy([options])`
 > <small>`options.base`：type:String;默认：file.cwd；设置静态资源的base directory
 > `options.revType`：type:['hash'|date']；default:'hash'；设置版本号类型；
@@ -202,6 +212,41 @@
 					}))
 			.pipe(gulp.dest("resources/views/"))
 	})
+
+##文件cache-busting：[`gulp-rev-append`](https://www.npmjs.com/package/gulp-rev-append/ "官方网站")
+
+> 插件通过正则`(?:href|src)="(.*)[\?]rev=(.*)[\"]`来匹配HTML文件中的声明的style和scripts脚步；为其添加hash字符串后缀；
+> 需要在html文件为assets资源路径添加`?rev=@@hash`后缀，`@@hash`不是必须的；
+> hash后缀只有在文件内容变化后才会变化，因为插件是根据文件的内容生成的hash值
+> 插件安装：`npm install --save-dev gulp-rev-append`
+
+	var rev = require('gulp-rev-append');
+	 
+	gulp.task('rev', function() {
+	  gulp.src('./index.html')
+	    .pipe(rev())
+	    .pipe(gulp.dest('.'));
+	});
+
+例如
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style-one.css?rev=@@hash">
+		<script src="script/script-one.js?rev=@@hash"></script> 
+		<script src="script/script-two.js"></script> 
+	</head>
+
+转换为
+
+	<head>
+		<link rel="stylesheet" type="text/css" href="style/style-one.css?rev=d65aaba987e9c1eefeb4be9cfd34e0de">
+		<script src="script/script-one.js?rev=17a5da6c8a2d875cf48aefb722eefa07"></script> 
+		<script src="script/script-two.js"></script> 
+	</head>
+
+
+
+
 
 ##JS压缩：`gulp-uglify`
 ##JS检测：`gulp-jshint`、`gulp-jslint`
