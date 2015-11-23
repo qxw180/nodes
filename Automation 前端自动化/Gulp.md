@@ -292,7 +292,9 @@
 	</head>
 
 
-##根据`mainfests`文件，替换HTML模版静态资源链接：[`gulp-rev-collector`](https://www.npmjs.com/package/gulp-rev-collector/ "官方网站")
+##根据`mainfests`文件，替换HTML模版静态资源链接：
+
+###[`gulp-rev-collector`](https://www.npmjs.com/package/gulp-rev-collector/ "官方网站")
 
 > 插件安装：`npm install --save-dev gulp-rev-collector`
 > 插件可以从多个`mainfests`文件中获取rev信息，然后根据收集的信息替换模版中的静态资源；
@@ -313,9 +315,24 @@
 	});
 
 
-> API：revCollector(options)//options：Object类型；
+> API：`revCollector(options)`//options：Object类型；
 >> replaceReved：默认：false，标记是否替换模版中已经替换的链接；
 >> dirReplacements：设置替换链接的目录地址；
+
+###[`gulp-rev-replace`](https://www.npmjs.com/package/gulp-rev-replace/ "官方网站")
+
+> 插件安装：`npm install --save-dev gulp-rev-replace`
+
+	gulp.task("revreplace", ["revision"], function(){
+	  var manifest = gulp.src("./" + opt.distFolder + "/rev-manifest.json");
+	 
+	  return gulp.src(opt.srcFolder + "/index.html")
+	    .pipe(revReplace({manifest: manifest}))
+	    .pipe(gulp.dest(opt.distFolder));
+	});
+
+> API：`revReplace(options)`//options：Object类型；
+>> 
 
 
 ##JS压缩：`gulp-uglify`
