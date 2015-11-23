@@ -136,6 +136,51 @@
 	    .pipe(gulp.dest('./dist'));
 	});
 
+##资源合并：[`gulp-useref`](https://www.npmjs.com/package/gulp-useref  "官方网站")
+
+> 合并HTML中的`build block`中的资源文件，但不会进行压缩；
+> 插件安装：`npm install --save-dev gulp-useref`
+
+`build block`声明
+
+	<html>
+	<head>
+	    <!-- build:css css/combined.css -->
+	    <link href="css/one.css" rel="stylesheet">
+	    <link href="css/two.css" rel="stylesheet">
+	    <!-- endbuild -->
+	</head>
+	<body>
+	    <!-- build:js scripts/combined.js -->
+	    <script type="text/javascript" src="scripts/one.js"></script> 
+	    <script type="text/javascript" src="scripts/two.js"></script> 
+	    <!-- endbuild -->
+	</body>
+	</html>
+
+资源合并
+
+	gulp.task('html', function () {
+	    return gulp.src('app/*.html')
+	        .pipe(useref())
+	        .pipe(gulpif('*.js', uglify()))
+	        .pipe(gulpif('*.css', minifyCss()))
+	        .pipe(gulp.dest('dist'));
+	});
+
+合并结果
+
+	<html>
+	<head>
+	    <link rel="stylesheet" href="css/combined.css"/>
+	</head>
+	<body>
+	    <script src="scripts/combined.js"></script> 
+	</body>
+	</html>
+
+> API
+
 ##文本替换：[`gulp-replace`](https://www.npmjs.com/package/gulp-replace "官方网站")
 
 > 插件安装：`npm install --save-dev gulp-replace`
@@ -271,6 +316,7 @@
 > API：revCollector(options)//options：Object类型；
 >> replaceReved：默认：false，标记是否替换模版中已经替换的链接；
 >> dirReplacements：设置替换链接的目录地址；
+
 
 ##JS压缩：`gulp-uglify`
 ##JS检测：`gulp-jshint`、`gulp-jslint`
