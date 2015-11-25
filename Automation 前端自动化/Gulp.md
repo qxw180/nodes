@@ -339,7 +339,35 @@
 ##JS检测：`gulp-jshint`、`gulp-jslint`
 > jshint是一个侦测javascript代码中错误和潜在问题的工具。
 > jslint是一个javascript代码质量检测工具。
-##图片压缩：`gulp-imagemin`
+
+##图片压缩：[`gulp-imagemin`](https://www.npmjs.com/package/gulp-imagemin "官方网站")
+
+> 插件安装：`npm install --save-dev gulp-imagemin`
+	
+	const gulp = require('gulp');
+	const imagemin = require('gulp-imagemin');
+	const pngquant = require('imagemin-pngquant');
+
+	gulp.task('default', () => {
+	    return gulp.src('src/images/*')
+	        .pipe(imagemin({
+	            progressive: true,
+	            svgoPlugins: [{removeViewBox: false}],
+	            use: [pngquant()]
+	        }))
+	        .pipe(gulp.dest('dist/images'));
+	});
+
+> API：`imagemin([options])`
+>> `optimizationLevel`：类型：Number  默认：3  取值范围：0-7（优化等级）；等级越高压缩越高；
+>> `progressive`：类型：Boolean 默认：false 无损压缩jpg图片
+>> `interlaced`：类型：Boolean 默认：false 交叉扫描gif进行渲染
+>> `multipass`：类型：Boolean 默认：false 对svg进行多次优化知道最佳
+>> `svgoPlugins`：类型：Array 默认：[] 自定义[SVGO插件](https://github.com/sindresorhus/grunt-svgmin#available-optionsplugins "More")
+>>  `use`：类型：Array 默认：null 附加图片压缩插件
+
+
+
 ##CSS压缩：`gulp-minify-css`
 ##SASS编译：`gulp-sass`
 ##HTML压缩：`gulp-minifu-html`
