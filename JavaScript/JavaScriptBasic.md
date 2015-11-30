@@ -1,5 +1,8 @@
 #JavaScript基础
 
+ECMAScript和JavaScript
+> <small>ECMAScript是（European Computer Manufacturers Association）组织指定的JavaScript语言标准；JavaScript是对ECMAScript标准的实现</small>
+
 ##变量（对值的引用）
 + 变量声明使用`var`关键字；`var`关键字也可以省略，不实用`var`声明的变量为全局变量，不推荐这么使用；
 + 变量重复声明，后声明的变量会覆盖之前声明的变量；
