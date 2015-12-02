@@ -372,3 +372,52 @@
 ##SASS编译：`gulp-sass`
 ##HTML压缩：`gulp-minifu-html`
 ##HTML处理：`gulp-processhtml`
+
+##WEB服务：`gulp-connect`
+
+> 插件安装：`npm install --save-dev gulp-connect`
+
+基本使用
+
+	var gulp = require('gulp'),
+	  connect = require('gulp-connect');
+	 
+	gulp.task('connect', function() {
+	  connect.server();
+	});
+	 
+	gulp.task('default', ['connect']);
+
+LiveReload
+
+	var gulp = require('gulp'),
+	  connect = require('gulp-connect');
+	 
+	gulp.task('connect', function() {
+	  connect.server({
+	    root: 'app',
+	    livereload: true
+	  });
+	});
+	 
+	gulp.task('html', function () {
+	  gulp.src('./app/*.html')
+	    .pipe(connect.reload());
+	});
+	 
+	gulp.task('watch', function () {
+	  gulp.watch(['./app/*.html'], ['html']);
+	});
+	 
+	gulp.task('default', ['connect', 'watch']);
+
+> API：
+> `connect.server({opts})`：启动服务器
+>> `options.root`：根目录，类型：Array或String，默认 gulpfile所在目录；
+>> `options.port`：服务器启动端口，类型：Number，默认 8080；
+>> `options.host`：服务器地址，类型：String，默认 localhost；
+>> `options.https`：服务器是否使用https协议，类型：Boolean，默认 false；
+>> `options.livereload`：服务器是否支持livereload，类型：Boolean，默认 false；
+>> `options.livereload.port`：服务器livereload端口，类型：Number，默认 35729；
+> `connect.reload()`：触发livereload
+> `connect.serverClose()`：关闭服务器
