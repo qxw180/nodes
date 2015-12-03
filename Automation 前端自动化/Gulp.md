@@ -336,6 +336,20 @@
 
 
 ##JS压缩：`gulp-uglify`
+
+> 插件安装：`npm install --save-dev gulp-uglify`
+
+	var uglify = require('gulp-uglify');
+	 
+	gulp.task('compress', function() {
+	  return gulp.src('lib/*.js')
+	    .pipe(uglify())
+	    .pipe(gulp.dest('dist'));
+	});
+
+> API：`uglify([opts])`
+>> `mangle`：类型：Boolean，默认：true；是否处理变量名
+
 ##JS检测：`gulp-jshint`、`gulp-jslint`
 > jshint是一个侦测javascript代码中错误和潜在问题的工具。
 > jslint是一个javascript代码质量检测工具。
