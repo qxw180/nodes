@@ -7,6 +7,7 @@ BOM(Browser Object Model)提供了js和浏览器的交互功能
 		- `screen.width`：屏幕宽度，以像素为单位；
 		- `screen.height`：屏幕高度，以像素为单位；
 		- `screen.colorDepth`：返回颜色位数，如8、16、24。
+	* `scrollX scrollY`：
 	* `navigator`：浏览器信息
 		- `navigator.appName`：浏览器名称；
 		- `navigator.appVersion`：浏览器版本；
