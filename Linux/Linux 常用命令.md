@@ -44,3 +44,10 @@
 11. 修改文件所属者 `chown [-R] username:groupname filename`
 > <small>-R或——recursive：递归处理，将指令目录下的所有文件及子目录一并处理；
 > 当省略“：组”，仅改变文件所有者；</small>
+> 
+
+
+####自定义命令
+1. 检测命令是否被占用：`type ll`
+2. 自定义命令：`alias ll='ls -l'`
+3. 删除自定义命令：`unalias ll`
