@@ -2,7 +2,9 @@
 BOM(Browser Object Model)提供了js和浏览器的交互功能
 
 + window：window对象不但充当全局作用域，而且表示浏览器窗口。
-	* `innerWidth innerHeight`：浏览器显示网页净宽高，除去浏览器工具栏、状态栏等部分；
+	* `name`：当前浏览器窗口名字，*浏览器刷新后属性值保持不变，关闭后会消失*，只能保存字符串，可以用于IFrame通讯；
+	* `innerWidth innerHeight`：浏览器显示网页净宽高，除去浏览器工具栏、状态栏等部分，包括滚动条宽高；
+	* `pageXOffset pageYOffset`：返回页面滚动距离；
 	* `screen`：
 		- `screen.width`：屏幕宽度，以像素为单位；
 		- `screen.height`：屏幕高度，以像素为单位；
@@ -30,8 +32,12 @@ BOM(Browser Object Model)提供了js和浏览器的交互功能
 			+ `getElementsByTagName`
 		- `cookie`
 	* `history`：浏览器的历史记录
+		- `length`：历史记录长度
 		- `back()`
 		- `forward()`
+		- `go(num)`：支持整数和负数，`history.go(0)`相当于刷新当前页面
+	* `frames`：返回页面内所有框架的数组集合
+	* 
 
 
 ####定时器
@@ -60,7 +66,7 @@ var user = new User('John');
 setTimeout(user.sayHi, 1000);//undefined;
 ```
 
-解决方案
+解决方案：使用`bind`方法绑定上下文
 
 ```
 setTimeout(function() {
@@ -70,8 +76,10 @@ setTimeout(function() {
 setTimeout(user.sayHi.bind(user), 1000);
 ```
 
-#####间隔执行`setInterval()`
+#####间隔执行`setInterval(function|code,delay[,attr...])`
 `setInterval()`和`setTimeout()`的用法完全一致，`setInterval()`会没间隔一段时间执行一次；
+`delay`参数指的是每次开始执行任务直接的间隔时间，并不考虑任务的执行时间；
+HTML 5标准规定，setInterval的最短间隔时间是10毫秒，也就是说，小于10毫秒的时间间隔会被调整到10毫秒。
 
 #####定时器取消
 `setTimeout`和`setInterval`函数，都返回一个表示计数器编号的整数值，将该整数传入`clearTimeout`和`clearInterval`函数，就可以取消对应的定时器。
