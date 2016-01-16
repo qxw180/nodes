@@ -39,6 +39,7 @@ BOM(Browser Object Model)提供了js和浏览器的交互功能
 	* `frames`：返回页面内所有框架的数组集合
 	* 
 
+---
 
 ####定时器
 #####延迟执行`setTimeout(func|code,delay[,attr...])`
@@ -83,3 +84,47 @@ HTML 5标准规定，setInterval的最短间隔时间是10毫秒，也就是说�
 
 #####定时器取消
 `setTimeout`和`setInterval`函数，都返回一个表示计数器编号的整数值，将该整数传入`clearTimeout`和`clearInterval`函数，就可以取消对应的定时器。
+
+
+---
+
+####Nitifications
+> 浏览器通知接口
+
+代码示例
+```
+if(window.Notification && Notification.permission !== "denied") {
+    Notification.requestPermission(function(status) {
+        var n = new Notification('通知标题', { body: '这里是通知内容！' }); 
+    });
+}
+```
+
+AIP
++ `Notification(title, options);`：构造函数
+	* `options`
+		- dir：文字方向，可能的值为auto、ltr（从左到右）和rtl（从右到左），一般是继承浏览器的设置。
+		- lang：使用的语种，比如en-US、zh-CN。
+		- body：通知内容，格式为字符串，用来进一步说明通知的目的。
+		- tag：通知的ID，格式为字符串。一组相同tag的通知，不会同时显示，只会在用户关闭前一个通知后，在原位置显示。
+		- icon：图表的URL，用来显示在通知上。
++ `Notification.permission`：用户权限设置
+	* `default`：用户还没有做出任何许可，因此不会弹出通知。
+	* `granted`：用户明确同意接收通知。
+	* `denied`：用户明确拒绝接收通知。
++ `Notification.requestPermission()`：发出请求，询问用户是否同意弹出通知
++ 实例事件
+	* `show`：通知显示给用户时触发。
+	* `click`：用户点击通知时触发。
+	* `close`：用户关闭通知时触发。
+	* `error`：通知出错时触发（大多数发生在通知无法正确显示时）
++ 实例方法
+	* `close()`：关闭通知
+
+
+
+####Performance API
+> Performance API用于精确度量、控制、增强浏览器的性能表现
+
+
+

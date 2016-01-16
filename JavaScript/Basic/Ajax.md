@@ -111,9 +111,52 @@ function sendForm() {
 ```
 
 ###跨域
+> 浏览器的同源策略，不允许进行跨域资源请求
+
+####什么情况下属于跨域
+1. 协议不同：`http://www.a.com`和`https://www.a.com`
+2. 端口不同：`http://www.a.com:80`和`http://www.a.com:81`
+3. 主机不同：`http://test.a.com`和`http://www.a.com`
+
+####跨域方式
+1. 通过Flash插件发送HTTP请求，比较麻烦，很少使用
+2. 在同域服务器端架设代理来转发请求，服务器端需要额外开发
+3. JSONP，利用浏览器允许跨域引用JavaScript资源
+4. CORS
+5. HTML5中新引进的`Window.postMessage(message,targetOrigin)`方法
+
+
+####JSONP
+浏览器可以引用不同域的JavaScript资源，可以利用这一特性实现跨域暑期请求；
+1. 定义callback函数;
+2. 动态添加`script`标签，定义回调函数;
+3. 服务返回的内容必须为可执行的js文件;
+
+实现案例
+
+```
+function addScriptTag(src){
+    var script = document.createElement('script');
+    script.setAttribute("type","text/javascript");
+    script.src = src;
+    document.body.appendChild(script);
+}
+
+window.onload = function(){
+    addScriptTag("http://example.com/ip?callback=foo");
+}
+
+function foo(data) {
+    console.log('Your public IP address is: ' + data.ip);
+};
+```
+> jQuery的getJSON方法会自动判断是否跨域，如果跨域就会使用JSONP的方式加载回调函数
+> $.getJSON(http://example.com/ip>callback=?,function(){});
 
 
 ##参考文献
 [Ajax](http://javascript.ruanyifeng.com/bom/ajax.html)
 [FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData)
 [使用FormData对象](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Using_FormData_Objects)
+[js中几种实用的跨域方法原理详解](http://www.cnblogs.com/2050/p/3191744.html)
+[同域限制和window.postMessage方法](http://javascript.ruanyifeng.com/bom/windowpostmessage.html)
