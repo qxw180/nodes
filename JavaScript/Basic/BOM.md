@@ -39,7 +39,6 @@ BOM(Browser Object Model)提供了js和浏览器的交互功能
 	* `frames`：返回页面内所有框架的数组集合
 	* 
 
----
 
 ####定时器
 #####延迟执行`setTimeout(func|code,delay[,attr...])`
@@ -85,10 +84,12 @@ HTML 5标准规定，setInterval的最短间隔时间是10毫秒，也就是说�
 #####定时器取消
 `setTimeout`和`setInterval`函数，都返回一个表示计数器编号的整数值，将该整数传入`clearTimeout`和`clearInterval`函数，就可以取消对应的定时器。
 
+参考链接
+[定时器](http://javascript.ruanyifeng.com/bom/timer.html)
 
----
 
-####Nitifications
+
+####[Nitifications](http://javascript.ruanyifeng.com/bom/notification.html)
 > 浏览器通知接口
 
 代码示例
@@ -120,11 +121,6 @@ AIP
 	* `error`：通知出错时触发（大多数发生在通知无法正确显示时）
 + 实例方法
 	* `close()`：关闭通知
-
-
-
-####Performance API
-> Performance API用于精确度量、控制、增强浏览器的性能表现
 
 
 
