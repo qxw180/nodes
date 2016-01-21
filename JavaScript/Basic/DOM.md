@@ -6,15 +6,15 @@
 > HTML DOM主要涉及的就是对HTML元素的获取、修改、创建等操作
 > 注：以下HTML DOM统称DOM
 
-##DOM的构成
+##一、DOM的构成
 DOM是由节点组成的，HTML文档中的所有内容都是节点；各节点形成一个树状结构，称为节点树(Dom Tree)；
- 
+![节点树](http://www.w3school.com.cn/i/ct_htmltree.gif "节点树")
 
 
-###[节点Node](http://javascript.ruanyifeng.com/dom/node.html)
+###1.1[节点Node](http://javascript.ruanyifeng.com/dom/node.html)
+浏览器提供了一个原生的Node对象，HTML DOM中的所有节点对象均派生于该对象
 
-###HTML节点类型
-
+#####1.1.1HTML节点类型
 | 名称			| 节点				| 含义								 | nodeName 			   | nodeType | nodeValue |
 |:-------------:|:-----------------:|:----------------------------------:|:-----------------------:|:--------:|:---------:|
 | 文档节点：	| `Document`		| 整个文档（window.document）		 | #document 			   | 9		  | null      |
@@ -22,10 +22,28 @@ DOM是由节点组成的，HTML文档中的所有内容都是节点；各节点�
 | 元素节点：	| `Element`			| HTML元素（比如<body>、<a>等）		 | #text         		   | 2		  | null      |
 | 属性节点：	| `Attribute`		| HTML元素的属性（比如class="right"）| 等同于Attr.name		   | 3		  | null      |
 | 文本节点：	| `Text`			| HTML文档中出现的文本				 | #document-fragment 	   | 11		  | 文本值    |
-| 文档碎片节点：| `DocumentFragment`| 文档的片段						 | 等同于DocumentType.name | 10		  | null      |
+| 文档碎片节点：| `DocumentFragment`| 未插入到节点树的片段				 | 等同于DocumentType.name | 10		  | null      |
+| 注释节点：    | `Comment`			| 注释内容							 | 						   | 		  | 文本值    |
 
+#####1.1.2节点判断`nodeType`和`nodeName`
++ `nodeType`区分节点类型，详见上表；
++ `nodeName`区分元素节点，元素节点的`nodeName`属性返回大写元素名称；
 
-###节点属性
+#####1.1.3节点内容获取`nodeValue`和`textContent`
++ `textContent`：
+	* 返回当前节点和它的所有后代节点(不包括注释节点)的文本内容；
+	* 该属性是可写的，而且会对HTML标签自动转义，用于向页面写入内容；
+	* 不会过滤内容中的空格；
+	* `Document`和`DocumentType`节点返回`null`；
++ `nodeValue`：
+	* 返回或设置当前节点的值，格式为字符串；
+	* 只对文本节点和注释节点有效，其他节点返回null；
+
+#####1.1.4节点属性
++ `nodeName`
++ `nodeType`
++ `textContent`
++ `nodeValue`
 + `ownerDocument`：返回当前节点所在的顶层文档对象，即document对象。
 + `nextSibling`：返回紧跟在当前节点后面的第一个同级节点（包括文本节点）。如果当前节点后面没有同级节点，则返回null。
 + `previousSibling`：返回当前节点前面的、距离最近的一个同级节点（包括文本节点）。如果当前节点前面没有同级节点，则返回null。
@@ -35,13 +53,12 @@ DOM是由节点组成的，HTML文档中的所有内容都是节点；各节点�
 	* document节点和documentfragment节点，它们的父节点都是null。
 	* 父节点的类型只有element节点、document节点和documentfragment节点三种；
 + `parentElement`：返回当前节点的父Element节点。如果当前节点没有父节点，或者父节点类型不是Element节点，则返回null；
-+ `textContent`：返回当前节点和它的所有后代节点的文本内容。
-+ `nodeValue`：返回或设置当前节点的值，格式为字符串。
 + `childNodes`：返回一个NodeList集合，成员包括当前节点的所有子节点。注意，除了HTML元素节点，该属性返回的还包括Text节点和Comment节点。
 + `firstNode`：返回当前节点的第一个子节点，如果当前节点没有子节点，则返回null。
 + `lastChild`：返回当前节点的最后一个子节点，如果当前节点没有子节点，则返回null。
++ `baseURI`
 
-###节点方法
+#####1.1.5节点方法
 + `parentNode.appendChild(childNode)`：添加到父节点的最后一个子节点。
 + `parentNode.hasChildNodes()`：当前节点是否有子节点。
 + `cloneNode(boolean)`：cloneNode方法用于克隆一个节点。它接受一个布尔值作为参数，表示是否同时克隆子节点。注意：通过该方法克隆的节点会丢失事件监听，产生重复id节点；
@@ -53,12 +70,16 @@ DOM是由节点组成的，HTML文档中的所有内容都是节点；各节点�
 + `parentNode.contains(node)`：
 + `compareDocumentPosition()`：
 + `targetElement.isEqualNode(element)`：判断节点是否相等(类型、属性、子节点是否相同)
++ `normalize()`
 
+##二、文档节点
 
-##Document节点
+###2.1获取
++ `window.document`
++ `iframe.contentDocument`
 
-####节点属性
-+ `doctype`：
+###2.2属性
++ `doctype`：DOM `DocumentType`节点
 + `documentElement`：文档根节点
 + `defaultView`：返回document对象所在的window对象，`window === document.defaultView`
 + `body`：
@@ -82,9 +103,7 @@ DOM是由节点组成的，HTML文档中的所有内容都是节点；各节点�
 + `scripts`：返回当前文档的所有脚本
 + `styleSheets`：返回一个类似数组的对象，包含了当前网页的所有样式表。
 
-####Cookie
-
-####对象方法
+###2.3方法
 + `open()`：新建一个文档
 + `close()`：用于关闭open方法所新建的文档
 + `write()`：向当前文档写入内容
@@ -147,7 +166,7 @@ document.dispatchEvent(event);
 ```
 
 
-##Element对象
+##四、Element节点
 
 ####属性
 + `attributes`：
@@ -194,32 +213,9 @@ document.dispatchEvent(event);
 + `dispatchEvent()`：
 
 
-##DOM操作
-
-####DOM遍历
-+ `document.getElementById()`
-+ `document.getElementsByTagName()`
-+ `document.getElementsByClassName()`
-+ `element.children`
-+ `element.firstElementChild`
-+ `element.lastElementChild`
-+ `element.childElementCount`
-+ `document.qureySelector()`
-+ `document.qureySelectorAll()`
-
-
-####DOM更新
-+ `element.innerHTML`
-+ `element.innerText`
-+ `element.textContent`
-
-####DOM添加
-+ `document.createElement()`：
-+ `parentElement.appendChild()`：添加到父节点的最后一个子节点
-+ `parentElement.insertBefore(newElement, referenceElement)`：
-
-####DOM删除
-+ `parent.removeChild()`
+##五、属性节点
+##六、文本节点
+##七、碎片节点
 
 
 ##参考文献
