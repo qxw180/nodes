@@ -174,18 +174,33 @@ document.dispatchEvent(event);
 
 ##四、Element节点
 
-####属性
-+ `attributes`：
-+ `id`：
-+ `tagName`：返回指定元素的大写的标签名，与nodeName属性的值相等。
-+ `innerHTML`：返回该元素包含的HTML代码
-+ `outerHTML`：返回该元素及包含的HTML代码
-+ `children`：
-+ `childElementCount`：
-+ `firstElementChild`：
-+ `lastElementChild`：
-+ `nextElementSibling`：
-+ `previousElementSibling`：
+###4.1获取
+
+####4.1.1元素获取
+#####4.1.1.1查找
++ `doucment.getElementById()`
++ `document.getElementsByTagName()`
++ `document.getElementsByClass()`
++ `element.querySelector()`
++ `element.querySelectorAll()`
+
+#####4.1.1.2遍历
++ `element.children`：返回元素的所有子Element节点
++ `element.childElmentCount`
++ `element.firstElementChild`
++ `element.lastElementChild`
++ `element.nextElementSibling`
++ `element.previousElementSibling`
+
+#####4.1.1.2匹配
++ `element.closest()`：返回当前元素节点的最接近的父元素（或者当前节点本身），条件是必须匹配给定的CSS选择器。如果不满足匹配，则返回null。
++ `element.matches()`：返回一个布尔值，表示当前元素是否匹配给定的CSS选择器。
+
+####4.1.2属性操作
+#####4.1.2.1属性获取
++ `elements.attributes`：返回元素属性动态集合
++ `id`：获取和设置id
++ `tagName`：返回指定元素的大写的标签名，与nodeName属性的值相等
 + `className`：读取和设置当前元素的class属性
 + `classList`：返回一个类数组的class属性集合
 	* `add()`：增加一个class。
@@ -194,34 +209,87 @@ document.dispatchEvent(event);
 	* `toggle()`：将某个class移入或移出当前元素。
 	* `item()`：返回指定索引位置的class。
 	* `toString()`：将class的列表转为字符串。
-+ `clientHeight`：返回元素节点的可见高度，包括padding、但不包括水平滚动条、边框和margin的高度，单位为像素。
-+ `clientLeft`：等于元素节点左边框（border）的宽度，单位为像素，包括垂直滚动条的宽度，不包括左侧的margin和padding。
-+ `clientTop`：等于网页元素顶部边框的宽度，不包括顶部的margin和padding。
-+ `clientWidth`：网页元素的可见宽度，即包括padding、但不包括垂直滚动条（如果有的话）、边框和margin的宽度，单位为像素。
-+ `scrollHeight`：返回指定元素的总高度，包括由于溢出而无法展示在网页的不可见部分；包括padding，但不包括border和margin；
-+ `scrollWidth`：返回元素的总宽度，包括由于溢出容器而无法显示在网页上的那部分宽度
-+ `scrollLeft`：设置或返回水平滚动条向右侧滚动的像素数量
-+ `scrollTop`：设置或返回垂直滚动条向下滚动的像素数量
 
-####方法
-+ `hasAttribute()`：
-+ `getAttribute()`：
-+ `removeAttribute()`：
-+ `setAttribute()`：
-+ `querySelector()`：
-+ `querySelectorAll()`：
-+ `getElementsByClassName()`：
-+ `getElementsByTagName()`：
-+ `closest()`：返回当前元素节点的最接近的父元素（或者当前节点本身），条件是必须匹配给定的CSS选择器。如果不满足匹配，则返回null。
-+ `matches()`：返回一个布尔值，表示当前元素是否匹配给定的CSS选择器。
-+ `addEventListener()`：
-+ `removeEventListener()`：
-+ `dispatchEvent()`：
+#####4.1.2.2属性获取
++ `hasAttribute(attrName)`：
++ `getAttribute(attrName)`：
++ `removeAttribute(attrName)`：
++ `setAttribute(attr | name,value)`：
++ `createAttribute(attrName)`：
 
 
-##五、属性节点
-##六、文本节点
-##七、碎片节点
+####4.1.3内容获取
++ `innerHTML`：返回该元素包含的HTML代码；该属性可写，可以用来设置节点内容；
++ `outerHTML`：返回该元素及包含的HTML代码；该属性可写，对它赋值相当于替换该元素；
+
+###4.2创建
++ `createElement(tagName)`：参数为元素的标签名，即元素节点的tagName属性
++ `createTextNode(textContent)`：参数为所要生成的文本节点的内容
++ `cloneNode(boolean)`：cloneNode方法用于克隆一个节点。它接受一个布尔值作为参数，表示是否同时克隆子节点。注意：通过该方法克隆的节点会丢失事件监听，产生重复id节点；
+
+###4.3插入
++ `element.insertAdjacentHTML(position, text)`：解析字符串，然后将生成的节点插入DOM树的指定位置。
+	* 第一个是指定位置
+	* 第二个是待解析的字符串。
+		- beforebegin：在当前元素节点的前面。
+		- afterbegin：在当前元素节点的里面，插在它的第一个子元素之前。
+		- beforeend：在当前元素节点的里面，插在它的最后一个子元素之后。
+		- afterend：在当前元素节点的后面。'
++ `parentNode.appendChild(childNode)`：添加到父节点的最后一个子节点。
++ `parentNode.insertBefore(newElement,oldElement)`：
+	* 当`parentNode`没有子元素的时候，第二个参数可以穿null，`newElement`会插入当前节点的最后位置；
+	* `parentNode.insertBefore(newElement,oldElement.nextSibling)`变相实现`insertAfter()`
+
+###4.4删除
++ `element.remove()`
++ `parentNode.removeChild(childNode)`：从DOM树中删除节点，但是节点依然在内存中，可以进行操作；
++ `parentNode.replaceChild(newChild,oldChild)`：可以将毗邻的两个Text节点合并。
+
+
+##五、文本节点
+###5.1获取
+一般通过`element`遍历获取，或者通过遍历NodeList集合获取；
+
+###5.2创建
++ `document.createTextNode()`
++ `new Text()`
+
+###5.3属性
++ `element.data`
++ `element.wholeText`
++ `element.length`
++ `element.wholeText`：将当前Text节点与毗邻的Text节点，作为一个整体返回。
+
+###5.4方法
++ `appendData(text)`：
++ `deleteData(start,length)`：
++ `insertData(start,text)`：
++ `replaceData(start,length,text)`：
++ `subStringData(start,length)`：
++ `splitText(start)`：将Text节点一分为二，变成两个毗邻的Text节点。
++ `normalize()`：
+
+##六、碎片节点
+DocumentFragment节点代表一个文档的片段，本身就是一个完整的DOM树形结构。它没有父节点，不属于当前文档，操作DocumentFragment节点，要比直接操作DOM树快得多。
+
+代码示例
+
+```
+var docFrag = document.createDocumentFragment();
+// or
+var docFrag = new DocumentFragment();
+
+var li = document.createElement("li");
+li.textContent = "Hello World";
+docFrag.appendChild(li);
+
+document.queryselector('ul').appendChild(docFrag);
+```
+
+
+##七、CSS操作
+
+
 
 
 ##参考文献
