@@ -289,7 +289,32 @@ document.queryselector('ul').appendChild(docFrag);
 
 ##七、CSS操作
 
+###7.1 HTML元素 style属性
+`div.setAttribute("style","backgruoud:red;")`
 
+###7.2 Element节点 style属性
+
+####7.2.1 基本用法
++ 普通属性：`div.style.color = 'red'`
++ 带横杆属性：`div.style.fontSize = "12px"`，驼峰命名法
++ 关键字属性：`div.style.cssFloat = 'left'`，加`css`前缀
+
+####7.2.2 CSSText属性
+`div.cssText = "backgruoud:red;"`
+
+####7.2.3 属性检测
+1. 判断属性返回类型：`typeof element.style.transform === 'string';`
+	1. 如果该CSS属性确实存在，会返回一个字符串。即使该属性实际上并未设置，也会返回一个空字符串。
+	2. 需要考虑浏览器兼容：`typeof content.style['webkitAnimation'] === 'string'`
+	3. 使用横线和驼峰命名形式均可：`document.body.style['background-color'] // ""`
+2. 	`CSS.supports()`
+	1. `CSS.supports('transform-origin', '5px');`
+	2. `CSS.supports('(display: table-cell) and (display: list-item)');`
+
+####7.2.3 属性方法
++ `setPropertyValue(propertyName,value)`：
++ `getPropertyValue(propertyName)`：
++ `removeProperty(propertyName)`：
 
 
 ##参考文献
