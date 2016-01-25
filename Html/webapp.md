@@ -41,6 +41,18 @@
 + Safari绝对定位font-size失效：`-webkit-text-size-adjust:100%;`
 
 
+##多行文本省略号
+	//单行
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	//多行
+	overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 2;
+	-webkit-box-orient: vertical;
+
 ##字体字号相关
 
 
