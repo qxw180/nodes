@@ -1,3 +1,5 @@
+#Node.js 系统模块
+
 #process
 process是一个全局内置对象，可以在代码的任意位置访问该对象；
 process对象代表的是node.js代码宿主的操作系统进程对象
@@ -17,6 +19,10 @@ process对象代表的是node.js代码宿主的操作系统进程对象
 	});
 
 + `process.exit(code)`：杀死进程推出程序，code为退出后返回的代码，默认为0；
++ `process.argv`：获取命令行擦数，例：`process.argv.slice(2)`获取额外
+	* `argv[0]`固定等于NodeJS执行程序的绝对路径
+	* `argv[1]`固定等于主模块的绝对路径
+	* 因此第一个命令行参数从`argv[2]`这个位置开始
 + 事件注册：
 
 	process.stdout.on('data',function(data){
@@ -28,7 +34,9 @@ process对象代表的是node.js代码宿主的操作系统进程对象
 	* `process.stdout.setEncoding(编码);`
 	* `process.stderr.setEncoding(编码);`
 
-#IO
+<hr>
+
+#IO 文件操作
 nodejs中提供fs模块来支持I/O操作
 
 ##写入文件：`fs.write(fileName,content,callback(err){})`
@@ -66,6 +74,8 @@ write函数可以异步的将数据写入一个文件，如果文件已存在则
 ##删除目录：`fs.rmdir(path,function(err){})`
 ##读取目录：`fs.readdir(path,function(err,files){})`
 
+<hr>
+
 #URL
 nodejs提供url模块来进行url相关操作
 
@@ -75,7 +85,7 @@ nodejs提供url模块来进行url相关操作
 + `parseJSON`：布尔值，默认false，true时会将查询条件解析成JSON格式
 `url.parse('http://www.test.com:8888/sub?a=1&b=2')`
 `protocol:` 'http:',
-`slashes:` true,
+`slashes:` true,是否有双斜线
 `auth:` null,
 `host:` 'www.test.com:8888',
 `port:` '8888',
@@ -93,6 +103,10 @@ nodejs提供url模块来进行url相关操作
 ##resolve：`url.resolve(path1,path2)`
 	url.resolve('http://example.com/', '/one')  // 'http://example.com/one'
 	url.resolve('http://example.com/one', '/two') // 'http://example.com/two'
+
+
+<hr>
+
 
 #路径
 path模块用于处理转换路径
@@ -115,11 +129,16 @@ normalize函数将不符合规范的路径格式化为标准路径
 `path.extname('/foo/strong/basename/index.html');// .html`
 
 
+<hr>
+
+
 #字符串转换
 nodejs提供querystring实现字符串和对象的转换
 
 ##对象序列化：`querysting.stringify(objcect,分隔符,分配符)`
 ##对象反序列化：`querysting.parse(object,分隔符,分配符)`
+
+<hr>
 
 
 #工具
