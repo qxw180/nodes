@@ -4,12 +4,11 @@
 NodeJs可以感知自身进程的允许环境和状态，也可以创建子进程并与其协同工作；
 
 ##进程：Process
-process是一个全局内置对象，可以在代码的任意位置访问该对象；
-process对象代表的是node.js代码宿主的操作系统进程对象
-+ `prcess.cwd()`：获取程序目录
-+ `prcess.chdir(path)`：切换程序目录
-+ `prcess.stdout`：标准输出流对象
-	* `prcess.stdout.write(content)`：打印内容到输出设备
+process是一个全局内置对象；代表node.js代码宿主的操作系统进程对象；
++ `process.cwd()`：获取程序目录
++ `process.chdir(path)`：切换程序目录
++ `process.stdout`：标准输出流对象
+	* `process.stdout.write(content)`：打印内容到输出设备
 + `process.stderr`：标准错误流对象
 	* `proces.stderr.write(errContent)`：打印错误信息到输出设备
 + `process.stdin`：标准输入流对象
