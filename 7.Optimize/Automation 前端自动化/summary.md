@@ -44,7 +44,7 @@
 
 ---
 
-- Grunt
+#### Grunt
 	自动化工具，自动完成压缩、编译、单元测试、代码校验等工作
 
 + 安装：`npm install -g grunt-cli`
@@ -52,32 +52,36 @@
 
 ---
 
-- Yeoman
+#### Yeoman
 	用来在项目立项阶段生成项目的文件和代码结构；
 
 + 安装：`npm install -g yo`
 + generator：Yoman Generator实际为npm安装包，Yoman为运行环境
 	* 查找：
-	* 安装：`npm install <generator-name>`
-	* 生成：`yo <name>`
+	* 安装：`npm install [generator-name]`
+	* 生成：`yo [name]`
 	* 
 
 
 ---
 
-- Bower
+#### Bower
 	Web包管理器，用来跟踪管理web项目框架、库、公共部分等；
 	安装：`npm install -g bower`
 
-+ 安装：`bower install <plugin> --save-dev`
-+ 卸载：`bower uninstall <plugin> -S-D`
++ 初始化项目：执行命令`bower init`，然后填写信息，生成`bower.json`文件；
++ 安装：`bower install [plugin>]--save-dev`
++ 卸载：`bower uninstall [plugin] -S-D`
 
 > <small>plugin可以是bower维护的插件名。在`http://bower.io/search`可以进行搜索
 > 也可以输入github短写，例如：`jquery/juquery`
 > 也可以是github的路径，例如：`https://github.com/jquery/jquery.git`
 > 也可以通过各大网站维护的CDN安装，例如：`http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js`</small>
 
-+ 配置文件
-	* `boser.json`
-		- 创建：`bower init`
 
++ 配置：项目根目录下的`.bowerrc`文件为Bower的配置文件
+	* directory：存放库文件的子目录名。
+	* json：描述各个库的json文件名。
+	* endpoint：在线索引的网址，用来搜索各种库。
+	* searchpath：一个数组，储存备选的在线索引网址。如果某个库在endpoint中找不到，则继续搜索该属性指定的网址，通常用于放置某些不公开的库。
+	* shorthand_resolver：定义各个库名称简写形式。
