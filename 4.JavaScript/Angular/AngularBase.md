@@ -8,54 +8,92 @@
 + MVVM：Model-View-ViewModel，
 	* 控制器：控制angular程序的数据
 + 依赖注入
-+ 指令
-
-
-## 标签
-
-
-+ 框架标签
-	* `ng-app`：标明一个AngularJS应用程序(Angular脚本作用域)，完成以下任务：
-		- 自动初始化应用：创建依赖注入；
-		- 标记应用作用域：创建根作用域($rootScope)作为应用模型范围；
-		- 编译应用程序内DOM，从`ng-app`标记的HTML标签开始，逐步处理DOM中的指令；
-		- 载入指令内容相关模块
-	* `ng-controller`：Angular控制器，关联一个js文件；
-		- 创建一个作用域`$scope`，是根作用域(`$rootScope`)的后继；
-		- 这个作用域对所有`ng-controller`标记内的数据绑定有效；
-		- 可以在`$scope`中注入数据；
-	* `ng-model`：Angular模型
-		- Angular会在最邻近的控制器的`$scope`中将其与模型中相同名字的变量绑定到一起；
-
-+ 模版标签
-	* `{{}}`：绑定表达式，将括号内表达式运算结果插入到DOM结构中；
-	* `ng-bind`：和`{{}}`功能一致，区别是`ng-bind`在angular解析渲染完成后才将数据显示出来；
-	* `ng-bind-templete`：同上
-	* `ng-repeat`：Angular迭代器
-		- 基本：`ng-repeat="item in items"`
-		- 过滤：`ng-repeat="item in items | filter:query"`
-			+ `filter`为过滤关键字，`query`为Angular模型；
-		- 排序：`ng-repeat="item in items | orderBy:orderProp"`
-	* `ng-src`：Angular图片路径，
-		- 浏览器在完成HTML页面加载，为完成Angular渲染时候会向服务器发起非法请求，如：`http://localhost/img/{{item.path}}`；
-		- `ng-src`在Angular渲染完成后向服务器发送图片请求；
-	* `ng-view`：
-
-+ `ng-init`：初始化应用程序数据，通常使用使用控制器或模块来代替
-+ `ng-click`：angular单击事件绑定
-+ `ng-hide`：设置元素是否可见
++ 指令 Directive
 
 
 ## 组成部分
+1. 模板（Templates）
+2. 应用程序逻辑（Logic）和行为（Behavior）
+3. 模型数据（Data）
 
-###一、模板（Templates）
-###二、应用程序逻辑（Logic）和行为（Behavior）
-###三、模型数据（Data）
 
-##内建服务
-+ `$http`：
+##模块 Module
+	var module = angular.module('moduleName',[])
+
+##控制器 Controller
+	var ctrl = angular.controller('ctrlName',function($scope){
+		$scope.data = {
+			name:"Kevin",
+			age:"27"
+		}
+	})
+
+##指令 Directive
+	var app = angular.module("myApp",[]);
+	app.directive("directiveName",function(){
+		return {
+			restrict: E,//指令调用方式，默认EA
+			templete: '<h1>自定义指令</h1>'
+		}
+	});
+*命名指令的时候以驼峰命名的方式命名，但是在模版中使用指令的时候要以`a-b`的形式使用；*
+
+指令的调用方式
+1. E：元素名()`<card></card>`
+2. A：属性`<div card></div>`
+3. C：类名`<div class="card"></div>`
+4. M：注释`<!-- directive:card -->`
+
+
+##模型 Model
+
+
+##作用域 Scope
++ `$scope`是一个JavaScript对象，带有属性和方法，这些方法可以在视图和控制器中使用；
++ 根作用域`$rootScope`可以作用于整个应用中；是各个`controller`中`scope`的桥梁；
+
+
+##过滤器 Filter
+可以通过管道符号`|`向指令添加过滤器，例：`<p>Name:{{ lastname | orderBy:'name' }}</p>`
++ `uppercase`：大写转换
++ `lowercase`：小写转换
++ `currencry`：货币格式转换
++ `orderBy:modelName`：排序
++ `filter:modelName`：过滤
+
+#####自定义过滤器
+	var app = angular.module("myApp",[]);
+	app.filter('myFilter',function(x){
+		return doSomething(x);
+	});
+
+##服务 Service
+服务是各控制器公用功能的提炼，是一个函数或对象；
+
+#####内建服务
++ `$http`：与服务器交互服务
 + `$routeProvider`
++ `$location`：返回当前页面URL
++ `$timeout`：
++ `$interval`：
 
+#####自定义服务
+	var app = angular.module("myApp",[]);
+	app.service("myService",function(){
+		this.myFunction = function(){
+			return "Hello Angular Service"
+		}
+	});
+	// 调用服务
+	app.controller("myCtrl",function($scope,myService){
+		console.log(myService.myFunction());
+	});
+	// 过滤器中使用自定义服务
+	app.filter('myFormat',['myService', function(myService) {
+	    return function(x) {
+	        return myService.myFunction(x);
+	    };
+	}]);
 
 
 
