@@ -16,6 +16,12 @@
 2. 应用程序逻辑（Logic）和行为（Behavior）
 3. 模型数据（Data）
 
+##程序 Application
+	var myApp = angular.module('appName',['ngRoot,ngAnimate','myModule1',...]);
+
+官方推荐以一个总的app作为入口点；
+一个`app`可以由多个`controller`、`directive`、`service`、`route`、`filter`等部分组成；
+在`app`中声明依赖的模块，angular的依赖注入功能会自动载入声明的模块；
 
 ##模块 Module
 	var module = angular.module('moduleName',[])
