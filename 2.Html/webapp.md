@@ -39,6 +39,7 @@
 + 解决字体在移动端比例缩小后出现锯齿的问题：`-webkit-font-smoothing: antialiased`
 + 消除transition闪屏：`-webkit-transform-style: preserve-3d;-webkit-backface-visibility: hidden;`
 + Safari绝对定位font-size失效：`-webkit-text-size-adjust:100%;`
++ 链接、表单获取焦点时高亮颜色：`-webkit-tap-highlight-color: rgba(0, 0, 0, 0);`
 
 
 ##多行文本省略号
@@ -58,6 +59,19 @@
 
 ##事件相关
 
+
+##表单元素样式重置
+	div	{
+		appearance:button;
+		-moz-appearance:button; /* Firefox */
+		-webkit-appearance:button; /* Safari 和 Chrome */
+	}
+	normal	将元素呈现为常规元素。
+	icon	将元素呈现为图标（小图片）。
+	window	将元素呈现为视口。
+	button	将元素呈现为按钮。
+	menu	将元素呈现为一套供用户选择的选项。
+	field	将元素呈现为输入字段。
 
 ##Retina
 
