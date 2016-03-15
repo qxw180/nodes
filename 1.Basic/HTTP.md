@@ -144,6 +144,12 @@ B/S架构是基于网络的架构，IP协议解决了网络层问题、TCP协议
 6. 断开连接
 
 
+##HTTP和HTTPS
+> HTTP协议通常承载于TCP协议之上，有时也承载于TLS或SSL协议层之上，这个时候，就成了我们常说的HTTPS。
+> 默认HTTP的端口号为80，HTTPS的端口号为443。
+> 因为网络请求需要中间有很多的服务器路由器的转发。中间的节点都可能篡改信息，而如果使用HTTPS，密钥在你和终点站才有。
+> https之所以比http安全，是因为他利用ssl/tls协议传输。它包含证书，卸载，流量转发，负载均衡，页面适配，浏览器适配，refer传递等。保障了传输过程的安全性
+
 ##参考文献
 [一次完整的HTTP事务是怎样一个过程？](http://www.linux178.com/web/httprequest.html)
 [TCP3次握手连接协议和4次握手断开连接协议](http://blog.csdn.net/lostyears/article/details/7104349)
