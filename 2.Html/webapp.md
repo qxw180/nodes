@@ -3,30 +3,29 @@
 ##Viewprot
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 
-#####Viewport的由来
++ `width`: viewport宽度
+	* Number
+	* device-width
++ `height`: viewport高度
+	* Number
+	* device-height
++ `initial-scale`: 初始缩放比例
++ `maximum-scale`: 最大缩放比例
++ `minimum-scale`: 最小缩放比例
++ `user-scalable`: 是否允许用户缩放
+	* yes
+	* no
+
+Viewport的由来
 > 因为移动设备的屏幕较小，传统web页面在移动设备会出现横向滚动条，在使用流动布局的页面上布局会被压乱；
 > 苹果为解决这个问题设计了viewport，viewport就是一个虚拟窗口，宽度大概为980px(不同的厂商的设备略有区别)；
 > 页面在这个虚拟窗口(layout viewport)上进行CSS渲染，然后再视觉窗口(visual viewport)通过拖拽和缩放就可以满足大部分网页的显示需求；
 
-#####现在的viewport
+现在的viewport
 > 现在绝大部分公司都针对移动设备进行单独设计；
 > 那么在默认的viewport宽度上显示这些网页就会出现新的问题，开发出来的页面只占了viewport的一小部分；
 > 所以我们需要对viewport进行设置
 
-#####viewport设置
-
-+ width: viewport宽度
-	* Number
-	* device-width
-+ height: viewport高度
-	* Number
-	* device-height
-+ initial-scale: 初始缩放比例
-+ maximum-scale: 最大缩放比例
-+ minimum-scale: 最小缩放比例
-+ user-scalable: 是否允许用户缩放
-	* yes
-	* no
 
 
 ##设置相关
@@ -41,6 +40,12 @@
 + Safari绝对定位font-size失效：`-webkit-text-size-adjust:100%;`
 + 链接、表单获取焦点时高亮颜色：`-webkit-tap-highlight-color: rgba(0, 0, 0, 0);`
 
+##键盘设置相关
+
+	<input type="number" />
+	<!-- 在IOS设备中调出九宫格数字键盘，以下两种方式均可 -->
+	<input type="number" pattern="[0-9]*" />
+	<input type="tel" />
 
 ##多行文本省略号
 	//单行
@@ -54,8 +59,65 @@
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 
-##字体字号相关
+##Android上原型图片使用border边框显示变形
+在img外嵌套元素，为嵌套元素使用圆角
 
+	<div>
+	    <img src="">
+	</div>
+
+	div{
+	    display: inline-block;
+	    border-radius: 50%;
+	    border: 4px solid #FF7000;
+	}
+	img{
+	    vertical-align: top;
+	}
+
+##Android圆角元素背景颜色溢出
+	
+	{
+	    background-clip: padding-box;
+	}
+
+##Android圆角使用Animataion做loading动画，圆角背景色溢出
+使用圆角蒙版遮住多余部分
+
+	{
+	    background-color: #F9CEAC;
+	    border-radius: 32px 0 0 32px;
+	    -webkit-mask-image: url(http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png);
+	}
+
+##CSS三角在Android上显示为方块
+可能是对这个三角使用了圆角，去掉 border-radius
+
+	{
+	    border: 10px solid transparent;
+	    border-left-color: #000;
+	    /*border-radius: 2px;*/
+	}
+
+##`:active` 样式不生效
+Safari 默认禁用了元素的 active 样式，我们通过声明 touchstart 来覆盖默认事件，就可以让 active 样式重新激活。
+
+	document.addEventListener("touchstart", function() {},false);
+
+
+##IOS设备的iframe问题
+> 在ios中本身是不提供iframe控件的scroll滚动效果
+> 要实现滚动操作的话需要通过附加div层来实现
+
+	<div>
+	    <iframe src=""></iframe>
+	</div>
+
+	div{
+	    height: 100px;
+	    overflow: auto;
+	    -webkit-overflow-scrolling: touch;
+	}
 
 ##事件相关
 
