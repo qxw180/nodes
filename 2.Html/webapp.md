@@ -143,20 +143,18 @@ Safari 默认禁用了元素的 active 样式，我们通过声明 touchstart �
 
 例子
 
-```
-// 获取用户位置信息
-navigator.geolocation.getCurrentPosition(
-	function(event){
-		console.log(event.coords.latitude,',',event.coords.longitude);
-	}
-	,function(event){
-		console.log("Error code " + event.code + ". " + event.message);
-	}
-);
-// 监听用户位置信息
-var watchID = navigator.geolocation.watchPosition(geoSuccess,geoError, option);
-navigator.geolocation.clearWatch(watchID);
-```
+	// 获取用户位置信息
+	navigator.geolocation.getCurrentPosition(
+		function(event){
+			console.log(event.coords.latitude,',',event.coords.longitude);
+		}
+		,function(event){
+			console.log("Error code " + event.code + ". " + event.message);
+		}
+	);
+	// 监听用户位置信息
+	var watchID = navigator.geolocation.watchPosition(geoSuccess,geoError, option);
+	navigator.geolocation.clearWatch(watchID);
 
 API
 + `getCurrentPosition(geoSuccess,geoError)`：获取用户地理位置
