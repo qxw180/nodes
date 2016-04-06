@@ -34,10 +34,10 @@ Viewport的由来
 + 移动端禁止选中内容：`-webkit-user-select: none;`
 + 禁止保存或拷贝图像：`-webkit-touch-callout: none;`
 + IOS滚动条：`-webkit-overflow-scrolling: touch;`
-+ 删除灰色背景链接点击:`-webkit-tap-highlight-color:rgba(0,0,0,0);`
 + 解决字体在移动端比例缩小后出现锯齿的问题：`-webkit-font-smoothing: antialiased`
 + 消除transition闪屏：`-webkit-transform-style: preserve-3d;-webkit-backface-visibility: hidden;`
 + Safari绝对定位font-size失效：`-webkit-text-size-adjust:100%;`
++ 删除灰色背景链接点击:`-webkit-tap-highlight-color:rgba(0,0,0,0);`
 + 链接、表单获取焦点时高亮颜色：`-webkit-tap-highlight-color: rgba(0, 0, 0, 0);`
 
 ##键盘设置相关

@@ -4,10 +4,9 @@
 ## 特性
 
 + 双向数据绑定
-+ 模版
++ 模块化
 + MVVM：Model-View-ViewModel，
 	* 控制器：控制angular程序的数据
-+ 依赖注入
 + 指令 Directive
 
 
