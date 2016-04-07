@@ -43,3 +43,6 @@ nodejs 事件轮询机制，nextTick方法的原理，
 你在你团队中做过哪些分享，
 如何做技术选型，
 最近看的书，
+
+#mobile
++ [Safari Mobile 默认不使用:active 状态，除非元素上或<body>上有一个touchstart 事件处理器。](http://www.zhuowenli.com/diary/frontend-mobile-bug-notes.html)
