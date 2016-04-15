@@ -1,4 +1,11 @@
 #HTML
++ 图片相关特性
+    * jpg
+    * png
+    * base64
+    * WebP
+    * gif
+    * 
 
 
 
@@ -9,6 +16,9 @@
 #JavaScript
 + 防止表单重复提交
 + jQuery`bind`和`on`区别
++ JS原生事件添加
++ JS源生COOKIE操作
++ JQuery源码
 
 
 
