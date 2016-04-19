@@ -1,13 +1,5 @@
 #HTML
-+ 图片相关特性
-    * jpg
-    * png
-    * base64
-    * WebP
-    * gif
-    * 
-
-
++ ICON FONT
 
 #CSS
 + checkbox 水平居中对齐
