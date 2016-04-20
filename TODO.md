@@ -49,5 +49,18 @@ nodejs 事件轮询机制，nextTick方法的原理，
 #mobile
 + [Safari Mobile 默认不使用:active 状态，除非元素上或<body>上有一个touchstart 事件处理器。](http://www.zhuowenli.com/diary/frontend-mobile-bug-notes.html)
 
+#自动化测试
+
+#流量、性能监控相关
+
+#NodeJS
++ npm：使用npm进行完整的包管理实践
+    * 自动化构建组建
+    * 前端功能组建
+    * 。。。
+
+#Gulp&Webpack
+
+#HTTP2.0
 
 #入职腾讯了  加油
