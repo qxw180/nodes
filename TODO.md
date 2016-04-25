@@ -3,7 +3,6 @@
 
 #CSS
 + checkbox 水平居中对齐
-+ BFC/圣杯、双飞翼布局
 
 
 #JavaScript
