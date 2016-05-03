@@ -9,9 +9,7 @@
 + 防止表单重复提交
 + jQuery`bind`和`on`区别
 + JS原生事件添加
-+ JS源生COOKIE操作
 + JQuery源码
-+ 浏览器端缓存Cookie SessionStorage LocalStorage Cache
 + NodeJS
 + Gulp 插件开发
 + Promise
@@ -33,5 +31,17 @@
 #Gulp&Webpack
 
 #HTTP2.0
+
+#URL Tool
+
+#客户端缓存
++ Cookie
++ Local Storage
++ Session Storage
++ Web SQL
++ IndexedDB
++ Application Cache
++ Cache Storage
++ Service Workers
 
 #入职腾讯了  加油
