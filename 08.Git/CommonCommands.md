@@ -95,9 +95,9 @@
 
 ###日志相关
 - 查看提交日志：`git log`
-	+ <small>`-p`：查看文件修改详细</small>
-	+ <small>`--stat`：只查看文件修改列表</small>
-	+ <small>`--author=`：查看修改者</small>
+	+ `-p`：查看文件修改详细
+	+ `--stat`：只查看文件修改列表
+	+ `--author=`：查看修改者
 - 查看命令日志：`git reflog`
 - 查看节点信息：`git show <commit_id> [file_name]`
 - 查看具体节点和文件的修改记录：`git blame <commit_id> <file_name>`
