@@ -1,5 +1,4 @@
 #HTML
-+ ICON FONT
 
 #CSS
 + checkbox 水平居中对齐
@@ -13,6 +12,8 @@
 + NodeJS
 + Gulp 插件开发
 + Promise
++ 跨域&JQuery源码
++ 重新整理javascript继承，ES5&&ES6&&NODE inherits
 
 
 #mobile
@@ -29,6 +30,7 @@
     * 。。。
 
 #Gulp&Webpack
++ [Gulp 4.0](https://github.com/gulpjs/gulp/tree/4.0)
 
 #HTTP2.0
 
@@ -46,6 +48,5 @@
 
 
 #Other
-+ [Cmder](http://cmder.net/)
 
 #入职腾讯了  加油
