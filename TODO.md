@@ -28,6 +28,11 @@
     * 自动化构建组建
     * 前端功能组建
     * 。。。
++ 模版引擎
+    * Jade || Ejs
++ MVC框架
+    * Express
+    * Koajs
 
 #Gulp&Webpack
 + [Gulp 4.0](https://github.com/gulpjs/gulp/tree/4.0)
@@ -46,6 +51,11 @@
 + Cache Storage
 + Service Workers
 
+#Linux
++ 软件安装管理
++ 端口管理
++ 进程管理
+	* 后台运行
 
 #Other
 + 编码
