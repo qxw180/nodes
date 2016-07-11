@@ -1,0 +1,10 @@
+[user]
+	name = kevinqiao(乔学伟)
+	email = kevinqiao@tencent.com
+[alias]
+	st = status
+	ci = commit
+	br = branch
+	co = checkout
+[http]
+	proxy = http://proxy.tencent.com:8080
