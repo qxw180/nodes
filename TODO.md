@@ -5,13 +5,10 @@
 
 
 #JavaScript
-+ 防止表单重复提交
 + jQuery`bind`和`on`区别
 + JS原生事件添加
 + JQuery源码
-+ NodeJS
-+ Gulp 插件开发
-+ Promise
++ Promise【结】
 + 跨域&JQuery源码
 + 重新整理javascript继承，ES5&&ES6&&NODE inherits
 
@@ -36,6 +33,7 @@
 
 #Gulp&Webpack
 + [Gulp 4.0](https://github.com/gulpjs/gulp/tree/4.0)
++ Gulp 插件开发
 
 #HTTP2.0
 
@@ -52,10 +50,11 @@
 + Service Workers
 
 #Linux
-+ 软件安装管理
++ 软件安装管理【结】
 + 端口管理
 + 进程管理
 	* 后台运行
 
 #Other
 + 编码
++ 安全
