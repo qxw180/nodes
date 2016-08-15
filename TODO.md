@@ -17,6 +17,7 @@
 + [Safari Mobile 默认不使用:active 状态，除非元素上或<body>上有一个touchstart 事件处理器。](http://www.zhuowenli.com/diary/frontend-mobile-bug-notes.html)
 
 #自动化测试
++ 压力测试工具： Apache ab ，etc
 
 #流量、性能监控相关
 
