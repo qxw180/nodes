@@ -2,8 +2,8 @@
 更新：`[sudo] npm install npm@latest -g`
 
 ##package安装
-> 当你想在你的模块中通过`require`引用package时应该进行局部安装
-> 如果你想在命令行中使用，那么应该进行全局安装；
+本地安装：当你想在你的模块中通过`require`引用package时应该进行局部安装，程序安装在`./node_modules`目录
+全局安装：如果你想在命令行中使用，那么应该进行全局安装；
 
 
 + 安装：`npm install <pkg-name>[@<tag|version>]`
