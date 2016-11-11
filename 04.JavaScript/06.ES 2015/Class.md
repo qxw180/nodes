@@ -1,4 +1,3 @@
-#ES6 Class
 > ES6的Class只是一个语法糖，Class时间还是一个Function，用于定义原型(prototype)的；
 
 ES6 Class实现了类的定义，继承和静态方法，但是未实现以下几点
@@ -9,6 +8,8 @@ ES6 Class实现了类的定义，继承和静态方法，但是未实现以下�
 4. 
 
 ##定义
+构造方法：`constructor`
+
 	class Person {
 		constructor(name, age, sex) {
 			this.name = name;
@@ -25,6 +26,9 @@ ES6 Class实现了类的定义，继承和静态方法，但是未实现以下�
 	me.isAdult();// true;
 
 ##继承
+子类在`constructor`中必须调用`super`方法，否则新建实例时会报错。
+这是因为子类没有自己的`this`对象，而是继承父类的`this`对象。
+
 
 	class Animal {
 		yell() {
