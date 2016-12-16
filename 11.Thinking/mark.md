@@ -10,3 +10,17 @@ $
 + 2016-11-16 3000:20650
 + 2016-11-18 2000:13802.60
 + 2016-11-25 1000:6932.80
++ 2016-12-05 1000:6906.50+6905.1
+
+
+
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wMS5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wMi5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wMy5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wNC5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wNS5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wNi5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wNy5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wOC5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNTgvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8wOS5tcDRaWg==
+thunder://QUFmdHA6Ly9kczpkc0BkNC4ydHUuY2M6MjAxNjEvW9G4wNfPwtTYd3d3LnhpYW1wNC5jb21ds8K2/rm3tcTR/cT1yMvJ+l8xMC5tcDRaWg==
