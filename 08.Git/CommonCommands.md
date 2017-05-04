@@ -111,6 +111,7 @@
 	+ 删除stash内容：`git stash drop`
 	+ 恢复并删除stash内容：`git stash pop`
 - 忽略特殊文件：Git工作区的根目录下创建一个特殊的.gitignore文件
+- 合并单个commit：`git-cherry-pick <commit_id>`
 
 
 

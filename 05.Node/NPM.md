@@ -5,7 +5,6 @@
 本地安装：当你想在你的模块中通过`require`引用package时应该进行局部安装，程序安装在`./node_modules`目录
 全局安装：如果你想在命令行中使用，那么应该进行全局安装；
 
-
 + 安装：`npm install <pkg-name>[@<tag|version>]`
 	* `-g`：全局安装
 	* `--save`：保存信息到package.json
@@ -13,18 +12,13 @@
 + 更新：`npm update`，更新package.json中依赖的package，更新全局安装package可以重新执行全局安装；
 + 卸载：`npm uninstall --save <pkg-name>`
 
-##版本
+##[语义化版本](http://semver.org/lang/zh-CN/)
 NPM建议了一个版本规范，用来表示发布版本的修改种类
 NPM版本由三部分组成：`[主版本].[副版本].[补丁版本]`
 
-+ Patch：补丁版本，针对bug修复和小改动
-+ Minor：副版本，
-+ Major：主版本，
-
-在引用的时候可以在package.json中声明版本升级限制
-`"packange-name":"~1.0.x"`：以`~`开头，只进行补丁版本更新
-`"packange-name":"^1.x"`：以`^`开头，只进行副丁版本更新
-`"packange-name":"x | *"`：*或者只声明主版本，不限制更新版本
++ Patch releases 补丁版本: `1.0 or 1.0.x or ~1.0.4`
++ Minor releases 副版本，: `1 or 1.x or ^1.0.4`
++ Major releases 主版本，: `* or x`
 
 ##创建自己的package
 + Step1. 通过`npm init`初始化项目，生成package.json
@@ -65,6 +59,7 @@ NPM版本由三部分组成：`[主版本].[副版本].[补丁版本]`
 + `npm ls`：以树状结构列出安装的所有package即依赖
 + `npm run-script <command> [-- <agrs>]`：运行在package.json中`scripts`标签中定义的命令，如果没有批评命令则会列出定义的所有命令；
 	* NPM2.0在执行命令的时候可以定制参数，NPM会将`--`之后的参数直接传递到你的命令中；
++ `npm dedupe`：清理包依赖关系，减少重复依赖
 
 
 ##Configuration

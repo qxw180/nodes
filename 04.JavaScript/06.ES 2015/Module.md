@@ -1,6 +1,7 @@
 #ES6 Module
 > 和AMD或CommonJS的模块化设计思想有所区别，ES6的设计思想是尽量静态化，在编译的时候就确定模块的依赖关系，CommonJS和AMD都是在运行的时候进行确定；
 
+
 模块功能主要有`export`和`import`两个命令构成；
 
 ##导出export
@@ -25,14 +26,14 @@
 		return "Hello";
 	}
 
-	// 可以使用关键字修改export的名字
+	// 可以使用关键字as重命名输出变量
 	export {
 		firstName, 
 		familyName as lastName, 
 		year
 	};
 	
-`export`命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。
+`export`命令规定的是对外的接口（即对外变量名），必须与模块内部的变量建立一一对应关系。
 
 	// 报错
 	export 1;
@@ -65,13 +66,13 @@
 	// 同样也可以使用as自定义引用变量的名字
 	import { lastName as familyName } from './profile';
 
-注意：`import`具有提升效果
+注意：`import`具有提升效果，会提升到整个模块的顶部，首先执行；
 
 	foo();// 可以正确执行，不会报错；
 
 	import { foo } from 'my_module';
 
-`import`语句会执行加载的模块，所有有以下写法
+`import`语句会执行加载的模块，所有有以下写法，如果多次加载只会执行一次
 	
 	import 'lodash';
 
