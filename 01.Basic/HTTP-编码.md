@@ -1,36 +1,44 @@
-#理解字符编码
-字符(Characters)是组成单词和语句的基本单位，它可以是英文字母、拉丁字母、汉字、符号等。
-字符集(Character set)是一系列特定用途字符的集合，为了能够准确的引用一个字符每个字符都有一个相关的数值编码，称为码点(Code Point)。
-编码字符集(Coded Character Set)是一个字符集合，集合中的每个字符都已经被分配了一个唯一的数值，即码点(Code Point)；
-字符是以字节(bytes)的形式存储在电脑中的。
-字符编码(Character Encoding)提供了字节和字符之间的映射关系。
+#前端开发编码
 
-不幸的是有很多字符编码和字符集，即很多种不同的字符到字节的映射，使用错误的字符编码进行解码就会造成乱码。
+##定义HTML编码
+设置HTML编码有以下方式：
 
-#Unicode 
-一个通用字符集，包含了大多数语言字符，它的目标是成文其它字符集的一个超级，而且很大程度上已经是了。
+1. **meta元素**：通常使用`meta`元素`<meta charset="gb2312">`定义，或者使用`http-equiv`和`content`属性定义`<meta http-equiv="Content-Type" content="text/html; charset=IANAcharset">`；
+`<meta charaset="UTF-8">` H5规范对`<meta http-equiv="Content-Type" content="text/html; charset=IANAcharset">`的替代；
+2. **HTTP 响应头**：`Content-Type:text/html; charset=utf-8`，响应头的优先级要高于`meta`标签，所以`meta`和响应头编果不一致会被覆盖。meta标签和响应头设置的编码应该保持一致，可以在这[W3C Internationalization Checker](http://validator.w3.org/i18n-checker/)检查响应头的编码设置，检查页面国际化支持情况。
+3. **BOM(byte-order mark 字节顺序标记)**：BOM是在文件字节序列开头的一段，用来区分Unicode的编码方式。BOM相对于响应头和meta元素有更高的优先级。
 
+##BOM
+在UTF-8出现之前，使用UCS-2编码(16bit表示一个字符)，UTF-16是UCS-2的延伸。
+16个bit需要通过两个字节来编码，根据这两个字节的排列顺序有两种编码方式:
 
++ 一种方式叫做big-endian，
++ 另外一种方式叫做little-endian，把第二个字节在前面
 
+开头的BOM为`U+FEFF`代表使用big-endian，开头为`U+FFFE`代表使用`little-endian`。
+始终想不明白为什么需要little-endian，为什么要把第二个放到前面？
 
-GBK GB2312 UTF8
+![BOM 示例](https://www.w3.org/International/questions/images/bom.png)
 
+在UTF-8编码中BOM头不是必须的，因为不像UTF-16有两种排列方式；UTF-8的BOM头为`EF BB BF`。
 
+大多数时候我们不需要关心BOM，一些编辑器会默认添加BOM头，一些编辑器则会根据你的配置来添加。
+BOM可以提供可靠的编码描述，因为它简洁稳定，即使是在非网络环境没有HTTP响应头的情况下。
+应该保证BOM头和meta标签的一致性，
+
+因为BOM的优先级高于HTTP响应头，在无法控制HTTP响应头的时候使用BOM来做编码声明也许是一个好办法，
 #HTTP编码
 + head
 + 资源
 + AJAX
 
 
-声明当前文档所使用的字符编码
-<meta charset="gb2312"> //html5
-<meta http-equiv="Content-Type" content="text/html; charset=gb2312"> //html4 xhtml
+
 <script src="http://ossweb-img.qq.com/images/js/foot.js" charset="gb2312"></script>
 <link href="http://gameweb-img.qq.com/css/common.css" rel="stylesheet" charset="gb2312" >
 
-`<meta http-equiv="Content-Type" content="text/html; charset=IANAcharset">`
 
-`<meta charaset="UTF-8">` H5规范对`<meta http-equiv="Content-Type" content="text/html; charset=IANAcharset">`的替代；
+
 
 meta 标签只是编码声明的一部分
 HTTP Content-Type 头和其它的BOM(byte-order mark)元素比它有更高的优先级
@@ -43,8 +51,7 @@ HTTP Content-Type 头和其它的BOM(byte-order mark)元素比它有更高的优
 例子：
 中国 \u4e2d\u56fd &#x4E2D;&#x56FD;
 
-#参考资源
-[W3C Internationalization Checker](http://validator.w3.org/i18n-checker/)，可以对页面编码和国际化规范进行测试
+
 
 #The Document Character Set
 https://www.w3.org/International/articles/definitions-characters/#doccharset
@@ -96,5 +103,9 @@ URL中如果有汉字就必须编码后使用；
     * 作用：返回*utf-8形式*，对常见符号以及一些网址中一些特殊符号(; / ? : @ & = + $ , #)不进行编码
 + `encodeURIComponent`和`decodeURIComponent`：对整个URL进行编码，包括特殊字符(; / ? : @ & = + $ , #)
     
+##参考
+[Declaring character encodings in HTML](https://www.w3.org/International/questions/qa-html-encoding-declarations)
+[The byte-order mark (BOM) in HTML](https://www.w3.org/International/questions/qa-byte-order-mark)
+
 [Unicode与JavaScript详解](http://www.ruanyifeng.com/blog/2014/12/unicode.html)
 [关于URL编码](http://www.ruanyifeng.com/blog/2010/02/url_encoding.html)
