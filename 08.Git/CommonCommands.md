@@ -52,8 +52,9 @@
 
 
 ###对比相关
+- 对比工作区和缓存区：`git diff`
 - 对比不同分支：`git diff <source_branch> <target_branch>`
-- 对比工作区和本地仓库(HEAD)：`git diff`
+- 对比两次提交：`git diff commitId1 commitId2`
 - 对比缓存区(Index)和本地仓库(HEAD)：`git diff --cached`
 - 对比本地和缓存区(Index)区别：`git diff HEAD`
 
