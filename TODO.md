@@ -32,6 +32,9 @@
 
 #HTTP2.0
 
+##性能优化
+Big Pipe, WebSocket
+
 #URL Tool
 
 #客户端缓存
