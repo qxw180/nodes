@@ -13,6 +13,9 @@
 
 #自动化测试
 + 压力测试工具： Apache ab ，etc
++ mocha
+
+##代码校验
 
 #流量、性能监控相关
 
@@ -22,7 +25,7 @@
     * 前端功能组建
     * 。。。
 + 模版引擎
-    * Jade || Ejs
+    * Jade || Ejså
 + MVC框架
     * Express
     * Koajs
