@@ -5,50 +5,59 @@
 + 可以实现父容器(Flex box)中各个子元素(Flex item)按序排列，按比例显示，
 + 在父容器尺寸变化的时候，子元素可以自适应按比例进行变化
 
-##FlexBox
+##Flexbox CSS弹性盒子
+Flexbox是一种布局模式，Flexbox内的子元素可以在各个方向上进行布局，并且能以弹性尺寸来进行空间的适应。
 
-    .container{
-        display:flex;
-        width:1200px;
-    }
-    .item1{
-        width:100px;
-    }
-    .item2{
-        box-flex:1;
-    }
+![弹性容器](https://mdn.mozillademos.org/files/12998/flexbox.png "概念图")
 
+###概念
++ Flex Container：弹性容器，包含弹性项目的父元素。通过`display`属性设置为`flex`或`inline-flex`来定义；
++ Flex Item：弹性项目，弹性容器的每个子元素都是弹性项目。弹性容器直接包含的文本将被包裹成匿名弹性单元；
++ Axis：轴，每个弹性布局包含两个轴。弹性项目沿其依次排列的那根轴称为主轴(main axis)。垂直于主轴的那根轴称为侧轴。
+    * `flex-direction`：设置主轴
+    * `justify-content`：设置弹性项目沿主轴排布规则
+    * `align-items`：设置弹性项目沿侧轴排布规则
+    * `align-self`：设置弹性项目在侧轴上对其规则，会覆盖`align-items`设置的值
+    * ``：
++ Direction：方向，设置弹性项目沿主轴和侧轴的布局方向(从左到右或从右到左)，使用`writing-mode`设置
+    * `order`：弹性项目元素属性，设置弹性项目的排列顺序
+    * `flex-flow`：`flex-direction`和`flex-wrap`属性的简写，设置弹性项目如何排布
++ Line：行，根据`flex-wrap`属性，弹性项目可以进行单行或多行排列
++ Dimension：尺寸，
 
-#####父容器创建：`.container{display:flex}`
-+ `flex-direction`：定义排列方向
-    * `row`：默认值，主轴为水平方向，起点在左端。
-    * `row-reverse`：主轴为水平方向，起点在右端。
-    * `column`：主轴为垂直方向，起点在上沿。
-    * `column-reverse`：主轴为垂直方向，起点在下沿。
-+ `flex-wrap`：定义是否换行
-    * `nowrap`：默认不换行
-    * `wrap`：换行，第一行在上方。
-    * `wrap-reverse`：换行，第一行在下方。
-+ `flex-flow`：是`flex-direction`和`flex-wrap`的简写，默认值`row nowrap`
-+ `justify-content`：定义对齐方式
-    * `flex-start`：（默认值）左对齐
-    * `flex-end`：右对齐
-    * `center`： 居中
-    * `space-between`：两端对齐，项目之间的间隔都相等。
-    * `space-around`：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。
-+ `align-items`：定义项目在交叉轴上如何对齐
-    * `stretch`：（默认值）如果项目未设置高度或设为auto，将占满整个容器的高度。
-    * `flex-start`：交叉轴的起点对齐。
-    * `flex-end`：交叉轴的终点对齐。
-    * `center`：交叉轴的中点对齐。
-    * `baseline`: 项目的第一行文字的基线对齐。
-+ `align-content`：定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
-    * `flex-start`：与交叉轴的起点对齐。
-    * `flex-end`：与交叉轴的终点对齐。
-    * `center`：与交叉轴的中点对齐。
-    * `space-between`：与交叉轴两端对齐，轴线之间的间隔平均分布。
-    * `space-around`：每根轴线两侧的间隔都相等。所以，轴线之间的间隔比轴线与边框的间隔大一倍。
-    * `stretch`：（默认值）轴线占满整个交叉轴
+#####容器属性：`.container{display:flex}`
++ `diplay`：定义弹性盒子
+    * `display: flex;`：定义flex容器为块级元素
+    * `display: inline-flex;`：定义flex容器为行内级元素
++ `flex-direction`：定义弹性盒子的主轴方向，即项目排列方向
+    * `flex-direction: row;`：默认值，与文本方向相同
+    * `flex-direction: row-reverse;`：
+    * `flex-direction: column;`：
+    * `flex-direction: column-reverse;`：
++ `flex-wrap`：定义换行规则
+    * `flex-wrap: nowrap;`：默认值，不换行
+    * `flex-wrap: wrap;`：换行，第一行在下方
+    * `flex-wrap: wrap-reverse;`：换行，第一行在上方
++ `flex-flow`：flex-direction和flex-wrap的简写，格式为`flex-flow: flex-direction flex-wrap`
++ `justify-content`：定义项目沿主轴对齐方式
+    * `justify-content: flex-start;`：左对齐
+    * `justify-content: flex-end;`：右对齐
+    * `justify-content: center;`：居中
+    * `justify-content: space-between;`：两端对齐，项目之间的间隔相等
+    * `justify-content: space-around;`：每个项目两侧等间隔，不会发生间距合并，项目之间间隔是项目与边框间隔的两倍
++ `align-items`：定义项目沿侧轴对齐方式
+    * `align-items: flex-start`：沿侧轴起点对齐
+    * `align-items: flex-end`：沿侧轴终点对齐
+    * `align-items: center`：沿侧轴中点对齐
+    * `align-items: baseline`：项目第一行文字的基线对齐
+    * `align-items: stretch`：默认值，如项目为设置高度或设置为auto，将占满整个容器的高度
++ `align-content`：定义多根轴线的对齐方式
+    * `align-content: flex-start`：沿侧轴起点对齐
+    * `align-content: flex-end`：沿侧轴终点对齐
+    * `align-content: flex-center`：沿侧轴中点对齐
+    * `align-content: flex-space-between`：沿侧轴两端对齐，轴线间等间隔分不
+    * `align-content: flex-space-around`：等间距
+    * `align-content: flex-stetch`：默认值，占满
 
 #####子元素设置：`box-flex: value;`
 + `order`：定义项目的排列顺序。数值越小，排列越靠前，默认为0。
