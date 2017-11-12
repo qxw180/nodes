@@ -1,1 +1,1 @@
-Iterm.md
+iIterm.md
