@@ -30,7 +30,11 @@
     * Express
     * Koajs
 
-#HTTP2.0
+#HTTP
++ 301 302区别
++ HTTPS
++ HTTP2
++ cache相关
 
 ##性能优化
 Big Pipe, WebSocket
