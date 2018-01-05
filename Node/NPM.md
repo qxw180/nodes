@@ -45,38 +45,58 @@ NPM版本由三部分组成：`[主版本].[副版本].[补丁版本]`
 `npm dist-tag add <pkg>@<version> [<tag>]`
 
 
-##Command
 
-+ `npm bin [-g]`：查看package安装目录
-+ `npm config`：管理NPM配置文件
-	* `npm config set key value`
-	* `npm config get key`
-	* `npm config list`
-	* `npm config delete key`
-	* `npm config edit`：打开配置文件
-+ `npm init`：初始化项目，生成一个package.json
-	* `-y|--yes`：使用默认选项，尽量少提问题
-+ `npm ls`：以树状结构列出安装的所有package即依赖
-+ `npm run-script <command> [-- <agrs>]`：运行在package.json中`scripts`标签中定义的命令，如果没有批评命令则会列出定义的所有命令；
-	* NPM2.0在执行命令的时候可以定制参数，NPM会将`--`之后的参数直接传递到你的命令中；
-+ `npm dedupe`：清理包依赖关系，减少重复依赖
+#NodeJS Package
+NodeJS程序的基本组成单位是js文件，一个js文件就是一个模块；但是复杂的模块为了方便维护要分成多个子模块，由多个子模块放在一个目录中，组成的大模块称做包；
+
+##入口模块
+一个包中的所有子模块中需要有一个模块作为包的导出对象，这个模块称为包的*入口模块*；
+
+例：目录结构如下
+
+```
+- /home/user/workspace/lib/
+	- school/
+		teacher.js
+		student.js
+		main.js
+```
+
+其中`school`定义了一个包，`main.js`为入口模块，内容如下：
+
+```
+var teacher = require('./teacher')
+var student = require('./student')
+
+exports.create = function(name){
+	return {
+		name: name,
+		student: student.create(),
+		teacher: teacher.create()
+	}
+}
+```
+
+其他模块需要使用该包的时候，只需要`require('/home/user/workspace/lib/school/main')`引用即可；
+
+但是通过模块名称导入包看起来不是那么舒服直观；
+所有当包的入口模块名称为`index.js`的时候，以下两条语句是等价的：
+
+```
+require('/home/user/workspace/lib/school/index')
+require('/home/user/workspace/lib/school')
+```
 
 
-##Configuration
+##自定义入口模块
+可以在包中创建一个`package.json`文件来定义入口模块
+例：
 
-`package.json`
+```
+{
+	"name":"school",
+	"main":"./main.js"
+}
+```
 
-+ `name`：
-+ `version`：
-+ `description`：
-+ `keywords`：
-+ `homepage`：
-+ `bugs`：项目问题反馈网址或Email
-+ `license`：
-+ `author`：
-+ `contributors`：
-+ `files`：
-+ `main`：模块ID，项目入口
-+ `bin`：
-+ `man`：配置man命令查找地址
-+ `scriptes`：定义命令
+可以通过`require('/home/user/workspace/lib/school')`来加载模块；
