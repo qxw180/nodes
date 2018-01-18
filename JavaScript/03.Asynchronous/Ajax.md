@@ -1,9 +1,8 @@
 #AJAX
-> 使用AJAX可以在页面不刷新的情况下发起请求；
-> 在现代浏览器(IE7+)中使用的是XMLHttpRequest对象实现前后台异步数据交互；
+使用AJAX可以在页面不刷新的情况下发起请求；
+在现代浏览器(IE7+)中使用的是XMLHttpRequest对象实现前后台异步数据交互；
 
-###Demo
-	
+```	
 	var xmlhttp = new XMLHttpRequest();// 创建对象
 	xmlhttp.onreadystagechange=function(){
 		if(xmlhttp.readyState==4&&xmlhttp.status==200){
@@ -16,9 +15,9 @@
 	xmlhttp.open(method,url,async);// 创建请求
 	xmlhttp.setRequestHeader(header,value,true)// 设置请求头
 	xmlhttp.send(string);// 发送请求
+```
 
-###API
-#####属性
+##XHR属性
 + `readyState`请求状态，每次状态变化都会触发`onStateChange()`方法
 	* 0: 对应常量`UNSENT`，请求未初始化，XMLHttpRequest实例已经生成，未调用`open()`
 	* 1: 对应常量`OPEND`，服务器连接已建立，未调用`send()`，仍然可以使用`setRequestHeader()`设定请求头信息
@@ -41,7 +40,7 @@
 + `ontimeout`：请求超时回调函数；
 + `withCredentials`：布尔值，表示跨域请求时，用户信息(cookie和认证的HTTP头信息)是否包含在请求中，默认false；
 
-#####方法
+##XHR方法
 + `open(method,url,async,user,pwd)`：创建请求
 	* `method`：请求类型，`GET`或`POST`；
 	* `url`：请求路径；
@@ -60,7 +59,7 @@
 + `getAllResponseHeaders()`：获取返回的所有http响应头信息；
 + `getResponseHeader(head-name)`：获取返回http响应头信息；
 
-#####事件
+##XHR事件
 + `readyStateChange`：通过`onReadyStateChange`属性指定回调函数
 + `progress`：
 	* 上传文件时，XMLHTTPRequest对象的upload属性有一个progress，会不断返回上传的进度。
@@ -70,11 +69,9 @@
 + `abort`事件：表示请求被中断
 + `loadend`：abort、load和error这三个事件，会伴随一个loadend事件，表示请求结束，但不知道其是否成功。
 
-####FormData对象
+##FormData对象
 XMLHttpRequest Level 2添加了一个新的接口FormData.利用FormData对象,我们可以通过JavaScript用一些键值对来模拟一系列表单控件,我们还可以使用XMLHttpRequest的send()方法来异步的提交这个"表单".比起普通的ajax,使用FormData的最大优点就是我们可以异步上传一个二进制文件.
-
-浏览器支持情况：IE10+
-
+```
 	var oMyForm = new FormData();
 
 	oMyForm.append("username", "Groucho");
@@ -91,16 +88,16 @@ XMLHttpRequest Level 2添加了一个新的接口FormData.利用FormData对象,�
 	var oReq = new XMLHttpRequest();
 	oReq.open("POST", "http://foo.com/submitform.php");
 	oReq.send(oMyForm);
+```
 
-#####API
 + 构造对象：`new FormData (optional HTMLFormElement form)`
 	* 参数可以为空：`new FormData()`
 	* 参数可以为一个form对象：`new FormData(document.getElementById('myForm'))`
 	* 参数可以为form数据：`new FormData(document.getElementById('myForm').getFormData())`
 + 添加数据：`append(name,value)`
 
-####使用FormData上次文件
-	
+使用FormData上次文件
+```	
 	function sendForm() {
 	  var oOutput = document.getElementById("output");
 	  var oData = new FormData(document.forms.namedItem("fileinfo"));
@@ -119,50 +116,7 @@ XMLHttpRequest Level 2添加了一个新的接口FormData.利用FormData对象,�
 
 	  oReq.send(oData);
 	}
-
-
-###跨域
-> 浏览器的同源策略，不允许进行跨域资源请求
-
-####什么情况下属于跨域
-1. 协议不同：`http://www.a.com`和`https://www.a.com`
-2. 端口不同：`http://www.a.com:80`和`http://www.a.com:81`
-3. 主机不同：`http://test.a.com`和`http://www.a.com`
-
-####跨域方式
-1. 通过Flash插件发送HTTP请求，比较麻烦，很少使用
-2. 在同域服务器端架设代理来转发请求，服务器端需要额外开发
-3. JSONP，利用浏览器允许跨域引用JavaScript资源
-4. CORS
-5. HTML5中新引进的`Window.postMessage(message,targetOrigin)`方法
-
-
-####JSONP
-浏览器可以引用不同域的JavaScript资源，可以利用这一特性实现跨域暑期请求；
-1. 定义callback函数;
-2. 动态添加`script`标签，定义回调函数;
-3. 服务返回的内容必须为可执行的js文件;
-
-实现案例
-
 ```
-function addScriptTag(src){
-    var script = document.createElement('script');
-    script.setAttribute("type","text/javascript");
-    script.src = src;
-    document.body.appendChild(script);
-}
-
-window.onload = function(){
-    addScriptTag("http://example.com/ip?callback=foo");
-}
-
-function foo(data) {
-    console.log('Your public IP address is: ' + data.ip);
-};
-```
-> jQuery的getJSON方法会自动判断是否跨域，如果跨域就会使用JSONP的方式加载回调函数
-> $.getJSON(http://example.com/ip>callback=?,function(){});
 
 
 ##参考文献
