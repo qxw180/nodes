@@ -137,7 +137,7 @@
 	})
 
 ##CommonJS和AMD兼容写法
-
+```
 	;(function(){
     	function MyModule() {
         	// ...
@@ -154,7 +154,17 @@
 	}).call(function() {
     	return this || (typeof window !== 'undefined' ? window : global);
 	});
-
+```
 ##参考文献
 [Javascript模块化编程（一）：模块的写法](http://www.ruanyifeng.com/blog/2012/10/javascript_module.html)
 [CommonJS规范](http://javascript.ruanyifeng.com/nodejs/module.html)
+
+
+
+
+
+
+
+
+
+

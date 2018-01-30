@@ -2,11 +2,10 @@
 > ES6 也叫 ES 2015，被命名为Harmony
 
 ##Babel
-> JavaScript编译器：可以把用最新标准编写的JavaScript代码转化为当下可用的版本；
-> 语法扩展：它的的插件机制使得Babel几乎可以做任何事情；
+JavaScript编译器：可以把用最新标准编写的JavaScript代码转化为当下可用的版本；
+语法扩展：它的的插件机制使得Babel几乎可以做任何事情；
 
 Babel中有两个概念需要理解，preset和polyfill：
-
 + `preset`：Babel转码规则，Babel本身并不包含任何转码规则，必须通过preset来指定转码规则；
 + `polyfill`：Babel默认只进行JavaScript语法转换，并不进行新API处理。polyfill可以添加一个垫片来进行兼容；
 
