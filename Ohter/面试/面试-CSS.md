@@ -58,6 +58,9 @@
 + png、jpg、gif 这些图片格式解释一下，分别什么时候用。有没有了解过webp？
     * webp 图片的浏览器兼容检测:
 
+##Canvas
++ canvas中定义width、height跟在style中定义width和height是不同的，canvas标签的width和height是画布实际宽度和高度
+
 ##自适应布局
 + 简述媒体查询
 + 响应式布局的方法，如何实现一个资讯流布局
