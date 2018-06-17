@@ -12,7 +12,7 @@
 > 这两个参数是由JavaScript引擎提供的，这两个参数也是函数
 > resolve函数的作用是使Promise实例的状态由Pending变为Resolved，并将异步操作结果作为函数参数传递出去
 > reject函数的作用是使Promise实例的状态由Pending变为Reject，并将异步操作错误作为函数参数传递出去
-
+```
 	var promise = new Promise(function(resolve,reject){
 		if(/*操作成功*/){
 			resolve(value);
@@ -20,9 +20,9 @@
 			reject(err);
 		}
 	});
-
+```
 > 每一个Promise实例都有`then`方法用来指定Resolved和Rejected的回调函数
-
+```
 	promise.then(
 		function(value){
 			// success
@@ -32,7 +32,7 @@
 			dosomething();
 		}
 	);
-
+```
 > Promise实例新建之后立即执行
 
 
@@ -42,12 +42,24 @@
 		- callBackResolve：Resolved状态回调函数
 		- callBackReject：Rejected状态回调函数
 	* 返回值：
-		- 一个新的Promise实例
-+ `Promise.prototype.then()`：相当于`.then(null,reject)`，用于指定错误时的回调函数
+		- 一个新的Promise实例，then方法后面可以在调用另一个then方法。
++ `Promise.prototype.catch()`：相当于`.then(null,reject)`，用于指定错误时的回调函数
 	* 参数
 		- callBackReject：Rejected状态回调函数
 	* 返回值：
 		- 一个新的Promise实例
+
+```
+	getJSON("/post/1.json").then(function(post) {
+		return getJSON(post.commentURL);
+	}).then(function funcA(comments) {
+	  	console.log("resolved: ", comments);
+	}, function funcB(err){
+	  	console.log("rejected: ", err);
+	});
+```
+
++ `Promise.prototype.finally()`
 
 ##对象方法
 + `Promise.all()`：将多个Promise实例包装成一个Promise实例
@@ -62,8 +74,8 @@
 		- promiseInstanceArray：Promise对象实例数组
 	* 返回值：
 		- 一个新的Promise实例，只要实例数组中有一个实例的状态改变，返回实例的状态就改变，值为第一个改变实例的值
-+ `Promise.resolve()`：将对象转化为Promise对象
-+ `Promise.reject()`：返回一个状态为rejected的实例
++ `Promise.resolve(value)`：将对象转化为Promise对象
++ `Promise.reject(reason)`：返回一个状态为rejected的实例
 	
 
 

@@ -53,7 +53,14 @@ Document.ready原生种没有这个方法，jquery中有 $().ready(function)
     * JSONP实现及原理，手写jsonp实现，发送和回调接收
     * CORS原理
 + 多层依赖请求处理。promise
-+ promise的三种状态
++ Promise
+    * Promise相对于Callback的好处：处理异步流程中，把执行代码和结果处理代码清晰的分离
+    * promise的三种状态，状态十分可变
+    * promise错误处理？catch和第二个参数哪种方式更好：catch有冒泡性质。
+    * promise对象什么时候开始执行：创建后立即执行
+    * 低版本浏览器不支持promise如何处理？
+    * resolve和reject会不会中止promise对象函数的执行，如何中止？
+    * then方法是否可以实现链式调用？为什么？
 
 
 

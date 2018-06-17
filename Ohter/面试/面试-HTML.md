@@ -38,7 +38,9 @@ SVG是使用XML来进行图像描述进行绘图，是一套完整独立的矢�
 
 
 ##Canvas
-使用JavaScript进行绘图，H5提供了Canvas标签用来声明画布，提供了绘图相关API进行图像绘制，Canvas是基于位图实现的，不能改变大小，只能缩放；
++ 使用JavaScript进行绘图，H5提供了Canvas标签用来声明画布，提供了绘图相关API进行图像绘制，Canvas是基于位图实现的，不能改变大小，只能缩放；
++ 如何使用canvas绘制图片，如何解决retina屏幕下图片模糊问题；
++ canvas的with和height属性和CSS样式的区别；
 
 ##WebSocket
 
