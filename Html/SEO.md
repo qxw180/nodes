@@ -44,3 +44,16 @@ table使用caption
 img使用alt title
 强调内容使用strong和em
 
+新增语义化结构标签
++ `<header></header>`：页面或`section`中的的页眉
++ `<footer></footer>`：页面或`section`中的的注脚，一般包括作者的姓名、 创作日期、联系方式等
++ `<nav></nav>`： 表示页面中导航的链接部分
++ `<article></article>`：表示页面中一块与上下文不相关的独立内容；
++ `<aside></aside>`：表示`article`之外，与`article`标签内容相关的辅助信息；
++ `<section></section>`：表示页面中独立区域，比如章节、页眉、页脚等
++ `<hgroup></hgroup>`：对整个页面或页面中的一个内容区块的标题组合；
++ `<figure></figure>`：表示一段独立的流内容，
+
+
+
+
