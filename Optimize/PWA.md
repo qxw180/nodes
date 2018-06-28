@@ -12,3 +12,5 @@
 + Re-engageable：唤醒保持用户的能力，只要实现即推送通知
 
 https://www.zhihu.com/question/46690207
+
+[MDN Web App Manifest](https://developer.mozilla.org/zh-CN/docs/Web/Manifest)

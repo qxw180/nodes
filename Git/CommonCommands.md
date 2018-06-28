@@ -1,29 +1,22 @@
 #Git常用命令
 
 ##工作流
-![流程](http://image.beekka.com/blog/2014/bg2014061202.jpg "流程")
-
-
-##基本概念
-+ 工作区(Working Directory)：工作项目目录
-+ 缓存区(Index、Stage)：
-+ 版本库(Repository)：工作区下`.git`文件
-+ HEAD：当前版本，也就是最新的commitId；上一个版本可以使用`HEAD^`表示；上n个版本`HEAD~n`
+![流程](./good.jpg "流程")
 
 ##服务配置相关
-1. 配置列表：`git config --list`
-> 配置文件位置：
->> 	<small>`/etc/gitconfig`(用户全局置文件，使用`--system`参数配置)</small>
->> 	<small>`~/.gitconfig`(用户配置文件，快捷键、用户、颜色等配置信息，使用`--global`参数配置)</small>
->> 	<small>`PROJECT_DIR/.git/config`(项目相关配置，远程仓库，本地/远程分支关联相关)</small>
+1. 查看配置：`git config --list`
+配置文件位置：
++ `/etc/gitconfig`(用户全局置文件，使用`--system`参数配置)
++ `~/.gitconfig`(用户配置文件，快捷键、用户、颜色等配置信息，使用`--global`参数配置)
++ `PROJECT_DIR/.git/config`(项目相关配置，远程仓库，本地/远程分支关联相关)
 	
-2. 配置别名：`git config --global alias.command_alias command`
-> <small>*例：git config --global alias.st status*</small>
-> <small>*--global:全局参数，设置在这台电脑上的所有git仓库生效*</small>
+1. 配置别名：`git config --global alias.command_alias command`
+例：`git config --global alias.st status`
+`--global`:全局参数，设置在这台电脑上的所有git仓库生效
 
 3. 基本配置：
-> `git config --global user.name "kevin"`
-> `git config --global user.email "kevin@github.com"`
++ `git config --global user.name "xxx"`
++ `git config --global user.email "xxx@github.com"`
 
 
 ###基本命令

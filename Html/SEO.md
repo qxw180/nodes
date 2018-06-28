@@ -1,9 +1,10 @@
 #SEO(Search Engine Optimization)搜索引擎优化
 
-##内容SEO
+##SEO要素
 + 网站标题、关键字、描述
 + 网站内容优化，网站内容与关键字对应，增加关键字密度，增加常委关键字等
-+ 设置`Robot.txt`文件
+// TODO
++ 设置`Robot.txt`文件，robots.txt
 + 对搜索引擎用好的网站地图
 + 增加外部链接
 
