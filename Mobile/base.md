@@ -1,5 +1,5 @@
-#WebApp开发问题及解决笔记
-
+#移动端开发综合笔记
+H5页面模版[HTML5 ★ BOILERPLATE](https://html5boilerplate.com/)
 
 ##设置相关
 + 关闭iOS键盘首字母自动大写：`<input type="text" autocapitalize="off" />`
@@ -12,6 +12,7 @@
 + Safari绝对定位font-size失效：`-webkit-text-size-adjust:100%;`
 + 删除灰色背景链接点击:`-webkit-tap-highlight-color:rgba(0,0,0,0);`
 + 链接、表单获取焦点时高亮颜色：`-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+
 
 ##键盘设置相关
 
@@ -91,9 +92,7 @@ Safari 默认禁用了元素的 active 样式，我们通过声明 touchstart �
 	    overflow: auto;
 	    -webkit-overflow-scrolling: touch;
 	}
-
-##事件相关
-
+s
 
 ##表单元素样式重置
 	div	{
@@ -109,40 +108,3 @@ Safari 默认禁用了元素的 active 样式，我们通过声明 touchstart �
 	field	将元素呈现为输入字段。
 
 ##Retina
-
-##Geolocation 定位
-> geolocation接口用于获取用户的地理位置，浏览器基于GPS、IP等机制获取地理位置信息并通过geolocation接口和js交换
-> IE9+浏览器均指出该接口
-
-例子
-
-	// 获取用户位置信息
-	navigator.geolocation.getCurrentPosition(
-		function(event){
-			console.log(event.coords.latitude,',',event.coords.longitude);
-		}
-		,function(event){
-			console.log("Error code " + event.code + ". " + event.message);
-		}
-	);
-	// 监听用户位置信息
-	var watchID = navigator.geolocation.watchPosition(geoSuccess,geoError, option);
-	navigator.geolocation.clearWatch(watchID);
-
-API
-+ `getCurrentPosition(geoSuccess,geoError)`：获取用户地理位置
-	* `geoSuccess`：获取信息成功回调函数
-		- `coords.latitude`：纬度
-		- `coords.longitude`：经度
-		- `coords.accuracy`：精度
-		- `coords.altitude`：海拔
-		- `coords.altitudeAccuracy`：海拔精度（单位：米）
-		- `coords.heading`：以360度表示的方向
-		- `coords.speed`：每秒的速度（单位：米）
-	* `geoError`：获取信息失败回调函数(例如用户不允许)
-		- 0：未知错误，浏览器没有提示出错的原因，相当于常量event.UNKNOWN_ERROR。
-		- 1：用户拒绝授权，相当于常量event.PERMISSION_DENIED。
-		- 2：没有得到位置，GPS或其他定位机制无法定位，相当于常量event.POSITION_UNAVAILABLE。
-		- 3：超时，GPS没有在指定时间内返回结果，相当于常量event.TIMEOUT。
-+ `watchPosition()`：监听用户位置改变
-+ `clearWatch()`：取消监听

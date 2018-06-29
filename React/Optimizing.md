@@ -1,3 +1,7 @@
+#React 性能优化
+// TODO
+https://reactjs.org/docs/optimizing-performance.html
+
 #React Immutability
 
 ##Immutable Object
