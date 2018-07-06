@@ -2,19 +2,19 @@
 使用AJAX可以在页面不刷新的情况下发起请求；
 在现代浏览器(IE7+)中使用的是XMLHttpRequest对象实现前后台异步数据交互；
 
-```	
-	var xmlhttp = new XMLHttpRequest();// 创建对象
-	xmlhttp.onreadystagechange=function(){
-		if(xmlhttp.readyState==4&&xmlhttp.status==200){
-			console.log(xml.responseText);
-		}
+```	javascript
+var xmlhttp = new XMLHttpRequest();// 创建对象
+xmlhttp.onreadystagechange=function(){
+	if(xmlhttp.readyState==4&&xmlhttp.status==200){
+		console.log(xml.responseText);
 	}
-	xmlhttp.onerror = function (e) {
-	  console.error(xmlhttp.statusText);
-	};
-	xmlhttp.open(method,url,async);// 创建请求
-	xmlhttp.setRequestHeader(header,value,true)// 设置请求头
-	xmlhttp.send(string);// 发送请求
+}
+xmlhttp.onerror = function (e) {
+	console.error(xmlhttp.statusText);
+};
+xmlhttp.open(method,url,async);// 创建请求
+xmlhttp.setRequestHeader(header,value,true)// 设置请求头
+xmlhttp.send(string);// 发送请求
 ```
 
 ##XHR属性
@@ -71,23 +71,23 @@
 
 ##FormData对象
 XMLHttpRequest Level 2添加了一个新的接口FormData.利用FormData对象,我们可以通过JavaScript用一些键值对来模拟一系列表单控件,我们还可以使用XMLHttpRequest的send()方法来异步的提交这个"表单".比起普通的ajax,使用FormData的最大优点就是我们可以异步上传一个二进制文件.
-```
-	var oMyForm = new FormData();
+```javascript
+var oMyForm = new FormData();
 
-	oMyForm.append("username", "Groucho");
-	oMyForm.append("accountnum", 123456); // 数字123456被立即转换成字符串"123456"
+oMyForm.append("username", "Groucho");
+oMyForm.append("accountnum", 123456); // 数字123456被立即转换成字符串"123456"
 
-	// fileInputElement中已经包含了用户所选择的文件
-	oMyForm.append("userfile", fileInputElement.files[0]);
+// fileInputElement中已经包含了用户所选择的文件
+oMyForm.append("userfile", fileInputElement.files[0]);
 
-	var oFileBody = "<a id="a"><b id="b">hey!</b></a>"; // Blob对象包含的文件内容
-	var oBlob = new Blob([oFileBody], { type: "text/xml"});
+var oFileBody = "<a id="a"><b id="b">hey!</b></a>"; // Blob对象包含的文件内容
+var oBlob = new Blob([oFileBody], { type: "text/xml"});
 
-	oMyForm.append("webmasterfile", oBlob);
+oMyForm.append("webmasterfile", oBlob);
 
-	var oReq = new XMLHttpRequest();
-	oReq.open("POST", "http://foo.com/submitform.php");
-	oReq.send(oMyForm);
+var oReq = new XMLHttpRequest();
+oReq.open("POST", "http://foo.com/submitform.php");
+oReq.send(oMyForm);
 ```
 
 + 构造对象：`new FormData (optional HTMLFormElement form)`
@@ -97,29 +97,29 @@ XMLHttpRequest Level 2添加了一个新的接口FormData.利用FormData对象,�
 + 添加数据：`append(name,value)`
 
 使用FormData上次文件
-```	
-	function sendForm() {
-	  var oOutput = document.getElementById("output");
-	  var oData = new FormData(document.forms.namedItem("fileinfo"));
+```	javascript
+function sendForm() {
+	var oOutput = document.getElementById("output");
+	var oData = new FormData(document.forms.namedItem("fileinfo"));
 
-	  oData.append("CustomField", "This is some extra data");
+	oData.append("CustomField", "This is some extra data");
 
-	  var oReq = new XMLHttpRequest();
-	  oReq.open("POST", "stash.php", true);
-	  oReq.onload = function(oEvent) {
-	    if (oReq.status == 200) {
-	      oOutput.innerHTML = "Uploaded!";
-	    } else {
-	      oOutput.innerHTML = "Error " + oReq.status + " occurred uploading your file.<br \/>";
-	    }
-	  };
-
-	  oReq.send(oData);
+	var oReq = new XMLHttpRequest();
+	oReq.open("POST", "stash.php", true);
+	oReq.onload = function(oEvent) {
+	if (oReq.status == 200) {
+		oOutput.innerHTML = "Uploaded!";
+	} else {
+		oOutput.innerHTML = "Error " + oReq.status + " occurred uploading your file.<br \/>";
 	}
+	};
+
+	oReq.send(oData);
+}
 ```
 
 
-##参考文献
+##参考
 [Ajax](http://javascript.ruanyifeng.com/bom/ajax.html)
 [FormData](https://developer.mozilla.org/zh-CN/docs/Web/API/FormData)
 [使用FormData对象](https://developer.mozilla.org/zh-CN/docs/Web/Guide/Using_FormData_Objects)
