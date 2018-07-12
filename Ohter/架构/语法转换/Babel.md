@@ -38,12 +38,12 @@ Babel官方提供了很多preset我们可以直接使用，大概分为以下几
 ``` JSON
 {
   "presets": [
-    ["env", {
-      "targets": {
-        "browsers": ["last 2 versions", "safari >= 7"]
-      }
-    }]
-  ]
+		["env", {
+			"targets": {
+				"browsers": ["last 2 versions", "safari >= 7"]
+			}
+		}]
+  	]
 }
 ```
 
@@ -54,10 +54,10 @@ Babel附带一个内建的命令行工具`babel-cli`可以用来转换文件，�
 ``` JSON
 {
 	"plugins": ["transform-react-jsx"],
-  "ignore": [
-	  "foo.js",
-    "bar/**/*.js"
-  ]
+  	"ignore": [
+		"foo.js",
+    	"bar/**/*.js"
+  	]
 }
 ```
 
@@ -74,13 +74,13 @@ https://github.com/jamiebuilds/babel-handbook
 创建一个Preset只需要export一个配置文件，配置文件中可以保护其它preset和plugin以及配置参数
 ``` JavaScript
 module.exports = {
-  presets: [
-    require("babel-preset-es2015"),
-  ],
-  plugins: [
-    [require("babel-plugin-transform-es2015-template-literals"), { spec: true }],
-    require("babel-plugin-transform-es3-member-expression-literals"),
-  ],
+  	presets: [
+    	require("babel-preset-es2015"),
+  	],
+  	plugins: [
+    	[require("babel-plugin-transform-es2015-template-literals"), { spec: true }],
+    	require("babel-plugin-transform-es3-member-expression-literals"),
+  	]
 };
 ```
 

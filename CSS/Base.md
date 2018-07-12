@@ -2,24 +2,17 @@
 用来描述HTML、XML等文档的呈现
 
 ##加载方式
-`link`：
-> html标签，可以用来加载css，也可以定义RSS、rel等属性
-> 页面加载的时候link会同时被加载
-> 权重高于@import
+`link`：html标签，可以用来加载css，也可以定义RSS、rel等属性，页面加载的时候link会同时被加载，权重高于@import
+``` HTML
+<link href="blue.css" rel="stylesheet" type="text/css" />  
+```
 
-	<link href="blue.css" rel="stylesheet" type="text/css" />  
-
-`@import`：
-
-> css提供一种方式，只能加载css
-> 页面加载完成之后加载
-> IE5+支持
-> 基本没用啊 
-
-	<style type="text/css">  
-		@import url(blue.css);  
-	</style>  
-
+`@import`：css提供一种方式，只能加载css，页面加载完成之后加载，IE5+支持
+``` HTML
+<style type="text/css">  
+	@import url(blue.css);  
+</style>  
+```
 
 ##选择器的权重和优先级
 + 内联样式 > 内部样式 > 外部样式
