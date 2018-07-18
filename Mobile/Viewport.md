@@ -8,16 +8,16 @@ Viewport的由来，因为移动设备的屏幕较小，传统web页面在移动
 那么在默认的viewport宽度上显示这些网页就会出现新的问题，开发出来的页面只占了viewport的一小部分；
 所以我们需要对viewport进行设置
 
-##使用
-```html
+``` html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
 ```
 
+属性列表
 + `width`: viewport宽度
-    * Number
+    * Number，单位为像素
     * device-width
 + `height`: viewport高度
-    * Number
+    * Number， 单位为像素
     * device-height
 + `initial-scale`: 初始缩放比例
 + `maximum-scale`: 最大缩放比例
@@ -25,7 +25,5 @@ Viewport的由来，因为移动设备的屏幕较小，传统web页面在移动
 + `user-scalable`: 是否允许用户缩放
     * yes
     * no
-
-
 
 [Configuring the Viewport](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/UsingtheViewport/UsingtheViewport.html)

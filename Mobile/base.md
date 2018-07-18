@@ -2,6 +2,9 @@
 H5页面模版[HTML5 ★ BOILERPLATE](https://html5boilerplate.com/)
 
 ##设置相关
++ 添加到主屏幕
+	+ 标题：`<meta name="apple-mobile-web-app-title" content="页面标题">`
+	+ 图标：`<link href="short_cut_114x114.png" rel="apple-touch-icon-precomposed">`
 + 关闭iOS键盘首字母自动大写：`<input type="text" autocapitalize="off" />`
 + 忽略页面的数字为电话，忽略email识别：`<meta name="format-detection" content="telephone=no, email=no"/>`
 + 移动端禁止选中内容：`-webkit-user-select: none;`
@@ -9,9 +12,8 @@ H5页面模版[HTML5 ★ BOILERPLATE](https://html5boilerplate.com/)
 + IOS滚动条：`-webkit-overflow-scrolling: touch;`
 + 解决字体在移动端比例缩小后出现锯齿的问题：`-webkit-font-smoothing: antialiased`
 + 消除transition闪屏：`-webkit-transform-style: preserve-3d;-webkit-backface-visibility: hidden;`
-+ Safari绝对定位font-size失效：`-webkit-text-size-adjust:100%;`
 + 删除灰色背景链接点击:`-webkit-tap-highlight-color:rgba(0,0,0,0);`
-+ 链接、表单获取焦点时高亮颜色：`-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
++ 链接、表单获取焦点时高亮颜色：`-webkit-tap-highlight-color: rgba(0, 0, 0, 0);`
 
 
 ##键盘设置相关

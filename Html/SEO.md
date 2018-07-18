@@ -9,6 +9,11 @@
 + 增加外部链接
 
 
+[sitemap](https://www.sitemaps.org/protocol.html)
+[百度搜索资源平台](https://ziyuan.baidu.com/)
+
+Canonical URL：<link rel="canonical" href="">
+
 ##布局SEO
 
 ###网站结构布局优化
