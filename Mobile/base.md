@@ -2,26 +2,19 @@
 H5页面模版[HTML5 ★ BOILERPLATE](https://html5boilerplate.com/)
 
 ##设置相关
-+ 添加到主屏幕
-	+ 标题：`<meta name="apple-mobile-web-app-title" content="页面标题">`
-	+ 图标：`<link href="short_cut_114x114.png" rel="apple-touch-icon-precomposed">`
-+ 关闭iOS键盘首字母自动大写：`<input type="text" autocapitalize="off" />`
 + 忽略页面的数字为电话，忽略email识别：`<meta name="format-detection" content="telephone=no, email=no"/>`
 + 移动端禁止选中内容：`-webkit-user-select: none;`
 + 禁止保存或拷贝图像：`-webkit-touch-callout: none;`
-+ IOS滚动条：`-webkit-overflow-scrolling: touch;`
-+ 解决字体在移动端比例缩小后出现锯齿的问题：`-webkit-font-smoothing: antialiased`
-+ 消除transition闪屏：`-webkit-transform-style: preserve-3d;-webkit-backface-visibility: hidden;`
-+ 删除灰色背景链接点击:`-webkit-tap-highlight-color:rgba(0,0,0,0);`
-+ 链接、表单获取焦点时高亮颜色：`-webkit-tap-highlight-color: rgba(0, 0, 0, 0);`
 
 
 ##键盘设置相关
-
++ 关闭iOS键盘首字母自动大写：`<input type="text" autocapitalize="off" />`
+```
 	<input type="number" />
 	<!-- 在IOS设备中调出九宫格数字键盘，以下两种方式均可 -->
 	<input type="number" pattern="[0-9]*" />
 	<input type="tel" />
+```
 
 ##多行文本省略号
 	//单行
@@ -35,78 +28,3 @@ H5页面模版[HTML5 ★ BOILERPLATE](https://html5boilerplate.com/)
 	-webkit-line-clamp: 2;
 	-webkit-box-orient: vertical;
 
-##Android上原型图片使用border边框显示变形
-在img外嵌套元素，为嵌套元素使用圆角
-
-	<div>
-	    <img src="">
-	</div>
-
-	div{
-	    display: inline-block;
-	    border-radius: 50%;
-	    border: 4px solid #FF7000;
-	}
-	img{
-	    vertical-align: top;
-	}
-
-##Android圆角元素背景颜色溢出
-	
-	{
-	    background-clip: padding-box;
-	}
-
-##Android圆角使用Animataion做loading动画，圆角背景色溢出
-使用圆角蒙版遮住多余部分
-
-	{
-	    background-color: #F9CEAC;
-	    border-radius: 32px 0 0 32px;
-	    -webkit-mask-image: url(http://i.gtimg.cn/qqlive/images/20150527/btn_mask.png);
-	}
-
-##CSS三角在Android上显示为方块
-可能是对这个三角使用了圆角，去掉 border-radius
-
-	{
-	    border: 10px solid transparent;
-	    border-left-color: #000;
-	    /*border-radius: 2px;*/
-	}
-
-##`:active` 样式不生效
-Safari 默认禁用了元素的 active 样式，我们通过声明 touchstart 来覆盖默认事件，就可以让 active 样式重新激活。
-
-	document.addEventListener("touchstart", function() {},false);
-
-
-##IOS设备的iframe问题
-> 在ios中本身是不提供iframe控件的scroll滚动效果
-> 要实现滚动操作的话需要通过附加div层来实现
-
-	<div>
-	    <iframe src=""></iframe>
-	</div>
-
-	div{
-	    height: 100px;
-	    overflow: auto;
-	    -webkit-overflow-scrolling: touch;
-	}
-s
-
-##表单元素样式重置
-	div	{
-		appearance:button;
-		-moz-appearance:button; /* Firefox */
-		-webkit-appearance:button; /* Safari 和 Chrome */
-	}
-	normal	将元素呈现为常规元素。
-	icon	将元素呈现为图标（小图片）。
-	window	将元素呈现为视口。
-	button	将元素呈现为按钮。
-	menu	将元素呈现为一套供用户选择的选项。
-	field	将元素呈现为输入字段。
-
-##Retina

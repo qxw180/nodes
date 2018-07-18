@@ -4,23 +4,31 @@
 个人认为我们不必过多关注二者之间的区别，我们可以关注App和WebApp的区别，App相对于webpage有更好的用户体验，现在的web开发者在努力使webpage更加接近App，做体验更加友好的webpage。
 
 ##设置添加到IOS屏幕应用信息head meta
-隐藏Safari工具栏和菜单栏：
+
+1. 隐藏Safari工具栏和菜单栏：
 <meta name="apple-mobile-web-app-capable" content="yes">
 Chrome 设置方法，Google视图用这个标签替换IOS的专用标签，称为通用规范
 <meta name="mobile-web-app-capable" content="yes">
 
-设置默认color scheme：<meta name="apple-mobile-web-app-status-bar-style" content="black">
+2. 状态栏背景颜色：`<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />`
++ default ：状态栏背景是白色。
++ black ：状态栏背景是黑色。
++ black-translucent ：状态栏背景是半透明。 如果设置为 default 或 black ,网页内容从状态栏底部开始。
 
-设置title：<meta name="apple-mobile-web-app-title" content="">
+3. 设置全屏：`<meta name="apple-touch-fullscreen" content="yes">`
 
-设置ICON：<link rel="apple-touch-icon" href="icon.png">
+4. 设置默认color scheme：<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+5. 设置title：<meta name="apple-mobile-web-app-title" content="">
+
+6. 设置ICON：<link rel="apple-touch-icon" href="icon.png">
 + [ICON尺寸说明]](https://en.wikipedia.org/wiki/List_of_iOS_devices#Display)
 + 一般情况下使用180*180，命名为icon.png：<link rel="apple-touch-icon" href="icon.png">
 Chrome设置ICON：<link rel="icon" sizes="192x192" href="highres-icon.png">
 
 
 // TODO
-设置启动画面：<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup-retina.png">
+7. 设置启动画面：<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup-retina.png">
 + 因为IOS设备有不同的尺寸，所以需要跟进不同的尺寸设置不同的开屏画面()
 + https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383
 
@@ -43,7 +51,7 @@ Web App Mainfest的使用非常简单，只需求创建清单并在HTML头部�
 > 注意：`.webmanifest`是[Media type registration](https://w3c.github.io/manifest/#media-type-registration)规范的一部分，但是浏览器通常支持`.json`格式。
 
 
-清单配置示例：
+Manifest配置示例：
 ```json
 {
   "short_name": "HackerWeb", // 在用户主屏幕上用作文本的
