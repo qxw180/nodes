@@ -18,7 +18,7 @@ Web App Mainfest的使用非常简单，只需求创建清单并在HTML头部�
 > 注意：`.webmanifest`是[Media type registration](https://w3c.github.io/manifest/#media-type-registration)规范的一部分，但是浏览器通常支持`.json`格式。
 
 
-清单配置示例：
+Manifest配置示例：
 ```json
 {
   "short_name": "HackerWeb", // 在用户主屏幕上用作文本的
