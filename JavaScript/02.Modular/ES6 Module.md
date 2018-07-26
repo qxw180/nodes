@@ -110,3 +110,5 @@
 	// 错误
 	export default var a = 1;
 
+// TODO
+###dynamic-import
