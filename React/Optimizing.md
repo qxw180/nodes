@@ -10,3 +10,9 @@ https://reactjs.org/docs/optimizing-performance.html
 + 方便变动检查：Imuutable Object 只需要对比值本身， Mutable Object则需求遍历整个对象树进行对比
 + 决定什么适合进行re-render：
 + 
+
+
+##代码拆分和按需加载
+// TODO
+https://reactjs.org/docs/code-splitting.html
+
