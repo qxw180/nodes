@@ -2,6 +2,8 @@
 React Refs 提供了访问在render方法中创建的DOM节点和React元素的方法。
 React 不推荐使用ref，尽量使用props和states进行功能实现。
 
+string ref已经启用，请使用creating refs和callback refs。
+
 ##Creating Refs
 ``` JavaScript
 class CustomTextInput extends React.Component {

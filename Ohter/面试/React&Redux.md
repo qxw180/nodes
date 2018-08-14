@@ -4,6 +4,11 @@
 组件化，props、state、lifecycle、virtual dom、model-view
 
 
+##React 代码重用实现
++ 组件
++ Render Props
++ HOC
+
 ##如何理解单项数据流，状态提升
 
 ##Flux
