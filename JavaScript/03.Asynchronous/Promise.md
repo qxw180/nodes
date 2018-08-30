@@ -76,3 +76,8 @@ getJSON("/post/1.json").then(function(post) {
 		- 一个新的Promise实例，只要实例数组中有一个实例的状态改变，返回实例的状态就改变，值为第一个改变实例的值
 + `Promise.resolve(value)`：将对象转化为Promise对象
 + `Promise.reject(reason)`：返回一个状态为rejected的实例
+
+
+##polyfills
++ [es6-promise](https://github.com/stefanpenner/es6-promise)
++ [promise-polyfill](https://github.com/taylorhakes/promise-polyfill)

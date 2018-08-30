@@ -1,14 +1,11 @@
 #webpack-dev-server
-> webpack-dev-server是一个轻量级的node.js express服务器，通过中间件`webpack-dev-middleware`为webpack bundle提供webserver服务；
-> 通过Socket.IO在运行环境中链接到服务器；
-
-##安装：`npm install --save-dev webpack-dev-server`
+webpack-dev-server是一个轻量级的node.js express服务器，通过中间件`webpack-dev-middleware`为webpack bundle提供webserver服务；
+通过Socket.IO在运行环境中链接到服务器；
 
 ##配置：
-> webpack-dev-server支持webpack CLI除`output`外的全部参数
+webpack-dev-server支持webpack CLI除`output`外的全部参数
 
 附加参数
-
 + `--content-base <file/directory/url/port>`: 设置Server工作目录
 + `--quiet`: 关闭控制台输出
 + `--no-info`: suppress boring information.
@@ -28,22 +25,22 @@
 
 
 也可以通过配置文件进行配置，但是CLI中的参数会覆盖配置文件中的参数；
-
-	<!-- webpack.config.js -->
-	module.exports = {
-		devServer: {
-			historyAipFallback: true,
-			hot: true,
-			inline: true,
-			progress: true
-		}
+``` JavaScript
+// webpack.config.js
+module.exports = {
+	devServer: {
+		historyAipFallback: true,
+		hot: true,
+		inline: true,
+		progress: true
 	}
+}
 
-	<!-- package.json -->
-	"script": {
-		"start": "webpack-dev-server --hot --inline"
-	}
-
+// package.json
+"script": {
+	"start": "webpack-dev-server --hot --inline"
+}
+```
 
 工作目录：
 	webpack-dev-server默认工作目录是当前目录，可以使用参数`--content-base`指定工作目录
@@ -52,7 +49,7 @@
 webpack-dev-server编译后的bundle是缓存在内存中的，不会写入到硬盘
 
 ##自动刷新
-> webpack-dev-server支持多种自动刷新模式
+webpack-dev-server支持多种自动刷新模式
 
 Type1. Iframe模式 ：`http://<host>:<port>/webpack-dev-server/<path>`
 	不需要额外配置
@@ -66,17 +63,3 @@ Type2. Inline模式 ：`http://<host>:<port>/<path>`
 热更新，在bundle改变后，不刷新整个页面的情况下更新模块
 
 
-
-##第三方库添加
-
-#shimming
-
-
-##兼容AMD
-
-
-##[相比RequireJS](http://ourjs.com/detail/54963e2a8a34fa3204000013)
-+ require有的功能webpack全有
-+ 代码更加简洁
-    * require在定义模块依赖组件过多的时候很恶心；
-    * 不需要写很长很恶心的配置文件；
