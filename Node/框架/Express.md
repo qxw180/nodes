@@ -3,8 +3,7 @@
 ##Routeing
 可以直接在Express实例使用请求方法定义路由`app.METHOD(PATH, HANDLER)`
 
-
-```
+``` JavaScript
     var express = require('express')
     var app = express()
 
@@ -23,7 +22,7 @@ PAHT用来定位entrypoint，可以为字符串、匹配字符串和正则表达
 可以为同一个请求提供多个handler，类似使用中间件来处理请求。
 唯一的例外就是会掉函数可以调用`next('route')`来绕过之后的会掉函数。
 HANDLER可以是一个方法、一个方法数组或者两者的组合：
-```
+``` JavaScript
     app.get('/example/b', function (req, res, next) {
       console.log('the response will be sent by the next function ...')
       next()
@@ -47,7 +46,7 @@ HANDLER可以是一个方法、一个方法数组或者两者的组合：
 
 可以使用`app.route()`链式路由
 
-```
+``` JavaScript
     app.route('/book')
       .get(function (req, res) {
         res.send('Get a random book')
@@ -77,19 +76,5 @@ HANDLER可以是一个方法、一个方法数组或者两者的组合：
 
 ##middleware
 一个在Handler执行之前被Express调用的函数，使用`app.use()`将middleware添加到处理流程中。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
