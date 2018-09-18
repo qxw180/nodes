@@ -12,7 +12,7 @@
 git checkout [commit] [ -- file|.]
 ```
 
-从版本库恢复缓存区文件： 
+从版本库恢复缓存区文件，即撤销缓存文件： 
 
 ``` bash
 git reset [--hard] <HEAD|commitId> [file_name]
