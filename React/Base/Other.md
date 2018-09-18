@@ -2,7 +2,7 @@
 
 ##利用Fragment避免额外DOM添加
 [Fragments](https://reactjs.org/docs/fragments.html)
-``` JavaScript
+``` JSX
 class Table extends React.Component {
   render() {
     return (
@@ -30,7 +30,7 @@ class Columns extends React.Component {
 ##使用Portals
 React 传送门(Portal)，可以提供了非常好的方式使组件脱离React组件层次结构，将组件渲染到指定DOM节点中。
 这个功能非常适合弹出框、提示框的实现。
-``` JavaScript
+``` JSX
 render() {
   return ReactDOM.createPortal(
     this.props.children,

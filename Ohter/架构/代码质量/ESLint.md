@@ -21,7 +21,7 @@
 + `warn`或者`1`：警告，不退出代码
 + `error`或者`2`：错误，退出代码
 
-##Config ß
+##Config
 ESLint是被设计成完全可配置的，可以通过以下两种方式进行配置
 1. 代码注释：在JavaScript代码中使用注释直接嵌入配置信息；
 2. 配置文件：可以使用JavaScript，JSON，YAML文件定制入口目录或子目录的配置信息。配置文件可以为`.eslintrc.*`命名的文件，也可以在`package.json`的`eslintConfig`字段中配置；

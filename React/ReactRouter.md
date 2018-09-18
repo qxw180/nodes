@@ -28,4 +28,72 @@
 
 问题：服务器文件指向问题
 
-##React-router
+##基础组件
+``` JavaScript
+import { BrowserRouter, Route, Link } from 'react-router-dom'
+```
+
+###router components
+react-router-dom提供`<BrowserRouter>`和`<HashRouter>`，BrowserRouter适合在有后台Server的情况下使用，如果是使用静态发布一般使用HashRouter。
+``` JSX
+import { BrowserRouter } from 'react-router-dom'
+ReactDOM.render((
+  <BrowserRouter>
+    <App/>
+  </BrowserRouter>
+), holder)
+```
+
+###route matching components
+有两个matching components`<Route>`和`<Switch>`
+``` JSX
+import { Route, Switch } from 'react-router-dom'
+```
+match components用来匹配路径，匹配后渲染content，不匹配返回`null`，没有path属性的Route表示始终匹配
+``` JSX
+// when location = { pathname: '/about' }
+<Route path='/about' component={About}/> // renders <About/>
+<Route path='/contact' component={Contact}/> // renders null
+<Route component={Always}/> // renders <Always/>
+```
+`<Switch>`用来组合`<Route>`，但Switch不是必须的，Switch会对所有的组件进行路径匹配，但是只渲染第一个匹配的组件。
+可以用来处避免多个路由都匹配并渲染，可以用来实现当所有Route都不匹配时渲染404页面
+``` Jsx
+<Switch>
+  <Route exact path='/' component={Home}/>
+  <Route path='/about' component={About}/>
+  <Route path='/contact' component={Contact}/>
+  {/* when none of the above match, <NoMatch> will be rendered */}
+  <Route component={NoMatch}/>
+</Switch>
+```
+`<Route>`有三个属性可以用来渲染组件：component、render和children
+component用来渲染已经存在的组件，render的值为一个行内方法，用来渲染必须传入范围内变量作为域参数的组件
+``` JSX
+const Home = () => <div>Home</div>
+
+const App = () => {
+  const someVariable = true;
+  
+  return (
+    <Switch>
+      {/* these are good */}
+      <Route exact path='/' component={Home} />
+      <Route
+        path='/about'
+        render={(props) => <About {...props} extra={someVariable} />}
+      />
+      {/* do not do this */}
+      <Route
+        path='/contact'
+        component={(props) => <Contact {...props} extra={someVariable} />}
+      />  
+    </Switch>
+  )
+}
+```
+
+
+###navigation components
+`<Link>`用来创建链接，
+`<NavLink>`是特殊的`<Link>`可以用来定制active时的样式`<NavLink to='/react' activeClassName='hurray'>React</NavLink>`

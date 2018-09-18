@@ -4,7 +4,7 @@ async函数是generator函数的升级版，不需要使用`co`等执行器，�
 async函数和Promise配合使用可以快速的写出简介的异步代码；
 
 ##基本示例
-```javascript
+``` JavaScript
 // 延迟执行函数
 function dealyRun(str, dealy) {
     return new Promise((resolve) => {
