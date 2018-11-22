@@ -2,6 +2,7 @@
 + CSS3布局
 + CSS3动画
 
+#图片跨域
 
 #mobile
 + [Safari Mobile 默认不使用:active 状态，除非元素上或<body>上有一个touchstart 事件处理器。](http://www.zhuowenli.com/diary/frontend-mobile-bug-notes.html)

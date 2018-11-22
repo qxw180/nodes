@@ -10,7 +10,7 @@ adduser git
 passwd git
 ```
 
-该账户的职责是专门进行Git同步操作，为了服务器安全我们应该禁止其进行远程等
+该账户的职责是专门进行Git同步操作，为了服务器安全我们应该禁止其进行远程登录
 ``` shell
 vim /etc/passwd
 ```
@@ -19,7 +19,7 @@ vim /etc/passwd
 
 
 ##Step2 开启SSH验证
-关闭git用户的bash功能，所有需要启动SSH的RSA验证，使用这种方式连接到git server
+我们关闭git用户的bash功能，git远程操作走SSH通道，所有需要启动SSH的RSA验证，使用这种方式连接到git server。
 
 1. 首先开启SSH认证
 修改ssh配置，`vim /etc/ssh/sshd_config`
