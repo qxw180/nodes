@@ -12,15 +12,15 @@ Webpack的思路还是很前卫的，如果不理解它的思路那么想体会�
 以下内容涉及到NodeJS和NPM等相关内容不做介绍
 
 Step1. 项目初始化
-	* 创建工作目录：`mkdir webpack-study`	
-	* 初始化项目：`cd webpack-study`,`npm init`
-	* 安装Webpack：`npm install --save-dev webpack`
-	* 创建Wepback配置文件：`touch webpack.config.js`，该文件相当于Gulp的`gulpfile.js`
+* 创建工作目录：`mkdir webpack-study`	
+* 初始化项目：`cd webpack-study`,`npm init`
+* 安装Webpack：`npm install --save-dev webpack`
+* 创建Wepback配置文件：`touch webpack.config.js`，该文件相当于Gulp的`gulpfile.js`
 Step2. 创建文件
-	* 创建代码目录：`mkdir src`
-	* 创建入口文件：`cd src`,`main.js`
-	* 创建测试模块：`mod1.js`
-	* 创建项目主页：`index.html`
+* 创建代码目录：`mkdir src`
+* 创建入口文件：`cd src`,`main.js`
+* 创建测试模块：`mod1.js`
+* 创建项目主页：`index.html`
 Step3. 代码编写
 ``` JavaScript
 // mod1.js
@@ -49,9 +49,9 @@ module.exports = {
 };
 ```
 Step5. 编译
-	* 进入项目根目录：`cd webpack-study`
-	* 编译：`webpack`
-	* 这时可以看到src目录下多了一个`bundle.js`
+* 进入项目根目录：`cd webpack-study`
+* 编译：`webpack`
+* 这时可以看到src目录下多了一个`bundle.js`
 Step6. 主页面编写
 ``` HTML
 <!DOCTYPE html>
@@ -66,8 +66,8 @@ Step6. 主页面编写
 </html>
 ```	
 Step7. 运行查看效果
-	* 自行搭建本地web服务
-	* 访问index.html 可以发现页面展示`Hello Webpack`
+* 自行搭建本地web服务
+* 访问index.html 可以发现页面展示`Hello Webpack`
 
 通过以上步骤我们就实现了一个最简单的Webpack项目，通过以上内容我们可以我们就可以尝试着去理解webpack了
 首先总结一下Webpack的代码组织逻辑和工作流程
@@ -125,8 +125,8 @@ module.exports = {
 };
 ```
 Step3. 编译：
-	* 安装loader：`npm install css-loader style-loader --save-dev`
-	* 编译：`webpack`
+* 安装loader：`npm install css-loader style-loader --save-dev`
+* 编译：`webpack`
 
 然后刷新页面发现样式已经生效了。
 

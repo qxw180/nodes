@@ -4,17 +4,15 @@
 安装：`npm install --save-dev eslint`
 初始化：`eslint --init`，生成配置文件
 运行：`ellint yourfile.js`
-
-
-    {
-        "extends": "eslint:recommended",
-        "rules": {
-            "semi": ["error", "always"],
-            "quotes": ["error", "double"]
-        }
+``` JavaScript
+{
+    "extends": "eslint:recommended",
+    "rules": {
+        "semi": ["error", "always"],
+        "quotes": ["error", "double"]
     }
-
-
+}
+```
 
 "semi"和"quotes"是ESLint规则名称，数组中第一个值为错误等级：
 + `off`或者`0`：关闭规则
@@ -49,20 +47,20 @@ Parser Options使用`parserOptions`字段来配置，可配置的字段包括：
 + `ecmaVersion`：
 
 示例：
-
-    {
-        "parserOptions": {
-            "ecmaVersion": 6,
-            "sourceType": "module",
-            "ecmaFeatures": {
-                "jsx": true
-            }
-        },
-        "rules": {
-            "semi": 2
+``` JSON
+{
+    "parserOptions": {
+        "ecmaVersion": 6,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
         }
+    },
+    "rules": {
+        "semi": 2
     }
-
+}
+```
 
 ##配置解析器Parser
 ESLint默认使用`Espree`作为解析器，可以指定解析器，但必须满足以下条件
@@ -72,13 +70,14 @@ ESLint默认使用`Espree`作为解析器，可以指定解析器，但必须满
 
 使用`parser`配置解析器
 
-    {
-        "parser": "esprima",
-        "rules": {
-            "semi": "error"
-        }
+``` JSON
+{
+    "parser": "esprima",
+    "rules": {
+        "semi": "error"
     }
-
+}
+```
 
 
 
