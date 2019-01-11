@@ -44,8 +44,6 @@ NPM版本由三部分组成：`[主版本].[副版本].[补丁版本]`
 ##dist-tags
 `npm dist-tag add <pkg>@<version> [<tag>]`
 
-
-
 #NodeJS Package
 NodeJS程序的基本组成单位是js文件，一个js文件就是一个模块；但是复杂的模块为了方便维护要分成多个子模块，由多个子模块放在一个目录中，组成的大模块称做包；
 

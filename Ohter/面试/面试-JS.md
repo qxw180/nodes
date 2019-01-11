@@ -28,6 +28,7 @@ Document.ready原生种没有这个方法，jquery中有 $().ready(function)
         - ES5 Array.from(new Set(arr)) Array.prototype.filter(x => {})
         - ES6 [...new Set([1,2,3,1,'a',1,'a'])]
     * 写出多种数组循环方法
+    * forEach如何跳出循环：用some every替换
 + JSON
     * JSON和字符串转换
         - JSON.parse() 方法解析一个JSON字符串

@@ -1,12 +1,9 @@
 #Babel
-Babel是一个JavaScript编译器，可以把用最新标准编写的JavaScript代码转化为当下可用的版本；
-Babel处理代码分为3个阶段：代码解析、代码转换、代码生成。
-Babel本身只是一个在高层运行的框架，本身并不进行语法转换加工，Babel依赖plugin在代码转换的过程中进行工作。
-
-Babel中有几个概念需要理解：
+Babel可以进行语法转换，让我们在旧版浏览器中使用最新的语法规范，Babel提供了一系列工具帮助我们做到这些。
++ `@babel/core`：Babel核心，提供对外实际运行的接口方法
 + `plugin`：进行实际代码转换，Babel本身并不包含任何转码规则，Babel通过运行plugin来进行代码转换；
-+ `preset`：是转码规则集，是一份共享的plugin配置，官方提供了一些preset我们可以直接使用
-+ `polyfill`：Babel默认只进行JavaScript语法转换，并不进行新API处理。polyfill可以添加一个垫片来为浏览器添加新的API功能；
++ `preset`：是plugin的集合，官方提供了一些preset我们可以直接使用
++ `@babel/polyfill`：Babel默认只进行JavaScript语法转换，并不进行新API处理。polyfill可以添加一个垫片来为浏览器添加新的API功能；
 
 ##ECMAScript
 ECMA标准组织负责制定Script语言标准ECMAScript，JavaScript是ECMAScript标准的一种实现。

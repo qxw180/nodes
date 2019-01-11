@@ -32,5 +32,7 @@
 ##Export Static Page
 
 ##Lazy Loading Modules
+TODO 静态化支持
 
 ##Lazy Loading Components
+TODO 静态化支持
