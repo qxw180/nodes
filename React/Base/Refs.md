@@ -1,5 +1,5 @@
 #React Ref
-React Refs 提供了访问在render方法中创建的DOM节点和React元素的方法。
+通过Refs可以直接访问Dom节点和React元素。
 React 不推荐使用ref，尽量使用props和states进行功能实现。
 
 string ref已经启用，请使用creating refs和callback refs。
@@ -31,7 +31,7 @@ const node = this.myRef.current;
 ```
 React Refs的current属性对不同的元素类型返回不同的引用
 + HTML DOM：返回底层DOM节点
-+ React Element：返回React元素示例，可以调用实例内的方法
++ React Element：返回React元素实例，可以调用实例内的方法
 + React Refs不支持function components
 
 ``` JavaScript

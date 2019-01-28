@@ -2,7 +2,7 @@
 大量的Node.js核心API是围绕异步事件驱动体系构建的，emitters触发命名事件，listeners监听函数被动出发；
 
 Node.js是单线程应用程序，通过事件和回调支持并发；
-```
+``` JavaScript
   var events = require('events');
   var emitter = new events.EventEmitter();
 
@@ -21,7 +21,7 @@ Node.js是单线程应用程序，通过事件和回调支持并发；
 1. 更加语义化，事件的监听和触发都是一个具有实体功能的对象
 2. javascript的对象继承机制是基于原型，支持多重继承，继承EventEmitter不会打乱对象原有的继承关系；
 
-```
+``` JavaScript
   const EventEmitter = require('events');
   const util = require('util');
 
@@ -42,7 +42,7 @@ Node.js是单线程应用程序，通过事件和回调支持并发；
 ##参数传递
 `eventEmitter.emit()`方法允许任意的传递参数给监听函数。要注意监听函数在被EventEmitter触发时，标准关键字`this`指向`EventEmitter`实例；
 
-```
+``` JavaScript
     const myEmitter = new MyEmitter();
     myEmitter.on('event', function(a, b) {
       console.log(a, b, this);
@@ -58,7 +58,7 @@ Node.js是单线程应用程序，通过事件和回调支持并发；
 
 在ES6箭头函数中关键字`this`不在指向`EventEmitter`实例
 
-```
+``` JavaScript
     const myEmitter = new MyEmitter();
     myEmitter.on('event', (a, b) => {
       console.log(a, b, this);
@@ -69,7 +69,7 @@ Node.js是单线程应用程序，通过事件和回调支持并发；
 
 ##Handling events only once
 
-```
+``` JavaScript
     const myEmitter = new MyEmitter();
     let m = 0;
     myEmitter.once('event', () => {
@@ -88,7 +88,7 @@ Node.js为了提升程序的健壮性，对error事件进行了特殊处理
 如果一个EventEmitter实例没有设置`error`事件监听，当`error`事件被触发后会打印堆栈信息，退出Nodejs进程。
 为了防止Nodejs崩溃，Node.js进程`proccess`应该添加`uncaughtException`事件监听
 
-```
+``` JavaScript
     const myEmitter = new MyEmitter();
 
     process.on('uncaughtException', (err) => {
