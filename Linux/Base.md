@@ -20,15 +20,17 @@
 + 重启：`reboot`
 + 关机：`poweroff`
 
-##设置命令别名：`alias`
-``` shell
-<!-- 别名检测 -->
-type ll
-<!-- 别名设置 -->
-alias ll='ls -l'
-<!-- 别名删除 -->
-unalias ll
-```
+##命令别名：`alias`
++ 查看全部命令别名：`alias`
++ 查看指定命令别名：`type <别名>`，例：`type ll`
++ 设置命令别名：`alias <别名>=<命令>`，例：`alias ll='ls -l'`
++ 删除命令别名：`unalias <别名>`，例：`unalias ll`
+
+##Linux命令生效顺序
+1. 绝对路径或相对路径调用命令
+2. 别名命令
+3. Bash内部命令
+4. $PATH目录内匹配命令
 
 ##Linux通配符
 + `*`：任意内容
