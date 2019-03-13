@@ -25,10 +25,14 @@
 ##浏览器是怎么对HTML5的离线储存资源进行管理和加载的呢？
 
 ##如何实现浏览器内多个标签页之间的通信? 
-使用localStorage.setItem(key,value);添加内容
-使用storage事件监听添加、修改、删除的动作  
+1. 使用cookie+setInterval
+2. 使用`localStorage.setItem(key,value)`添加内容, 使用storage事件监听添加、修改、删除的动作  
+3. WebSocket
+4. BroadcastChannel
+5. ShareWorker
 
-使用cookie+setInterval
+
+
 
 ##IconFont
 

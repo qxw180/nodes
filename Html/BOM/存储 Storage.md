@@ -6,6 +6,7 @@
 4. Service Workers：AppCache 替代方案
 5. Web SQL：已废弃
 6. IndexedDB：Web SQL的替代品
+7. CacheStorage：实验中功能，
 
 ##cookie、
 `cookie`：是网站为了标识用户身份在浏览器端存储的数据
@@ -25,3 +26,11 @@
 
 ##IndexedDB
 用于在客户端进行大量结构化数据存储，相对于Storage IndexedDB更适合大量数据的存储。
+
+##CacheStorage
+可以使用`window.caches`访问CacheStorage
++ `cache.open()`：获取Cache实例
++ `cache.match(reqest)`：监测是否有request对应的缓存
++ `cache.match()`：
++ `cache.has()`：
++ `cache.delete()`：

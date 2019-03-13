@@ -1,6 +1,6 @@
 #Higher-Order Components
 高阶组件，类似高阶函数，HOC一个方法的，这个方法接收一个component，返回一个新的component。
-在这个函数中可以为component添加功能，但是切记不要直接对component进行修改。
+在这个函数中可以为component添加功能，HOC并不对component进行修改，也不是通过继承的方式实现，没有任何副作用。
 高阶组件是AOP的一种实现，Redux connect就是HOC的具体实现案例。
 
 ``` JSX

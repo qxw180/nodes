@@ -48,7 +48,6 @@ SSH是一种用于计算机之间通信的网路协议
 
 
 ####Github SSH链接
-
 1. 生成密钥对
 2. 登录github，在`Seetings > SSH keys`下点击`Add SSH  key`
 3. 在`Title`输入名字,方便记忆管理；在`Key`输入生成的公钥内容
@@ -63,7 +62,6 @@ SSH是一种用于计算机之间通信的网路协议
 ---
 
 ##服务配置
-
 > SSH配置文件位置：`/etc/ssh/sshd_config`
 > SSH默认端口：`22`
 
