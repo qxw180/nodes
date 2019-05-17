@@ -6,14 +6,12 @@
 ##撤销本地改动
 对在工作区未提交到缓存区的改动进行恢复
 
-撤销特定文件的修改： 
-
+撤销工作区文件的修改： 
 ``` bash
-git checkout [commit] [ -- file|.]
+git checkout [commit] [file]
 ```
 
 从版本库恢复缓存区文件，即撤销缓存文件： 
-
 ``` bash
 git reset [--hard] <HEAD|commitId> [file_name]
 ```
