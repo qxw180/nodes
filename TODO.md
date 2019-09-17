@@ -39,6 +39,7 @@
 + HTTPS
 + HTTP2
 + cache相关
++ localhost VS 127.0.0.1
 
 ##性能优化
 Big Pipe, WebSocket
