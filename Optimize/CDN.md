@@ -1,11 +1,13 @@
-#CDN
+# CDN
+
 Content Delivery Network 内容分发网络，提供内容分发服务，通常都是分布式的，解决因分布、带宽、服务器性能带来的访问延迟问题，提供稳定快速的内容传输
 
-##CDN挂掉后如何保证网站可以正常运行
+## CDN挂掉后如何保证网站可以正常运行
+
 ``` HTML
-<script 
+<script
     src="https://code.jquery.com/jquery-3.3.1.min.js" 
-    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" 
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
     crossorigin="anonymous">
 </script>
 <script>window.jQuery || document.write('<script src="js/vendor/jquery-3.3.1.min.js"><\/script>')</script>
