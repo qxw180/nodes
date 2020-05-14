@@ -187,4 +187,3 @@ handleEvent(document.getElementById('world'), 'dbclick'); // 报错，event 不�
 ```
 
 ### 枚举
-

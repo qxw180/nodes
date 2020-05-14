@@ -1,12 +1,14 @@
-#HTML基础
+# HTML基础
+
 最流行的前端模版[HTML5 ★ BOILERPLATE](https://html5boilerplate.com/)
 
-##必要设置
+## 必要设置
+
 + Doctype，严格模式和混杂模式
-    + <!DOCTYPE> 声明位于文档中的最前面，处于 <html> 标签之前。告知浏览器以何种模式来渲染文档。
-    + 严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。
-    + 在混杂模式中，兼容模式，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
-    + DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。
+  + <!DOCTYPE> 声明位于文档中的最前面，处于 `<html>` 标签之前。告知浏览器以何种模式来渲染文档。
+  + 严格模式的排版和 JS 运作模式是 以该浏览器支持的最高标准运行。
+  + 在混杂模式中，兼容模式，页面以宽松的向后兼容的方式显示。模拟老式浏览器的行为以防止站点无法工作。
+  + DOCTYPE不存在或格式不正确会导致文档以混杂模式呈现。
 + `<html class="no-js" lang="zh-CN">` [Language Code Table](http://www.lingoes.cn/zh/translator/langcode.htm)
 + `<meta charset="utf-8">`，尽早引入
 + `<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />` IE8+的专有属性，告诉IE8+采用何种IE版本渲染网页，edge是采用最新版本渲染，应该尽早引入，在`meta`和`title`标签之前
@@ -15,12 +17,13 @@
 + `<meta name="viewport" content="width=device-width, initial-scale=1">`
 + `<link rel="manifest" href="site.webmanifest">`
 
+## IE条件注释
 
-##IE条件注释
 IE5到IE9支持条件注释。从IE10开始，在标准模式页面中不再支持条件注释
 [How To Create an IE-Only Stylesheet](https://css-tricks.com/how-to-create-an-ie-only-stylesheet/)
 
 隐藏的条件注释
+
 ``` HTML
 <!--[if IE 8]>
 <link href="ie8only.css" rel="stylesheet">
@@ -28,6 +31,7 @@ IE5到IE9支持条件注释。从IE10开始，在标准模式页面中不再支�
 ```
 
 显示的条件注释
+
 ``` HTML
 <![if !IE]>
 <link href="non-ie.css" rel="stylesheet">
@@ -35,12 +39,11 @@ IE5到IE9支持条件注释。从IE10开始，在标准模式页面中不再支�
 ```
 
 低版本浏览器跳转
+
 ``` HTML
 <!--[if lte IE 8]><meta http-equiv="refresh" content="0; url=/upgrade.htm"><![endif]-->
 ```
 
-##[HTMLElement.dataset](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/dataset)
-// TODO
+## [HTMLElement.dataset](https://developer.mozilla.org/zh-CN/docs/Web/API/HTMLElement/dataset)
 
-// TODO
 [HTML5](https://developer.mozilla.org/zh-CN/docs/Web/Guide/HTML/HTML5)

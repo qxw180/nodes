@@ -4,22 +4,36 @@
 
 ## 浏览器缓存
 
-1. 浏览器第一次加载资源，服务返回`200`状态码，浏览器将资源下载并根据响应头的缓存设置进行设置
-2. 下一次请求资源的时候浏览器会判断资源是否过期，如果未过期则不发送请求，直接使用本地缓存内容。如果已过期则向服务器发送带有`If-None-Match`和`If-Modified-Since`的请求；
-3. 服务器收到请求后会验证缓存是否命中，如果命中则返回`304`。否则直接返回资源并带上新的缓存header，返回`200`。
-4. 浏览器接收到`304`则直接使用缓存资源
+静态文件（图片、.css、.js）的特点是一般不会发生变化，在客户端缓存这些文件可以达到加速网站加载、降低服务器负载的目的。
 
-通过response header 设置缓存策略，分为强制缓存和协商缓存两种
+HTTP缓存有很多种规则，根据是否需要向服务器发生请求分为强制缓存和对比缓存两大类，**强制缓存优先级高于对比缓存**。
 
-+ 强制缓存
-  + HTTP 1.O `Expires`：设置过期时间，例子：`Expires: Sun, 05 Apr 2020 15:29:45 GMT`
-  + HTTP 1.1 `Cache-Control`：设置缓存时间，优先级高于`Expires`。例子：`cache-control: max-age=604800`
-    + `no-cache`：必须先与服务器确认是否修改
-    + `no-store`：完全禁止缓存
-    + `public`：
-    + `private`：浏览器可以进行缓存，但是不运行代理服务器进行缓存
-    + `max-age`：设置资源缓存时间，单位为毫秒
-+ 协商缓存
-  + `ETag`和`If-None-Match`：响应头部使用`etag: "5e86f5b2-4ec"`为资源添加标识，浏览器会记录该标识，洗一次请求该资源会使用`if-none-match: "5e86f5b2-4ec"`加入到请求头部信息，服务器会对比Etag值，如果相同则命中缓存。
-  + `Last-Modified`和`If-Modified-Since`：和Etag原理类似，Last-Modified是通过记录修改时间来进行缓存对比。例子：`last-modified: Fri, 03 Apr 2020 08:37:06 GMT`，`if-modified-since: Fri, 03 Apr 2020 08:37:06 GMT`
-  + `Etag`相比较`Last-Modified`优先级跟高、精度更高，同时服务器资源消耗也更高
+## 强制缓存
+
+缓存规则：在命中缓存的情况下直接返回缓存内容，未命中缓存则向服务器发起请求并将请求结果缓存到本地。
+
+缓存设置：在HTTP响应头中加入`Expires/Cache-Control`声明缓存规则
+
++ `Expires`: HTTP1.0定义，值为缓存到期时间，客户端时间和服务端时间可能存在误差，所以在HTTP1.1中使用`Cache-Control`替代`Expires`
++ `Cache-Control`：**优先级高于`Expires`**，常见的取值有`private`、`public`、`no-cache`、`max-age`，`no-store`，默认为`private`。
+  + `private`:     客户端可以缓存
+  + `public`:      客户端和代理服务器都可缓存（前端的同学，可以认为public和private是一样的）
+  + `max-age=xxx`: 缓存的内容将在 xxx 秒后失效
+  + `no-cache`:    需要使用对比缓存来验证缓存数据
+  + `no-store`:    所有内容都不会缓存，强制缓存，对比缓存都不会触发
+
+## 对比缓存
+
+缓存规则：本地命中缓存后获取缓存标识，请求服务器验证标识是否失效，服务器验证缓存未失效返回304状态码，浏览器则直接使用本地缓存，如服务器验证缓存失效则返回新的缓存数据和缓存规则，客户端使用并缓存服务器返回数据。
+
+缓存设置：
+
+使用`Last-Modified / If-Modified-Since`实现
+
++ `Last-Modified`：服务在响应时告诉浏览器最后修改时间
++ `If-Modified-Since`：浏览器在下次请求时使用`If-Modified-Since`告诉服务器客户端缓存的最新响应的时间，服务器会进行对比，若无修改则返回`304`，否则返回`200`
+
+使用`Etag / If-None-Match`优先级高于`Last-Modified / If-Modified-Since`
+
++ 客户端第一次请求服务器时，服务器返回内容时同事返回`etag`header，告诉客户端响应内容的标签
++ 客户端第二次请求服务器时使用`If-None-Match`带上上次响应的标签，服务器判断响应内容标签是否有变化返回`304`或`200`
