@@ -1,3 +1,3 @@
-Linux&Git.md
+# Linux&Git
 
 是否了解git flow
