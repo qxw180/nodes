@@ -1,2 +1,1 @@
-#JavaScript Mixin
-// TODO
+# JavaScript Mixin
