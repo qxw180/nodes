@@ -1,4 +1,6 @@
-# React Context
+# React 状态管理
+
+## React Context
 
 React Context提供了可以跨组件传递数据的能力。在一般的React程序中数据是使用`props`属性从上到下逐渐传递的，但是在组件层次较多的情况下对一下全局数据(例如用户信息、皮肤信息等)的传递就很麻烦。React Context就是为了解决这个问题。
 
