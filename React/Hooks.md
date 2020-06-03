@@ -29,23 +29,58 @@ function Example() {
 
 ## State Hook
 
-`const [value, setValue] = useState(initValue)`
 React会记住通过`state hook`声明的`state`值，并在函数组件每次运行的时候返回最新的值。
+`const [state, setState] = useState(initialState)`
+`initialState`用来初始化state，`initialState`只在组件初始化的时候起作用。`initialState`也可以是一个函数，在组件初始化的时候React会执行这个函数，并将这个函数的返回值作为初始状态
+`setState`用来更新state，`setState`方法接收一个新的state来更新当前的state，并将组件的一次重新渲染加入队列。如果更新state需要依赖之前的state，在调用`setState`方法的时候可以传入一个函数，函数执行时候的参数即为之前的state
+
+``` js
+// 使用函数初始state
+const [state, setState] = useState(() => {
+  const initialState = someExpensiveComputation(props);
+  return initialState;
+});
+
+// 函数式更新
+function Counter({initialCount}) {
+  const [count, setCount] = useState(initialCount);
+  return (
+    <>
+      Count: {count}
+      <button onClick={() => setCount(initialCount)}>Reset</button>
+      <button onClick={() => setCount(prevCount => prevCount - 1)}>-</button>
+      <button onClick={() => setCount(prevCount => prevCount + 1)}>+</button>
+    </>
+  );
+}
+```
 
 ## Effect Hook
 
-在React保存使用`useEffect`方法传递的函数，并在DOM更改后执行，
+`useEffect(didUpdate, base);`
+React统称数据获取、设置订阅及、设置定时器、手动更新React组件中的DOM、记录日志等操作为**副作用**，这些操作可能产生莫名其妙的bug，所以在函数组件主体内不允许进行这些操作。
+React使用Effect Hook来完成副作用操作，`useEffect(didUpdate)`接收一个可能有副作用代码的函数并保存该函数，并在DOM更改后执行传入的函数。
+函数的返回值如果是也是一个函数，React会在组件卸载之前执行这个函数，可以在这个返回函数中执行一些订阅取消之类的操作。
+默认情况下React在每次渲染完成后执行执行该函数，一些场景并不需要每次渲染之后重新执行，例如：初始数据加载、订阅等场景。`useEffect`方法的第二个参数可以设置effect函数的依赖值的数组。
+如果你要使用此优化方式，**请确保数组中包含了所有外部作用域中会发生变化且在 effect 中使用的变量**，否则你的代码会引用到先前渲染中的旧变量。如果只想执行一次则可以传入一个空数组。
 
 ``` js
-useEffect(() => {
-  doSomthing()
-  return function cleanup() {
-      doSomthing()
-  }
-}, [props.source]);
+// 清除 effect
+useEffect(
+  () => {
+    const subscription = props.source.subscribe(); // 订阅
+    return () => {
+      subscription.unsubscribe(); // 清除订阅
+    };
+  },
+  [props.source] // 依赖
+);
 ```
 
-React统称数据获取、设置订阅及手动更新React组件中的DOM为**副作用**，
+## Context Hook
+
+`const value = useContext(MyContext);`接收一个context对象，并返回该context的当前值，同时会订接收的context的变化。
+当`<MyContext.Provider>`更新时，使用该context的hook会重新执行并获取最新的value。
 
 ## 自定义 Hook
 
