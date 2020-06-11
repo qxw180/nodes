@@ -1,22 +1,17 @@
 # React 性能优化
 
-##Production Build
+## 避免不必要的re-render
 
-##Long List
-https://github.com/bvaughn/react-virtualized
+React虚拟DOM可以在很大的程度上避免浏览器重绘和重流，这可以解决大部分问题，另外我们还可以自己控制组件是否需要重新渲染拉进一步优化。
+React组件的生命周期函数`shouldComponentUpdate`在re-render之前运行，函数默认返回true进行重新渲染。我们可以对比新旧props和states决定是否进行re-render。
 
-
-##避免不必要的re-render
-React组件的生命周期函数`shouldComponentUpdate`在re-render之前运行，函数默认返回true进行重新渲染。
-我们可以对比新旧props和states决定是否进行re-render
 ``` JavaScript
 shouldComponentUpdate(nextProps, nextState) {
   return true;
 }
 ```
 
-大多数时候我们可以使用`React.PureComponent`来代替手动写`shouldComponentUpdate`。
-PureComponent内部隐式实现了shouldComponentUpdate方法，对比props和states。
+大多数时候我们可以使用`React.PureComponent`来代替手动写`shouldComponentUpdate`。`PureComponent`内部隐式实现了`shouldComponentUpdate`方法，使用**浅比较**对比props和states。
 
 ``` JavaScript
 class CounterButton extends React.PureComponent {
@@ -37,32 +32,100 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
+## React Immutability
 
-###React Immutability
-大多数时候我们可以使用PureComponent来快速的处理re-render，但是PureComponent只是进行浅比较，对应较复杂的数据结构PureComponent就无能无力了。
-##Immutable Data
-+ 简化复杂功能开发：方便历史数据保存，用来实现撤销，还原功能
-+ 方便变动检查：Imuutable Object 只需要对比值本身， Mutable Object则需求遍历整个对象树进行对比
-+ 决定什么适合进行re-render：
+大多数时候我们可以使用PureComponent来快速的处理re-render，但是PureComponent只是进行浅比较，对应较复杂的数据结构PureComponent就无能无力了，例子：
 
-// TODO
-[Immutable.js ](https://github.com/facebook/immutable-js)
-不可变：一旦创建，集合在其它时间点是不能改变的
-一致：可以在原集合的基础上修改和创建新的集合，原集合在创建新集合之后仍然有效
-结构共享：新集合尽可能和原集合结构保持一致，将复制减少到最低程度以提高性能
+``` js
+class ListOfWords extends React.PureComponent {
+  render() {
+    return <div>{this.props.words.join(',')}</div>;
+  }
+}
 
-``` JavaScript
-const SomeRecord = Immutable.Record({ foo: null });
-const x = new SomeRecord({ foo: 'bar' });
-const y = x.set('foo', 'baz');
-const z = x.set('foo', 'bar');
-x === y; // false
-x === z; // true
+class WordAdder extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      words: ['marklar']
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick() {
+    // 这部分代码很糟，而且还有 bug
+    const words = this.state.words;
+    words.push('marklar');
+    this.setState({words: words});
+  }
+
+  render() {
+    return (
+      <div>
+        <button onClick={this.handleClick} />
+        <ListOfWords words={this.state.words} />
+      </div>
+    );
+  }
+}
 ```
 
-immutable data使得追踪数据变化变得非常容易，每一个改变都会生成一个新的数据对象，我们只需直接对比新旧数据对象。
+因为`WordAdder`的click方法只是修改`works`的值，并没没有产生新的变量，所以`ListOfWords`中`this.props.words`还是同一个数组，所以并不会更新组件。
+为了避免上面这种情况，我们应该避免直接修改`props`和`state`，而是生产一个新的对象
 
-##代码拆分和按需加载
+``` js
+// 数组
+this.setState(state => ({
+    words: state.words.concat(['marklar'])
+}));
+this.setState(state => ({
+    words: [...state.words, 'marklar'],
+}));
+
+// 对象
+function updateColorMap(colormap) {
+  return Object.assign({}, colormap, {right: 'blue'});
+}
+function updateColorMap(colormap) {
+  return {...colormap, right: 'blue'};
+}
+```
+
+## 代码分割
+
+延迟(按需)加载代码，避免初始化代码体积过大
+
+webpack在解析代码的时候遇到`import()`会自动进行代码分割，改特效在Create React App和Next.js中都已经默认配置，如果是自己配置的Webpack项目需要安装[Code Splitting](https://webpack.js.org/guides/code-splitting/)进行配置。
+
+``` js
+import("./math").then(math => {
+  console.log(math.add(16, 26));
+});
+```
+
+React.lazy
+
+``` js
+import React, { Suspense } from 'react';
+import MyErrorBoundary from './MyErrorBoundary';
+
+const OtherComponent = React.lazy(() => import('./OtherComponent'));
+const AnotherComponent = React.lazy(() => import('./AnotherComponent'));
+
+const MyComponent = () => (
+  <div>
+    <MyErrorBoundary>
+      <Suspense fallback={<div>Loading...</div>}>
+        <section>
+          <OtherComponent />
+          <AnotherComponent />
+        </section>
+      </Suspense>
+    </MyErrorBoundary>
+  </div>
+);
+```
+
+## Long List
+
 // TODO
-https://reactjs.org/docs/code-splitting.html
-

@@ -86,6 +86,7 @@ useEffect(
 ## 自定义 Hook
 
 React 自定义hook就是一个常规的function，按照约定习惯这个function的名字以`use`开头，在这个function中的顶层可以使用其它hook函数。
+为了更好的复用应该尽量做到**有状态的组件没有渲染，有渲染的组件没有状态**
 
 ``` js
 import { useState, useEffect } from 'react';
