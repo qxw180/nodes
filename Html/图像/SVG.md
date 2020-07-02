@@ -1,15 +1,17 @@
-#SVG 
+# SVG
+
 可伸缩矢量图，使用XML格式定义图形，图像在改变尺寸的时候图像质量不会有损失。IE9及以上浏览器均支持。容易使用CSS和JS进行控制。
 
 SVG`viewBox`属性：用来设置SVG的viewport，4个数字，前两个用来描述左上角的起始坐标，后两个数字用来描述viewport的宽度和高度。
+
 ``` XML
 <svg width="100" height="100" viewBox="50 50 50 50">
   <circle id="mycircle" cx="50" cy="50" r="50" />
 </svg>
 ```
 
+## SVG in HTML
 
-##SVG in HTML
 SVG可以作为标签直接插入到HTML中，也可以作为独立文件通过`<img />`标签和CSS样式文件等方式引入。
 如果不想通过JS操作SVG建议使用`<img />`引入，如果需要通过JS操作建议使用`<object>`引入。
 
@@ -37,10 +39,8 @@ SVG可以作为标签直接插入到HTML中，也可以作为独立文件通过`
 }
 ```
 
-##SVG雪碧图
+## SVG压缩工具
 
-
-##SVG压缩工具
 [SVGO](https://github.com/svg/svgo)
 
 [snap.svg](http://snapsvg.io/) JavaScript SVG lib
