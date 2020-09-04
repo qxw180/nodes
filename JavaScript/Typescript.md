@@ -75,6 +75,8 @@ tom.push(true); // 编译报错，因为元组元素不包含boolean类型
 
 #### 对象类型-接口 interface
 
+typescript中使用接口来定义对象的类型
+
 ``` Typescript
 interface Person {
     readonly id: number; // 只读类型

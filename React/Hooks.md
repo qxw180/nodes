@@ -176,3 +176,38 @@ function Counter() {
   );
 }
 ```
+
+## Memo Hook & Callback Hook
+
+useMome、useCallback用法都差不多，都会在第一次渲染的时候执行，之后会在其依赖的变量发生改变时再次执行，并且这两个hooks都返回缓存的值，useMemo返回缓存的变量，useCallback返回缓存的函数。
+
+``` jsx
+import React, { memo, useState, useMemo } from "react";
+function App() {
+  const [value, setValue] = useState(0);
+  
+  const increase = useMemo(() => {
+    if(value > 2) return value + 1;
+  }, [value]);
+  
+  return (
+      <div>
+          <Child value={value} />
+          <button
+              type="button"
+              onClick={() => {
+                  setValue(value + 1);
+              }}
+          >
+              value:{value},increase:{increase || 0}
+          </button>
+      </div>
+  );
+}
+
+const Child = memo(function Child(props) {
+    console.log('Child render')
+    return <h1>value:{props.value}</h1>;
+});
+export default App;
+```
