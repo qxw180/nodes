@@ -4,7 +4,9 @@
   "description": "个人笔记",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "preview": "gitbook serve",
+    "build": "gitbook build ./ ./docs",
+    "summary": "rm SUMMARY.md && rm -rf _book && book sm"
   },
   "repository": {
     "type": "git",
@@ -16,5 +18,12 @@
   "bugs": {
     "url": "https://github.com/qxw180/nodes/issues"
   },
-  "homepage": "https://github.com/qxw180/nodes#readme"
+  "homepage": "https://github.com/qxw180/nodes#readme",
+  "devDependencies": {
+    "gitbook-cli": "^2.3.2",
+    "gitbook-summary": "^1.2.2"
+  },
+  "dependencies": {
+    "gitbook-plugin-splitter": "0.0.8"
+  }
 }

@@ -1,0 +1,7 @@
+{
+  "bookname": "个人笔记",
+  "catalog": "all",
+  "ignores": ["node_modules", "docs"],
+  "unchanged": [],
+  "plugins": ["chapter-fold", "splitter", "expandable-chapters"]
+}
