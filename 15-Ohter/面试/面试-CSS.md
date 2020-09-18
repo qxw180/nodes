@@ -6,7 +6,7 @@
   - 内联样式 > 内部样式 > 外部样式
   - !important > id > class > tag
 - 微元素和伪类的理解
-  - :before 和 ::before 的区别
+  - `:before` 和 `::before` 的区别
 
 ## 简述盒模型
 
