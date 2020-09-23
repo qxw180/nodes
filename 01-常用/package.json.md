@@ -17,13 +17,21 @@
 11. `dependencies`：生产环境中需要用到的依赖
 12. `devDependencies`：开发、测试环境中用到的依赖
 
-## 二、语义化版本
+## 二、[语义化版本](https://semver.org/lang/zh-CN/)
 
-NPM 建议了一个版本规范，用来表示发布版本的修改种类，NPM 版本由三部分组成：`[主版本].[副版本].[补丁版本]`
+标准版本：`[主版本].[副版本].[补丁版本]`
 
-- Patch releases 补丁版本: `1.0 or 1.0.x or ~1.0.4`
-- Minor releases 副版本，: `1 or 1.x or ^1.0.4`
-- Major releases 主版本，: `* or x`
+- Patch releases 补丁版本: 向下兼容的问题修复，一般为fixbug版本
+- Minor releases 副版本，: 向下兼容的功能增加，一般为feature版本
+- Major releases 主版本，: 不向下兼容的修改
+
+先行版本：`标准版本-修饰.次数`，例：`1.0.0-alpha.1`、`1.0.0-rc.0`、`1.0.p-rc.1`
+
+在发布大版本更新或有重大改动时，往往不能保证版本功能呢100%没有问题，这时候一般都会有一个个内测、公测之类的过程，这是发布的修饰过的版本称为先行版：
+
+- `alpha`: 内部版本
+- `beta`: 公测版本
+- `rc`: 即Release candiate，正式版本的候选版本
 
 ## 三、项目依赖
 
@@ -112,15 +120,15 @@ require("/home/user/workspace/lib/school");
 
 ```JSON
 {
-    sciptps: {
-        "build": "npm run clean && next build",
-        "start": "next start",
-        "clean": "rimraf .next/* out/*",
-        "lint": "eslint --cache --ext .js --ext .jsx src",
-        "pretest": "npm run lint",
-        "test": "karma start --log-leve=error karma.config.js --single-run=true",
-        "posttest": "echo 'Finished running tests'"
-    }
+  sciptps: {
+    "build": "npm run clean && next build",
+    "start": "next start",
+    "clean": "rimraf .next/* out/*",
+    "lint": "eslint --cache --ext .js --ext .jsx src",
+    "pretest": "npm run lint",
+    "test": "karma start --log-leve=error karma.config.js --single-run=true",
+    "posttest": "echo 'Finished running tests'"
+  }
 }
 ```
 
