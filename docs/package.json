@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "preview": "gitbook serve",
-    "build": "gitbook build ./ ./docs",
-    "summary": "rm SUMMARY.md && rm -rf _book && book sm"
+    "build": " rm -rf _book && gitbook build ./ ./docs",
+    "summary": "rm SUMMARY.md && && book sm"
   },
   "repository": {
     "type": "git",
