@@ -13,9 +13,26 @@ npm 是 nodeJS 自带的包版本管理工具，是每个前端开发者的必�
 - 更新：`npm update`，更新 package.json 中依赖的 package，更新全局安装 package 可以重新执行全局安装；
 - 检查：`npm outdated`，检查哪些包有新版本
 - 清理：`npm prune`，清理`node_modules`目录，将目录中存储的但是未在`package.json`中声明依赖的包移除
-- list：`npm list --depth=0`
+- 列出安装的包：`npm list --depth=0`
 - `npm home $package`：打卡 package 的主页
 - `npm repo $package`：打卡 package 的版本库
+- 配置
+  - 查看配置：`npm config list`
+  - 修改配置：`npm set <key> <value>`
+  - 删除配置：`npm config rm <key>`
+
+## 镜像源管理
+
+设置镜像源：`npm set registry https://registry.npm.taobao.org/`
+
+[nrm](https://github.com/Pana/nrm)可以方便的管理镜像源
+
+- 列出可用源：`nrm ls`
+- 查看当前源：`nrm current`
+- 切换源：`nrm use <registry>`
+- 添加源：`nrm add <registry> <url> [home]`
+- 删除源：`nrm del <registry>`
+- 测速：`nrm test <registry>`
 
 ## 版本锁定
 
