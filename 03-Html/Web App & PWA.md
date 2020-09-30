@@ -1,27 +1,26 @@
-# Web Application
+# Web Application & PWA
 
 什么是 WebApplication？什么是 WebSite？他们有什么区别？
 开发者普遍认为，website 是用来提供信息的 webpage，可以基于静态化页面来实现，例如新闻网站。webApp 在 website 的基础上可以和用户进行交互。
 个人认为我们不必过多关注二者之间的区别，我们可以关注 App 和 WebApp 的区别，App 相对于 webpage 有更好的用户体验，现在的 web 开发者在努力使 webpage 更加接近 App， 做体验更加友好的 webpage。
 
-## Progressive Web App(PWA)
+## [PWA(Progressive Web App)](https://developer.mozilla.org/zh-CN/docs/Web/Progressive_web_apps)
 
 PWA 的中文名是渐进式网页应用，PWA 是一系列技术的合计，将 Web 和 App 的优势结合在一起，提供体验更好功能更强大的 WebAPP，相对传统 web 有以下提升：
 
-1. 可安装：可以添加到主屏幕，通过网站配置文件`manifest.json`设置，通过主屏幕进入可以全屏运行、隐藏地址栏获得类似 APP 的体验
+1. 可安装：Web App Mainfest 可以配置网站[添加到主屏幕](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen#Manifest)，通过主屏幕进入可以全屏运行、隐藏地址栏获得类似 APP 的体验
 2. 可离线：基于 Service worker 可以实现离线访问和消息推送功能
 3. 可推送：
+4. 渐进式加载：App Shell 先渲染一个极简的壳，然后使用异步数据渲染内容，这个其实在
 
-## 网络应用清单[Web App Mainfest](https://developer.mozilla.org/en-US/docs/Web/Manifest)
+### [Web App Mainfest](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
-Web App Manifest 是 PWA 技术的一部分，提供了将网站书签保存到设备主屏幕的能力 。
-Web App Manifest 是一个用来提供网站信息(名字、作者、描述、图表等)的 JSON 文件，主要功能：
+Web App Manifest 是 AMP 技术集合的一部分，是一个用来提供网站元数据(名字、作者、描述、图表等信息)的 JSON 文件。
+Web App Manifest 提供了将网站书签保存到设备主屏幕的能力 。
 
 1. 设置图标和名称
 2. 设置网站加载时像用户展示的信息
 3. 设置浏览器默认显示特性
-
-### Web App Mainfest 的使用
 
 Web App Mainfest 的使用非常简单，只需求创建  清单并在 HTML 头部使用`link`标签引入：
 
@@ -29,15 +28,18 @@ Web App Mainfest 的使用非常简单，只需求创建  清单并在 HTML 头
 <link rel="manifest" href="/manifest.webmanifest" />
 ```
 
-> 注意：`.webmanifest`是[Media type registration](https://w3c.github.io/manifest/#media-type-registration)规范的一部分，但是浏览器通常支持`.json`格式。
+> 注意：`.webmanifest`是[Media type registration](https://w3c.github.io/manifest/#media-type-registration)规范的一部分，需要设置响应头`Content-Type: application/manifest+json`。但是浏览器通常支持`.json`扩展名。
 
 Manifest 配置示例：
 
 ```json
 {
-  "short_name": "HackerWeb", // 在用户主屏幕上用作文本的
   "name": "HackerWeb", // 在网络应用安装横幅中使用的 name。
+  "short_name": "HackerWeb", // 在用户主屏幕上用作文本的
   "description": "A simply readable Hacker News app.",
+  "start_url": "/index.html?launcher=true", // 网站启动地址，默认为当前页面
+  "display": "fullscreen", // 应用的显示模式，四个值可以选择：fullscreen、standalone、minimal-ui和browser
+  "orientation": "landscape", // 屏幕旋转方向，可以禁止屏幕旋转
   "icons": [
     {
       "src": "images/touch/homescreen48.png",
@@ -48,33 +50,11 @@ Manifest 配置示例：
       "src": "images/touch/homescreen72.png",
       "sizes": "72x72",
       "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen96.png",
-      "sizes": "96x96",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen168.png",
-      "sizes": "168x168",
-      "type": "image/png"
-    },
-    {
-      "src": "images/touch/homescreen192.png",
-      "sizes": "192x192",
-      "type": "image/png"
     }
   ],
-  "start_url": "index.html?launcher=true", // 网站启动地址，默认为当前页面
-  "background_color": "#000", // 设置加载时的背景颜色
+  "background_color": "#000", // 设置加载时的背景颜色，PWA的启动画面及时使用background_color和icons组合生成的
   "theme_color": "#000", // 主题颜色
-  "display": "standalone", // 展示模式
-  "orientation": "landscape", // 页面初始方向
+  "scope": "/myapp/", // 作用域，作用域外的网站会在浏览器中打开，不会继续在PWA里浏览
   "related_applications": [
     {
       "platform": "play",
@@ -84,31 +64,67 @@ Manifest 配置示例：
 }
 ```
 
-更多详细信息请[参考](https://developers.google.com/web/fundamentals/web-app-manifest/)。
+### [Service Worker](./Worker/Service%20Workes.md)
 
-## 设置添加到 IOS 屏幕应用信息 head meta
+Service Worker 是一个可编程的 Web Worker，它就像一个位于浏览器与网络之间的客户端代理，可以拦截、处理、响应流经的 HTTP 请求，配合[Cache Storage API](./Cahce&Storage/04-CacheStorage.md)可以实现 Websites 的离线能力。
 
-1. 隐藏 Safari 工具栏和菜单栏：`<meta name="apple-mobile-web-app-capable" content="yes">`，Chrome 设置方法，Google 视图用这个标签替换 IOS 的专用标签，称为通用规范`<meta name="mobile-web-app-capable" content="yes">`
-2. 状态栏背景颜色：`<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />`
-   1. default ：状态栏背景是白色。
-   2. black ：状态栏背景是黑色。
-   3. black-translucent ：状态栏背景是半透明。 如果设置为 default 或 black ,网页内容从状态栏底部开始。
-3. 设置全屏：`<meta name="apple-touch-fullscreen" content="yes">`
-4. 设置默认 color scheme：`<meta name="apple-mobile-web-app-status-bar-style" content="black">`
-5. 设置 title：`<meta name="apple-mobile-web-app-title" content="">`
-6. 设置 ICON：`<link rel="apple-touch-icon" href="icon.png">`
-   1. [ICON 尺寸说明]](https://en.wikipedia.org/wiki/List_of_iOS_devices#Display)
-   2. 一般情况下使用 180\*180，命名为 icon.png：`<link rel="apple-touch-icon" href="icon.png">`,Chrome 设置 ICON：`<link rel="icon" sizes="192x192" href="highres-icon.png">`
-7. 设置启动画面：`<link rel="apple-touch-startup-image" media="(max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2)" href="img/startup-retina.png">`
-   1. 因为 IOS 设备有不同的尺寸，所以需要跟进不同的尺寸设置不同的开屏画面()
-   2. https://github.com/h5bp/mobile-boilerplate/blob/v4.1.0/js/helper.js#L336-L383
+### [Notification API](./设备访问/通知Notification%20API.md)
 
-[官方文档](https://developer.apple.com/safari/resources/#documentation/AppleApplications/Reference/SafariHTMLRef/Articles/MetaTags.html)
+### [Push API](./设备访问/推送Push%20API.md)
 
-## Custom For Windows IE11
+### Service Worker + Cache Storage API 实现离线功能
 
-在 Windows 中也提供了将 webpage 添加到桌面图标的功能，可以对标题、颜色  和图标进行定制。详细[参考](<https://docs.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/samples/dn455106(v=vs.85)>)
+```JavaScript
+// 判断客户端是否支持service worker，注册service worker脚本为`sw.js`
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('./sw.js').then(function () {
+        console.log('Service Worker 注册成功');
+    });
+}
+```
 
-https://www.zhihu.com/question/46690207
+sw.js
 
-[MDN Web App Manifest](https://developer.mozilla.org/zh-CN/docs/Web/Manifest)
+```JavaScript
+// sw.js
+var cacheName = 'bs-0-2-0';
+self.addEventListener('install', function(event) {
+    event.waitUntil(
+        //  service worker 安装完成之后，获取一个cache实例并添加缓存
+        caches.open(cacheName).then(function(cache) {
+            return cache.addAll([
+                '/sw-test/',
+                '/sw-test/index.html',
+                '/sw-test/style.css',
+                '/sw-test/app.js',
+            ]);
+        })
+    );
+});
+
+// 监听网络请求
+self.addEventListener('fetch', function(event) {
+    // 检查CacheStorage中是否有匹配的缓存项
+    event.respondWith(caches.match(event.request).then(function(response) {
+        if (response !== undefined) {
+            return response; // 有缓存直接使用缓存响应
+        } else {
+            // 如何没有，使用fetch请求响应并缓存
+            return fetch(event.request).then(function (response) {
+                let responseClone = response.clone();
+                caches.open(cacheName).then(function (cache) {
+                    cache.put(event.request, responseClone);
+                });
+                return response;
+            }).catch(function () {
+                return caches.match('/sw-test/gallery/myLittleVader.jpg');
+            });
+        }
+    }));
+});
+```
+
+## 相关阅读
+
+- [下一代 Web 应用模型 — Progressive Web App](https://zhuanlan.zhihu.com/p/25167289)
+- [PWA 学习手册](https://pwa.alienzhou.com/)
