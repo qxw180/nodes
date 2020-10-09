@@ -65,9 +65,10 @@ JavaScript 可以通过 `/pattern/flags`的形式或`RegExp(pattern[,flags])`构
 
 - `pattern`：正则表达式文本
 - `flags`：匹配模式，可以是以下参数的组合
-  - `g`：全局匹配
+  - `g`：全局匹配，每次匹配剩余的
   - `i`：忽略大小写
   - `m`：多行匹配
+  - `y`：粘连修饰符，剩余的第一个开始匹配
 
 ### RegExp 对象方法
 
