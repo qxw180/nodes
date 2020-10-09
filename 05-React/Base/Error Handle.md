@@ -1,8 +1,10 @@
-#错误处理
+# 错误处理
 
-##错误处理容器Error Boundary
-设置`componentDidCatch`方法的React Class可以捕捉子组件中的错误
-``` JavaScript
+## 错误处理容器 Error Boundary
+
+设置`componentDidCatch`方法的 React Class 可以捕捉子组件中的错误
+
+```JavaScript
 class ErrorBoundary extends React.Component {
   constructor(props) {
     super(props);
