@@ -139,7 +139,7 @@ const btnRef = React.createRef();
 <FancyButton ref={btnRef}>Click me!</FancyButton>;
 ```
 
-在高阶组件中使用 Forwarding Refs：因为`ref`属性和`key`属性一样会被 React 特殊处理，不会包含在组件的`props`中，所以在 HOC 中透传`ref`，可以使用 Forwarding Refs 明确的将`ref`转发到被包装的内部组件中。
+在 HOC 中使用 Forwarding Refs：因为`ref`属性和`key`属性一样会被 React 特殊处理，不会包含在组件的`props`中，所以在 HOC 中透传`ref`，可以使用 Forwarding Refs 明确的将`ref`转发到被包装的内部组件中。
 
 ```JavaScript
 function logProps(Component) {
