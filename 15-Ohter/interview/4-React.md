@@ -13,6 +13,10 @@
 
 ## React Refs 使用
 
+## React 性能优化
+
+## 为什么只能在函数最外层调用 Hook。不要在循环、条件判断或者子函数中调用
+
 ## Flux
 
 store 用来存放数据，store 和 view 关联，store 可以有多个
