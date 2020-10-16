@@ -1,6 +1,6 @@
 # React Hooks
 
-```jsx
+```JSX
 import React, { useState, useEffect } from "react";
 function Example() {
   const [count, setCount] = useState(0);
@@ -41,7 +41,7 @@ function Example() {
 更新状态：`setState`用来更新 state，`setState`方法接收一个新的 state 来更新当前的 state，并将组件的一次重新渲染加入队列，注意：和 class 组件`setState`不同，**不会进行 state 合并而是直接替换**。
 函数式更新：如果更新 state 需要依赖之前的 state，在调用`setState`方法的时候可以传入一个函数，函数执行时候的参数即为之前的 state
 
-```js
+```JSX
 // 使用函数初始state
 const [state, setState] = useState(() => {
   const initialState = someExpensiveComputation(props);
@@ -71,7 +71,7 @@ React 使用 Effect Hook 来完成副作用操作，`useEffect(didUpdate)`接收
 默认情况下 React 在每次渲染完成后执行执行 effect hook 注册的副作用函数，一些场景并不需要每次渲染之后重新执行，例如：初始数据加载、订阅等场景。`useEffect`方法的第二个参数可以设置 effect 函数的依赖值的数组，依赖数组中的任意一个值发生了变化 effect 都会重新执行。
 如果你要使用此优化方式，**请确保数组中包含了所有外部作用域中会发生变化且在 effect 中使用的变量**，否则你的代码会引用到先前渲染中的旧变量。如果只想执行一次则可以传入一个空数组。
 
-```js
+```JSX
 // 清除 effect
 useEffect(
   () => {
@@ -92,9 +92,9 @@ React Context 使用参考：[React 数据管理](./React数据管理.md)
 
 ## 自定义 Hook
 
-React 自定义 hook 就是一个常规的 function，按照约定习惯这个 function 的名字以`use`开头，在这个 function 中的顶层可以使用其它 hook 函数。
+React 自定义 hook 就是一个以`use`开头的函数，在这个函数中的顶层可以使用其它 hook。
 
-```js
+```JSX
 import { useState, useEffect } from "react";
 
 function useFriendStatus(friendID) {
@@ -120,7 +120,7 @@ function useFriendStatus(friendID) {
 `const refContainer = useRef(initialValue);`
 `useRef`返回一个可变的`ref`对象，其`.current`属性被初始化为传入的参数。`useRef`会在每次渲染时返回同一个`ref`对象
 
-```js
+```JSX
 function TextInputWithFocusButton() {
   const inputEl = useRef(null);
   const onButtonClick = () => {
@@ -157,7 +157,7 @@ State Hook 的替代方案，类 Redux。`const [state, dispatch] = useReducer(r
 - `initialArg`参数：初始 states
 - `init`参数：state 初始化方法，初始 state 为`init(initialArg)`
 
-```js
+```JSX
 const initialState = { count: 0 };
 
 function reducer(state, action) {

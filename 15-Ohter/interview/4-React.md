@@ -17,6 +17,13 @@
 
 ## 为什么只能在函数最外层调用 Hook。不要在循环、条件判断或者子函数中调用
 
+## React 数据管理方案
+
+1. Context
+   1. Context 使用注意事项
+      1. `Context.Provider`的`value`值是一个对象的时候需要注意什么
+   2. React 如何确定新旧值得变化，是否受`shouldComponentUpdate`影响
+
 ## Flux
 
 store 用来存放数据，store 和 view 关联，store 可以有多个
