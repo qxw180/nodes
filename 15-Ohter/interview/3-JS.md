@@ -61,12 +61,15 @@ Document.ready 原生种没有这个方法，jquery 中有 \$().ready(function)
 - 多层依赖请求处理。promise
 - Promise
   - Promise 相对于 Callback 的好处：处理异步流程中，把执行代码和结果处理代码清晰的分离
-  - promise 的三种状态，状态十分可变
-  - promise 错误处理？catch 和第二个参数哪种方式更好：catch 有冒泡性质。
   - promise 对象什么时候开始执行：创建后立即执行
-  - 低版本浏览器不支持 promise 如何处理？
+  - promise 的三种状态，状态十分可变
+  - promise 错误处理
+    - catch 和第二个参数哪种方式更好：catch 有冒泡性质。
   - resolve 和 reject 会不会中止 promise 对象函数的执行，如何中止？
   - then 方法是否可以实现链式调用？为什么？
+  - 并发
+    - 如何并发执行多个异步任务
+    - 如何实现无论是否有失败任务都获取运行结果
 
 ## 谈谈 this 对象的理解
 
@@ -144,3 +147,9 @@ https://www.zhihu.com/question/44724640
 - 数据统计，比 ajax 更简单的方法
 
 https://zhuanlan.zhihu.com/p/25424194
+
+## JavaScript 引擎和 JavaScript runtime 的区别
+
+## 当程序遇到高 CPU 消耗影响效率如何处理
+
+webwork
