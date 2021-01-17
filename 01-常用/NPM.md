@@ -34,6 +34,12 @@ npm 是 nodeJS 自带的包版本管理工具，是每个前端开发者的必�
 - 删除源：`nrm del <registry>`
 - 测速：`nrm test <registry>`
 
+## [NPM 脚本](../07.基础/08-Npm/npm%20scripts.md)
+
+## [NPM 包](../07.基础/08-Npm/npm%20pacakge.md)
+
+## [package.json](../07.基础/08-Npm/package.json.md)
+
 ## 版本锁定
 
 同一份代码在不同环境和时间安装出不同的依赖包，依然是可能导致意外的潜在因素，为了保证开发和运行的一致性，我们需要对项目的依赖进行锁定。
