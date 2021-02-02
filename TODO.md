@@ -19,16 +19,11 @@
 
 ## HTTP
 
-- 301 302 区别
-- HTTPS
-- HTTP2
-- cache 相关
 - localhost VS 127.0.0.1
 - 端口映射 端口转发 内网穿透
 
 ## Linux
 
-- 软件安装管理【结】
 - 端口管理
 - 进程管理
   - 后台运行
@@ -38,14 +33,10 @@
 - 安全
 - 许可协议
 
-## Github & npm
-
-- Gitpage 玩法
-- Gist 玩法
-- 如何玩转开源
-
 ## Canvas Webgl three.js
 
 ## Spring Boot
 
 ## 消息队列
+
+## Mock&Test
