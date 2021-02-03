@@ -1,35 +1,16 @@
-# npm package
-
-[npm Docs](https://docs.npmjs.com/)
-
-## 创建自己的 package
-
-每个包都有一个描述文件`package.json`
-
-- Step1. 通过`npm init`初始化项目，生成 package.json
-- Step2. 创建入口文件，默认为`index.js`
-- Step3. 发布 package，在发布之前请确认是否已经有同名项目存在，如果有则发布过程中会提示帐号权限不足；
-  - 注册 npm 帐号：`npm adduser`；
-  - 在客户端登录帐号`npm login`，登录后会在客户端存储证书；
-  - 发布：`npm publish`
-- Step4. 更新 package
-  - 更新版本：`npm version <update_type>`，该命令会更新 package.json 中的版本号，如果项目使用 git 管理，那么同事会添加一个 git tag
-    - `patch`：修丁版本
-    - `minor`：次版本
-    - `major`：主版本
-  - 重新发布：`npm publish`
+# Npm Package 版本管理
 
 ## [语义化版本](https://semver.org/lang/zh-CN/)
 
 语义化版本要求 package 先有定义好的 API。package 的初始阶段主版本一般都为`0`，表示一切的现行 API 都有可能进行重大调整，在 API 稳定之后发布`1.x.x`版本，视为稳定版本。
 
-### 标准版本：`[主版本].[次版本].[修丁版本]`
+标准版本：`[主版本].[次版本].[修丁版本]`
 
 - Patch releases 修丁版本: 向下兼容的问题修复，一般为 fixbug 版本
 - Minor releases 次版本，: 向下兼容的功能增加，一般为 feature 版本，此版本更新的同时修丁版本必须重置为 0
 - Major releases 主版本，: 不向下兼容的修改，同上主版本升级后次版本和修丁版本也需要重置
 
-### 先行版本
+先行版本
 
 在发布大版本更新或有重大改动时，往往不能保证版本功能呢 100%没有问题，这时候一般都会有一个个内测、公测之类的过程，这是发布的修饰过的版本称为先行版。
 先行版本在修订版本后使用`-`链接，修订版本只能使用由 ASCII 字母数字和连接号 [0-9A-Za-z-] 组成。格式如下：`标准版本-修饰.次数`，例：`1.0.0-alpha.1`、`1.0.0-rc.0`、`1.0.p-rc.1`
@@ -40,6 +21,8 @@
 - `alpha`: 内部版本
 - `beta`: 公测版本
 - `rc`: 即 Release candiate，正式版本的候选版本
+
+package 版本升级，参考[提交规范统一](../../15-Ohter/架构/代码质量/3.%20提交规范统一.md)
 
 ## 依赖管理
 
@@ -68,3 +51,11 @@
   - `*`
   - `x`
 - 固定版本：`1.0.4`：明确指定版本号且无任何前缀
+
+## 版本锁定
+
+同一份代码在不同环境和时间安装出不同的依赖包，依然是可能导致意外的潜在因素，为了保证开发和运行的一致性，我们需要对项目的依赖进行锁定。
+
+在项目中使用 `npm shrinkwrap` 命令，会生成一个 `npm-shrinkwrap.json` 文件，将项目依赖锁定在当前在`node_modules`中使用的特定版本。运行`npm install`时，若发现存在`npm-shrinkwrap.json`，则会覆盖列出的依赖以及`package.json`中的任何语义版本范围。
+
+npm v5 在`npm install`时会自动生成一个`package-lock.josn`文件用于精准的记录所有包的结构、层级和版本号甚至安装源，提供了 “保存” `node_modules`状态的能力。在项目中运行`npm ci`可以保证项目依赖的一致性，`packakge-lock.json`与`npm shrinkwrap`实现的功能完全相同。

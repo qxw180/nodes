@@ -55,5 +55,23 @@ hook：可以为使用`pre`和`post`为`scripts`脚本声明钩子函数，在�
 }
 ```
 
+## 运行环境变量
+
+通过`npm run` 启动的脚本会自动将`package.json`中的各种字段注入到环境变量，共`scripts`脚本引用，变量名为`npm_package_{name}`
+
+```JSON
+{
+  "name": "hello",
+  "version": "2.0.9",
+  "description": "PRDC Sumeru Node ENV",
+  "main": "index.js",
+  "scripts": {
+    "build": "tar -czf dist/hello-${npm_package_version}.tgz hello"
+  }
+}
+```
+
+## 参考
+
 [npm-run-scripts](https://docs.npmjs.com/cli/v6/commands/npm-run-script)
 [scripts](https://docs.npmjs.com/cli/v6/using-npm/scripts)
