@@ -3,5 +3,5 @@
   "catalog": "all",
   "ignores": ["node_modules", "docs"],
   "unchanged": [],
-  "plugins": ["chapter-fold", "splitter", "expandable-chapters"]
+  "plugins": ["uml", "chapter-fold", "splitter", "expandable-chapters"]
 }
