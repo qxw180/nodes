@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "preview": "gitbook serve",
-    "install": "gitbook install",
+    "init": "gitbook init",
     "build": "rm -rf _book && gitbook build ./ ./docs",
     "summary": "rm SUMMARY.md && book sm"
   },

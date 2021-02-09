@@ -8,7 +8,7 @@
 安装
 
 `npm install`
-`npx gitbook install`
+`npm run init`
 
 目录：`npm run summary`
 
