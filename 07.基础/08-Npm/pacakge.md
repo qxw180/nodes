@@ -13,12 +13,13 @@ npm pacakage 是 js 程序共享的主要途径，npm package 主要有两种使
 4. `keywords`：关键字
 5. `author`：作者
 6. `license`：开源协议
-7. `main`：入口文件，一般都是 index.js
-8. `bin`：指定内部命令对应的可执行文件
-9. `config`：添加命令行环境变量
-10. `scripts`：脚本，参考[NPM 脚本](./scripts.md)
-11. `dependencies`：生产环境中需要用到的依赖，参考[包版本管理](./package%20version.md)
-12. `devDependencies`：开发、测试环境中用到的依赖
+7. `private`：TODO:
+8. `main`：入口文件，一般都是 index.js
+9. `bin`：指定内部命令对应的可执行文件
+10. `config`：添加命令行环境变量
+11. `scripts`：脚本，参考[NPM 脚本](./scripts.md)
+12. `dependencies`：生产环境中需要用到的依赖，参考[包版本管理](./package%20version.md)
+13. `devDependencies`：开发、测试环境中用到的依赖
 
 ## 使用 package
 

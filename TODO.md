@@ -49,3 +49,21 @@
 https://www.yuque.com/himstone/eowoaw/in42yy
 
 ## Serverless
+
+## 算法
+
+树状结构 flat
+
+```JSON
+[
+  {
+    "children": [
+      {
+        "children": []
+      }
+    ]
+  }
+]
+```
+
+## GraphQL
