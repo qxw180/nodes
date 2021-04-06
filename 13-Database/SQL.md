@@ -2,11 +2,31 @@
 
 ## DDL：Data Definition Language
 
-创建表
-删除表：`DROP TABLE students;`
-添加列：`ALTER TABLE students ADD COLUMN birth VARCHAR(10) NOT NULL;`
-删除列：`ALTER TABLE students DROP COLUMN birthday;`
-修改列：`ALTER TABLE students CHANGE COLUMN birth birthday VARCHAR(20) NOT NULL;`
+数据库操作
+
+```sql
+-- 查看全部数据库
+SHOW DATABASES;
+-- 查看数据库信息
+SHOW CREATE DATABASE <数据库名>;
+-- 删除数据库
+DROP DATABASE <数据库名>;
+-- 查看当前正在使用数据库
+SELECT DATABASE();
+-- 切换/使用数据库
+USE <数据库名>;
+```
+
+数据表操作
+
+- list 表：`SHOW TABLES;`
+- 创建表：`CREATE TABLE <表名> (字段1 字段类型, 字段2 字段类型, ....)`
+- 查看表信息：`DESC <表名>;`
+- 查看创建表 SQL 语句：`SHOW CREATE TABLE <表名>;`
+- 删除表：`DROP TABLE <表名>;`
+- 添加列：`ALTER TABLE <表名> ADD COLUMN birth VARCHAR(10) NOT NULL;`
+- 删除列：`ALTER TABLE <表名> DROP COLUMN birthday;`
+- 修改列：`ALTER TABLE <表名> CHANGE COLUMN birth birthday VARCHAR(20) NOT NULL;`
 
 ## DML：Data Manipulation Language
 

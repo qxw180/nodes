@@ -1,8 +1,8 @@
 # this
 
-this指的是当前允许环境或当前对象，同一个this在不同的情景下指向不同
+this 指的是当前允许环境或当前对象，同一个 this 在不同的情景下指向不同，this 的值是在执行的时候确定的。
 
-1. 全局环境或直接调用函数，`this`指向顶层对象`window`，在Nodejs环境下为`global`
+1. 全局环境或直接调用函数，`this`指向顶层对象`window`，在 Nodejs 环境下为`global`
 2. 构造函数，即使用`new`关键字运行函数，`this`指向实例对象
 3. 对象方法，`this`指向运行时调用该方法的对象
 4. `call、apply、bind`：`this`为方法的第一个参数
@@ -10,7 +10,7 @@ this指的是当前允许环境或当前对象，同一个this在不同的情景
 
 ## 特别注意情况
 
-``` JavaScript
+```JavaScript
 var a = {
   b : {
     m : function() {
@@ -29,9 +29,9 @@ var p = "window p";
 hello() // "window p"
 ```
 
-数组循环中的this
+数组循环中的 this
 
-``` JavaScript
+```JavaScript
 var o = {
   v: 'hello',
   p: [ 'a1', 'a2' ],
@@ -61,13 +61,13 @@ o.f()
 // hello a2
 ```
 
-## 使用call和apply
+## 使用 call 和 apply
 
 `function.call(obj,arg1,arg2,...)`
 `function.apply(obj,[arg1,arg2,...])`
-apply与call的唯一区别是方法参数的传入方式不一样，是通过一个数组传入；
+apply 与 call 的唯一区别是方法参数的传入方式不一样，是通过一个数组传入；
 
-``` JavaScript
+```JavaScript
 var sum = 100;
 function add(a, b) {
   return this.sum + a + b;
@@ -78,9 +78,9 @@ add.call(this,1,2) // 103
 
 ## 使用`bind`
 
-`function.bind(obj,args1,args2,...)` 将函数体内的this绑定到某个对象，然后返回一个新方法，如果bind方法的第一个参数是null或undefined，等于将this绑定到全局对象
+`function.bind(obj,args1,args2,...)` 将函数体内的 this 绑定到某个对象，然后返回一个新方法，如果 bind 方法的第一个参数是 null 或 undefined，等于将 this 绑定到全局对象
 
-``` JavaScript
+```JavaScript
 var a = new Object();
 a.x = 123;
 a.toString = function(){
@@ -99,9 +99,9 @@ b.toString = a.toString.bind(a);
 b.toString();// 123;
 ```
 
-对于不支持bind方法的浏览器我们可以自己实现
+对于不支持 bind 方法的浏览器我们可以自己实现
 
-``` JavaScript
+```JavaScript
 if(!('bind' in Function.prototype)){
   Function.prototype.bind = function(){
     var fn = this;
@@ -114,12 +114,12 @@ if(!('bind' in Function.prototype)){
 }
 ```
 
-## 箭头函数中的this
+## 箭头函数中的 this
 
 箭头函数可以用于对函数内部的上下文(this)绑定为定义**函数所在作用域的上下文**；
-即为：箭头函数内部this为箭头函数声明时所在的对象；
+即为：箭头函数内部 this 为箭头函数声明时所在的对象；
 
-``` JavaScript
+```JavaScript
 let obj = {
   hello: 'world',
   foo() {

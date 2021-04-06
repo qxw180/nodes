@@ -26,7 +26,7 @@ DevOps 是一套解决方案，提升开发和部署效率及可靠性，这套�
   - 代表产物：云服务(云存储、云数据库等)、中间件服务
 - SaaS(Software as a Service)软件服务
   - 将软件的开发、管理、部署都交个第三方，自己不需要关心技术问题
-  - 代表产物：邮箱、协同工作平台等，通过注册账号就可以享受产品服务
+  - 代表产物：npm, dockerhob 等，通过注册账号就可以享受产品服务
 
 开发者需要关心的部分
 ![iaas、paas、saas开发者需要关心的部分](../../nodes/assets/images/good/Management-Iaas-Saas-Paas-Cloud.jpg)

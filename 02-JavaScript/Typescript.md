@@ -1,4 +1,4 @@
-# Typescript
+# TypeScript
 
 ## 语法
 
@@ -6,7 +6,7 @@
 
 #### 基础类型
 
-``` Typescript
+```TypeScript
 let isDone: boolean = false; // 布尔值
 let decLiteral: number = 6; // 数字
 let name: string = "bob"; // 字符串
@@ -24,7 +24,7 @@ let num: number = u;
 
 #### 任意值 any： 任意值允许在程序运行过程中改变变量的类型
 
-``` Typescript
+```TypeScript
 let myFavoriteNumber: any = 'seven';
 myFavoriteNumber = 7;
 
@@ -44,7 +44,7 @@ myFavoriteNumber = 7;
 
 #### 联合类型：表示值可以为多种类型中的一种
 
-``` Typescript
+```TypeScript
 let myFavoriteNumber: string | number;
 myFavoriteNumber = 'seven';
 myFavoriteNumber = 7;
@@ -63,7 +63,7 @@ console.log(myFavoriteNumber.length); // 编译时报错
 
 #### 数组类型
 
-``` Typescript
+```TypeScript
 let list: number[] = [1, 2, 3];
 let list: Array<number> = [1, 2, 3]; // 数组泛型
 
@@ -75,9 +75,9 @@ tom.push(true); // 编译报错，因为元组元素不包含boolean类型
 
 #### 对象类型-接口 interface
 
-typescript中使用接口来定义对象的类型
+typeScript 中使用接口来定义对象的类型
 
-``` Typescript
+```TypeScript
 interface Person {
     readonly id: number; // 只读类型
     name: string;
@@ -94,7 +94,7 @@ let tom: Person = {
 
 #### 函数类型
 
-``` Typescript
+```TypeScript
 // 函数声明
 function sum(x: number = 0, y: number = 0): number {
     return x + y;
@@ -139,7 +139,7 @@ function reverse(x: number | string): number | string {
 
 类型断言可以指定一个值的类型`<类型>值`或`值 as 类型`
 
-``` Typescript
+```TypeScript
 function getLength(something: string | number): number {
     if (something.length) { // 编译报错，联合类型在不确定变量具体类型的时候只能访问联合类型的共有属性
         return something.length;
@@ -159,7 +159,7 @@ function getLength(something: string | number): number {
 
 #### 内置对象
 
-``` Typescript
+```TypeScript
 // ECMAScript 的内置对象 Boolean、Error、Date、RegExp 等。
 let b: Boolean = new Boolean(1);
 let e: Error = new Error('Error occurred');
@@ -178,7 +178,7 @@ document.addEventListener('click', function(e: MouseEvent) {
 
 ### 字符串字面量类型，用来约束字符串变量只能为固定的值
 
-``` Typescript
+```TypeScript
 type EventNames = 'click' | 'scroll' | 'mousemove';
 function handleEvent(ele: Element, event: EventNames) {
     // do something
@@ -189,3 +189,94 @@ handleEvent(document.getElementById('world'), 'dbclick'); // 报错，event 不�
 ```
 
 ### 枚举
+
+```TypeScript
+enum Direction {
+    Up,
+    Down,
+    Left,
+    Right,
+}
+console.log(Direction.Up); // 0
+console.log(Direction[0]); // Up
+```
+
+### Class
+
+```TypeScript
+interface IAnimal {
+    run(): viod;
+}
+
+class Animal implements IAnimal{
+    private id: number; // 私有属性
+    readonly name: string; // 只读属性
+    static categories: string[] = ['animal']; // 静态属性
+    static isAnimal(instance) { // 静态方法
+        return instance instanceof Animal;
+    }
+    constructor(name: string) {
+        this.name = name;
+    }
+    run() {
+        console.log(`${this.name} running`)
+    }
+}
+```
+
+### 泛型
+
+在使用的时候，动态的确定类型。
+
+```TypeScript
+function echo<T>(input: T): T {
+    return input;
+}
+
+function swap<T, U>(tuple:[T,U]): [U, T] {
+    return [tuple[1], tuple[0]]
+}
+
+// 泛型约束
+interface IWithLength {
+    length: number;
+}
+function echoWithLength<T extends IWithLength>(arg: T): T {
+    console.log(arg.length);
+    return arg;
+}
+
+// 泛型用例 - Class
+class Queue<T> {
+    private data = [];
+    push(item: T) {
+        return this.data.push(item)
+    }
+    pop(): T {
+        return this.data.shift();
+    }
+}
+const queue = new Queue<number>();
+queue.push(1);
+queue.push('123'); // 会报错
+
+// 接口泛型用例-对象
+interface IKeyPair<T, U> {
+    key: T;
+    value: U;
+}
+let key1: IKeyPair<string, number> = { key: 'abc', value: 123};
+
+// 接口泛型用例-函数
+interface IPlus<T> {
+    (a: T, b: T): T;
+}
+function plusNum(a: number, b: number): number {
+    return a + b;
+}
+function plusString(a: string, b: string): string {
+    return a + b;
+}
+const a: IPlus<number> = plusNum;
+const b: IPlus<string> = plusNum;
+```

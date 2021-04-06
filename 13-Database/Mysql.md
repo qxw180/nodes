@@ -15,19 +15,12 @@
 @endmindmap
 ```
 
-数据库操作
+## 数据类型
 
-```sql
-SHOW DATABASES;
-USE database_name;
-CREATE DATABASE database_name;
-DROP DATABASE database_name;
-SHOW TABLES;
-DESC table_name;
--- 查看创建表的SQL语句
-SHOW CREATE TABLE table_name;
-DROP TABLE table_name;
-```
+- int：整形
+- double：浮点型
+- varchar：字符串
+- date：日期
 
 ## 表关系
 
@@ -64,5 +57,5 @@ DROP FOREIGN KEY fk_class_id;
 
 ```sql
 ALTER TABLE students
-ADD INDEX idx_score (score);
+  ADD INDEX idx_score (score);
 ```

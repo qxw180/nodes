@@ -7,10 +7,12 @@ Document.ready 原生种没有这个方法，jquery 中有 \$().ready(function)
 
 ## 数据类型
 
-- typeof 返回的类型:“number”、“string”、“boolean”、“object”、"symbol"、“function”和“undefined”。
-- null 和 undefined 的区别
-- 基本数据类型和引用数据类型，堆栈图
 - 基础类型包括：Number、String、Boolean、Null、Undefined、Symbol（该类型位 ES2015 中新增类型）
+- null 和 undefined 的区别，为什么`typeof null === 'object'`？
+- 如何判断变量类型
+  - typeof
+  - instanceof
+- 基本数据类型和引用数据类型，堆栈图
 - js 的垃圾回收机制
 
 ## 变量相关
