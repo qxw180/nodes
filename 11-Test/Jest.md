@@ -18,24 +18,8 @@ npx jest --watch
 
 ## Jest 支持 ES6 Module
 
-jest 运行会自动检查当前项目是否有 babel 配置，如果有会先对测试代码进行转化再运行，所以我们只需要在当前项目配置 babel 即可：
-
-.babelrc
-
-```JSON
-{
-  "presets": [
-    [
-      "@babel/preset-env",
-      {
-        "targets": {
-          "node": "current"
-        }
-      }
-    ]
-  ]
-}
-```
+在安装 Jest 的时候会默认安装`babel-jest`，这时如果项目包含 babel 配置，jest 会自动使用 babel 对测试文件进行转化。所以我们只需要在项目中配置 babel 就可以使用 ES6 Module。
+如果想要定制代码转化逻辑，可以在配置文件的`transfrom`字段配置
 
 ## [matchers 匹配器](https://jestjs.io/docs/zh-Hans/using-matchers)
 
@@ -61,10 +45,15 @@ test("匹配器演示", () => {
 // 使用done参数回调触发执行完成
 test("异步回调演示", (done) => {
   fetchData((data) => {
-    expect(data).toEqual({
-      success: true,
-    });
-    done();
+    // 如果expect语句失败会抛出一个错误，如果想查看错误日志，需要使用try catch 捕捉后作为done的参数。
+    try {
+      expect(data).toEqual({
+        success: true,
+      });
+      done();
+    } catch (e) {
+      done(e);
+    }
   });
 });
 
@@ -79,7 +68,7 @@ test("异步Promise演示", () => {
 
 // 预期失败测试
 test("异步Promise预期404错误演示", () => {
-  // 如果fetchDate没有触发catch，则可以正常执行完成，需要使用以下域名设定断言执行次数
+  // 如果fetchDate没有触发catch，则可以正常执行完成，需要使用以下语句设定断言执行次数
   expect.assertions(1);
   return fetchData().catch((e) => {
     expect(e.toString().indexOf("404") > -1).toBe(true);
@@ -146,8 +135,10 @@ describe("功能测试",() => {
 })
 ```
 
+每一个`describe`函数的内部都可以声明自己的 HOOKS 函数，describe 块内的 hook 函数只在当前块及子块内生效。
+Jest 会在首先执行全部`describe`语句，所以一下初始化和销毁的功能不适合在`describe`内执行，应该在`hook`中执行。
+
 执行顺序：`beforeAll` => (`beforeEach` => `describe/test` => `afterEach`)循环执行 => `afterAll`
-每一个`describe`函数的内部都可以声明自己的 HOOKS 函数
 
 ## [Mock](https://jestjs.io/docs/zh-Hans/mock-functions)
 
