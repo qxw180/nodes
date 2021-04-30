@@ -1,25 +1,38 @@
 # Shell
 
-Shell 是命令解释器，是用户和计算机交互的接口，用户使用命令行和计算机进行交互，输入命令的程序就是 shell。
-Linux shell 自带了一些简单命令，例如 `ls` `cd` 等
+Shell 是包装计算机的一个壳，提供人员与电脑之间交互的接口，是一个**命令解释器**，用来解决人与操作系统之间的交互问题，可以分为以下两个大类：
 
-Shell 还是一个功能强大的编程语言，在 Shell 中可以直接调用 Linux 命令。
+- 命令行：解析输入命令，主要有 bash sh csh ksh，zsh 等，每种都有各自特点
+  - bash：bash shell 最早的 Unix Shell，应用广泛；
+  - zsh：被誉为 shell 中的极品，兼容 bash，有强大的补全功能、高可配性等其他功能；
+- 图形化：KDE GNOME CDE XFCE，解析点击等交互命令
 
-Shell 主要有两种语法：
-一类是 Linux 的 Bourne Shell，包括：sh ksh Bash(标准 Shell) psh zsh(最好用的)等，
-另一类是 Unix 的 C Shell，包括：csh tcsh 等
+Shell 还是一个功能强大的编程语言，在 Shell 中可以直接调用 Linux 命令。Shell 主要有两种语法：
 
-Bssh 是 Linux 的标准 Shell
+- 一类是 Linux 的 Bourne Shell，包括：sh ksh Bash(标准 Shell) psh zsh(最好用的)等
+- 另一类是 Unix 的 C Shell，包括：csh tcsh 等
+
+## shell 切换
+
+```sh
+# 切换bash
+chsh -s /bin/bash
+# 切换zsh
+chsh -s /bin/zsh
+```
 
 ## Shell 脚本执行方法
 
 方式一：赋予执行权限，直接运行
-`chmod 755 hello.sh`
-`./hello.sh`
+
+```sh
+chmod 755 hello.sh
+./hello.sh
+```
 
 方式二：通过 Bash 调用执行脚本：`bash hello.sh`
 
-## Shell 脚本编写
+## TODO:Shell 脚本编写
 
 ```sh
 #!/bin/bash
