@@ -46,7 +46,7 @@ Step2.3 最后拷贝公钥`id_rsa.pub`中的内容，添加到服务端`/home/gi
 
 在 git 用户目录下创建 git 仓库，并修改权限
 
-```shell
+```sh
 git init --bare [name].git
 chown -R git.git [name].git
 ```

@@ -14,7 +14,7 @@ Shell 还是一个功能强大的编程语言，在 Shell 中可以直接调用 
 
 ## shell 切换
 
-```sh
+```zsh
 # 切换bash
 chsh -s /bin/bash
 # 切换zsh
@@ -25,7 +25,7 @@ chsh -s /bin/zsh
 
 方式一：赋予执行权限，直接运行
 
-```sh
+```zsh
 chmod 755 hello.sh
 ./hello.sh
 ```
@@ -34,7 +34,7 @@ chmod 755 hello.sh
 
 ## TODO:Shell 脚本编写
 
-```sh
+```zsh
 #!/bin/bash
 #The first program
 echo -e "hello world"
