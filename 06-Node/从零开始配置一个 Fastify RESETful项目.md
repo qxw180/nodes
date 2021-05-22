@@ -61,7 +61,8 @@ echo "dist/" >> .gitignore
   "scripts": {
     "clean": "rimraf dist",
     "build": "npm run clean && tsc -p tsconfig.json",
-    "start": "node dist/index.js"
+    "start": "node dist/index.js",
+    "dev": "nodemon",
   },
   "keywords": [],
   "author": "",
@@ -75,5 +76,30 @@ echo "dist/" >> .gitignore
   "dependencies": {
     "fastify": "^3.15.0"
   }
+}
+```
+
+## 配置环境变量
+
+```zsh
+npm i --save dotenv
+touch .env
+echo PORT=8080 > .env
+echo .env >> .gitignore
+```
+
+## 配置开发环境
+
+```zsh
+npm i -D nodemon ts-node tsconfig-paths
+touch nodemon.json
+```
+
+```JSON
+{
+  "watch": ["src"],
+  "ext": "ts json",
+  "ignore": ["src/**/*.d.ts"],
+  "exec": "ts-node --project tsconfig.json src/index.ts"
 }
 ```
