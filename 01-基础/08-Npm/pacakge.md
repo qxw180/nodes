@@ -53,7 +53,7 @@ js 引擎会使用 package 的`package.json`中的`main`字段声明的文件作
   - 在客户端登录帐号`npm login`，登录后会在客户端存储证书；
   - 发布：`npm publish`
 - Step4. 更新 package
-  - 更新版本：`npm version <update_type>`，该命令会更新 package.json 中的版本号，如果项目使用 git 管理，那么同事会添加一个 git tag
+  - 更新版本：`npm version <update_type>`，该命令会更新 package.json 中的版本号，如果项目使用 git 管理，那么同时会添加一个 git tag
     - `patch`：修丁版本
     - `minor`：次版本
     - `major`：主版本
