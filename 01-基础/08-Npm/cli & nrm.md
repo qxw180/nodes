@@ -34,8 +34,8 @@ npm 是 nodeJS 自带的包版本管理工具，是每个前端开发者的必�
 - 删除源：`nrm del <registry>`
 - 测速：`nrm test <registry>`
 
-## [NPM 包管理](../07.基础/08-Npm/pacakge.md)
+## [NPM 包管理](./pacakge.md)
 
-## [NPM 脚本](../07.基础/08-Npm/scripts.md)
+## [NPM 脚本](./scripts.md)
 
-## [版本管理](../07.基础/08-Npm/package%20version.md)
+## [版本管理](./package%20version.md)

@@ -61,3 +61,25 @@ store.subscribe(() => console.log(store.getState()));
 store.dispatch(incremented()); // {value: 1}
 store.dispatch(decremented()); // {value: 0}
 ```
+
+## TODO:reducer prepare
+
+## createSelector
+
+```JavaScript
+import {  createSelector } from '@reduxjs/toolkit'
+
+export const selectAllPosts = state => state.posts.posts
+
+export const selectPostById = (state, postId) =>
+  state.posts.posts.find(post => post.id === postId)
+
+export const selectPostsByUser = createSelector(
+  // 每个selector都会接收调用时传入的全部参数
+  [selectAllPosts, (state, userId) => userId],
+  // 会将第一个参数中所有的selector执行结果作为参数输入
+  (posts, userId) => posts.filter(post => post.user === userId)
+)
+
+selectPostsByUser(state1, 'user1')
+```
