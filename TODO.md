@@ -68,8 +68,6 @@ https://www.yuque.com/himstone/eowoaw/in42yy
 ]
 ```
 
-## GraphQL
-
 ## React
 
 - 限制子元素类型：`React.Children.map(children, (child, index) => {})`

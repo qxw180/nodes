@@ -95,11 +95,13 @@ npm i -D nodemon ts-node tsconfig-paths
 touch nodemon.json
 ```
 
+[tsconfig-paths](https://www.npmjs.com/package/tsconfig-paths)可以帮助 typescript 在使用`ts-node`执行时正确的执行 path mapping 配置。
+
 ```JSON
 {
   "watch": ["src"],
   "ext": "ts json",
   "ignore": ["src/**/*.d.ts"],
-  "exec": "ts-node --project tsconfig.json src/index.ts"
+  "exec": "ts-node --project tsconfig.json -r tsconfig-paths/register src/index.ts"
 }
 ```
