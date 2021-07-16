@@ -123,6 +123,20 @@ redux 期望全部的 state 更新都是 immutability，修改 state 会引起�
 
 ## Middleware
 
+redux middleware 可以用于对`dispatch`方法进行定制，middleware 执行实在 action 派发到 reducer 接收之前执行。
+
+```JavaScript
+function exampleMiddleware(storeAPI) {
+  const { dispatch, getState } = storeAPI;
+  // next：下一个middleware
+  return function wrapDispatch(next) {
+    return function handleAction(action) {
+      return next(action)
+    }
+  }
+}
+```
+
 扩展 store，允许执行：
 
 1. 执行额外的逻辑，例如日志记录
