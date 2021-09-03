@@ -1,6 +1,6 @@
-# 项目配置
+# VSCode
 
-## VS Code
+## 项目推荐插件配置
 
 配置项目推荐插件：
 在项目根目录递归创建`.vscode/extensions.json`文件，使用`recommendations`插件列出推荐插件。其它开发中在打开项目时 VS Code 会推荐安装配置的插件。
