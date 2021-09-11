@@ -3,7 +3,6 @@
 ## DevOps
 
 - docker
-- 主干开发
 - Test
 - Mock
 - rpc

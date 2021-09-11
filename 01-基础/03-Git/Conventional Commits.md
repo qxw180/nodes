@@ -6,8 +6,10 @@ Conventional Commits 是一个轻量级的 git commit messages 格式规范惯�
 
 1. 清晰明了的向其他人传达修改的性质
 2. 配合自动化工具提升开发效率
-   1. 自动生成 CHANGLOGs
+   1. 自动生成 ChangeLog
    2. 基于提交的类型自动计算出合适的语义化版本
+
+可以使用[CommitLint](../../08-Tools/CodeStyle/CommitLint.md)辅助进行消息格式验证。
 
 ## commit message 的结构
 
