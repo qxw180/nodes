@@ -7,7 +7,7 @@ npm 是 nodeJS 自带的包版本管理工具，是每个前端开发者的必�
 - 安装：`npm install [pkg-name@<tag|version>]`，如果不指定包名，则按照`package.json`中声明的依赖安装，并生成或更新`package-lock.json`
   - `-g`：全局安装
   - `--save`：保存信息到 package.json，可简化为`-S`
-  - `--save-dev`：保存到 devDependices，可简化为`-D`
+  - `--save-dev`：保存到 devDependencies，可简化为`-D`
 - 安装：`npm ci`，按照`package-lock.json`中的配置安装，在安装的过程中会自动清理现有的`node_modules`目录
 - 卸载：`npm uninstall --save <pkg-name>`
 - 更新：`npm update`，更新 package.json 中依赖的 package，更新全局安装 package 可以重新执行全局安装；
@@ -20,6 +20,10 @@ npm 是 nodeJS 自带的包版本管理工具，是每个前端开发者的必�
   - 查看配置：`npm config list`
   - 修改配置：`npm set <key> <value>`
   - 删除配置：`npm config rm <key>`
+
+## TODO:[npm-audit](https://docs.npmjs.com/cli/v7/commands/npm-audit)
+
+## TODO:[npm-list](https://docs.npmjs.com/cli/v7/commands/npm-ls)
 
 ## 镜像源管理
 
@@ -34,7 +38,7 @@ npm 是 nodeJS 自带的包版本管理工具，是每个前端开发者的必�
 - 删除源：`nrm del <registry>`
 - 测速：`nrm test <registry>`
 
-## [NPM 包管理](./pacakge.md)
+## [NPM 包管理](./package.md)
 
 ## [NPM 脚本](./scripts.md)
 

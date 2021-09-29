@@ -1,6 +1,6 @@
 # npm package
 
-npm pacakage 是 js 程序共享的主要途径，npm package 主要有两种使用场景，一种是作为命令行工具安装使用，一种是作为一个功能模块在其它应用中被引用。
+npm package 是 js 程序共享的主要途径，npm package 主要有两种使用场景，一种是作为命令行工具安装使用，一种是作为一个功能模块在其它应用中被引用。
 一个 package 主要由执行程序和元数据两部构成
 
 ## package 元数据
@@ -39,10 +39,10 @@ npm 在安装 package 完成后会检查`package.json`中是否有声明`bin`字
 
 ### 作为项目 dependence 使用
 
-作为项目 dependence 安装的 package 可以在程序中使用`require("packagename")`引用
+作为项目 dependence 安装的 package 可以在程序中使用`require("package-name")`引用
 js 引擎会使用 package 的`package.json`中的`main`字段声明的文件作为入口文件
 如果未声明`main`字段则默认使用`index.js`，如果没有`index.js`文件则无法正常使用
-当然也可以使用完整路径引入 package，例如：`require("packagename/lib/path/to/sub/module")`，这样显然是不优雅的
+当然也可以使用完整路径引入 package，例如：`require("package-name/lib/path/to/sub/module")`，这样显然是不优雅的
 
 ## 创建自己的 package
 

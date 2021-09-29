@@ -40,4 +40,4 @@
 
 在项目中使用 `npm shrinkwrap` 命令，会生成一个 `npm-shrinkwrap.json` 文件，将项目依赖锁定在当前在`node_modules`中使用的特定版本。运行`npm install`时，若发现存在`npm-shrinkwrap.json`，则会覆盖列出的依赖以及`package.json`中的任何语义版本范围。
 
-npm v5 在`npm install`时会自动生成一个`package-lock.josn`文件用于精准的记录所有包的结构、层级和版本号甚至安装源，提供了 “保存” `node_modules`状态的能力。在项目中运行`npm ci`可以保证项目依赖的一致性，`packakge-lock.json`与`npm shrinkwrap`实现的功能完全相同。
+npm v5 在`npm install`时会自动生成一个`package-lock.json`文件用于精准的记录所有包的结构、层级和版本号甚至安装源，提供了 “保存” `node_modules`状态的能力。在项目中运行`npm ci`可以保证项目依赖的一致性，`package-lock.json`与`npm shrinkwrap`实现的功能完全相同。

@@ -1,4 +1,19 @@
-# TypeScript 编译配置
+# TypeScript
+
+## TODO:tsc or webpack ts loader or babel preset-typescript
+
+- 使用[@babel/preset-typescript](https://babeljs.io/docs/en/babel-preset-typescript)编译项目
+  - 不能进行语法检查
+- 使用[tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html)进行类型检查和生成声明文件
+  - 路径别名问题
+
+[swc](https://swc.rs/)
+
+isolatedModules 属性
+
+[tsc-alias](https://github.com/justkey007/tsc-alias)
+
+## TypeScript 编译配置
 
 可以使用`-p`参数置顶编译配置`tsc -p ./tsconfig.json`
 
@@ -15,7 +30,7 @@ tsconfig.json
   // 使用compilerOptions字段配置编译选项
   compilerOptions: {
     // 项目配置
-    allowJs: false, // 使用允许在ts文件中importjs文件，默认false，适用场景：js项目ts渐进改造
+    allowJs: false, // 使用允许在ts文件中import js文件，默认false，适用场景：js项目ts渐进改造
     checkJs: false, // 和allowJs配合使用，是否对import js文件进行检查，默认为false
 
     // 输入输出配置
@@ -53,3 +68,5 @@ include 和 exclude 支持通配符，如果不包含扩展名默认支持`.ts .
 - `**`：匹配任意层级的目录嵌套
 
 ## TODO:browserlist with ts config target
+
+## [Integration With Jest](../../11-Testing/jest/Jest%20Setup.md)
