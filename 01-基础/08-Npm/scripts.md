@@ -10,7 +10,7 @@
 
 ```JSON
 {
-  sciptps: {
+  scripts: {
     "watch-js": "rimraf .next/* out/*",
     "watch-css": "npm run clean && next build",
     "watch": "npm run watch-js & npm run watch-css",
@@ -47,9 +47,9 @@ hook：可以为使用`pre`和`post`为`scripts`脚本声明钩子函数，在�
 
 ```JSON
 {
-  sciptps: {
+  scripts: {
     "pretest": "npm run lint",
-    "test": "karma start --log-leve=error karma.config.js --single-run=true",
+    "test": "karma start --log-level=error karma.config.js --single-run=true",
     "posttest": "echo 'Finished running tests'"
   }
 }
@@ -63,7 +63,7 @@ hook：可以为使用`pre`和`post`为`scripts`脚本声明钩子函数，在�
 {
   "name": "hello",
   "version": "2.0.9",
-  "description": "PRDC Sumeru Node ENV",
+  "description": "XXXX",
   "main": "index.js",
   "scripts": {
     "build": "tar -czf dist/hello-${npm_package_version}.tgz hello"
