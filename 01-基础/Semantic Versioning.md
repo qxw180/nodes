@@ -20,7 +20,7 @@
 
 - `alpha`: 内部版本
 - `beta`: 公测版本
-- `rc`: 即 Release candiate，正式版本的候选版本
+- `rc`: 即 Release Candidate，正式版本的候选版本
 
 ## 版本编译信息
 
