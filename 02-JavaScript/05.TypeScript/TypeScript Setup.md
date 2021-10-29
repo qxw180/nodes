@@ -15,9 +15,7 @@ isolatedModules 属性
 
 ## TypeScript 编译配置
 
-可以使用`-p`参数置顶编译配置`tsc -p ./tsconfig.json`
-
-tsconfig.json
+生成配置文件：`npx tsc --init`，使用`-p`指定编译配置`tsc -p ./tsconfig.json`
 
 ```JSON5
 {
