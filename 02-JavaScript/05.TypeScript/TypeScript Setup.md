@@ -9,7 +9,8 @@
 
 [swc](https://swc.rs/)
 
-isolatedModules 属性
+- `isolatedModules`：
+- `--target`：语法降级处理应该由谁来处理？TS 默认转换为 ES3
 
 [tsc-alias](https://github.com/justkey007/tsc-alias)
 

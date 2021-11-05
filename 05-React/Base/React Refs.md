@@ -222,7 +222,7 @@ const TestConfirm = forwardRef<IRefs, IProps>(({ onSuccess }, ref) => {
 }
 
 const Main:React.FC<{}> = () => {
-  const confirmRef = useRef<IDemandTestConfirmRefs>(null);
+  const confirmRef = useRef<IRefs>(null);
 
   function openConfirm() {
     testRulesConfirmRef.current?.open();
