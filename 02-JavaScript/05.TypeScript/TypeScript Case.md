@@ -5,11 +5,25 @@
 ```TypeScript
 type Keys = "name" | "sex"
 type DulKey = {
-    [key in Keys]: string    // 类似for...in
+  [key in Keys]: string    // 类似for...in
 }
 ```
 
-## TODO:接口如何实现属性互斥，即 n 选一
+## 接口如何实现属性互斥，即 n 选一，为每个互斥 shape 定义单独的 interface，然后使用联合类型组合。
+
+```TypeScript
+interface Circle {
+  kind: "circle";
+  radius: number;
+}
+
+interface Square {
+  kind: "square";
+  sideLength: number;
+}
+
+type Shape = Circle | Square;
+```
 
 ## TODO:提取对象的 value，声明别名，使用枚举 key 或 value 生成字面量联合类型
 

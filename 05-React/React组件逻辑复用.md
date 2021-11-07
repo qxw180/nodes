@@ -44,7 +44,7 @@ function withSubscription(WrappedComponent, selectData) {
 }
 ```
 
-为了方便在 React Developer Tools 中调试，我们一般会设置一个展示名，格式一般为：`HOC Name(Compoent Name)`
+为了方便在 React Developer Tools 中调试，我们一般会设置一个展示名，格式一般为：`HOC Name(Component Name)`
 
 ```JSX
 function getDisplayName(WrappedComponent) {
@@ -77,7 +77,7 @@ function enhance(WrappedComponent) {
 ## 方式二：Render Props
 
 HOC 的逻辑复用方式是对 UI 组件进行一层封装，在 HOC 内部编写逻辑代码，将逻辑处理结果通过 props 传递给 UI 组件。和 HOC 一样 Render Props 也不是 React 的一项特性，也是一种编程方式。
-Render Props 是一个封装好逻辑的 Components，以下简称这个 Component 为 RPC，RPC 约定 render 属性的值是一个 function，function 的返回值是 Recat Element，用来告诉 RPC 如何渲染 UI。RPC 本身的 render 函数并不实现具体的 UI，而是运行 render 属性传入的 function，并传入逻辑处理结果以参数的形式传入。
+Render Props 是一个封装好逻辑的 Components，以下简称这个 Component 为 RPC，RPC 约定 render 属性的值是一个 function，function 的返回值是 React Element，用来告诉 RPC 如何渲染 UI。RPC 本身的 render 函数并不实现具体的 UI，而是运行 render 属性传入的 function，并传入逻辑处理结果以参数的形式传入。
 这里 RPC 使用`render`属性来传入 UI 逻辑并不是必须的，只是一种约定，你可以使用其它任意的属性名。
 
 ```JSX
@@ -127,10 +127,10 @@ class MouseTracker extends React.Component {
 }
 ```
 
-## 自定义 Reack Hooks
+## 自定义 React Hooks
 
-HOC 和 Render Props 方法都需要对原有组件做修改，复杂情况可能**陷入嵌套地狱**，因为UI和逻辑分散导致**代码可读性低**。可以使用自定义 React Hooks 提取组件的状态逻辑，使得这些逻辑**可以单独测试并复用**。
-同样自定义 Hook 是一种自然遵循 Hook 设计的约定，而并不是 React 的特性。社区也有大量的hooks可以使用。
+HOC 和 Render Props 方法都需要对原有组件做修改，复杂情况可能**陷入嵌套地狱**，因为 UI 和逻辑分散导致**代码可读性低**。可以使用自定义 React Hooks 提取组件的状态逻辑，使得这些逻辑**可以单独测试并复用**。
+同样自定义 Hook 是一种自然遵循 Hook 设计的约定，而并不是 React 的特性。社区也有大量的 hooks 可以使用。
 
 [react-use](https://github.com/streamich/react-use)
 [Rehooks](https://github.com/rehooks)
