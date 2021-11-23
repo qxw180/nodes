@@ -63,22 +63,23 @@ function ThemedButton() {
 ### 创建 Context
 
 `const MyContext = React.createContext(defaultValue);`
-创建一个 context 对象。当 Recat 渲染了一个订阅了这个 context 对象的组件，这个组件会从组件树中向上寻找最近的`Provider`并读取值。只有当组件树种没有配合到`Provider`时，其`defaultValue`才会生效。
+创建一个 context 对象。当 React 渲染了一个订阅了这个 context 对象的组件，这个组件会从组件树中向上寻找**最近的**`Provider`并读取值。只有当组件树中没有匹配到`Provider`时，其`defaultValue`才会生效。
 
 ### Context.Provider
 
-Provider 可以为消费组件提供 value，并允许消费组件订阅 value 的变化 `<MyContext.Provider value={/* 某个值 */}>`
-Provider 接收一个 value 属性，传递给消费组件。一个 Provider 可以和多个消费组件有对应关系。**多个 Provider 也可以嵌套使用，里层的会覆盖外层的数据**。
-当 Provider 的 value 值发生变化时，它内部的所有消费组件都会重新渲染，不受`shouldComponentUpdate`控制。
+`<MyContext.Provider value={/* 某个值 */}>`
+每一个`Context`对象 都有一个`Provider`组件，`Provider`组件有一个`value`属性，`Provider`的子组件可以订阅`value`的变化。
+如果一个子组件订阅了`value`的变化，我们称这些子组件为**消费组件**。当`Provider`的`value`值发生变化时，它内部的所有消费组件都会重新渲染，不受`shouldComponentUpdate`控制。
+**多个`Provider`也可以嵌套使用，里层的会覆盖外层的数据**。
 
-注意：当 Provider 的 value 为对象时，当 Provider 的父组件重新渲染是，由于 React 会参考对象的引用值来判断是否发生变化，所以应该将 value 值提取到父组件的`state`管理，防止因为父组件刷新导致的所有 consumer 组件更新。
+注意：当`Provider`的`value`为对象时，当`Provider`的父组件重新渲染是，由于 React 会参考对象的引用值(使用`Object.is()`)来判断是否发生变化，所以应该将`value`值提取到父组件的`state`管理，防止因为父组件刷新导致的所有消费组件更新。
 
 ### 消费 Context
 
 `Class.contextType` 方式：
-将使用`React.createContext`创建的 `context` 对象挂在到 Class 对象的`contextType`属性上，在这个 Class 内部就可以使用`this.context`消费最近的 provider 的值。使用该方式只能挂在一个 context。
+将使用`React.createContext`创建的`context`对象挂在到 Class 对象的`contextType`属性上，在这个 Class 内部就可以使用`this.context`消费最近的`provider`的值。使用该方式只能挂在一个`context`对象。
 
 `Context.Consumer` 方式：
-Consumer 的子组件要求是一个函数，这个函数的参数为 `context` 的 value，函数的返回值为 react 组件。
+`Consumer`的子组件要求是一个函数，这个函数的参数为`context`的`value`，函数的返回值为 React 组件。
 
 Hook 方式：`const contextValue = useContext(MyContext);`
