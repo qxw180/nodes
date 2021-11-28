@@ -39,7 +39,7 @@
 - 橡皮筋效果处理
 - 下拉加载更多实现
 
-## Canvas Webgl three.js
+## Canvas WebGL three.js
 
 ## Spring Boot
 

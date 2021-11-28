@@ -8,12 +8,12 @@
 
 PWA 的中文名是渐进式网页应用，PWA 是一系列技术的合计，将 Web 和 App 的优势结合在一起，提供体验更好功能更强大的 WebAPP，相对传统 web 有以下提升：
 
-1. 可安装：Web App Mainfest 可以配置网站[添加到主屏幕](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen#Manifest)，通过主屏幕进入可以全屏运行、隐藏地址栏获得类似 APP 的体验
+1. 可安装：Web App Manifest 可以配置网站[添加到主屏幕](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps/Add_to_home_screen#Manifest)，通过主屏幕进入可以全屏运行、隐藏地址栏获得类似 APP 的体验
 2. 可离线：基于 Service worker 可以实现离线访问和消息推送功能
 3. 可推送：
 4. 渐进式加载：App Shell 先渲染一个极简的壳，然后使用异步数据渲染内容，这个其实在
 
-### [Web App Mainfest](https://developer.mozilla.org/en-US/docs/Web/Manifest)
+### [Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest)
 
 Web App Manifest 是 AMP 技术集合的一部分，是一个用来提供网站元数据(名字、作者、描述、图表等信息)的 JSON 文件。
 Web App Manifest 提供了将网站书签保存到设备主屏幕的能力 。
@@ -22,7 +22,7 @@ Web App Manifest 提供了将网站书签保存到设备主屏幕的能力 。
 2. 设置网站加载时像用户展示的信息
 3. 设置浏览器默认显示特性
 
-Web App Mainfest 的使用非常简单，只需求创建  清单并在 HTML 头部使用`link`标签引入：
+Web App Manifest 的使用非常简单，只需求创建  清单并在 HTML 头部使用`link`标签引入：
 
 ```html
 <link rel="manifest" href="/manifest.webmanifest" />

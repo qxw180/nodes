@@ -1,6 +1,6 @@
 # Webpack 扫盲
 
-webpack is a module bundler 这是 Webpak 官网对 Webpak 的介绍，是一个模块打包器；
+webpack is a module bundler 这是 Webpack 官网对 Webpack 的介绍，是一个模块打包器；
 
 - 不只是模块化：Webpack 是一款模块加载器兼打包工具
 - 一切都是模块：在 Webpack 中所有资源(html,css,js,image...)都可以当做模块
@@ -27,7 +27,7 @@ Step1. 项目初始化
 - 创建工作目录：`mkdir webpack-study`
 - 初始化项目：`cd webpack-study`,`npm init`
 - 安装 Webpack：`npm install --save-dev webpack`
-- 创建 Wepback 配置文件：`touch webpack.config.js`，该文件相当于 Gulp 的`gulpfile.js`
+- 创建 Webpack 配置文件：`touch webpack.config.js`，该文件相当于 Gulp 的`gulpfile.js`
   Step2. 创建文件
 - 创建代码目录：`mkdir src`
 - 创建入口文件：`cd src`,`main.js`
@@ -105,7 +105,7 @@ Step7. 运行查看效果
 Step1. 创建样式文件
 
 ```CSS
-// 在src目录下创建mian.css文件
+// 在src目录下创建main.css文件
 h1 {
   color: red;
 }
@@ -113,7 +113,7 @@ h1 {
 
 Step2. 引入样式文件
 通常的方式我们是在`index.html`文件中使用`link`标签进行引入
-但这中做法不是 Webpak 的逻辑，上面已经说过 Webpak 是通过入口文件进行模块的组织的
+但这中做法不是 Webpack 的逻辑，上面已经说过 Webpack 是通过入口文件进行模块的组织的
 在 Webpack 中不仅仅 js 是模块，样式文件也同样是模块，可以和 js 文件一样引入，像下面这个样子：
 
 ```JavaScript
