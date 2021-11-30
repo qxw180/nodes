@@ -112,10 +112,12 @@ export default a;
 export default const a = 1;
 ```
 
-## import 函数
+## Dynamic Import
 
-上面介绍的`import`语句可以导入其它模块`export`的变量，这是一种静态导入，是在代码初始化的时候导入。
-`import()`函数可以在代码执行加载的模块，实现动态加载，动态导入例：
+上面介绍的`import`语句可以导入其它模块`export`的变量，这是一种静态导入，是在代码初始化的时候**全部导入**。
+出于性能的考虑在某些场景下我们需要做按需加载或延迟加载，ECMA 的动态导入方案可以满足这种场景。
+
+`import()`函数可以在代码执行加载的模块返回一个 Promise 对象实例，这是我们就可以使用`.then()`或者`await`语法获取模块内容。
 
 ```JavaScript
 (async () => {
