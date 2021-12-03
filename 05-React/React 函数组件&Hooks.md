@@ -18,18 +18,18 @@ function Example() {
 }
 ```
 
+## 解决问题
+
+- 组件状态逻辑复用，可以通过自定义 Hook 封装状态逻辑，相对于`HOC`和`render props`方案不需要重构组件，不会产生”wrapper hell“。
+- 解决逻辑分散和聚合问题
+  - 逻辑分散问题：例如在 Class Component 中我们会在`componentDidMount`中添加一些订阅函数并在`componentWillUnmount`中注销这些订阅，逻辑上关联的功能被拆分到不同的函数中处理。使用`Effect Hook`我们可以在一个`useEffect`中处理订阅和注销订阅操作，对不同业务逻辑进行隔离。
+  - 逻辑聚合问题：例如在 Class Component 中我们往往在`constructor`中一次性声明所有的`state`，在其它生命周期函数中以此处理不相关的业务逻辑，使用`State Hook`和`Effect Hook`我们可以将非相关的逻辑和状态分组处理。
+
 ## TODO:函数组件和 Class 组件的区别
 
 函数组件没有实例？
 在函数组件内是否可以使用 createRef？
 是否可以使用 state hook 替换 ref hook？
-
-## 解决问题
-
-- 组件逻辑复用，可以通过自定义 Hook 封装公用逻辑
-- 解决逻辑分散和聚合问题，
-  - 逻辑分散：例如在 Class Component 中我们会在`componentDidMount`中添加一些订阅函数并在`componentWillUnmount`中注销这些订阅，使用`Effect Hook`我们可以在一个`useEffect`中处理订阅和注销订阅操作
-  - 逻辑聚合：例如在 Class Component 中我们往往在`constructor`中一次性声明所有的`state`，在其它生命周期函数中以此处理不相关的业务逻辑，使用`State Hook`和`Effect Hook`我们可以将非相关的逻辑和状态分别处理
 
 ## 最佳实践
 

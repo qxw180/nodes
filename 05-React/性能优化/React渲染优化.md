@@ -3,7 +3,7 @@
 ## 避免不必要的 re-render
 
 React 虚拟 DOM 可以在很大的程度上避免浏览器重绘和重流，这可以解决大部分问题，另外我们还可以自己控制组件是否需要重新渲染拉进一步优化。
-React 组件的生命周期函数`shouldComponentUpdate`在 re-render 之前运行，函数默认返回 true 进行重新渲染。我们可以对比新旧 props 和 states 决定是否进行 re-render。
+React 组件的生命周期函数`shouldComponentUpdate`在 re-render 之前运行，函数默认返回 true 进行重新渲染。我们可以对比新旧 props 和 states 决定是否进行 re-render。注意：`shouldComponentUpdate`不会阻塞子组件的`re-render`。
 
 ```JavaScript
 shouldComponentUpdate(nextProps, nextState) {
@@ -11,7 +11,7 @@ shouldComponentUpdate(nextProps, nextState) {
 }
 ```
 
-大多数时候我们可以使用`React.PureComponent`来代替手动写`shouldComponentUpdate`。`PureComponent`内部隐式实现了`shouldComponentUpdate`方法，使用**浅比较**对比 props 和 states。
+大多数时候我们可以使用`React.PureComponent`来代替手动写`shouldComponentUpdate`，`PureComponent`内部隐式实现了`shouldComponentUpdate`方法。
 
 ```JavaScript
 class CounterButton extends React.PureComponent {
@@ -32,67 +32,33 @@ class CounterButton extends React.PureComponent {
 }
 ```
 
-//TODO: React Hook memo https://juejin.cn/post/6844903925871722510
+但是`PureComponent`使用**浅比较**对比`props`和`states`，所以`mutated props`场景`PureComponent`无法保证正确。
+我们可以使用`Object.assign()`、`Array.prototype.concat()`、展开语法等方式避免`mutated`操作。
 
-## React Immutability
+```JavaScript
+this.setState((state) => ({
+  words: state.words.concat(["newItem"]),
+}));
+this.setState((state) => ({
+  words: [...state.words, "newItem"],
+}));
 
-大多数时候我们可以使用 PureComponent 来快速的处理 re-render，但是 PureComponent 只是进行浅比较，对应较复杂的数据结构 PureComponent 就无能无力了，例子：
-
-```js
-class ListOfWords extends React.PureComponent {
-  render() {
-    return <div>{this.props.words.join(",")}</div>;
-  }
+function updateColorMap(color) {
+  return Object.assign({}, color, { right: "blue" });
 }
-
-class WordAdder extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      words: ["marklar"],
-    };
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  handleClick() {
-    // 这部分代码很糟，而且还有 bug
-    const words = this.state.words;
-    words.push("marklar");
-    this.setState({ words: words });
-  }
-
-  render() {
-    return (
-      <div>
-        <button onClick={this.handleClick} />
-        <ListOfWords words={this.state.words} />
-      </div>
-    );
-  }
+function updateColorMap(color) {
+  return { ...color, right: "blue" };
 }
 ```
 
-因为`WordAdder`的 click 方法只是修改`works`的值，并没没有产生新的变量，所以`ListOfWords`中`this.props.words`还是同一个数组，所以并不会更新组件。
-为了避免上面这种情况，我们应该避免直接修改`props`和`state`，而是生产一个新的对象
+但是如果处理多层嵌套的对象或数字这种手动处理的方式会非常让人抓狂，可以借助[Immer](https://github.com/immerjs/immer)和[immutability-helper](https://github.com/kolodny/immutability-helper)
 
-```js
-// 数组
-this.setState((state) => ({
-  words: state.words.concat(["marklar"]),
-}));
-this.setState((state) => ({
-  words: [...state.words, "marklar"],
-}));
+TODO:
 
-// 对象
-function updateColorMap(colormap) {
-  return Object.assign({}, colormap, { right: "blue" });
-}
-function updateColorMap(colormap) {
-  return { ...colormap, right: "blue" };
-}
-```
+## TODO:React Hook memo
 
-## Long List
+https://juejin.cn/post/6844903925871722510
 
-//TODO:
+## TODO:[React Profiler](https://reactjs.org/blog/2018/09/10/introducing-the-react-profiler.html)
+
+## TODO:Long List
