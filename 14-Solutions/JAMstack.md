@@ -1,3 +1,1 @@
-# JAMstack
-
-TOOD:
+# TODO:JAMstack
