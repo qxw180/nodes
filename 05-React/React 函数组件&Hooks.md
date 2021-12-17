@@ -157,7 +157,12 @@ function Counter() {
 
 ## Memo Hook & Callback Hook
 
-useMome、useCallback 用法都差不多，都会在第一次渲染的时候执行，之后会在其依赖的变量发生改变时再次执行，并且这两个 hooks 都返回缓存的值，useMemo 返回缓存的变量，useCallback 返回缓存的函数。
+`useMemo`、`useCallback`用法都差不多，都会在第一次渲染的时候执行，之后会在其依赖的变量发生改变时再次执行，并且这两个 hooks 都返回缓存的值，`useMemo`返回缓存的变量，`useCallback`返回缓存的函数。
+
+- `useCallback`：针对于子组件渲染优化，保证父组件每次`rerender`导致传入子组件的函数都是`memoized`
+- `useMemo`：
+  - 类似`useCallback`可以保证传入子组件的非普通类型变量`memoized`
+  - 针对于当前组件高开销的计算，只在依赖参数变化是重新计算，避免每次`render`都进行计算
 
 ```jsx
 import React, { memo, useState, useMemo } from "react";

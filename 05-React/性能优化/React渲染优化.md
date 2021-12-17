@@ -1,5 +1,9 @@
 # React 性能优化
 
+## TODO:组件什么时候会发生 rerender
+
+## TODO:父组件 render 导致子组件 rerender
+
 ## 避免不必要的 re-render
 
 React 虚拟 DOM 可以在很大的程度上避免浏览器重绘和重流，这可以解决大部分问题，另外我们还可以自己控制组件是否需要重新渲染拉进一步优化。
