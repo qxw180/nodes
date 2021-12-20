@@ -1,17 +1,21 @@
 # URL
 
-Uniform Resource Locator 统一资源定位器，网址；URL 只能包括英文字母、数字和某些标点符号`$ - _ . + ! * ' ( ) ,`；
+URI(Uniform Resource Identifier)统一资源标志符：用来唯一标识互联网上的信息资源，包含 URL 和 URN。
+
+- URL(Uniform Resource Locator)统一资源定位器，网址；
+  URL 只能包括英文字母、数字和某些标点符号`$ - _ . + ! * ' ( ) ,`；
+- URN(Uniform Resource Name)永久统一资源定位符，解决资源路径变化后定位问题。
 
 ## URL 的组成
 
 `http://www.example.com:8042/over/there?name=ferret#nose`
 
-- 协议：`http`
-- 域名：`www.example.com`
-- 端口：`8042`
-- 路径：`/over/there`
-- 查询：`name=ferret`
-- 片段：`nose`
+- 请求协议：`http`
+- 主机(域名)：`www.example.com`
+- 请求端口：`8042`
+- 请求路径：`/over/there`
+- 查询参数：`name=ferret`
+- 锚点：`nose`
 
 ## JavaScript URL 编码
 
@@ -26,13 +30,13 @@ Uniform Resource Locator 统一资源定位器，网址；URL 只能包括英文
 1. escape()不对"+"编码。但是我们知道，网页在提交表单的时候，如果有空格，则会被转化为+字符。服务器处理数据的时候，会把+号处理成空格
 2. 无论网页的原始编码是什么，一旦被 Javascript 编码，就都变为 unicode 字符
 
-### `encodeURI()` & `unencodeURI()`
+### `encodeURI()` & `decodeURI()`
 
 对整个 URL 进行编码，除了常见符号以外，对于在网址中有特殊意义的符号`; / ? : @ & = + $ , #`也不进行编码；
 编码后输出 UTF-8 形式，并且每个字节前加上`%`；
 不对单引号`'`进行编码；
 
-### `encodeURIComponent()` 和 `unencodeURIComponent()`
+### `encodeURIComponent()` 和 `decodeURIComponent()`
 
 用于对 URL 的个别部分进行编码；
 会对`; / ? : @ & = + $ , #`这些符号进行统一编码；

@@ -1,6 +1,6 @@
 # CDN
 
-Content Ddistribute Network 内容分发网络，提供内容分发服务，通常都是分布式的，解决因分布、带宽、服务器性能带来的访问延迟问题，提供稳定快速的内容传输。
+Content Delivery Network 内容分发网络，提供内容分发服务，通常都是分布式的，解决因分布、带宽、服务器性能带来的访问延迟问题，提供稳定快速的内容传输。
 
 ## 使用 CDN 优化网站性能
 
@@ -20,3 +20,5 @@ Content Ddistribute Network 内容分发网络，提供内容分发服务，通�
 [Subresource Integrity 介绍](https://imququ.com/post/subresource-integrity.html)
 [大公司里怎样开发和部署前端代码？](https://github.com/fouber/blog/issues/6)
 [高并发架构的 CDN 知识介绍](https://segmentfault.com/a/1190000019036398)
+
+## TODO:DNS & CDN
