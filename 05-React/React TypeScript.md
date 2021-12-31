@@ -21,8 +21,6 @@ export default Hello;
 ```TypeScript
 import { Select } from 'antd';
 type SelectProps = React.ComponentProps<typeof Select>
-
-
 ```
 
 ## Antd Select 组件二次封装，支持现有全部属性

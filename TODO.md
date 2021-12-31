@@ -66,7 +66,3 @@ https://www.yuque.com/himstone/eowoaw/in42yy
   }
 ]
 ```
-
-## React
-
-- 限制子元素类型：`React.Children.map(children, (child, index) => {})`
