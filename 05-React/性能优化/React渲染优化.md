@@ -2,6 +2,11 @@
 
 ## TODO:组件什么时候会发生 rerender
 
+- props change
+- state change
+  - Class Component：`this.setState`
+  - Function Component：state hook set
+
 ## TODO:父组件 render 导致子组件 rerender
 
 ## 避免不必要的 re-render

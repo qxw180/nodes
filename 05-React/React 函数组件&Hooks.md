@@ -34,13 +34,15 @@ function Example() {
 ## 最佳实践
 
 为了更好的复用应该尽量做到**有状态的组件没有渲染，有渲染的组件没有状态**
-有状态的组件没有渲染，有渲染的组件没有状态。将组建拆分成两部分，一部分单纯管理组件状态，一部分实现渲染逻辑
+将组建拆分成两部分，一部分单纯管理组件状态，一部分实现渲染逻辑
 
 ## 运行逻辑&约束
 
 在一个函数组件内部可以多次使用 state hook 和 effect hook 声明多个 state，函数组件首次渲染后所有 state 初始化完成，会按照执行顺序将 state 存储在一个数组中，组件更新时使用数组中的数据返回 state 的值，这就要求**hook 的执行顺序是不变的**，所以**只能在函数最外层调用** Hook。不要在循环、条件判断或者子函数中调用。
 
 ## State Hook
+
+提供在函数组件内**保存本地状态**的能力。
 
 声明状态：React 会记住通过`state hook`声明的`state`值，并在函数组件每次运行的时候返回最新的值。`const [state, setState] = useState(initialState)`。
 初始状态：`initialState`用来初始化 state，**`initialState`只在组件初始化的时候起作用**。`initialState`也可以是一个函数，在组件初始化的时候 React 会执行这个函数，并将这个函数的返回值作为初始状态
@@ -157,7 +159,7 @@ function Counter() {
 
 ## Memo Hook & Callback Hook
 
-`useMemo`、`useCallback`用法都差不多，都会在第一次渲染的时候执行，之后会在其依赖的变量发生改变时再次执行，并且这两个 hooks 都返回缓存的值，`useMemo`返回缓存的变量，`useCallback`返回缓存的函数。
+`useMemo`、`useCallback`用法都差不多，都会在第一次**渲染的时候执行**，之后会在其依赖的变量发生改变时再次执行，并且这两个 hooks 都返回缓存的值，`useMemo`返回缓存的变量，`useCallback`返回缓存的函数。
 
 - `useCallback`：针对于子组件渲染优化，保证父组件每次`rerender`导致传入子组件的函数都是`memoized`
 - `useMemo`：
