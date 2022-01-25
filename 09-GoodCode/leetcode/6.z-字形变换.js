@@ -19,13 +19,11 @@ var convert = function (s, numRows) {
   const groupSize = numRows * 2 - 2;
   const groupCount = Math.ceil(length / groupSize);
 
-  let result = "";
+  let result = [];
 
   function append(index) {
     if (index < length) {
-      result += s[index];
-    } else {
-      return result;
+      result.push(s[index]);
     }
   }
   for (let row = 0; row < numRows; row++) {
@@ -40,6 +38,6 @@ var convert = function (s, numRows) {
       }
     }
   }
-  return result;
+  return result.join("");
 };
 // @lc code=end
