@@ -1,5 +1,7 @@
 # TODO
 
+- WebAssembly
+
 ## DevOps
 
 - docker
