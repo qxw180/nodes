@@ -1,10 +1,10 @@
 # [Redux](https://redux.js.org/)
 
-一个可以预测(Predictable)的 State 容器，Redux 不允许对状态直接进行修改，而是要求使用 Action(一个 JavaScript 对象)来描述状态的变化，Reducer 接收 Action 然后计算生成一个新的 State 替换旧的 State。每个 Action 都是可以记录和回访的，所以相同的 Action 和相同的顺序就可以保证最终 State 的一致性，这就是所谓的 Predictable。
+一个可以预测(Predictable)的 State 容器，Redux 不允许对状态直接进行修改，而是要求使用 Action(一个 JavaScript 对象)来描述状态的变化，Reducer 接收 Action 然后计算生成一个新的 State 替换旧的 State。每个 Action 都是可以记录和回溯的，所以相同的 Action 和相同的顺序就可以保证最终 State 的一致性，这就是所谓的 Predictable。
 
 ## Action
 
-Action 是一个原始的 JavaScript 对象，用来描述发生的事件，类似 event。
+Action 是一个原始的 JavaScript 对象，用来描述发生的事件，类似 Event。
 
 每个 Action 都有一个`type`字段，`type`的类型是字符串，用来给 Action 命名，`type`通常以`domain/eventName`形式定义。第一部分标识 action 的分类或特性，第二部分定义发生的事件。
 
@@ -24,7 +24,7 @@ reduce 是一个纯函数，形式如`(state, action) => newState`，接收当�
 注意：
 
 - reducer 函数必须是一个纯函数，只有这样才能保证 Redux 的可预测性。
-- 在 reducer 内不能够直接修改 state，而是使用 immutable updates 返回一个新的 state，直接修改 state 会导致难以定位的 bug。
+- **在 reducer 内不能够直接修改 state**，而是使用 immutable updates 返回一个新的 state，直接修改 state 会导致难以定位的 bug。
 - reducer 函数不能是异步的，因为异步函数的执行顺序无法保证，会破坏 redux 的可预测性。
 
 在实际项目中我们需要写很多的 reducer，这时我们会根据业务逻辑进行拆分，然后另外写一个 reducer 来整合。
@@ -55,15 +55,15 @@ Action Creator 函数接收 payload 信息，返回 action 对象。这样我们
 Selector 封装可以隔离 UI 和 Store，在 Store 修改时只需要修改 Selector，无需对每一个 UI 进行修改。
 
 ```JavaScript
-const addTodo = text => {
+const addTodoActionCreator = text => {
    return {
      type: 'todos/todoAdded',
      payload: text
    }
 }
 
-const selectCounterValue = state => state.value
-const currentValue = selectCounterValue(store.getState())
+const counterValueSelector = state => state.value
+const currentValue = counterValueSelector(store.getState())
 ```
 
 ## API
@@ -123,7 +123,11 @@ redux 期望全部的 state 更新都是 immutability，修改 state 会引起�
 
 ## Middleware
 
-redux middleware 可以用于对`dispatch`方法进行定制，middleware 执行实在 action 派发到 reducer 接收之前执行。
+redux middleware 可以用于对`dispatch`方法进行定制，可以执行一些副作用，例如异步请求、日志打印等。
+
+redux middleware 执行是在 action 派发到 reducer 接收之前，使`view -→> action -> reducer -> store`转变为`view -> action -> middleware -> reducer -> store`
+
+redux middleware 是一个函数，接收`dispatch`和`getState`两个参数。
 
 ```JavaScript
 function exampleMiddleware(storeAPI) {
@@ -146,7 +150,7 @@ function exampleMiddleware(storeAPI) {
 
 ## [redux-thunk](https://github.com/reduxjs/redux-thunk)
 
-`thunk`是一种特定的函数，有`dispatch`和`getState`两个参数，可以在`thunk`可以在这执行异步逻辑，跟进应用场景调用`store`的`dispatch`和`getState`方法，获取当前 state 或触发一个 action，通常是触发一个同步 action。
+`thunk`是一种特定的函数，有`dispatch`和`getState`两个参数，可以在`thunk`可以在这执行异步逻辑，根据应用场景调用`store`的`dispatch`和`getState`方法，获取当前 state 或触发一个 action，通常是触发一个同步 action。
 
 为了保持一致性，我们通常也会为`thunk`函数也创建一个 creator 函数，可以在这个函数传入合适的业务参数。
 
