@@ -1,4 +1,12 @@
-# Code Splitting
+# Bundle 优化
+
+1. 压缩代码
+2. CDN 加速：`publicPath`
+3. Tree Shaking
+4. Code Splitting
+5. 提取公共第三⽅库
+
+## Code Splitting
 
 合理的代码拆分，优化资源加载是我们当前重要的优化手段，Webpack 代表拆分主要有以下三种方式：
 

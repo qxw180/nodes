@@ -1,17 +1,11 @@
 # TODO
 
-- WebAssembly
-
 ## DevOps
 
 - docker
 - Test
 - Mock
 - rpc
-
-## JavaScript Core
-
-- `instance`原理及实现
 
 ## NodeJS
 

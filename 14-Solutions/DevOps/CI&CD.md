@@ -1,6 +1,6 @@
 # CI&CD
 
-## CI(Continuous Intergration)持续集成
+## CI(Continuous Integration)持续集成
 
 集成：软件个人研发部分向整体部分组合和交付，以便验证个人研发工作
 
