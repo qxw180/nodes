@@ -1,6 +1,37 @@
 # React 性能优化
 
-## 组件什么时候会发生 rerender
+## Virtual DOM & React Diffing
+
+React 提供声明式的 API，开发者通过组件描述 UI，React 会将组件转化为 DOM 渲染到页面上，并在数据(props 和 state)变化时自动进行更新。开发者可以保持相对简单的心智，不需要关心 DOM 操作、事件处理、属性操作等。
+
+DOM 更新会导致重绘和重流，DOM 更新策略优化也是前端渲染优化的关键点，React 通过 Virtual DOM 对 DOM 更新进行优化，在不做手动优化的情况下提供过得去的性能，保证性能下限。
+
+Virtual DOM 是一个 JS 对象，是对真实 DOM 的抽象，在数据变化后 React 会生成新的 Virtual DOM 和旧的 Virtual DOM 进行对比，缩进真实 DOM 更新范围，也会将更新聚合(将多个更新合并，所以 React 状态更新不是同步的)，减少更新次数。
+
+Virtual DOM 最初的设计目的是为了跨平台，基于 Virtual DOM 本质是 JavaScript 对象，基于 Virtual DOM 可以区别的定制下游输出，实现不同平台的渲染，如 SSR、跨终端等场景。
+
+![Virtual DOM](../../assets/images/react/virtual-dom-diffing.png)
+
+每次`render`都会创建一个 React Elements Tree，React 对其进行对比然后更新页面 UI。数的对比的复杂度非常高，React 基于以下两个假设对进行了算法优化：
+
+- 不同类型的组件会产生不同的树
+- 开发者通过设置`key`告诉 React 哪些子元素在不同的渲染下可以保持不变
+
+具体过程
+
+1. 首先进行跟节点对比，如果根节点元素类型不同，React 会卸载根节点及其子节点并建立新的树。
+2. 如果元素类型相同，React 会保留 DOM 节点，仅对比和更新其有改变的属性。更新完成后继续对子节点进行递归。
+
+React keys 和列表优化
+
+默认情况下 React 会同时对比两个列表，如果有差异会进行全量更新，在某些情况(头部插入新元素)下开销会比较大。
+为了解决这问题 React 引入了`key`属性，当子元素拥有`key`时，React 使用`key`来匹配原有树上的子元素以及最新树上的子元素。
+
+## 避免不必要的 re-render
+
+React 虚拟 DOM 可以在很大的程度上避免浏览器重绘和重流，这可以解决大部分问题，另外我们还可以自己控制组件是否需要重新渲染拉进一步优化。
+
+以下场景会触发组件`re-render`
 
 - props change
 - context change
@@ -9,10 +40,6 @@
   - Function Component：state hook set
 - 父组件`re-render`会触发子组件`re-render`，即使传入的`props`未发生变化
 - `forceUpdate`
-
-## 避免不必要的 re-render
-
-React 虚拟 DOM 可以在很大的程度上避免浏览器重绘和重流，这可以解决大部分问题，另外我们还可以自己控制组件是否需要重新渲染拉进一步优化。
 
 React 组件的生命周期函数`shouldComponentUpdate`在`re-render`之前运行，函数默认返回`true`进行重新渲染。
 我们可以对比新旧`props`和`states`决定是否进行`re-render`。注意：`shouldComponentUpdate`不会阻塞子组件的`re-render`。
