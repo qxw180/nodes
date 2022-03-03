@@ -35,21 +35,13 @@
 - 橡皮筋效果处理
 - 下拉加载更多实现
 
-## Canvas WebGL three.js
-
 ## Spring Boot
 
 ## 消息队列
 
-## Monorepo & 微服务架构
-
-https://www.yuque.com/himstone/eowoaw/in42yy
-
-## Serverless
-
 ## 算法
 
-树状结构 flat
+树状结构 flat、深度优先&广度优先
 
 ```JSON
 [
@@ -62,5 +54,3 @@ https://www.yuque.com/himstone/eowoaw/in42yy
   }
 ]
 ```
-
-## Web Components
