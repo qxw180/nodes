@@ -8,7 +8,7 @@
 安装
 
 `npm install`
-`npm run init`
+`npm run bootstrap`
 
 目录：`npm run summary`
 

@@ -4,9 +4,9 @@
   "description": "个人笔记",
   "main": "index.js",
   "scripts": {
+    "bootstrap": "gitbook install",
     "preview": "gitbook serve",
-    "init": "gitbook init",
-    "build": "rm -rf _book && gitbook build ./ ./docs",
+    "build": "rm -rf docs && gitbook build ./ ./docs",
     "summary": "rm SUMMARY.md && book sm"
   },
   "repository": {
@@ -22,7 +22,7 @@
   "homepage": "https://github.com/qxw180/nodes#readme",
   "devDependencies": {
     "gitbook-cli": "^2.3.2",
-    "gitbook-summary": "^1.2.3"
+    "gitbook-summary": "^1.2.4"
   },
   "dependencies": {
     "gitbook-plugin-splitter": "0.0.8"
