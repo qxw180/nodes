@@ -1,5 +1,7 @@
 # Queue 队列
 
+![Queue](../../../assets/images/数据结构/Queue.png)
+
 一种先进先出(FIFO)的数据结构，包含以下操作接口：
 
 1. 入列：enqueue
