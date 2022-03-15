@@ -1,6 +1,6 @@
 # Babel
 
-Babel 可以进行语法转换和 polyfill，让我们在旧版浏览器中使用最新的语法规范。
+Babel 可以进行语法转换和 polyfill，让我们在旧版浏览器中使用最新的语法规范。
 
 - `@babel/cli`：Babel CLI 工具
 - `@babel/core`：Babel 核心，提供对外实际运行的接口方法
