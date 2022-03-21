@@ -20,9 +20,10 @@
  */
 var lengthOfLongestSubstring = function (s) {
   let maxLength = 0;
-  if (typeof s !== "string" || s.length === 0) {
+  if (s.length === 0) {
     return maxLength;
   }
+
   const tmpMap = new Map();
   let start = 0;
   for (let index = 0; index < s.length; index++) {
@@ -36,6 +37,7 @@ var lengthOfLongestSubstring = function (s) {
   return Math.max(maxLength, s.length - start);
 };
 
+// @lc code=end
 console.log(lengthOfLongestSubstring("aab") === 2);
 console.log(lengthOfLongestSubstring("bbbbb") === 1);
 console.log(lengthOfLongestSubstring("pwwkew") === 3);
@@ -43,5 +45,3 @@ console.log(lengthOfLongestSubstring("abcabcbb") === 3);
 console.log(lengthOfLongestSubstring("dvdf") === 3);
 console.log(lengthOfLongestSubstring("abba") === 2);
 console.log(lengthOfLongestSubstring("tmmzuxt") === 5);
-
-// @lc code=end

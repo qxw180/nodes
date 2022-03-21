@@ -1,81 +1,83 @@
 var ISet = function () {
+  var items = {};
 
-    var items = {}
+  this.has = function (value) {
+    return items.hasOwnProperty(value);
+  };
 
-    this.has = function(value) {
-        return items.hasOwnProperty(value)
+  this.add = function (value) {
+    if (this.has(value)) {
+      return false;
+    }
+    items[value] = value;
+    return value;
+  };
+
+  this.remove = function (value) {
+    if (this.has(value)) {
+      delete items[value];
+      return true;
+    }
+    return false;
+  };
+
+  this.values = function () {
+    return Object.values(items);
+  };
+
+  this.clear = function () {
+    items = {};
+  };
+
+  this.size = function () {
+    // let size = 0
+    // for( var i in set) {
+    //     if(item.hasOwnProperty(i)) {
+    //         size++
+    //     }
+    // }
+    // return size
+    return Object.keys(items).length;
+  };
+
+  // 并集
+  this.union = function (otherSet) {
+    var result = new ISet();
+
+    var arr = this.values();
+    for (var i = 0; i < arr; i++) {
+      result.add(arr[i]);
     }
 
-    this.add = function(value) {
-        if(!this.has(value)) {
-            items[value] = value
-            return value
-        }
-        return false
+    arr = otherSet.values();
+    for (var i = 0; i < arr; i++) {
+      result.add(arr[i]);
     }
 
-    this.remove = function(value) {
-        if(this.has(value)) {
-            delete items[value]
-            return true
-        }
-        return false
+    return result;
+  };
+
+  // 交集
+  this.intersection = function (otherSet) {
+    var result = new ISet();
+    var arr = this.values();
+    for (var i = 0; i < arr; i++) {
+      if (otherSet.has(arr[i])) {
+        result.add(arr[i]);
+      }
     }
+    return result;
+  };
 
-    this.values = function() {
-        return Object.values(items)
+  // 差集
+  this.difference = function (otherSet) {
+    var result = new ISet();
+    var arr = this.values();
+    for (var i = 0; i < arr; i++) {
+      if (!otherSet.has(arr[i])) {
+        result.add(arr[i]);
+      }
     }
-
-    this.clear = function() {
-        items = {}
-    }
-
-    this.size = function() {
-        // let length = 0
-        // for( var i in set) {
-        //     if(item.hasOwnProperty(i)) {
-        //         i++
-        //     }
-        // }
-        // return length
-        return Object.keys(items).length
-    }
-
-    this.union = function(ohterSet) {
-        var result = new ISet()
-
-        var arr = this.values
-        for(var i = 0; i < arr; i++ ){
-            result.add(arr[i])
-        }
-
-        arr = ohterSet.values
-        for(var i = 0; i < arr; i++ ){
-            result.add(arr[i])
-        }
-
-        return result
-    }
-
-    this.intersection = function (otherSet) {
-        var result = new ISet()
-        var arr = this.values
-        for(var i = 0; i < arr; i++ ){
-            if(ohterSet.has(arr[i])) {
-                result.add(arr[i])
-            }
-        }
-        return result
-    }
-
-    this.difference = function (otherSet) {
-        var result = new ISet()
-        var arr = this.values
-        for(var i = 0; i < arr; i++ ){
-            if(!ohterSet.has(arr[i])) {
-                result.add(arr[i])
-            }
-        }
-        return result
-    }
-}
+    return result;
+  };
+};
