@@ -1,85 +1,76 @@
 # this
 
-`this`指的是函数执行的主体、当前运行环境或当前对象，`this`在不同的场景下指向不同，`this`的值是在执行的时候确定的。
+`this`是一个指针，指向调用函的对象。不同的场景下指向不同：
 
-1. 全局环境或直接调用函数，`this`指向顶层对象`window`，在 Nodejs 环境下为`global`
-2. 对象方法，`this`指向运行时调用该方法的对象
-3. 构造函数，即使用`new`关键字运行函数，`this`指向实例对象
-4. `call、apply、bind`：`this`为方法的第一个参数
-5. 箭头函数：`this`指向函数所在作用域的上下文环境
+1. 默认绑定：`this`指向顶层对象`window`，在 Nodejs 环境下为`global`
+   1. 独立函数调用
+   2. 匿名函数调用
+2. 隐式绑定：函数调用在某个对象方法上触发，`this`指向运行时调用该方法的对象
+3. 显示绑定：使用`call、apply、bind`等方法触发并显示的绑定`this`指向
+4. `new`绑定：使用`new`关键字运行函数会首先创建一个空对象，并将`this`指向这个对象，详见[构造函数](../01.OOP/1.构造函数.md)
 
-## 特别注意情况
+## 默认绑定和隐式绑定
 
 ```JavaScript
 var a = {
   b : {
     m : function() {
-      console.log(this)
       console.log(this.p);
     },
     p : 'Hello'
   }
 };
 
+// 作为对象方法触发，最后一层作为this指向
 a.b.m() // hello
 
 var hello = a.b.m;
-hello() // undefined，this指向全局对象`window`
+hello() // undefined，hello函数通过对象赋值，但是执行的时候是作为独立函数执行，默认绑定到window
 var p = "window p";
 hello() // "window p"
-```
 
-数组循环中的 this
-
-```JavaScript
-var o = {
-  v: 'hello',
-  p: [ 'a1', 'a2' ],
-  f: function f() {
-    this.p.forEach(function (item) {
-      console.log(this.v + ' ' + item);
-    });
+function sayHi(){
+  console.log('Hello,', this.name);
+}
+var person1 = {
+  name: 'Rose',
+  sayHi: function(){
+    setTimeout(function(){
+      console.log('Hello,',this.name);
+    })
   }
 }
-o.f()
-// undefined a1
-// undefined a2
-// 循环中的this指向window
-
-// 解决方法指定第二变量，改变this指向
-var o = {
-  v: 'hello',
-  p: [ 'a1', 'a2' ],
-  f: function f() {
-    this.p.forEach(function (item) {
-      console.log(this.v + ' ' + item);
-    }, this);
-  }
+var person2 = {
+  name: 'Lee',
+  sayHi: sayHi
 }
-o.f()
-// hello a1
-// hello a2
+var name='Mike';
+person1.sayHi(); // Hello Mike，setTimeout中的匿名函数this指向全局
+setTimeout(person2.sayHi,100); // Hello Mike，person2.sayHi是通过setTimeout触发的，属于默认绑定
+setTimeout(function(){
+  person2.sayHi(); // Hello Lee，通过person2触发，属于隐式绑定
+},200);
 ```
 
-## 使用 call 和 apply
+## 显示绑定
 
-`apply()`与`call()`的唯一区别是方法参数的传入方式不一样，`apply()`是通过一个数组传入；
+使用`apply()`、`call()`和`bind()`显示的设定`this`的指向
 
-- `function.call(obj, arg1, arg2, ...)`
-- `function.apply(obj, [arg1, arg2, ...])`
+- `function.call(thisObj, arg1, arg2, ...)`
+- `function.apply(thisObj, [arg1, arg2, ...])`
+- `function.bind(thisObj, args1, args2, ...)`
+
+`call`和`apply`的作用一样会立刻执行方法，并将`this`指向传入的对象，唯一区别是方法参数的传入方式不一样，`apply()`是通过数组传入；
+
+`bind`方法不会立刻执行，而是返回一个新的函数，函数的`this`指针绑定到传入的对象，如果`bind`方法的第一个参数是`null`或`undefined`，等于将`this`绑定到全局对象
 
 ```JavaScript
 var sum = 100;
 function add(a, b) {
   return this.sum + a + b;
 }
-
 add.call(this, 1, 2) // 103
 ```
-
-## 使用`bind`
-
-`function.bind(obj, args1, args2, ...)`：将函数体内的`this`绑定到某个对象，然后返回一个新方法，如果`bind`方法的第一个参数是`null`或`undefined`，等于将`this`绑定到全局对象
 
 ```JavaScript
 var a = new Object();
@@ -96,60 +87,62 @@ b.toString = a.toString;
 
 b.toString();// 345
 
+// 使用`bind`显示绑定的函数，即使通过对象触发也不会影响this的指向
 b.toString = a.toString.bind(a);
 b.toString();// 123;
 ```
 
-对于不支`bind`方法的浏览器我们可以自己实现
+对于不支持`bind`方法的浏览器我们可以自己实现
 
 ```JavaScript
 if(!('bind' in Function.prototype)){
   Function.prototype.bind = function(){
-    var fn = this;
-    var context = arguments[0];
-    var args = Array.prototype.slice.call(arguments, 1);
-    return function(){
-      return fn.apply(context, args);
+    if (typeof this !== "function") {
+      throw new TypeError("Error");
     }
+
+    // 将参数拆解为数组
+    const argArr = Array.prototype.slice.call(arguments);
+    // 数组第一项为运行时的this对象
+    const thisObj = argArr.shift();
+
+    // 运行方法
+    const fn = this;
+
+    // 返回一个函数
+    return function () {
+      return fn.apply(thisObj, argArr);
+    };
   }
 }
 ```
 
-## 箭头函数中的 this
+## TODO:箭头函数中的`this`
 
-箭头函数没有`prototype`也没有自己的`this`指向，箭头函数的`this`指向为为**定义函数所在作用域的上下文**(即会继承自己作用域上一层的`this`)，即箭头函数声明时所在的对象的`this`指向；
-
-箭头函数声明之后`this`的指向不会再改变。
+**箭头函数没有`this`，需要通过作用域链来查找`this`**，即箭头函数的`this`指向最近一层非箭头函数的`this`。
+因为箭头函数的`this`指向是通过作用域链查找的，所以箭头函数的`this`指针并不是静态的。
 
 ```JavaScript
-let obj = {
-  hello: 'world',
-  foo() {
-  let bar = () => {
-    return this.hello
-  }
-  return bar
-  }
+var obj = {
+  hi: function(){
+    console.log(this);
+    return ()=>{
+      console.log(this);
+    }
+  },
 }
 
-window.hello = 'ES6'
-window.bar = obj.foo()
-window.bar() //=> 'world'
+let hi = obj.hi;
+let deepHi = hi(); // window
+deepHi(); // window
 
-// 相当于
-
-foo() {
-  let bar = (function() {
-    return this.hello
-  }).bind(this)
-
-  return bar;
-}
+deepHi = obj.hi(); // obj
+deepHi(); // obj
 ```
 
 注意：箭头函数的上下文绑定是不可改变的，不能使用`call`或`apply`改变；
 
-## 深入 this
+## TODO:深入 this
 
 在[变量声明、赋值](./01-变量声明、赋值.md)中介绍过执行上下文，EC 在创建的时会绑定`this`指向。
 
@@ -158,4 +151,4 @@ foo() {
 - 全局执行上下文：绑定到全局对象
 - 函数执行上下文：
   - 如果是被某个对象调用的函数，那么`this`指向到这个函数
-  - 否则执行到全局对象或`undefined`(严格模式下)
+  - 否则指向到全局对象或`undefined`(严格模式下)
