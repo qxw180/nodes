@@ -1,6 +1,8 @@
-# TODO:代码组织
+# TODO:Monorepo
 
-前端代码复用主要是 npm package + semver 方案，但是开发 -> 发布 -> 安装 -> 发布的流程相对繁琐、在业务场景下有很多项目通用的业务代码需要共享，更新频率较高，使用 package 方案确实有些繁琐。
+https://github.com/worldzhao/blog/issues/9
+
+前端代码复用主要是`npm package` + `semver`方案，但是`开发 -> 发布 -> 安装 -> 发布`的流程相对繁琐、在业务场景下有很多项目通用的业务代码需要共享，更新频率较高，使用`package`方案确实有些繁琐。
 
 在项目迭代过程中发现需要将某段代码提取为公共库或组件时，需要创建一个新的仓库，仓库的配置、依赖和工作流等基础工作都需要单独进行一次。发布之后各个项目需要单独安装、更新之后也需要逐个升级。
 
@@ -9,7 +11,7 @@
 Multirepos(多仓库)传统方式会根据职责和业务模块进行项目拆分，每个项目一个仓库。
 Monorepo(单仓库)只使用一个仓库管理项目的所有代码和资源。
 
-![monorepo](../assets/images/architecture/monorepo.png)
+![monorepo](../../assets/images/architecture/monorepo.png)
 
 Monorepo 优点：
 
@@ -24,21 +26,57 @@ Monorepo 缺点：
 2. 更高的开发质量要求，公共代码的修改会立刻在全部项目生效、需要完善的自动化测试及 MR 机制为项目更新提供保障
 3. git tag 使用问题，tag 针对整个仓库，无法保证各子项目 tag 的独立
 4. 在 Monorepo 模式下所有项目都在一个仓库中，需要更加完善的代码管理规范
-   1. 权限管理：各子项目通常由不同团队、不同专业方向人员维护，为了避免误改需要 Code Owner 和 MR 机制保证合入代码质量
+   1. 权限管理：各子项目通常由不同团队、不同专业方向人员维护，为了避免误改需要 Code Owner 和 MR 机制保证合入代码安全
    2. CI/CD：各子项目的 CI/CD 通常是独立的，在 Monorepo 模式下个项目的 CI/CD 流程需要做路径配置，只有特定路径发生代码变动时触发特定的 CI/CD。
 
 Monorepo 框架主要提供以下功能：
 
-- 统一构建、测试
-- 版本管理及发布
-- 夸 package 调试
-- 依赖管理
+- 本地调试：
+- 依赖管理：保证依赖安装的正确性、稳定性以及安装效率
+  - 幽灵依赖问题：一个库使用了非其`dependencies`的包
+  -
+- 版本管理及发布能力：能够基于项目的改动和依赖关系，正确的更新包版本、生成 CHANGELOG、发布版本
+- 任务编排能力：统一的任务触发，保证任务执行顺序的同时提升执行效率
+  - 范围界定：按需执行、避免无关项目执行
+  - 并行优化：
+    - 任务之间依赖管理
+    - 项目之间依赖管理
+  - 缓存优化：增量执行、本地缓存、云端缓存共享
 
 [StateOfJs 2021 monorepo 框架调查](https://2021.stateofjs.com/zh-Hans/libraries/monorepo-tools)
 
+| 框架           | 本地调试 | 依赖管理 | 版本管理及发布能力 | 任务编排能力 |
+| -------------- | -------- | -------- | ------------------ | ------------ |
+| yarn workspace | ✅       |          | ❌                 | ❌           |
+| npm workspace  | ✅       |          |                    | ❌           |
+| lerna          | ✅       |          |                    |
+| pnpm           |          |          |                    |
+| Turborepo      |          |          |                    |
+| Rush           |          |          |                    |
+| changesets     |          |          |                    |
+
+## npm workspaces
+
+在`package.json`的`workspaces`字段使用`glob`方式定义包，每个包(workspace)需要有自己的`package.json`文件。
+
+```json
+{
+  "name": "test",
+  "version": "1.0.0",
+  "workspaces": ["packages/*"]
+}
+```
+
+- 添加包：`npm init -w <workspace>`
+- 依赖管理： `npm <install|ci|uninstall> axios -w <workspace>`
+- 运行脚本：
+  - 指定 workspace：`npm run <script> --workspace=a`
+  - 全部 workspace：`npm run <script> --workspace`
+  - 跳过缺失脚本的 workspace：`npm run <script> --workspaces --if-present`
+
 ## [Lerna](https://github.com/lerna/lerna)
 
-Lerna 作为老牌 Monorepo 工具被广泛使用，虽然社区有很多负面反馈，但是我们还是应该了解，以下是 Lerna 对自己的定义：
+Lerna 作为老牌 Monorepo 工具被广泛使用，虽然已经停止维护并且社区有很多负面反馈，但是我们还是应该了解，以下是 Lerna 对自己的定义：
 
 > A tool for managing JavaScript projects with multiple packages.
 > Lerna is a tool that optimizes the workflow around managing multi-package repositories with git and npm.
@@ -114,5 +152,3 @@ Lerna 代码组织形式如下，所有包都放在`packages`目录下。这些�
 ## [Turborepo](https://turborepo.org/)
 
 ## [pnpm](https://pnpm.io/)
-
-## git-submodule

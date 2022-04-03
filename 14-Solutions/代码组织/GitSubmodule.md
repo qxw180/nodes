@@ -1,13 +1,57 @@
-# Git 子仓库
+# TODO:git-submodule
 
-## TODO:submodule
+## 在主仓库中管理子仓库
 
-- 主仓库引入子仓库：`git submodule add ${subRepoRemotePath}`
-- clone 有子仓库的项目：
-  - 执行`git submodule init`初始化本地配置，然后执行`git submodule update`拉取子仓库数据到主仓库对应目录
-  - 直接执行：`git clone --recursive`
-- 代码提交：子仓库和普通仓库一样进行 commit，子仓库 commit 之后需要到主仓库再次进行一次 commit
-- `git submodule foreach git pull`一次性拉取所以子仓库更新
+### 添加子仓库
+
+使用`git submodule add <submoduleRemotePath>`添加子仓库，添加完成之后主仓库会产生两处修改
+
+**配置文件**：`.gitmodules`，包含子模块的名字、本地路径和仓库地址等信息
+
+```conf
+; .gitmodules
+[submodule "libs"]
+  path = libs
+  url = https://github.com/example/libs.git
+[submodule "components"]
+  path = components
+  url = https://github.com/example/components.git
+```
+
+**子仓库**：在主仓库会增宽子仓库，可以直接使用和修改子仓库中的文件。
+但是使用`git status`查看显示子仓库是一个文件，因为 git 把子仓库当做一个文件管理，是一个链接文件指向子仓库的某个 commit 的链接，如下图。
+
+![submodule](../../assets/images/git/submodule.png)
+
+### 更新子仓库
+
+`git submodule update --remote <submoduleName>`。**注意：只能更新子仓库的主分支**
+
+## `clone`包含子仓库的主仓库
+
+**自动同步子仓库**：使用`--recursive`参数，执行`clone`同时递归的拉取子仓库`git clone --recursive <path>`
+
+**手动同步子仓库**：
+
+- `clone`主仓库：`git clone <path>`
+- 初始化子仓库：`git submodule init`
+- 同步子仓库：`git submodule update`
+
+## 修改子仓库
+
+### 场景一：子仓库独立更新并提交
+
+在子仓库中进行代码的修改和提交和普通的仓库没有任何区别，子仓库提交更新后在主仓库中执行更新既可。
+不足的是在主仓库中没有显示子仓库有更新，缺少通信机制。
+
+### 场景二：在主仓库中更新子仓库
+
+在主仓库中也可以直接修改子仓库中文件，修改后在主仓库使用`git status`可以看到有文件修改，但执行`add`和`commit`操作对子仓库并不生效，需要`cd`到子仓库进行操作。
+在子仓库中执行`commit`后主仓库的`.gitmodules`文件会自动修改，需要执行`add`和`commit`。
+
+## TODO:monorepo VS submodules
+
+- 避免重复的工程配置，如 eslint DevOps 等，TODO:X AS Code 是否是更好的解决方案？
 
 ## [subtree](https://github.com/git/git/blob/master/contrib/subtree/git-subtree.txt)
 
@@ -49,28 +93,3 @@ git subtree add --prefix=sub/libpng libs master --squash
 git subtree pull --prefix=sub/libpng libs master --squash
 git subtree push --prefix=sub/libpng libs master
 ```
-
-## 目标
-
-1. 主项目能够独立开发、发布
-2. 各项目可以便捷的共享代码
-   1. 引入方便
-   2. 修改方便，修改共享代码和提交
-   3. 同步方便，同步其它项目对共享代码的修改
-3. Code Owner 机制，对共享代码的修改设置门槛
-
-思路：monorepo+微服务
-
-## TODO:lerna
-
-### Fixed 模式
-
-### Independent 模式
-
-| 对比             | submodule | subtree                | lerna  |
-| ---------------- | --------- | ---------------------- | ------ |
-| 主仓库关联子仓库 | B1        | 执行 subtree add 命令  |
-| 主仓库更新子仓库 | B2        | 执行 subtree pull 命令 |
-| 主仓库修改子仓库 | B3        | 执行 subtree push 命令 | 不支持 |
-| 子仓库依赖管理   | B3        | 不支持                 |
-| 应用场景         | B3        |                        |
