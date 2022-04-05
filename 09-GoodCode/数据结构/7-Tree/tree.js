@@ -91,8 +91,82 @@ function Tree() {
     // }
   }
   this.remove = function (value) {
-    root = removeNode(root, value);
+    let current = root;
+    let parent = root;
+    let isLeftChild = false;
+    while (current !== null && current.value !== value) {
+      parent = current;
+      if (current.value > value) {
+        parent = current.left;
+        isLeftChild = true;
+      } else {
+        parent = current.right;
+        isLeftChild = false;
+      }
+    }
+    if (current === null) {
+      return;
+    }
+    // Case1：无子节点
+    if (current.left === null && current.right === null) {
+      if (current === root) {
+        root = null;
+      } else if (isLeftChild) {
+        parent.left = null;
+      } else {
+        parent.right = null;
+      }
+    }
+    // Case2：只有一个子节点
+    else if (current.left === null) {
+      if (current === root) {
+        root = current.right;
+      } else if (isLeftChild) {
+        parent.left = current.right;
+      } else {
+        parent.right = current.right;
+        
+      }
+    } else if (current.right === null) {
+      if (current === root) {
+        root = current.left;
+      } else if (isLeftChild) {
+        parent.left = current.left;
+      } else {
+        parent.right = current.left;
+      }
+    }
+    // Case3：有两个子节点，使用右子树的最小节点替换
+    else {
+      // 找到右子树最小子节点
+      let minNode = null;
+      let minNodeParent = null;
+      let minCurrent = current.right;
+      while (minCurrent !== null) {
+        minNodeParent = minNode;
+        minNode = minCurrent;
+        minCurrent = minNode.left;
+      }
+      // 如果最小子节点不为要删除节点的右子节点
+      if (minNode !== current.right) {
+        // 将最小子节点的右子节点设为父节点的左子节点，替换最小子节点自身
+        minNodeParent.left = minNode.right;
+        // 将要删除节点的右子节点作为找到的最小子节点的右子节点
+        minNode.right = current.right;
+      }
+
+      // 替换要删除的子节点
+      if (current === root) {
+        root = minNode;
+      } else if (isLeftChild) {
+        parent.left = minNode;
+      } else {
+        parent.right = minNode;
+      }
+    }
+    return true;
   };
+
 }
 
 var tree = new Tree();
