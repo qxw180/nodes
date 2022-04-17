@@ -4,7 +4,7 @@
 
 ## Error Boundaries
 
-Error Boundaries 是 React 提供的一个容错方案，可以捕获和处理(日志和错误提示)子组件的异常，以避免整个程序崩溃。
+Error Boundaries 是 React 提供的一个容错方案，可以捕获和处理(日志和错误提示)子组件的异常，同时展示降级 UI，以避免整个程序崩溃。
 Error Boundaries 可以捕获`render`函数、生命周期、甚至是构造函数内抛出的异常，但是以下场景无法捕获：
 
 1. Event Handler，因为事件处理并不发生在渲染过程，即使有异常抛出也不会影响组件渲染

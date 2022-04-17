@@ -44,11 +44,11 @@ export const m = 1;
 
 // 写法二
 const m = 1;
-export {m};
+export { m };
 
 // 写法三
 const n = 1;
-export {n as m};
+export { n as m };
 ```
 
 ## 导入 import
@@ -56,7 +56,7 @@ export {n as m};
 使用`import`命令可以加载模块，并接受模块中通过`export`导出的内容；
 
 ```JavaScript
-import {firstName, lastName, year} from './profile';
+import { firstName, lastName, year } from './profile';
 
 function setName(element) {
   element.textContent = firstName + ' ' + lastName;
@@ -66,7 +66,7 @@ function setName(element) {
 import { lastName as familyName } from './profile';
 
 
-// 命名空间引入：使用`*`导入整个模块到一个对象，通过这个对象引用模块`export`的变量
+// 命名空间引入：使用`*`导入整个模块到一个对象，通过这个对象引用模块`export`的全部接口
 import * as jordan from './profile';
 console.log(jordan.firstName);// Michael
 ```
