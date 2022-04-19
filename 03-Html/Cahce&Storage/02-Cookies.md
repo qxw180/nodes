@@ -27,7 +27,7 @@ Cookie 有以下特性：
   - 浏览器根据本地时间决定 Cookie 是否过期，可能和服务器时间有出入；
 - `max-age`：指定 cookie 的有效期，单位秒；
 - `secure`：指定 cookie 只能在 HTTPS 下发送到服务器；
-- `HttpOnly`：设置 cookie 不能被 javascrip 读取；
+- `HttpOnly`：设置 cookie 不能被 javascript 读取；
 
 ## 获取操作
 
