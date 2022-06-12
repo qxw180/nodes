@@ -16,6 +16,8 @@ const Hello: React.FC<IHelloProps> = ({name, children}) => {
 export default Hello;
 ```
 
+## TODO:泛型组件
+
 ## 获取未导出类型定义的组件属性定义
 
 ```TypeScript
