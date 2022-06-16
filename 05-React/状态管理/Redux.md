@@ -185,8 +185,8 @@ Normalizing 是指加工原始数据生成一个对象，包括一个 ID 数组�
 // 原数据
 const DataArr = [
   {id: "user1", firstName, lastName},
-   {id: "user2", firstName, lastName},
-   {id: "user3", firstName, lastName},
+  {id: "user2", firstName, lastName},
+  {id: "user3", firstName, lastName},
 ]
 // Normalized Data
 const NormalizedData = {
