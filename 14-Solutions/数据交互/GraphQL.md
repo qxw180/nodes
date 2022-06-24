@@ -85,4 +85,13 @@ query HeroForEpisode($ep: Episode!) {
     primaryFunction
   }
 }
+
+## 接口实现
+Query: {
+  hero(obj, args, context, info) {
+    return context.db.loadHumanByID(args.id).then(
+      userData => new Human(userData)
+    )
+  }
+}
 ```

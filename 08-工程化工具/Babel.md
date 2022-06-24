@@ -1,6 +1,20 @@
 # Babel
 
-Babel 可以进行语法转换和 polyfill，让我们在旧版浏览器中使用最新的语法规范。
+> Babel is a JavaScript compiler. Use next generation JavaScript, today.
+
+Babel 可以进行 JavaScript 语法转换和 polyfill，让我们在旧版浏览器中使用最新的语法规范。
+
+![Babel AST](../assets/images/architecture/babel_ast.png)
+
+Babel 语法转换的过程可以概括为：首先进行 parse 将代码解析成 AST(抽象语法树)，然后插件会对 AST 进行修改，最后由 Babel 将 AST 转换为模板代码字符串。
+
+## Babel 作用
+
+- 转义：将 Esnext TypeScript 等转换为目标环境支撑的 JS
+- 代码转换：A 语言到 B 语言的转换
+- 代码分析：模块分析、Tree-Shaking、代码压缩等
+
+## Babel 核心
 
 - `@babel/cli`：Babel CLI 工具
 - `@babel/core`：Babel 核心，提供对外实际运行的接口方法
@@ -75,6 +89,17 @@ Babel 附带一个内建的命令行工具[`babel-cli`](https://babeljs.io/docs/
 
 ## TODO:插件开发
 
+```JS
+module.export = function(babel){
+  return {
+    visitor:{
+    }
+  }
+}
+```
+
+[一文读懂 Babel 原理及用途，及如何进行插件开发](https://juejin.cn/post/6992134202430849061)
+
 ## 创建 Preset
 
 创建一个 Preset 只需要 export 一个配置文件，配置文件中可以保护其它 preset 和 plugin 以及配置参数
@@ -90,3 +115,5 @@ module.exports = {
   ]
 };
 ```
+
+[AstExplorer](https://astexplorer.net/)
