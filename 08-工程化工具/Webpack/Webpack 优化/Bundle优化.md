@@ -1,10 +1,23 @@
 # Bundle 优化
 
-1. 压缩代码
-2. CDN 加速：`publicPath`
-3. Tree Shaking
-4. Code Splitting
-5. 提取公共第三⽅库
+1. CDN 加速：`publicPath`
+2. Code Splitting
+3. 提取公共第三⽅库
+
+## TODO:Bundle 分析
+
+Webpack Bundle 分析工具可以帮助我们发现问题、验证优化效果，详细参考[Bundle Analysis](https://webpack.js.org/guides/code-splitting/#bundle-analysis)
+
+## 降低 Bundle 体积
+
+Tree Shaking：移除 JS 中没有使用的代码，依赖 ES Module，Webpack 默认开启，需要注意模块引入的方式
+
+TODO:引入方式
+
+代码压缩：
+
+- TODO:`@babel/plugin-transform-runtime`
+- `image-minimizer-webpack-plugin`
 
 ## Code Splitting
 
@@ -14,9 +27,7 @@
 2. 单独打包公用模块，避免公用模块重复打包
 3. Dynamic Imports
 
-Webpack Bundle 分析工具可以帮助我们发现问题、验证优化效果，详细参考[Bundle Analysis](https://webpack.js.org/guides/code-splitting/#bundle-analysis)
-
-## Multiple Entry
+### Multiple Entry
 
 Multiple Entry 可以手动配置多个入口文件，Webpack 会为每个入口生成单独的 bundle。
 
@@ -43,7 +54,7 @@ module.exports = {
 - 如果某个模块被多个入口文件使用，那么每个 entry 的 bundle 都会包含这个模块
 - 灵活性不够，不能在程序中动态的的进行代码拆分
 
-## 避免公用模块重复打包
+### TODO:公共模块
 
 使用`dependOn`可以配置 entry 的共享模块，webpack 会单独打包这些模块。打包后会额外产生`shared.bundle.js`包含了公用模块。
 
@@ -98,8 +109,22 @@ module.exports = {
 [SplitChunksPlugin](https://webpack.js.org/plugins/split-chunks-plugin/)：提取`dependices`
 [MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/)：提前 CSS 到单独的文件
 
-## TODO:Dynamic Imports
+### Dynamic Imports
 
-Webpack 支持 ECMAScript 的`import()`语法。
+Webpack 支持 ECMAScript 的[`import()`](../../../02-JavaScript/03.Modular/ESM.md#dynamic-import)语法。
 
-## TODO:Prefetching/Preloading
+## TODO:PreFetching/Preloading
+
+## TODO:Network Cache
+
+避免无修改文件缓存失效、避免单个文件修改导致其他文件缓存失效
+
+```JavaScript
+module.exports = {
+  optimization: {
+    runtimeChunk: (entrypoint) => {
+      return `runtime-${entrypoint.name}.js`
+    },
+  }
+};
+```

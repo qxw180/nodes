@@ -4,7 +4,7 @@
 (function (doc, win) {
   var docEl = doc.documentElement,
     resizeEvt = 'onorientationchange' in window ? 'orientationchange' : 'resize',
-    recalc = function () {
+    reCalc = function () {
       var clientWidth = docEl.clientWidth;
         if (!clientWidth) return;
           clientWidth = Math.min(clientWidth, 1024)
@@ -14,10 +14,10 @@
     if (!doc.addEventListener) return;
     win.addEventListener(resizeEvt, function() {
       setTimeout(function(){
-        recalc()
+        reCalc()
       }, 50)
     });
-    recalc()
+    reCalc()
 })(document, window);
 ```
 
@@ -28,3 +28,5 @@
 @media (min-width: 375px){html{font-size: 100px;} }
 @media (min-width: 414px){html{font-size: 110.6px;} }
 ```
+
+## TODO:Rem 在 CSS 预处理器中使用及原理

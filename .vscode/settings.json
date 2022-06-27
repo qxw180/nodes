@@ -90,6 +90,7 @@
     "userscripts",
     "VARCHAR",
     "Vite",
+    "webfont",
     "Webgl",
     "webp",
     "WORKDIR",
@@ -99,5 +100,6 @@
   ],
   "search.exclude": {
     "**/docs": true
-  }
+  },
+  "cSpell.ignoreWords": ["onorientationchange", "orientationchange"]
 }
