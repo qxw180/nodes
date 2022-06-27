@@ -43,6 +43,8 @@ console.log(clonePerson.name); // 'John'
 - 序列化：对象转换为可传输的字节序列
 - 反序列化：把字节序列转换为对象
 
+## TODO:声明式和命令式
+
 ## 进程(Process)和线程(Thread)
 
 程序在启动的时候会创建一个进程，程序也可能会创建线程来帮助它工作。操作系统为进程提供了一块“内存块”以供使用，并且所有应用程序状态都保存在该私有内存空间中。当关闭应用程序时，该进程也会消失，操作系统会释放内存。
@@ -66,10 +68,10 @@ console.log(clonePerson.name); // 'John'
   - 代表产物：npm, dockerhub 等，通过注册账号就可以享受产品服务
 
 开发者需要关心的部分
-![iaas、paas、saas开发者需要关心的部分](../../nodes/assets/images/good/Management-Iaas-Saas-Paas-Cloud.jpg)
+![iaas、paas、saas开发者需要关心的部分](../../nodes/assets/images/architecture/Management-Iaas-Saas-Paas-Cloud.jpg)
 
 从 IaaS 到 PaaS
-![从IaaS到PaaS](../../nodes/assets/images/good/iass-sass.jpg)
+![从IaaS到PaaS](../../nodes/assets/images/architecture/iass-sass.jpg)
 
 ## 微服务
 
