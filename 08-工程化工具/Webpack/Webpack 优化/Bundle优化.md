@@ -56,6 +56,11 @@ module.exports = {
 
 ### TODO:公共模块
 
+- 公用代码和组件
+- 依赖包
+  - 依赖包更新频率低，单独打包有利于网络缓存
+  - 可以对依赖包提取精细化配置，例如按 react、antd、echarts、其他打多个包，利用网络并发
+
 使用`dependOn`可以配置 entry 的共享模块，webpack 会单独打包这些模块。打包后会额外产生`shared.bundle.js`包含了公用模块。
 
 ```JavaScript

@@ -9,6 +9,7 @@
 - mode：模式
 - devtool：
 - optimization：优化配置
+- resolve：模块解析配置选项
 
 ## 配置文件管理
 
