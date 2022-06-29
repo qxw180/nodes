@@ -84,6 +84,7 @@
     "startmindmap",
     "startuml",
     "Strawman",
+    "swcpack",
     "todos",
     "treejs",
     "ttfb",
@@ -106,5 +107,9 @@
   "search.exclude": {
     "**/docs": true
   },
-  "cSpell.ignoreWords": ["onorientationchange", "orientationchange"]
+  "cSpell.ignoreWords": [
+    "Deglobbing",
+    "onorientationchange",
+    "orientationchange"
+  ]
 }

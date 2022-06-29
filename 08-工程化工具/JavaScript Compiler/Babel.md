@@ -4,7 +4,7 @@
 
 Babel 可以进行 JavaScript 语法转换和 polyfill，让我们在旧版浏览器中使用最新的语法规范。
 
-![Babel AST](../assets/images/architecture/babel_ast.png)
+![Babel AST](../../assets/images/architecture/babel_ast.png)
 
 Babel 语法转换的过程可以概括为：首先进行 parse 将代码解析成 AST(抽象语法树)，然后插件会对 AST 进行修改，最后由 Babel 将 AST 转换为模板代码字符串。
 
