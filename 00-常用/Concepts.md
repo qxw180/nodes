@@ -45,6 +45,24 @@ console.log(clonePerson.name); // 'John'
 
 ## TODO:声明式和命令式
 
+- 命令式：强调如何做
+- 声明式：强调做什么，通过函数的封装提升代码可读性
+
+```JS
+const arr = [1, 2, 3];
+// 命令式
+for(let i of arr) {
+  console.log(i);
+}
+// 声明式
+const forEach = function(arr, callback) {
+  for(let i of arr) {
+    callback(i);
+  }
+}
+forEach(arr, console.log);
+```
+
 ## 进程(Process)和线程(Thread)
 
 程序在启动的时候会创建一个进程，程序也可能会创建线程来帮助它工作。操作系统为进程提供了一块“内存块”以供使用，并且所有应用程序状态都保存在该私有内存空间中。当关闭应用程序时，该进程也会消失，操作系统会释放内存。

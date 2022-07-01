@@ -42,19 +42,19 @@ Manifest 配置示例：
   "orientation": "landscape", // 屏幕旋转方向，可以禁止屏幕旋转
   "icons": [
     {
-      "src": "images/touch/homescreen48.png",
+      "src": "images/touch/home_screen48.png",
       "sizes": "48x48",
       "type": "image/png"
     },
     {
-      "src": "images/touch/homescreen72.png",
+      "src": "images/touch/home_screen72.png",
       "sizes": "72x72",
       "type": "image/png"
     }
   ],
   "background_color": "#000", // 设置加载时的背景颜色，PWA的启动画面及时使用background_color和icons组合生成的
   "theme_color": "#000", // 主题颜色
-  "scope": "/myapp/", // 作用域，作用域外的网站会在浏览器中打开，不会继续在PWA里浏览
+  "scope": "/myApp/", // 作用域，作用域外的网站会在浏览器中打开，不会继续在PWA里浏览
   "related_applications": [
     {
       "platform": "play",
@@ -64,9 +64,9 @@ Manifest 配置示例：
 }
 ```
 
-### [Service Worker](./Worker/Service%20Workes.md)
+### [Service Worker](../03-Html/Worker/Service%20Workers.md)
 
-Service Worker 是一个可编程的 Web Worker，它就像一个位于浏览器与网络之间的客户端代理，可以拦截、处理、响应流经的 HTTP 请求，配合[Cache Storage API](./Cahce&Storage/04-CacheStorage.md)可以实现 Websites 的离线能力。
+Service Worker 是一个可编程的 Web Worker，它就像一个位于浏览器与网络之间的客户端代理，可以拦截、处理、响应流经的 HTTP 请求，配合[Cache Storage API](../03-Html/Cache&Storage/04-CacheStorage.md)可以实现 Websites 的离线能力。
 
 ### [Notification API](./设备访问/通知Notification%20API.md)
 
