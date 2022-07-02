@@ -121,6 +121,7 @@ if(!('bind' in Function.prototype)){
 
 **箭头函数没有`this`，需要通过作用域链来查找`this`**，即箭头函数的`this`指向最近一层非箭头函数的`this`。
 因为箭头函数的`this`指向是通过作用域链查找的，所以箭头函数的`this`指针并不是静态的。
+？箭头函数的 this 在定义时确定？
 
 ```JavaScript
 var obj = {
