@@ -46,7 +46,7 @@ var person2 = {
 }
 var name='Mike';
 person1.sayHi(); // Hello Mike，setTimeout中的匿名函数this指向全局
-setTimeout(person2.sayHi,100); // Hello Mike，person2.sayHi是通过setTimeout触发的，属于默认绑定
+setTimeout(person2.sayHi,100); // Hello Mike，person2.sayHi是通过setTimeout触发的，属于默认绑定（匿名函数调用）
 setTimeout(function(){
   person2.sayHi(); // Hello Lee，通过person2触发，属于隐式绑定
 },200);
@@ -119,15 +119,17 @@ if(!('bind' in Function.prototype)){
 
 ## TODO:箭头函数中的`this`
 
-**箭头函数没有`this`，需要通过作用域链来查找`this`**，即箭头函数的`this`指向最近一层非箭头函数的`this`。
+和普通函数需要根据如何被调用来确定`this`的指向，**箭头函数不会创建自己的`this`，会从自己的作用域链上一层来继承`this`**，即箭头函数的`this`指向最近一层非箭头函数的`this`。
+
+箭头函数`this`的另外一个重要特性是不可变，通过`call`或`apply`调用传入的`this`会被忽略。
+
 因为箭头函数的`this`指向是通过作用域链查找的，所以箭头函数的`this`指针并不是静态的。
-？箭头函数的 this 在定义时确定？
 
 ```JavaScript
 var obj = {
-  hi: function(){
+  hi: function() {
     console.log(this);
-    return ()=>{
+    return () => {
       console.log(this);
     }
   },
@@ -143,7 +145,7 @@ deepHi(); // obj
 
 注意：箭头函数的上下文绑定是不可改变的，不能使用`call`或`apply`改变；
 
-## TODO:深入 this
+## 深入 this
 
 在[变量声明、赋值](./01-变量声明、赋值.md)中介绍过执行上下文，EC 在创建的时会绑定`this`指向。
 
@@ -151,5 +153,5 @@ deepHi(); // obj
 
 - 全局执行上下文：绑定到全局对象
 - 函数执行上下文：
-  - 如果是被某个对象调用的函数，那么`this`指向到这个函数
+  - 如果是被某个对象调用的函数，那么`this`指向到这个对象
   - 否则指向到全局对象或`undefined`(严格模式下)
