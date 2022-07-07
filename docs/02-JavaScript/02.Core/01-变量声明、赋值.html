@@ -1271,9 +1271,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="../00.Basic/01.Iterator.html">
+        <li class="chapter " data-level="1.4.1.2" data-path="../00.Basic/01.Iterator.md">
             
-                <a href="../00.Basic/01.Iterator.html">
+                <span>
             
                     
                     01.Iterator
@@ -1297,9 +1297,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.4" data-path="../00.Basic/05.Object.html">
+        <li class="chapter " data-level="1.4.1.4" data-path="../00.Basic/05.Object.md">
             
-                <a href="../00.Basic/05.Object.html">
+                <span>
             
                     
                     05.Object
@@ -2564,9 +2564,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2.2" data-path="../../04-CSS/02.CSS3/04.CSS3-动画.html">
+        <li class="chapter " data-level="1.6.2.2" data-path="../../04-CSS/02.CSS3/04.CSS3-动画.md">
             
-                <a href="../../04-CSS/02.CSS3/04.CSS3-动画.html">
+                <span>
             
                     
                     04.CSS3-动画
@@ -4907,6 +4907,7 @@ JavaScript &#x6807;&#x8BC6;&#x7B26;&#x89C4;&#x5219;&#x540C; Java &#x4E00;&#x81F4
 <pre><code class="lang-JavaScript"><span class="hljs-keyword">let</span> a = <span class="hljs-number">1</span>;
 <span class="hljs-keyword">let</span> a; <span class="hljs-comment">// &#x62A5;&#x9519; SyntaxError: Identifier &apos;a&apos; has already been declared</span>
 </code></pre>
+<p>ES6 &#x89C4;&#x5B9A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x5C06;&#x9010;&#x6B65;&#x4E0E;&#x9876;&#x5C42;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x8131;&#x94A9;&#xFF0C;<code>var</code>&#x548C;<code>function</code>&#x58F0;&#x660E;&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x4E3A;&#x4E86;&#x517C;&#x5BB9;&#x6027;&#x4ECD;&#x4FDD;&#x6301;&#x5168;&#x5C40;&#x5BF9;&#x8C61;&#x7684;&#x5C5E;&#x6027;&#x3002;</p>
 <h2 id="&#x53D8;&#x91CF;&#x8D4B;&#x503C;">&#x53D8;&#x91CF;&#x8D4B;&#x503C;</h2>
 <p>&#x53D8;&#x91CF;&#x8D4B;&#x503C;&#xFF1A;&#x58F0;&#x660E;&#x540E;&#x672A;&#x8D4B;&#x503C;&#x7684;&#x53D8;&#x91CF;&#x9ED8;&#x8BA4;&#x503C;&#x4E3A;<code>undefined</code></p>
 <pre><code class="lang-JavaScript"><span class="hljs-keyword">var</span> a;
@@ -4919,7 +4920,7 @@ a = <span class="hljs-number">2</span>; <span class="hljs-comment">// &#x62A5;&#
 </code></pre>
 <h2 id="&#x89E3;&#x6784;&#x8D4B;&#x503C;-destructuring">&#x89E3;&#x6784;&#x8D4B;&#x503C; Destructuring</h2>
 <p>ES6 &#x5141;&#x8BB8;&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x6A21;&#x5F0F;&#xFF0C;&#x4ECE;&#x6570;&#x7EC4;&#x548C;&#x5BF9;&#x8C61;&#x4E2D;&#x63D0;&#x53D6;&#x503C;&#xFF0C;&#x5BF9;&#x53D8;&#x91CF;&#x8FDB;&#x884C;&#x8D4B;&#x503C;&#xFF0C;&#x8FD9;&#x88AB;&#x79F0;&#x4E3A;&#x89E3;&#x6784;(Destructuring)
-&#x53EA;&#x8981;&#x67D0;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5177;&#x6709;<a href="../00.Basic/01.Iterator.html">Iterator</a>&#x63A5;&#x53E3;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</p>
+&#x53EA;&#x8981;&#x67D0;&#x79CD;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x5177;&#x6709;<a href="../00.Basic/01.Iterator.md">Iterator</a>&#x63A5;&#x53E3;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x91C7;&#x7528;&#x6570;&#x7EC4;&#x5F62;&#x5F0F;&#x7684;&#x89E3;&#x6784;&#x8D4B;&#x503C;</p>
 <pre><code class="lang-JavaScript"><span class="hljs-comment">// &#x6570;&#x7EC4;&#x89E3;&#x6784;</span>
 <span class="hljs-keyword">let</span> [a, b, [c, d], e = <span class="hljs-number">5</span>, f = <span class="hljs-number">6</span>] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, [<span class="hljs-number">3</span>, <span class="hljs-number">4</span>], <span class="hljs-literal">undefined</span>, <span class="hljs-literal">null</span>]
 <span class="hljs-built_in">console</span>.log(a, b, c, d, e, f) <span class="hljs-comment">// 1 2 3 4 5 null</span>
@@ -4997,15 +4998,16 @@ b = <span class="hljs-number">2</span>;
 <li><a href="02-&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&amp;&#x6267;&#x884C;&#x6808;.html">&#x4F5C;&#x7528;&#x57DF;</a></li>
 <li>&#x53D8;&#x91CF;&#x63D0;&#x5347;&#xFF1A;<code>let</code>&#x58F0;&#x660E;&#x4E0D;&#x4F1A;&#x8FDB;&#x884C;&#x53D8;&#x91CF;&#x63D0;&#x5347;</li>
 <li>&#x91CD;&#x590D;&#x58F0;&#x660E;&#xFF1A;<code>var</code>&#x53EF;&#x4EE5;&#x91CD;&#x590D;&#x58F0;&#x660E;&#x540C;&#x540D;&#x53D8;&#x91CF;&#xFF0C;<code>let</code>&#x91CD;&#x590D;&#x58F0;&#x660E;&#x4F1A;&#x62A5;&#x9519;</li>
-<li>&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;</li>
+<li><a href="02-&#x53D8;&#x91CF;&#x4F5C;&#x7528;&#x57DF;&amp;&#x6267;&#x884C;&#x6808;.html#&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;-tdztemporal-dead-zone">&#x6682;&#x65F6;&#x6027;&#x6B7B;&#x533A;</a></li>
 <li><strong>&#x9876;&#x5C42;&#x5BF9;&#x8C61;(window)&#x548C;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x8131;&#x94A9;</strong>&#xFF1A;&#x4F7F;&#x7528;<code>let</code>&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x4E0D;&#x80FD;&#x901A;&#x8FC7;<code>window.xxx</code>&#x8BBF;&#x95EE;</li>
 </ul>
 <h2 id="&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x6DF1;&#x5165;---&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;-ecexecution-context">&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x6DF1;&#x5165; - &#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587; EC(Execution Context)</h2>
-<p>JS &#x5F15;&#x64CE;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x5206;&#x4E3A;&#x9884;&#x7F16;&#x8BD1;&#x671F;&#x548C;&#x6267;&#x884C;&#x671F;&#xFF0C;JS &#x5F15;&#x64CE;&#x662F;&#x8FB9;&#x8FD0;&#x884C;&#x8FB9;&#x89E3;&#x6790;&#xFF0C;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;<strong>&#x53EF;&#x6267;&#x884C;&#x4EE3;&#x7801;</strong>&#x65F6;&#x5C31;&#x4F1A;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<strong>&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;</strong>(Execution Context)&#xFF0C;&#x5373;&#x7F16;&#x8BD1;&#x3002;&#x5728;&#x751F;&#x6210;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x8FC7;&#x7A0B;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x3002;</p>
+<p>JS &#x5F15;&#x64CE;&#x8FD0;&#x884C;&#x8FC7;&#x7A0B;&#x5206;&#x4E3A;&#x9884;&#x7F16;&#x8BD1;&#x671F;&#x548C;&#x6267;&#x884C;&#x671F;&#xFF0C;JS &#x5F15;&#x64CE;&#x662F;&#x4E00;&#x8FB9;&#x8FD0;&#x884C;&#x4E00;&#x8FB9;&#x89E3;&#x6790;&#xFF0C;&#x5728;&#x8FD0;&#x884C;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x9047;&#x5230;<strong>&#x53EF;&#x6267;&#x884C;&#x4EE3;&#x7801;</strong>&#x65F6;&#x5C31;&#x4F1A;&#x9996;&#x5148;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<strong>&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;</strong>(Execution Context)&#xFF0C;&#x5373;&#x7F16;&#x8BD1;&#x3002;&#x5728;&#x751F;&#x6210;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;&#x7684;&#x8FC7;&#x7A0B;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x3002;</p>
 <p>JavaScript &#x89E3;&#x91CA;&#x5668;&#x6267;&#x884C;&#x7684;&#x4F2A;&#x903B;&#x8F91;&#xFF1A;</p>
 <ol>
 <li>&#x89E3;&#x6790;&#x8981;&#x88AB;&#x6267;&#x884C;&#x7684;&#x53EF;&#x6267;&#x884C;&#x4EE3;&#x7801;</li>
 <li>&#x521B;&#x5EFA;&#x6267;&#x884C;&#x4E0A;&#x4E0B;&#x6587;<ol>
+<li><code>this</code>&#x7ED1;&#x5B9A;</li>
 <li>&#x521D;&#x59CB;&#x5316;&#x4F5C;&#x7528;&#x57DF;&#x94FE;</li>
 <li>&#x521B;&#x5EFA;<a href="#&#x53D8;&#x91CF;&#x5BF9;&#x8C61;vo">&#x53D8;&#x91CF;&#x5BF9;&#x8C61;</a></li>
 </ol>
@@ -5039,7 +5041,7 @@ b = <span class="hljs-number">2</span>;
 <li>&#x5C06;&#x51FD;&#x6570;&#x53C2;&#x6570;&#x6DFB;&#x52A0;&#x5230; VO &#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4F7F;&#x7528;&#x5B9E;&#x53C2;&#x521D;&#x59CB;&#x5316;(&#x82E5;&#x672A;&#x4F20;&#x5165;&#x5B9E;&#x53C2;&#x5219;&#x521D;&#x59CB;&#x5316;&#x4E3A;<code>undefined</code>)</li>
 </ol>
 </li>
-<li>&#x51FD;&#x6570;&#x58F0;&#x660E;&#x5904;&#x7406;&#xFF1A;&#x626B;&#x63CF;&#x51FD;&#x6570;&#x5185;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x5E76;&#x6DFB;&#x52A0;&#x5230; VO &#x5BF9;&#x8C61;&#xFF0C;&#x53D1;&#x73B0;<strong>&#x91CD;&#x590D;&#x58F0;&#x660E;&#x4F1A;&#x8986;&#x76D6;</strong>&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x5DF2;&#x5305;&#x542B;&#x7684;&#x540C;&#x540D;&#x5C5E;&#x6027;</li>
+<li>&#x51FD;&#x6570;&#x58F0;&#x660E;&#x5904;&#x7406;&#xFF1A;&#x626B;&#x63CF;&#x51FD;&#x6570;&#x5185;&#x7684;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x5E76;&#x6DFB;&#x52A0;&#x5230; VO &#x5BF9;&#x8C61;&#xFF0C;&#x53D1;&#x73B0;<strong>&#x91CD;&#x590D;&#x58F0;&#x660E;&#x4F1A;&#x8986;&#x76D6;</strong>&#x53D8;&#x91CF;&#x5BF9;&#x8C61;&#x6DFB;&#x52A0;&#x7684;&#x540C;&#x540D;&#x5C5E;&#x6027;</li>
 <li>&#x53D8;&#x91CF;&#x58F0;&#x660E;&#x5904;&#x7406;&#xFF1A;&#x626B;&#x63CF;&#x51FD;&#x6570;&#x5185;&#x7684;<code>var</code>&#x5173;&#x952E;&#x5B57;&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x5E76;&#x6DFB;&#x52A0;&#x5230; VO &#x5BF9;&#x8C61;&#xFF0C;&#x521D;&#x59CB;&#x5316;&#x53D8;&#x91CF;&#x503C;&#x4E3A;<code>undefined</code>&#xFF0C;&#x53D1;&#x73B0;&#x91CD;<strong>&#x590D;&#x58F0;&#x660E;&#x4F1A;&#x5FFD;&#x7565;</strong></li>
 <li>&#x6C42;&#x51FA;&#x4E0A;&#x4E0B;&#x6587;&#x5185;&#x90E8;<code>this</code>&#x7684;&#x503C;</li>
 </ol>
@@ -5059,7 +5061,7 @@ ECObj = {
   VariableObject: { <span class="hljs-comment">// &#x53D8;&#x91CF;&#x5BF9;&#x8C61;</span>
     <span class="hljs-built_in">arguments</span>: {
       <span class="hljs-number">0</span>: <span class="hljs-number">30</span>,
-        length: <span class="hljs-number">1</span>
+      length: <span class="hljs-number">1</span>
     },
     x: <span class="hljs-number">30</span>,
     b: <span class="hljs-literal">undefined</span>
@@ -5067,7 +5069,7 @@ ECObj = {
   <span class="hljs-keyword">this</span>: { ... } <span class="hljs-comment">// this&#x6307;&#x9488;</span>
 }
 </code></pre>
-<p>JS &#x5728;&#x6267;&#x884C;&#x9636;&#x6BB5;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x662F;&#x6765;&#x81EA; VO &#x5BF9;&#x8C61;&#xFF0C;Review VO &#x7684;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x5E94;&#x8BE5;&#x5BF9;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x6709;&#x4E86;&#x66F4;&#x6DF1;&#x5165;&#x7684;&#x7406;&#x89E3;&#x3002;</p>
+<p>JS &#x5728;&#x6267;&#x884C;&#x9636;&#x6BB5;&#x4F7F;&#x7528;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x662F;&#x6765;&#x81EA; VO &#x5BF9;&#x8C61;&#xFF0C;Review VO &#x7684;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x5E94;&#x8BE5;&#x5BF9;&#x53D8;&#x91CF;&#x63D0;&#x5347;&#x4F1A;&#x6709;&#x66F4;&#x6DF1;&#x5165;&#x7684;&#x7406;&#x89E3;&#x3002;</p>
 <pre><code class="lang-JavaScript">alert(x); <span class="hljs-comment">// function x(){} &#x51FD;&#x6570;&#x91CD;&#x590D;&#x58F0;&#x660E;&#xFF0C;&#x8986;&#x76D6;var x</span>
 <span class="hljs-keyword">var</span> x = <span class="hljs-number">10</span>;
 alert(x); <span class="hljs-comment">// 10 &#x8FD0;&#x884C;&#x65F6;&#x53D8;&#x91CF;&#x8D4B;&#x503C;</span>
@@ -5125,7 +5127,7 @@ TODO:<a href="https://juejin.cn/post/6844903682283143181" target="_blank">[&#x8B
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"01-变量声明、赋值","level":"1.4.3.1","depth":3,"next":{"title":"02-变量作用域&执行栈","level":"1.4.3.2","depth":3,"path":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","ref":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","articles":[]},"previous":{"title":"02.Core","level":"1.4.3","depth":2,"ref":"","articles":[{"title":"01-变量声明、赋值","level":"1.4.3.1","depth":3,"path":"02-JavaScript/02.Core/01-变量声明、赋值.md","ref":"02-JavaScript/02.Core/01-变量声明、赋值.md","articles":[]},{"title":"02-变量作用域&执行栈","level":"1.4.3.2","depth":3,"path":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","ref":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","articles":[]},{"title":"03-闭包","level":"1.4.3.3","depth":3,"path":"02-JavaScript/02.Core/03-闭包.md","ref":"02-JavaScript/02.Core/03-闭包.md","articles":[]},{"title":"04 This","level":"1.4.3.4","depth":3,"path":"02-JavaScript/02.Core/04-this.md","ref":"02-JavaScript/02.Core/04-this.md","articles":[]},{"title":"05-运行机制","level":"1.4.3.5","depth":3,"path":"02-JavaScript/02.Core/05-运行机制.md","ref":"02-JavaScript/02.Core/05-运行机制.md","articles":[]},{"title":"06-事件","level":"1.4.3.6","depth":3,"path":"02-JavaScript/02.Core/06-事件.md","ref":"02-JavaScript/02.Core/06-事件.md","articles":[]},{"title":"06-异常处理","level":"1.4.3.7","depth":3,"path":"02-JavaScript/02.Core/06-异常处理.md","ref":"02-JavaScript/02.Core/06-异常处理.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"02-JavaScript/02.Core/01-变量声明、赋值.md","mtime":"2022-03-25T01:56:53.179Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-01T11:28:21.515Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"01-变量声明、赋值","level":"1.4.3.1","depth":3,"next":{"title":"02-变量作用域&执行栈","level":"1.4.3.2","depth":3,"path":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","ref":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","articles":[]},"previous":{"title":"02.Core","level":"1.4.3","depth":2,"ref":"","articles":[{"title":"01-变量声明、赋值","level":"1.4.3.1","depth":3,"path":"02-JavaScript/02.Core/01-变量声明、赋值.md","ref":"02-JavaScript/02.Core/01-变量声明、赋值.md","articles":[]},{"title":"02-变量作用域&执行栈","level":"1.4.3.2","depth":3,"path":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","ref":"02-JavaScript/02.Core/02-变量作用域&执行栈.md","articles":[]},{"title":"03-闭包","level":"1.4.3.3","depth":3,"path":"02-JavaScript/02.Core/03-闭包.md","ref":"02-JavaScript/02.Core/03-闭包.md","articles":[]},{"title":"04 This","level":"1.4.3.4","depth":3,"path":"02-JavaScript/02.Core/04-this.md","ref":"02-JavaScript/02.Core/04-this.md","articles":[]},{"title":"05-运行机制","level":"1.4.3.5","depth":3,"path":"02-JavaScript/02.Core/05-运行机制.md","ref":"02-JavaScript/02.Core/05-运行机制.md","articles":[]},{"title":"06-事件","level":"1.4.3.6","depth":3,"path":"02-JavaScript/02.Core/06-事件.md","ref":"02-JavaScript/02.Core/06-事件.md","articles":[]},{"title":"06-异常处理","level":"1.4.3.7","depth":3,"path":"02-JavaScript/02.Core/06-异常处理.md","ref":"02-JavaScript/02.Core/06-异常处理.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"02-JavaScript/02.Core/01-变量声明、赋值.md","mtime":"2022-07-05T12:37:03.834Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-07T09:01:19.581Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

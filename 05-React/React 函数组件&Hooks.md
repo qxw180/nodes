@@ -23,14 +23,14 @@ function Example() {
 | 组件类型 | 编写方式                  | 生命周期            | 机制                                                    |
 | -------- | ------------------------- | ------------------- | ------------------------------------------------------- |
 | 类组件   | `extends React.Component` | 有生命周期函数      | 每个组件`mount`后都是一个组件实例，在实例内保存运行状态 |
-| 函数组件 | function                  | 使用`useEffect`实现 | 无实例，通过 HOOK 保持状态                              |
+| 函数组件 | `function`                | 使用`useEffect`实现 | 无实例，通过 HOOK 保持状态                              |
 
-- ref 对象
-  - 函数组件：使用`useRef()`创建
-  - Class 组件：使用`React.createRef()`创建，函数组件每次渲染都会重新执行`React.createRef()`创新的 ref 对象
+- `ref`对象
+  - Class 组件：使用`React.createRef()`创建
+  - 函数组件：使用`useRef()`创建，函数组件每次渲染都会重新执行`React.createRef()`创新的`ref`对象
 - 状态管理
-  - 函数组件：`useState()`
   - Class 组件：`setState()`
+  - 函数组件：`useState()`
 
 **核心区别：**
 

@@ -1271,9 +1271,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.2" data-path="../00.Basic/01.Iterator.html">
+        <li class="chapter " data-level="1.4.1.2" data-path="../00.Basic/01.Iterator.md">
             
-                <a href="../00.Basic/01.Iterator.html">
+                <span>
             
                     
                     01.Iterator
@@ -1297,9 +1297,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.1.4" data-path="../00.Basic/05.Object.html">
+        <li class="chapter " data-level="1.4.1.4" data-path="../00.Basic/05.Object.md">
             
-                <a href="../00.Basic/05.Object.html">
+                <span>
             
                     
                     05.Object
@@ -2564,9 +2564,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2.2" data-path="../../04-CSS/02.CSS3/04.CSS3-动画.html">
+        <li class="chapter " data-level="1.6.2.2" data-path="../../04-CSS/02.CSS3/04.CSS3-动画.md">
             
-                <a href="../../04-CSS/02.CSS3/04.CSS3-动画.html">
+                <span>
             
                     
                     04.CSS3-动画
@@ -4950,12 +4950,11 @@ c.toString();<span class="hljs-comment">// &quot;[object Object]&quot;</span>
 }
 A(<span class="hljs-number">1</span>); <span class="hljs-comment">//Uncaught TypeError: Cannot set property &apos;x&apos; of undefined(&#x2026;)</span>
 </code></pre>
-<p>&#x4E8C;&#xFF1A;&#x5728;&#x6784;&#x9020;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x8FDB;&#x884C;&#x5224;&#x65AD;;</p>
-<pre><code class="lang-Javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params">x</span>)</span>{
-  <span class="hljs-keyword">if</span>(!(<span class="hljs-keyword">this</span> <span class="hljs-keyword">instanceof</span> A)){
-    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> A(x);
-  }
-  <span class="hljs-keyword">this</span>.x = x;
+<p>&#x4E8C;&#xFF1A;&#x4F7F;&#x7528;<code>new.target</code>&#x5C5E;&#x6027;;</p>
+<p><code>new.target</code>&#x53EF;&#x4EE5;&#x68C0;&#x67E5;&#x51FD;&#x6570;&#x6216;&#x8005;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x662F;&#x901A;&#x8FC7;<code>new</code>&#x8FD0;&#x7B97;&#x7B26;&#x8C03;&#x7528;&#xFF0C;&#x662F;&#x7684;&#x8BDD;&#x4F1A;&#x8FD4;&#x56DE;&#x6307;&#x5411;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x6216;&#x51FD;&#x6570;&#x7684;&#x5F15;&#x7528;&#xFF0C;&#x666E;&#x901A;&#x6267;&#x884C;&#x7684;&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x662F;<code>undefined</code></p>
+<pre><code class="lang-Javascript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Foo</span>(<span class="hljs-params"></span>) </span>{
+  <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">new</span>.target) <span class="hljs-keyword">throw</span> <span class="hljs-string">&quot;Foo() must be called with new&quot;</span>;
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Foo instantiated with new&quot;</span>);
 }
 </code></pre>
 
@@ -4997,7 +4996,7 @@ A(<span class="hljs-number">1</span>); <span class="hljs-comment">//Uncaught Typ
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.构造函数","level":"1.4.2.1","depth":3,"next":{"title":"2.封装","level":"1.4.2.2","depth":3,"path":"02-JavaScript/01.OOP/2.封装.md","ref":"02-JavaScript/01.OOP/2.封装.md","articles":[]},"previous":{"title":"01.OOP","level":"1.4.2","depth":2,"ref":"","articles":[{"title":"1.构造函数","level":"1.4.2.1","depth":3,"path":"02-JavaScript/01.OOP/1.构造函数.md","ref":"02-JavaScript/01.OOP/1.构造函数.md","articles":[]},{"title":"2.封装","level":"1.4.2.2","depth":3,"path":"02-JavaScript/01.OOP/2.封装.md","ref":"02-JavaScript/01.OOP/2.封装.md","articles":[]},{"title":"3.1.继承 - 原型链","level":"1.4.2.3","depth":3,"path":"02-JavaScript/01.OOP/3.1.继承%20- 原型链.md","ref":"02-JavaScript/01.OOP/3.1.继承%20- 原型链.md","articles":[]},{"title":"3.2.继承 - 原型链继承","level":"1.4.2.4","depth":3,"path":"02-JavaScript/01.OOP/3.2.继承%20- 原型链继承.md","ref":"02-JavaScript/01.OOP/3.2.继承%20- 原型链继承.md","articles":[]},{"title":"3.3.继承 - ES6 Class","level":"1.4.2.5","depth":3,"path":"02-JavaScript/01.OOP/3.3.继承%20- ES6 Class.md","ref":"02-JavaScript/01.OOP/3.3.继承%20- ES6 Class.md","articles":[]},{"title":"4.多态","level":"1.4.2.6","depth":3,"path":"02-JavaScript/01.OOP/4.多态.md","ref":"02-JavaScript/01.OOP/4.多态.md","articles":[]},{"title":"5.Mixin模式实现多继承","level":"1.4.2.7","depth":3,"path":"02-JavaScript/01.OOP/5.Mixin模式实现多继承.md","ref":"02-JavaScript/01.OOP/5.Mixin模式实现多继承.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"02-JavaScript/01.OOP/1.构造函数.md","mtime":"2022-03-23T02:50:22.153Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-01T11:28:21.515Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.构造函数","level":"1.4.2.1","depth":3,"next":{"title":"2.封装","level":"1.4.2.2","depth":3,"path":"02-JavaScript/01.OOP/2.封装.md","ref":"02-JavaScript/01.OOP/2.封装.md","articles":[]},"previous":{"title":"01.OOP","level":"1.4.2","depth":2,"ref":"","articles":[{"title":"1.构造函数","level":"1.4.2.1","depth":3,"path":"02-JavaScript/01.OOP/1.构造函数.md","ref":"02-JavaScript/01.OOP/1.构造函数.md","articles":[]},{"title":"2.封装","level":"1.4.2.2","depth":3,"path":"02-JavaScript/01.OOP/2.封装.md","ref":"02-JavaScript/01.OOP/2.封装.md","articles":[]},{"title":"3.1.继承 - 原型链","level":"1.4.2.3","depth":3,"path":"02-JavaScript/01.OOP/3.1.继承%20- 原型链.md","ref":"02-JavaScript/01.OOP/3.1.继承%20- 原型链.md","articles":[]},{"title":"3.2.继承 - 原型链继承","level":"1.4.2.4","depth":3,"path":"02-JavaScript/01.OOP/3.2.继承%20- 原型链继承.md","ref":"02-JavaScript/01.OOP/3.2.继承%20- 原型链继承.md","articles":[]},{"title":"3.3.继承 - ES6 Class","level":"1.4.2.5","depth":3,"path":"02-JavaScript/01.OOP/3.3.继承%20- ES6 Class.md","ref":"02-JavaScript/01.OOP/3.3.继承%20- ES6 Class.md","articles":[]},{"title":"4.多态","level":"1.4.2.6","depth":3,"path":"02-JavaScript/01.OOP/4.多态.md","ref":"02-JavaScript/01.OOP/4.多态.md","articles":[]},{"title":"5.Mixin模式实现多继承","level":"1.4.2.7","depth":3,"path":"02-JavaScript/01.OOP/5.Mixin模式实现多继承.md","ref":"02-JavaScript/01.OOP/5.Mixin模式实现多继承.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"02-JavaScript/01.OOP/1.构造函数.md","mtime":"2022-07-02T09:27:38.818Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-07T09:01:19.581Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
