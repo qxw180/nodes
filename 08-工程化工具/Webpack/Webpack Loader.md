@@ -1,5 +1,7 @@
 # Webpack Loader
 
+将 webpack 不能识别的文件(图片、样式等)转化为能处理的文件
+
 ## TODO:loader 优先级
 
 - 类型优先级从高到低，使用`enforce`配置
