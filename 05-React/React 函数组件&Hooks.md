@@ -181,3 +181,7 @@ function Counter() {
   );
 }
 ```
+
+## 参考文章
+
+[React Hooks 原理](https://github.com/brickspert/blog/issues/26)

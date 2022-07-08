@@ -1610,9 +1610,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.5" data-path="../02.Core/05-运行机制.html">
+        <li class="chapter " data-level="1.4.3.5" data-path="../02.Core/05-运行机制.md">
             
-                <a href="../02.Core/05-运行机制.html">
+                <span>
             
                     
                     05-运行机制
@@ -2301,9 +2301,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.7" data-path="../../03-Html/通信/标签页通讯.html">
+        <li class="chapter " data-level="1.5.5.7" data-path="../../03-Html/通信/标签页通讯.md">
             
-                <a href="../../03-Html/通信/标签页通讯.html">
+                <span>
             
                     
                     标签页通讯
@@ -2397,9 +2397,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.12" data-path="../../03-Html/分享设置.html">
+        <li class="chapter " data-level="1.5.12" data-path="../../03-Html/分享设置.md">
             
-                <a href="../../03-Html/分享设置.html">
+                <span>
             
                     
                     分享设置
@@ -4888,22 +4888,20 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="promise">Promise</h1>
-<p>Promise(&#x627F;&#x8BFA;)&#x662F;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;Promise &#x6784;&#x9020;&#x51FD;&#x6570;&#x63A5;&#x6536;<code>(resolve, reject) =&gt; void</code>&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x540E;&#x4F1A;&#x6267;&#x884C;&#x8BE5;&#x51FD;&#x6570;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;<strong>&#x4FDD;&#x8BC1;&#x5F02;&#x6B65;&#x7684;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;</strong>&#x3002;</p>
-<p>Promise &#x7684;<code>then</code>&#x65B9;&#x6CD5;&#x76F8;&#x5BF9;&#x4E8E;<code>callback</code>&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x66F4;&#x52A0;&#x4F18;&#x5F02;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#xFF0C;&#x907F;&#x514D;&#x4EE3;&#x7801;&#x9677;&#x5165;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x3002;</p>
+<p>Promise &#x5BF9;&#x8C61;&#x4EE3;&#x8868;&#x4E86;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x6700;&#x7EC8;&#x5B8C;&#x6210;&#x6216;&#x5931;&#x8D25;&#xFF0C;Promise &#x6784;&#x9020;&#x51FD;&#x6570;&#x63A5;&#x6536;<code>(resolve, reject) =&gt; void</code>&#x51FD;&#x6570;&#x5BF9;&#x8C61;&#x3002;&#x5728;&#x5B9E;&#x4F8B;&#x5316;&#x540E;&#x4F1A;<strong>&#x7ACB;&#x523B;&#x6267;&#x884C;</strong>&#x8BE5;&#x51FD;&#x6570;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;<strong>&#x4FDD;&#x8BC1;&#x5F02;&#x6B65;&#x7684;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x7ED3;&#x679C;</strong>&#x3002;</p>
+<p>Promise &#x7684;<code>then</code>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#xFF0C;&#x76F8;&#x5BF9;&#x4E8E;<code>callback</code>&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x66F4;&#x52A0;&#x4F18;&#x5F02;&#x7684;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x72B6;&#x6001;&#x7BA1;&#x7406;&#xFF0C;&#x907F;&#x514D;&#x4EE3;&#x7801;&#x9677;&#x5165;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x3002;</p>
 <h2 id="&#x57FA;&#x672C;&#x7528;&#x6CD5;">&#x57FA;&#x672C;&#x7528;&#x6CD5;</h2>
-<p>Promise &#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x751F;&#x6210; Promise &#x5B9E;&#x4F8B;&#xFF0C;&#x53C2;&#x6570;&#x662F;<code>(resolve, reject) =&gt; void</code>&#x5F62;&#x5F0F;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x4EE5;&#x4E0B;&#x7EDF;&#x79F0;&#x4E3A;<em>&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;</em>&#x3002;<code>resolve</code>&#x548C;<code>reject</code>&#x8FD9;&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x4E5F;&#x662F;&#x51FD;&#x6570;&#x3002;</p>
-<p>Promise &#x5B9E;&#x4F8B;&#x6709;&#x4E09;&#x79CD;&#x72B6;&#x6001;&#xFF0C;<code>resolve</code>&#x548C;<code>reject</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5B9E;&#x4F8B;&#x7684;<strong>&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x662F;&#x4E0D;&#x53EF;&#x9006;&#x7684;</strong>&#xFF1A;</p>
+<p>Promise &#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x7528;&#x6765;&#x751F;&#x6210; Promise &#x5B9E;&#x4F8B;&#xFF0C;&#x53C2;&#x6570;&#x662F;<code>(resolve, reject) =&gt; void</code>&#x5F62;&#x5F0F;&#x7684;&#x51FD;&#x6570;&#xFF0C;<code>resolve</code>&#x548C;<code>reject</code>&#x662F;&#x51FD;&#x6570;&#x3002;</p>
+<p>Promise &#x5B9E;&#x4F8B;&#x6709;&#x4E09;&#x79CD;&#x72B6;&#x6001;&#xFF0C;&#x8C03;&#x7528;<code>resolve</code>&#x548C;<code>reject</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x662F;<strong>&#x4E0D;&#x53EF;&#x9006;&#x7684;</strong>&#xFF1A;</p>
 <ul>
-<li>&#x8FDB;&#x884C;&#x4E2D;(Pending)&#xFF1A;&#x5B9E;&#x4F8B;&#x521D;&#x59CB;&#x72B6;&#x6001;&#xFF0C;&#x65B0;&#x5EFA;&#x4E4B;&#x540E;<strong>&#x7ACB;&#x5373;&#x5F00;&#x59CB;&#x6267;&#x884C;</strong>&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#xFF0C;&#x5B9E;&#x4F8B;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x4E3A;<code>Pending</code>&#x3002;</li>
-<li>&#x5DF2;&#x5B8C;&#x6210;(Resolved)&#xFF1A;&#x5728;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x5185;&#x8C03;&#x7528;<code>resolve</code>&#x65B9;&#x6CD5;&#x540E;&#xFF0C;&#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x4E3A;<code>Resolved</code></li>
-<li>&#x5DF2;&#x5931;&#x8D25;(Rejected)&#xFF1A;&#x5728;&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x5185;&#x8C03;&#x7528;<code>reject</code>&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x5728;&#x6709;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#x540E;&#xFF0C;&#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x4E3A;<code>Rejected</code></li>
+<li>&#x8FDB;&#x884C;&#x4E2D;(Pending)&#xFF1A;&#x5B9E;&#x4F8B;&#x521D;&#x59CB;&#x72B6;&#x6001;&#xFF0C;Promise &#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x540E;&#x4F1A;<strong>&#x7ACB;&#x5373;&#x5F00;&#x59CB;&#x6267;&#x884C;</strong>&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5B9E;&#x4F8B;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x4E3A;<code>Pending</code>&#x3002;</li>
+<li>&#x5DF2;&#x5B8C;&#x6210;(Resolved)&#xFF1A;&#x5728;&#x51FD;&#x6570;&#x5185;&#x8C03;&#x7528;<code>resolve</code>&#x65B9;&#x6CD5;&#x540E;&#xFF0C;&#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x4E3A;<code>Resolved</code></li>
+<li>&#x5DF2;&#x5931;&#x8D25;(Rejected)&#xFF1A;&#x5728;&#x51FD;&#x6570;&#x5185;&#x8C03;&#x7528;<code>reject</code>&#x65B9;&#x6CD5;&#x6216;&#x8005;&#x5728;&#x6709;&#x5F02;&#x5E38;&#x629B;&#x51FA;&#x540E;&#xFF0C;&#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x4E3A;<code>Rejected</code></li>
 </ul>
-<p>&#x6BCF;&#x4E00;&#x4E2A; Promise &#x5B9E;&#x4F8B;&#x90FD;&#x6709;<code>then</code>&#x65B9;&#x6CD5;&#x7528;&#x6765;&#x6307;&#x5B9A; Resolved &#x548C; Rejected &#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</p>
-<p>&#x6CE8;&#x610F;&#xFF1A;<strong>&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;&#x5185;&#x8C03;&#x7528; resolve &#x6216;&#x8005; reject &#x51FD;&#x6570;&#x66F4;&#x65B0;&#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x7EC8;&#x6B62;&#x5B9E;&#x4F8B;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x5269;&#x4F59;&#x4EE3;&#x7801;&#x6267;&#x884C;</strong></p>
-<pre><code class="lang-JavaScript"><span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve,reject</span>)</span>{
-  <span class="hljs-keyword">if</span>(<span class="hljs-comment">/*&#x64CD;&#x4F5C;&#x6210;&#x529F;*/</span>){
+<pre><code class="lang-JavaScript"><span class="hljs-keyword">var</span> promise = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">resolve, reject</span>)</span>{
+  <span class="hljs-keyword">if</span> (somethingTrue) {
     resolve(value);
-  }<span class="hljs-keyword">else</span>{
+  } <span class="hljs-keyword">else</span> {
     reject(err);
   }
 });
@@ -4911,87 +4909,180 @@
 promise.then(
   (value) =&gt; {
     <span class="hljs-comment">// success</span>
-  },(err) =&gt; {
+    <span class="hljs-keyword">return</span> data;
+  }, (err) =&gt; {
     <span class="hljs-comment">// fail</span>
   }
-);
+).then((value) =&gt; {}, (err) =&gt; {}); <span class="hljs-comment">// &#x94FE;&#x5F0F;&#x8C03;&#x7528;</span>
 </code></pre>
+<p>&#x4F7F;&#x7528;&#x5B9E;&#x4F8B;&#x7684;<code>then()</code>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x6307;&#x5B9A; Resolved &#x548C; Rejected &#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;<code>then()</code>&#x65B9;&#x6CD5;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x6709;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x94FE;&#x5F0F;&#x8C03;&#x7528;,&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;</p>
+<ol>
+<li>&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x4E0D;&#x4F1A;&#x7ACB;&#x523B;&#x6267;&#x884C;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x4F1A;&#x5728;&#x672C;&#x8F6E;&#x4E8B;&#x4EF6;&#x5FAA;&#x73AF;&#x4E4B;&#x540E;&#x8C03;&#x7528;&#xFF0C;&#x8BE6;&#x89C1;<a href="../02.Core/05-&#x8FD0;&#x884C;&#x673A;&#x5236;.md">JavaScript &#x8FD0;&#x884C;&#x673A;&#x5236;</a></li>
+<li><code>then</code>&#x65B9;&#x6CD5;&#x5373;&#x4F7F;&#x662F;&#x5728;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x6DFB;&#x52A0;&#x4E5F;&#x53EF;&#x4EE5;&#x88AB;&#x8C03;&#x7528;&#xFF0C;&#x5E76;&#x4E14;&#x4E0D;&#x9650;&#x5236;&#x8C03;&#x7528;&#x6B21;&#x6570;</li>
+<li>&#x591A;&#x6B21;&#x8C03;&#x7528;<code>then</code>&#x53EF;&#x4EE5;&#x6DFB;&#x52A0;&#x591A;&#x4E2A;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#xFF0C;&#x5E76;&#x4E14;&#x4F1A;&#x6309;&#x7167;&#x63D2;&#x5165;&#x987A;&#x5E8F;&#x6267;&#x884C;</li>
+<li><code>then</code>&#x65B9;&#x6CD5;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x53EF;&#x4EE5;&#x5728;&#x4E0B;&#x4E00;&#x4E2A;<code>then</code>&#x65B9;&#x6CD5;&#x6536;&#x63A5;&#x53D7;</li>
+<li><code>then</code>&#x65B9;&#x6CD5;&#x629B;&#x51FA;&#x5F02;&#x5E38;&#x4F1A;&#x5728;&#x8C03;&#x7528;&#x94FE;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;<code>cache</code>&#x65B9;&#x6CD5;&#x4E2D;&#x6355;&#x83B7;&#xFF0C;&#x5728;&#x6355;&#x83B7;&#x4E4B;&#x524D;&#x7684;<code>then</code>&#x65B9;&#x6CD5;&#x4F1A;&#x8DF3;&#x8FC7;</li>
+<li><code>cache</code>&#x65B9;&#x6CD5;&#x540E;&#x7684;<code>then</code>&#x65B9;&#x6CD5;&#x8FD8;&#x4F1A;&#x88AB;&#x7EE7;&#x7EED;&#x8C03;&#x7528;</li>
+</ol>
+<pre><code class="lang-JS"><span class="hljs-keyword">const</span> p = <span class="hljs-keyword">new</span> <span class="hljs-built_in">Promise</span>((resolve, reject) =&gt; {
+    resolve(<span class="hljs-number">123</span>);
+});
+p.then((value) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;first then&apos;</span>)
+  <span class="hljs-built_in">console</span>.log(value)
+  <span class="hljs-keyword">return</span> <span class="hljs-number">456</span>;
+}).then((value) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;first then.then&apos;</span>)
+  <span class="hljs-built_in">console</span>.log(value)
+})
+
+p.then((value) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;second then&apos;</span>)
+  <span class="hljs-built_in">console</span>.log(value)
+  <span class="hljs-keyword">throw</span> <span class="hljs-string">&apos;test error&apos;</span>
+}).then((value) =&gt; {
+  <span class="hljs-comment">// &#x4F1A;&#x88AB;&#x8DF3;&#x8FC7;</span>
+  <span class="hljs-built_in">console</span>.log(value)
+}, (error) =&gt; {
+  <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&apos;second then.cache&apos;</span>)
+  <span class="hljs-built_in">console</span>.log(error)
+  <span class="hljs-keyword">return</span> <span class="hljs-string">&apos;error fixed&apos;</span>
+}).then((value) =&gt; {
+  <span class="hljs-built_in">console</span>.log(value)
+})
+<span class="hljs-comment">// &#x8F93;&#x51FA;&#x987A;&#x5E8F;</span>
+<span class="hljs-comment">// first then</span>
+<span class="hljs-comment">// 123</span>
+<span class="hljs-comment">// second then</span>
+<span class="hljs-comment">// 123</span>
+
+<span class="hljs-comment">// first then.then</span>
+<span class="hljs-comment">// 456</span>
+<span class="hljs-comment">// second then.cache</span>
+<span class="hljs-comment">// test error</span>
+
+<span class="hljs-comment">// error fixed</span>
+</code></pre>
+<p>&#x6CE8;&#x610F;&#xFF1A;<strong>&#x8C03;&#x7528;<code>resolve</code>&#x6216;&#x8005;<code>reject</code>&#x65B9;&#x6CD5;&#x66F4;&#x65B0;&#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x540E;&#xFF0C;&#x5E76;&#x4E0D;&#x4F1A;&#x7EC8;&#x6B62;&#x5B9E;&#x4F8B;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x5269;&#x4F59;&#x4EE3;&#x7801;&#x6267;&#x884C;</strong></p>
 <h2 id="&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;">&#x5B9E;&#x4F8B;&#x65B9;&#x6CD5;</h2>
 <ul>
-<li><code>Promise.prototype.then(callBackResolve, callBackReject)</code>&#xFF1A;Promise &#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;<ul>
-<li>&#x53C2;&#x6570;&#xFF1A;<ul>
-<li><code>callBackResolve</code>&#xFF1A;Resolved &#x72B6;&#x6001;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
-<li><code>callBackReject</code>&#xFF1A;Rejected &#x72B6;&#x6001;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li><code>Promise.prototype.then(successCallback, failureCallback): Promise</code>&#xFF1A;Promise &#x5B9E;&#x4F8B;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x540E;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;<ul>
+<li><code>successCallback</code>&#xFF1A;Resolved &#x72B6;&#x6001;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li><code>failureCallback</code>&#xFF1A;Rejected &#x72B6;&#x6001;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;</li>
 </ul>
 </li>
-<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;<ul>
-<li>&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;&#xFF0C;then &#x65B9;&#x6CD5;&#x540E;&#x9762;&#x53EF;&#x4EE5;&#x5728;&#x8C03;&#x7528;&#x53E6;&#x4E00;&#x4E2A; then &#x65B9;&#x6CD5;&#x3002;</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><code>Promise.prototype.catch(callBackReject)</code>&#xFF1A;&#x76F8;&#x5F53;&#x4E8E;<code>.then(null,reject)</code>&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;<ul>
-<li>&#x53C2;&#x6570;<ul>
-<li><code>callBackReject</code>&#xFF1A;Rejected &#x72B6;&#x6001;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
-</ul>
-</li>
-<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;<ul>
-<li>&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;</li>
-</ul>
-</li>
+<li><code>Promise.prototype.catch(failureCallback)</code>&#xFF1A;&#x662F;<code>.then(null, failureCallback)</code>&#x7684;&#x7B80;&#x5199;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x9519;&#x8BEF;&#x65F6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;<ul>
+<li>&#x53C2;&#x6570;&#xFF1A;<code>failureCallback</code>&#xFF1A;Rejected &#x72B6;&#x6001;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;</li>
 </ul>
 </li>
 <li><code>Promise.prototype.finally(onFinally)</code>&#xFF1A;&#x5728; promise &#x7ED3;&#x675F;&#x65F6;&#xFF0C;&#x65E0;&#x8BBA;&#x7ED3;&#x679C;&#x662F; <code>resolved</code> &#x6216;&#x8005;&#x662F; <code>rejected</code>&#xFF0C;&#x90FD;&#x4F1A;&#x6267;&#x884C;&#x6307;&#x5B9A;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;<ul>
-<li>&#x53C2;&#x6570;<ul>
-<li><code>onFinally</code>&#xFF1A;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
+<li>&#x53C2;&#x6570;&#xFF1A; <code>onFinally</code>&#xFF1A;&#x56DE;&#x8C03;&#x51FD;&#x6570;</li>
 </ul>
 </li>
 </ul>
-</li>
-</ul>
-<pre><code class="lang-JavaScript">getJSON(<span class="hljs-string">&quot;/post/1.json&quot;</span>)
-  .then(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">post</span>) </span>{
-    <span class="hljs-keyword">return</span> getJSON(post.commentURL);
-  }).then((comments) =&gt; {
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;Resolved: &quot;</span>, comments);
-  }).catch((err) =&gt;{
-    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">&quot;rejected: &quot;</span>, err);
-}));
-</code></pre>
 <h2 id="&#x9759;&#x6001;&#x65B9;&#x6CD5;">&#x9759;&#x6001;&#x65B9;&#x6CD5;</h2>
 <ul>
 <li><code>Promise.resolve(value)</code>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x4E3A; <code>resolved</code> &#x7684; Promise &#x5B9E;&#x4F8B;</li>
 <li><code>Promise.reject(reason)</code>&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x4E3A; <code>rejected</code> &#x7684; Promise &#x5B9E;&#x4F8B;</li>
-<li><code>Promise.all(promiseInstanceArray)</code>&#xFF1A;&#x5C06;&#x591A;&#x4E2A; Promise &#x5B9E;&#x4F8B;&#x5305;&#x88C5;&#x6210;&#x4E00;&#x4E2A; Promise &#x5B9E;&#x4F8B;<ul>
-<li>&#x53C2;&#x6570;&#xFF1A;<ul>
-<li><code>promiseInstanceArray</code>&#xFF1A;Promise &#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x6570;&#x7EC4;</li>
-</ul>
-</li>
-<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;<ul>
-<li>&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;<ul>
+<li><code>Promise.all(iterable)</code>&#xFF1A;&#x5C06;&#x591A;&#x4E2A; Promise &#x5B9E;&#x4F8B;&#x5305;&#x88C5;&#x6210;&#x4E00;&#x4E2A; Promise &#x5B9E;&#x4F8B;<ul>
+<li>&#x53C2;&#x6570;&#xFF1A; <code>iterable</code>&#xFF1A;Promise iterable &#x7C7B;&#x578B;&#x6570;&#x636E;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;<ul>
 <li>&#x53EA;&#x6709;&#x53C2;&#x6570;&#x4E2D;&#x6240;&#x6709;&#x7684;&#x5B9E;&#x4F8B;&#x90FD;&#x4E3A; <code>resolved</code>&#xFF0C;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x624D;&#x4E3A; <code>resolved</code>&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x6240;&#x4EE5;&#x5B9E;&#x4F8B;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x6570;&#x7EC4;</li>
 <li>&#x53EA;&#x8981;&#x53C2;&#x6570;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x4E3A; <code>rejected</code>&#xFF0C;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x5373;&#x4E3A; <code>rejected</code>&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A; <code>rejected</code> &#x5B9E;&#x4F8B;&#x7684;&#x503C;</li>
 </ul>
 </li>
 </ul>
 </li>
+<li><code>Promise.allSettled(iterable)</code>&#xFF1A;&#x7C7B;&#x4F3C;<code>Promise.all()</code>&#xFF0C;&#x533A;&#x522B;&#x4E0D;&#x5173;&#x5FC3;&#x6BCF;&#x4E2A; promise &#x7684;&#x72B6;&#x6001;&#xFF0C;&#x7B49;&#x5168;&#x90E8; promise &#x5BF9;&#x8C61;&#x72B6;&#x6001;&#x786E;&#x8BA4;&#x540E;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#x5BF9;&#x8C61;&#xFF0C;&#x5BF9;&#x5E94;&#x6BCF;&#x4E2A; promise &#x7684;&#x7ED3;&#x679C;&#x3002;</li>
+<li><code>Promise.race(iterable)</code>&#xFF1A;&#x5C06;&#x591A;&#x4E2A; Promise &#x5B9E;&#x4F8B;&#x5305;&#x88C5;&#x6210;&#x4E00;&#x4E2A; Promise &#x5B9E;&#x4F8B;<ul>
+<li>&#x53C2;&#x6570;&#xFF1A; <code>iterable</code>&#xFF1A;Promise iterable &#x7C7B;&#x578B;&#x6570;&#x636E;</li>
+<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;&#xFF0C;&#x53EA;&#x8981;&#x5B9E;&#x4F8B;&#x6570;&#x7EC4;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x6539;&#x53D8;&#xFF0C;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x6539;&#x53D8;&#xFF0C;&#x503C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x6539;&#x53D8;&#x5B9E;&#x4F8B;&#x7684;&#x503C;</li>
 </ul>
 </li>
-<li><code>Promise.race(promiseInstanceArray)</code>&#xFF1A;&#x5C06;&#x591A;&#x4E2A; Promise &#x5B9E;&#x4F8B;&#x5305;&#x88C5;&#x6210;&#x4E00;&#x4E2A; Promise &#x5B9E;&#x4F8B;<ul>
-<li>&#x53C2;&#x6570;&#xFF1A;<ul>
-<li><code>promiseInstanceArray</code>&#xFF1A;Promise &#x5BF9;&#x8C61;&#x5B9E;&#x4F8B;&#x6570;&#x7EC4;</li>
-</ul>
-</li>
-<li>&#x8FD4;&#x56DE;&#x503C;&#xFF1A;<ul>
-<li>&#x4E00;&#x4E2A;&#x65B0;&#x7684; Promise &#x5B9E;&#x4F8B;&#xFF0C;&#x53EA;&#x8981;&#x5B9E;&#x4F8B;&#x6570;&#x7EC4;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x6539;&#x53D8;&#xFF0C;&#x8FD4;&#x56DE;&#x5B9E;&#x4F8B;&#x7684;&#x72B6;&#x6001;&#x5C31;&#x6539;&#x53D8;&#xFF0C;&#x503C;&#x4E3A;&#x7B2C;&#x4E00;&#x4E2A;&#x6539;&#x53D8;&#x5B9E;&#x4F8B;&#x7684;&#x503C;</li>
-</ul>
-</li>
-</ul>
-</li>
+<li><code>Promise.any(iterable)</code>&#xFF1A;&#x7C7B;&#x4F3C;<code>Promise.race()</code>&#xFF0C;&#x533A;&#x522B;&#x662F;&#x7B49;&#x5230;&#x7B2C;&#x4E00;&#x4E2A; resolve &#x7684; promise &#x5E76;&#x8FD4;&#x56DE;</li>
 </ul>
 <h2 id="&#x5F02;&#x5E38;&#x5904;&#x7406;"><a href="../02.Core/04-&#x5F02;&#x5E38;&#x5904;&#x7406;.md">&#x5F02;&#x5E38;&#x5904;&#x7406;</a></h2>
-<p>promise &#x5B9E;&#x4F8B;&#x5185;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x4E0D;&#x80FD;&#x88AB;<code>try catch</code>&#x8BED;&#x53E5;&#x6355;&#x83B7;&#xFF0C;&#x53EA;&#x80FD;&#x5728;&#x5B9E;&#x4F8B;&#x56DE;&#x8C03;&#x51FD;&#x6570;<code>then</code>&#x6216;<code>catch</code>&#x5185;&#x5904;&#x7406;</p>
-<p><code>catch</code>&#x548C;<code>then</code>&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x533A;&#x522B;&#x662F;<code>catch</code>&#x8FD8;&#x53EF;&#x4EE5;&#x6355;&#x83B7;<code>then</code>&#x65B9;&#x6CD5;&#x5185;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x3002;</p>
+<p>Promise &#x5B9E;&#x4F8B;&#x5185;&#x51FD;&#x6570;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x4E0D;&#x80FD;&#x88AB;<code>try catch</code>&#x8BED;&#x53E5;&#x6355;&#x83B7;&#xFF0C;&#x53EA;&#x80FD;&#x5728;&#x5B9E;&#x4F8B;&#x56DE;&#x8C03;&#x51FD;&#x6570;<code>then</code>&#x6216;<code>catch</code>&#x5185;&#x5904;&#x7406;</p>
+<p><code>catch</code>&#x548C;<code>then</code>&#x7684;&#x7B2C;&#x4E8C;&#x4E2A;&#x53C2;&#x6570;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x662F;<code>.then(null, (err) =&gt; {})</code>&#x7684;&#x7B80;&#x5199;&#xFF0C;&#x533A;&#x522B;&#x662F;<code>catch</code>&#x8FD8;&#x53EF;&#x4EE5;&#x6355;&#x83B7;<code>then</code>&#x65B9;&#x6CD5;&#x5185;&#x629B;&#x51FA;&#x7684;&#x5F02;&#x5E38;&#x3002;</p>
+<p>TODO: &#x5F53; Promise &#x5BF9;&#x8C61;&#x88AB; Reject &#x540E;&#x4F1A;&#x6D3E;&#x53D1;&#x5168;&#x5C40;&#x4E8B;&#x4EF6;&#xFF0C;&#x5982;&#x679C;&#x6709;<code>reject</code>&#x51FD;&#x6570;&#x5904;&#x7406;&#x4F1A;&#x629B;&#x51FA;<code>rejectionhandled</code>&#x4E8B;&#x4EF6;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x629B;&#x51FA;<code>unhandledrejection</code></p>
+<pre><code class="lang-JS"><span class="hljs-built_in">window</span>.addEventListener(<span class="hljs-string">&quot;unhandledrejection&quot;</span>, event =&gt; {
+  <span class="hljs-comment">/* &#x4F60;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x91CC;&#x6DFB;&#x52A0;&#x4E00;&#x4E9B;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x4FBF;&#x68C0;&#x67E5;
+     event.promise &#x4E2D;&#x7684; promise &#x548C;
+     event.reason &#x4E2D;&#x7684; rejection &#x539F;&#x56E0; */</span>
+  event.preventDefault();
+}, <span class="hljs-literal">false</span>);
+</code></pre>
+<h2 id="polyfill">Polyfill</h2>
+<pre><code class="lang-JS">
+const PENDING = &apos;pending&apos;;
+const FULFILLED = &apos;fulfilled&apos;;
+const REJECTED = &apos;rejected&apos;;
+
+class MyPromise {
+
+  #status = PENDING;
+  #value = null;
+  #reason = null;
+  #fulfilledCallbackQueue = [];
+  #rejectedCallbackQueue = [];
+
+  constructor(executor) {
+
+    const resolver = (value) =&gt; {
+      if (this.#status === PENDING) {
+        this.#value = value;
+        this.#status = FULFILLED;
+        while (this.#fulfilledCallbackQueue.length) {
+          this.fulfilledCallbackQueue.shift()(value);
+        }
+      }
+    }
+    const reject = (reason) =&gt; {
+      if (this.#status === PENDING) {
+        this.#reason = reason
+        this.#status = REJECTED;
+        while (this.#rejectedCallbackQueue.length) {
+          this.#rejectedCallbackQueue.shift()(reason);
+        }
+      }
+    }
+
+    executor(resolve, reject);
+  }
+
+  then(onFulfilled, onRejected) {
+    return new MyPromise(resolve, reject) {
+      const fulfilledFn = value =&gt; {
+        try {
+          const v = onFulfilled(value);
+          v instanceof MyPromise ? v.then(resolve, reject) : resolve(v);
+        } catch (err) {
+          reject(err)
+        }
+      }
+      this.fulfilledCallbackQueue.push(fulfilledFn);
+
+      const rejectedFn  = reason =&gt; {
+        try {
+          const v = onRejected(reason)
+          v instanceof MyPromise ? v.then(resolve, reject) : resolve(v)
+        } catch (err) {
+          reject(err)
+        }
+      }
+      this.rejectedCallbackQueue.push(rejectedFn);
+    }
+  }
+
+  cache(onRejected) {
+    return this.then(null, onRejected);
+  }
+
+  static all(promises) {}
+}
+</code></pre>
 
                                 
                                 </section>
@@ -5035,7 +5126,7 @@ promise.then(
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"10.Promise","level":"1.4.1.9","depth":3,"next":{"title":"11.Generator","level":"1.4.1.10","depth":3,"path":"02-JavaScript/00.Basic/11.Generator.md","ref":"02-JavaScript/00.Basic/11.Generator.md","articles":[]},"previous":{"title":"09.Proxy&Reflect","level":"1.4.1.8","depth":3,"path":"02-JavaScript/00.Basic/09.Proxy&Reflect.md","ref":"02-JavaScript/00.Basic/09.Proxy&Reflect.md","articles":[]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"02-JavaScript/00.Basic/10.Promise.md","mtime":"2022-03-04T08:25:44.623Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-07T09:01:19.581Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"10.Promise","level":"1.4.1.9","depth":3,"next":{"title":"11.Generator","level":"1.4.1.10","depth":3,"path":"02-JavaScript/00.Basic/11.Generator.md","ref":"02-JavaScript/00.Basic/11.Generator.md","articles":[]},"previous":{"title":"09.Proxy&Reflect","level":"1.4.1.8","depth":3,"path":"02-JavaScript/00.Basic/09.Proxy&Reflect.md","ref":"02-JavaScript/00.Basic/09.Proxy&Reflect.md","articles":[]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"02-JavaScript/00.Basic/10.Promise.md","mtime":"2022-07-08T12:33:32.623Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-09T02:20:35.338Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

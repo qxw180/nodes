@@ -1610,9 +1610,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3.5" data-path="../../02-JavaScript/02.Core/05-运行机制.html">
+        <li class="chapter " data-level="1.4.3.5" data-path="../../02-JavaScript/02.Core/05-运行机制.md">
             
-                <a href="../../02-JavaScript/02.Core/05-运行机制.html">
+                <span>
             
                     
                     05-运行机制
@@ -2301,9 +2301,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.5.7" data-path="../../03-Html/通信/标签页通讯.html">
+        <li class="chapter " data-level="1.5.5.7" data-path="../../03-Html/通信/标签页通讯.md">
             
-                <a href="../../03-Html/通信/标签页通讯.html">
+                <span>
             
                     
                     标签页通讯
@@ -2397,9 +2397,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.12" data-path="../../03-Html/分享设置.html">
+        <li class="chapter " data-level="1.5.12" data-path="../../03-Html/分享设置.md">
             
-                <a href="../../03-Html/分享设置.html">
+                <span>
             
                     
                     分享设置
@@ -4888,7 +4888,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="redux"><a href="https://redux.js.org/" target="_blank">Redux</a></h1>
-<p>&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x9884;&#x6D4B;(Predictable)&#x7684; State &#x5BB9;&#x5668;&#xFF0C;Redux &#x4E0D;&#x5141;&#x8BB8;&#x5BF9;&#x72B6;&#x6001;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x800C;&#x662F;&#x8981;&#x6C42;&#x4F7F;&#x7528; Action(&#x4E00;&#x4E2A; JavaScript &#x5BF9;&#x8C61;)&#x6765;&#x63CF;&#x8FF0;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#xFF0C;Reducer &#x63A5;&#x6536; Action &#x7136;&#x540E;&#x8BA1;&#x7B97;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684; State &#x66FF;&#x6362;&#x65E7;&#x7684; State&#x3002;&#x6BCF;&#x4E2A; Action &#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x8BB0;&#x5F55;&#x548C;&#x56DE;&#x6EAF;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x76F8;&#x540C;&#x7684; Action &#x548C;&#x76F8;&#x540C;&#x7684;&#x987A;&#x5E8F;&#x5C31;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x6700;&#x7EC8; State &#x7684;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684; Predictable&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x53EF;&#x4EE5;&#x9884;&#x6D4B;(Predictable)&#x7684;<code>State</code>&#x5BB9;&#x5668;&#xFF0C;Redux &#x4E0D;&#x5141;&#x8BB8;&#x5BF9;&#x72B6;&#x6001;&#x76F4;&#x63A5;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x800C;&#x662F;&#x8981;&#x6C42;&#x4F7F;&#x7528; Action(&#x4E00;&#x4E2A; JavaScript &#x5BF9;&#x8C61;)&#x6765;&#x63CF;&#x8FF0;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#xFF0C;Reducer &#x63A5;&#x6536; Action &#x7136;&#x540E;&#x8BA1;&#x7B97;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>State</code>&#x66FF;&#x6362;&#x65E7;&#x7684; State&#x3002;&#x6BCF;&#x4E2A; Action &#x90FD;&#x662F;&#x53EF;&#x4EE5;&#x8BB0;&#x5F55;&#x548C;&#x56DE;&#x6EAF;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x76F8;&#x540C;&#x7684; Action &#x548C;&#x76F8;&#x540C;&#x7684;&#x987A;&#x5E8F;&#x5C31;&#x53EF;&#x4EE5;&#x4FDD;&#x8BC1;&#x6700;&#x7EC8;<code>State</code>&#x7684;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x6240;&#x8C13;&#x7684; Predictable&#x3002;</p>
 <h2 id="action">Action</h2>
 <p>Action &#x662F;&#x4E00;&#x4E2A;&#x539F;&#x59CB;&#x7684; JavaScript &#x5BF9;&#x8C61;&#xFF0C;&#x7528;&#x6765;&#x63CF;&#x8FF0;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x4EF6;&#xFF0C;&#x7C7B;&#x4F3C; Event&#x3002;</p>
 <p>&#x6BCF;&#x4E2A; Action &#x90FD;&#x6709;&#x4E00;&#x4E2A;<code>type</code>&#x5B57;&#x6BB5;&#xFF0C;<code>type</code>&#x7684;&#x7C7B;&#x578B;&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7528;&#x6765;&#x7ED9; Action &#x547D;&#x540D;&#xFF0C;<code>type</code>&#x901A;&#x5E38;&#x4EE5;<code>domain/eventName</code>&#x5F62;&#x5F0F;&#x5B9A;&#x4E49;&#x3002;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x6807;&#x8BC6; action &#x7684;&#x5206;&#x7C7B;&#x6216;&#x7279;&#x6027;&#xFF0C;&#x7B2C;&#x4E8C;&#x90E8;&#x5206;&#x5B9A;&#x4E49;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x4EF6;&#x3002;</p>
@@ -4899,11 +4899,11 @@
 }
 </code></pre>
 <h2 id="reducer">reducer</h2>
-<p>reduce &#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x51FD;&#x6570;&#xFF0C;&#x5F62;&#x5F0F;&#x5982;<code>(state, action) =&gt; newState</code>&#xFF0C;&#x63A5;&#x6536;&#x5F53;&#x524D;&#x7684; state &#x548C; action&#xFF0C;&#x6839;&#x636E; action &#x7684; type &#x548C;&#x5176;&#x5B83;&#x5C5E;&#x6027;&#xFF0C;&#x8BA1;&#x7B97;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684; state &#x5E76;&#x8FD4;&#x56DE;&#x3002;</p>
+<p>reduce &#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x51FD;&#x6570;&#xFF0C;&#x5F62;&#x5F0F;&#x5982;<code>(state, action) =&gt; newState</code>&#xFF0C;&#x63A5;&#x6536;&#x5F53;&#x524D;&#x7684;<code>state</code>&#x548C; action&#xFF0C;&#x6839;&#x636E; action &#x7684; type &#x548C;&#x5176;&#x5B83;&#x5C5E;&#x6027;&#xFF0C;&#x8BA1;&#x7B97;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;<code>state</code>&#x5E76;&#x8FD4;&#x56DE;&#x3002;</p>
 <p>&#x6CE8;&#x610F;&#xFF1A;</p>
 <ul>
 <li>reducer &#x51FD;&#x6570;&#x5FC5;&#x987B;&#x662F;&#x4E00;&#x4E2A;&#x7EAF;&#x51FD;&#x6570;&#xFF0C;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x4FDD;&#x8BC1; Redux &#x7684;&#x53EF;&#x9884;&#x6D4B;&#x6027;&#x3002;</li>
-<li><strong>&#x5728; reducer &#x5185;&#x4E0D;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x4FEE;&#x6539; state</strong>&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528; immutable updates &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; state&#xFF0C;&#x76F4;&#x63A5;&#x4FEE;&#x6539; state &#x4F1A;&#x5BFC;&#x81F4;&#x96BE;&#x4EE5;&#x5B9A;&#x4F4D;&#x7684; bug&#x3002;</li>
+<li><strong>&#x5728; reducer &#x5185;&#x4E0D;&#x80FD;&#x591F;&#x76F4;&#x63A5;&#x4FEE;&#x6539; state</strong>&#xFF0C;&#x800C;&#x662F;&#x4F7F;&#x7528; immutable updates &#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x65B0;&#x7684; state&#xFF0C;&#x76F4;&#x63A5;&#x4FEE;&#x6539;<code>state</code>&#x4F1A;&#x5BFC;&#x81F4;&#x96BE;&#x4EE5;&#x5B9A;&#x4F4D;&#x7684; bug&#x3002;</li>
 <li>reducer &#x51FD;&#x6570;&#x4E0D;&#x80FD;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x5F02;&#x6B65;&#x51FD;&#x6570;&#x7684;&#x6267;&#x884C;&#x987A;&#x5E8F;&#x65E0;&#x6CD5;&#x4FDD;&#x8BC1;&#xFF0C;&#x4F1A;&#x7834;&#x574F; redux &#x7684;&#x53EF;&#x9884;&#x6D4B;&#x6027;&#x3002;</li>
 </ul>
 <p>&#x5728;&#x5B9E;&#x9645;&#x9879;&#x76EE;&#x4E2D;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5199;&#x5F88;&#x591A;&#x7684; reducer&#xFF0C;&#x8FD9;&#x65F6;&#x6211;&#x4EEC;&#x4F1A;&#x6839;&#x636E;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x8FDB;&#x884C;&#x62C6;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x53E6;&#x5916;&#x5199;&#x4E00;&#x4E2A; reducer &#x6765;&#x6574;&#x5408;&#x3002;</p>
@@ -4915,21 +4915,21 @@
 }
 </code></pre>
 <h2 id="store--dispatch">Store &amp; Dispatch</h2>
-<p>&#x5F53;&#x524D; redux &#x7A0B;&#x5E8F;&#x7684; state &#x5BC4;&#x751F;&#x5BF9;&#x8C61;&#xFF0C;&#x6709;<code>store.getState()</code>&#x548C;<code>store.dispatch()</code>&#x65B9;&#x6CD5;</p>
-<p>state &#x53EA;&#x80FD;&#x5305;&#x542B; object&#x3001;array &#x548C;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x3002;</p>
-<p>Dispatch &#x662F;&#x66F4;&#x65B0; redux state &#x7684;&#x552F;&#x4E00;&#x65B9;&#x6CD5;&#xFF0C;store &#x5728;&#x63A5;&#x6536;&#x5230; dispatch &#x7684; action &#x540E;&#x4F1A;&#x8FD0;&#x884C; reducer &#x65B9;&#x6CD5;&#x5E76;&#x4F7F;&#x7528; reducer &#x4EA7;&#x751F;&#x7684;&#x65B0; state &#x66FF;&#x6362;&#x65E7; state&#x3002;</p>
+<p>&#x5F53;&#x524D; redux &#x7A0B;&#x5E8F;&#x7684;<code>state</code>&#x5BC4;&#x751F;&#x5BF9;&#x8C61;&#xFF0C;&#x6709;<code>store.getState()</code>&#x548C;<code>store.dispatch()</code>&#x65B9;&#x6CD5;</p>
+<p>state &#x53EA;&#x80FD;&#x5305;&#x542B;<code>object</code>&#x3001;<code>array</code>&#x548C;&#x57FA;&#x672C;&#x7C7B;&#x578B;&#x3002;TODO:why?</p>
+<p>Dispatch &#x662F;&#x66F4;&#x65B0; redux<code>state</code>&#x7684;&#x552F;&#x4E00;&#x65B9;&#x6CD5;&#xFF0C;store &#x5728;&#x63A5;&#x6536;&#x5230; dispatch &#x7684; action &#x540E;&#x4F1A;&#x8FD0;&#x884C; reducer &#x65B9;&#x6CD5;&#x5E76;&#x4F7F;&#x7528; reducer &#x4EA7;&#x751F;&#x7684;&#x65B0;<code>state</code>&#x66FF;&#x6362;&#x65E7; state&#x3002;</p>
 <h2 id="selector--action-creators">Selector &amp; Action Creators</h2>
-<p>&#x5728;&#x4F7F;&#x7528; redux &#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5199;&#x5F88;&#x591A; action &#x548C; state &#x83B7;&#x53D6;&#x7684;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E24;&#x7C7B;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF0C;&#x521B;&#x5EFA; action &#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x53EB; Action Creator&#xFF0C;&#x83B7;&#x53D6; state &#x7684;&#x51FD;&#x6570;&#x53EB; Selector&#x3002;</p>
+<p>&#x5728;&#x4F7F;&#x7528; redux &#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5199;&#x5F88;&#x591A; action &#x521B;&#x5EFA; &#x548C;<code>state</code>&#x83B7;&#x53D6;&#x7684;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4F1A;&#x5BF9;&#x8FD9;&#x4E24;&#x7C7B;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x5C01;&#x88C5;&#xFF0C;&#x521B;&#x5EFA; action &#x5BF9;&#x8C61;&#x7684;&#x65B9;&#x6CD5;&#x53EB; Action Creator&#xFF0C;&#x83B7;&#x53D6;<code>state</code>&#x7684;&#x51FD;&#x6570;&#x53EB; Selector&#x3002;</p>
 <p>Action Creator &#x51FD;&#x6570;&#x63A5;&#x6536; payload &#x4FE1;&#x606F;&#xFF0C;&#x8FD4;&#x56DE; action &#x5BF9;&#x8C61;&#x3002;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x6BCF;&#x6B21;&#x90FD;&#x624B;&#x5199; action&#xFF0C;&#x4FDD;&#x8BC1; action &#x7684;&#x51C6;&#x786E;&#x6027;&#x3002;</p>
 <p>Selector &#x5C01;&#x88C5;&#x53EF;&#x4EE5;&#x9694;&#x79BB; UI &#x548C; Store&#xFF0C;&#x5728; Store &#x4FEE;&#x6539;&#x65F6;&#x53EA;&#x9700;&#x8981;&#x4FEE;&#x6539; Selector&#xFF0C;&#x65E0;&#x9700;&#x5BF9;&#x6BCF;&#x4E00;&#x4E2A; UI &#x8FDB;&#x884C;&#x4FEE;&#x6539;&#x3002;</p>
 <pre><code class="lang-JavaScript"><span class="hljs-keyword">const</span> addTodoActionCreator = text =&gt; {
-   <span class="hljs-keyword">return</span> {
-     type: <span class="hljs-string">&apos;todos/todoAdded&apos;</span>,
-     payload: text
-   }
+  <span class="hljs-keyword">return</span> {
+    type: <span class="hljs-string">&apos;todos/todoAdded&apos;</span>,
+    payload: text
+  }
 }
 
-<span class="hljs-keyword">const</span> counterValueSelector = state =&gt; state.value
+<span class="hljs-keyword">const</span> counterValueSelector =<span class="hljs-string">`state`</span>=&gt; state.value
 <span class="hljs-keyword">const</span> currentValue = counterValueSelector(store.getState())
 </code></pre>
 <h2 id="api">API</h2>
@@ -4978,11 +4978,12 @@ store.dispatch({ type: <span class="hljs-string">&quot;decremented&quot;</span> 
 </code></pre>
 <h2 id="redux-devtools"><a href="https://github.com/reduxjs/redux-devtools" target="_blank">Redux DevTools</a></h2>
 <h2 id="immer"><a href="https://github.com/immerjs/immer" target="_blank">immer</a></h2>
-<p>redux &#x671F;&#x671B;&#x5168;&#x90E8;&#x7684; state &#x66F4;&#x65B0;&#x90FD;&#x662F; immutability&#xFF0C;&#x4FEE;&#x6539; state &#x4F1A;&#x5F15;&#x8D77;&#x5947;&#x602A;&#x7684; bug&#xFF0C;&#x4F7F;&#x7A0B;&#x5E8F;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#x548C;&#x6D4B;&#x8BD5;&#x3002;</p>
+<p>redux &#x671F;&#x671B;&#x5168;&#x90E8;&#x7684;<code>state</code>&#x66F4;&#x65B0;&#x90FD;&#x662F; immutability&#xFF0C;&#x4FEE;&#x6539;<code>state</code>&#x4F1A;&#x5F15;&#x8D77;&#x5947;&#x602A;&#x7684; bug&#xFF0C;&#x4F7F;&#x7A0B;&#x5E8F;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#x548C;&#x6D4B;&#x8BD5;&#x3002;</p>
 <p>&#x5BF9;&#x4E8E;&#x6570;&#x7EC4;&#x3001;&#x5BF9;&#x8C61;&#x7B49;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x53D8;&#x91CF;&#x8FDB;&#x884C; immutability &#x64CD;&#x4F5C;&#x975E;&#x5E38;&#x7E41;&#x7410;&#x5207;&#x5BB9;&#x6613;&#x51FA;&#x9519;&#xFF0C;<a href="https://immerjs.github.io/immer/" target="_blank">immer</a>&#x53EF;&#x4EE5;&#x8BA9;&#x6211;&#x4EEC;&#x66F4;&#x5BB9;&#x6613;&#x7684;&#x8FDB;&#x884C; immutability &#x7F16;&#x7A0B;&#x3002;</p>
 <h2 id="middleware">Middleware</h2>
-<p>redux middleware &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5BF9;<code>dispatch</code>&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#xFF0C;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x3001;&#x65E5;&#x5FD7;&#x6253;&#x5370;&#x7B49;&#x3002;</p>
+<p>redux middleware &#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x5BF9;<code>dispatch</code>&#x65B9;&#x6CD5;&#x8FDB;&#x884C;&#x5B9A;&#x5236;&#xFF0C;&#x5141;&#x8BB8;<code>dispatch</code>&#x66F4;&#x7075;&#x6D3B;&#x7684;<code>action</code>&#xFF0C;&#x4F8B;&#x5982;&#x51FD;&#x6570;&#x6216;&#x8005; promise &#x7B49;&#xFF0C;&#x5728;&#x4E2D;&#x95F4;&#x91CC;&#x53EF;&#x4EE5;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x526F;&#x4F5C;&#x7528;&#xFF0C;&#x4F8B;&#x5982;&#x5F02;&#x6B65;&#x8BF7;&#x6C42;&#x3001;&#x65E5;&#x5FD7;&#x6253;&#x5370;&#x7B49;&#x3002;</p>
 <p>redux middleware &#x6267;&#x884C;&#x662F;&#x5728; action &#x6D3E;&#x53D1;&#x5230; reducer &#x63A5;&#x6536;&#x4E4B;&#x524D;&#xFF0C;&#x4F7F;<code>view -&#x2192;&gt; action -&gt; reducer -&gt; store</code>&#x8F6C;&#x53D8;&#x4E3A;<code>view -&gt; action -&gt; middleware -&gt; reducer -&gt; store</code></p>
+<p><img src="../../assets/images/react/redux_middleware.gif" alt="Redux Middleware"></p>
 <p>redux middleware &#x662F;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x63A5;&#x6536;<code>dispatch</code>&#x548C;<code>getState</code>&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
 <pre><code class="lang-JavaScript"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">exampleMiddleware</span>(<span class="hljs-params">storeAPI</span>) </span>{
   <span class="hljs-keyword">const</span> { dispatch, getState } = storeAPI;
@@ -5002,7 +5003,7 @@ store.dispatch({ type: <span class="hljs-string">&quot;decremented&quot;</span> 
 <li>&#x6DFB;&#x52A0;&#x5176;&#x5B83;&#x989D;&#x5916;&#x7684; code</li>
 </ol>
 <h2 id="redux-thunk"><a href="https://github.com/reduxjs/redux-thunk" target="_blank">redux-thunk</a></h2>
-<p><code>thunk</code>&#x662F;&#x4E00;&#x79CD;&#x7279;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x6709;<code>dispatch</code>&#x548C;<code>getState</code>&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;<code>thunk</code>&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x903B;&#x8F91;&#xFF0C;&#x6839;&#x636E;&#x5E94;&#x7528;&#x573A;&#x666F;&#x8C03;&#x7528;<code>store</code>&#x7684;<code>dispatch</code>&#x548C;<code>getState</code>&#x65B9;&#x6CD5;&#xFF0C;&#x83B7;&#x53D6;&#x5F53;&#x524D; state &#x6216;&#x89E6;&#x53D1;&#x4E00;&#x4E2A; action&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x540C;&#x6B65; action&#x3002;</p>
+<p>redux-thunk &#x5141;&#x8BB8;<code>dispatch</code>&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x88AB;&#x79F0;&#x4E3A;<code>thunk</code>&#xFF0C;<code>thunk</code>&#x51FD;&#x6570;&#x6709;<code>dispatch</code>&#x548C;<code>getState</code>&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;<code>thunk</code>&#x5185;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x903B;&#x3001;&#x8C03;&#x7528;<code>dispatch</code>&#x548C;<code>getState</code>&#x65B9;&#x6CD5;&#xFF0C;&#x83B7;&#x53D6;&#x5F53;&#x524D;<code>state</code>&#x6216;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;<code>action</code>&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x540C;&#x6B65;<code>action</code>&#x3002;</p>
 <p>&#x4E3A;&#x4E86;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x6027;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x5E38;&#x4E5F;&#x4F1A;&#x4E3A;<code>thunk</code>&#x51FD;&#x6570;&#x4E5F;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; creator &#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x4F20;&#x5165;&#x5408;&#x9002;&#x7684;&#x4E1A;&#x52A1;&#x53C2;&#x6570;&#x3002;</p>
 <pre><code class="lang-JavaScript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> incrementAsync = (amount) =&gt; {
   <span class="hljs-keyword">return</span> (dispatch, getState) =&gt; {
@@ -5013,33 +5014,56 @@ store.dispatch({ type: <span class="hljs-string">&quot;decremented&quot;</span> 
 }
 store.dispatch(incrementAsync(<span class="hljs-number">5</span>))
 </code></pre>
-<p>&#x5728; redux &#x4E2D;&#x4F7F;&#x7528; thunk &#x51FD;&#x6570;&#x9700;&#x8981;&#x914D;&#x5408;<a href="https://github.com/reduxjs/redux-thunk" target="_blank">redux-thunk</a></p>
-<h2 id="reselect"><a href="https://github.com/reduxjs/reselect" target="_blank">Reselect</a></h2>
-<p>Reselect &#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5B9E;&#x73B0; memoized selector functions &#x7684;&#x5DE5;&#x5177;&#x5E93;&#x3002;</p>
-<p>Memoization &#x6307;&#x7684;&#x662F;&#x8BB0;&#x5F55;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x8F93;&#x5165;&#x548C;&#x8FD4;&#x56DE;&#xFF0C;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x5BF9;&#x6BD4;&#x4E24;&#x6B21;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x5982;&#x679C;&#x76F8;&#x540C;&#x90A3;&#x4E48;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x8BB0;&#x5F55;&#x7684;&#x8FD4;&#x56DE;&#x3002;</p>
-<p>redux &#x7684;&#x6BCF;&#x4E2A; action &#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#x9009;&#x62E9;&#x5668; re-run&#xFF0C;&#x5982;&#x679C;&#x7EC4;&#x4EF6;&#x5F15;&#x7528;&#x7684; state &#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x90A3;&#x4E48;&#x7EC4;&#x4EF6;&#x5C31;&#x4F1A; re-render&#x3002;memoized selector &#x53EF;&#x4EE5;&#x907F;&#x514D;&#x6CA1;&#x5FC5;&#x8981;&#x7684; re-render&#x3002;</p>
-<h2 id="normalized-state-structure">Normalized State Structure</h2>
-<p>&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x6709;&#x9700;&#x8981;&#x5728;&#x4E00;&#x4E2A;&#x957F;&#x5217;&#x8868;&#x4E2D;&#x627E;&#x5230;&#x67D0;&#x4E00;&#x7279;&#x5B9A;&#x9879;&#x76EE;&#x7684;&#x9700;&#x6C42;&#x573A;&#x666F;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#x975E;&#x5E38;&#x957F;&#xFF0C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x522B;&#x8017;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C; Normalizing&#x3002;</p>
-<p>Normalizing &#x662F;&#x6307;&#x52A0;&#x5DE5;&#x539F;&#x59CB;&#x6570;&#x636E;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x4E00;&#x4E2A; ID &#x6570;&#x7EC4;&#xFF0C;&#x4E00;&#x4E2A;&#x4EE5; ID &#x4E3A; key &#x7684; lookup tables&#x3002;</p>
-<pre><code class="lang-JavaScript"><span class="hljs-comment">// &#x539F;&#x6570;&#x636E;</span>
-<span class="hljs-keyword">const</span> DataArr = [
-  {id: <span class="hljs-string">&quot;user1&quot;</span>, firstName, lastName},
-  {id: <span class="hljs-string">&quot;user2&quot;</span>, firstName, lastName},
-  {id: <span class="hljs-string">&quot;user3&quot;</span>, firstName, lastName},
+<p>```JS redux-thunk &#x6E90;&#x7801;
+function createThunkMiddleware(extraArgument) {
+  return ({ dispatch, getState }) =&gt;
+    (next) =&gt;
+    (action) =&gt; {
+      if (typeof action === &apos;function&apos;) {
+        return action(dispatch, getState, extraArgument);
+      }</p>
+<pre><code>  return next(action); // next &#x4EE3;&#x8868;&#x662F;&#x7684;&#x8FD9; action &#x76F4;&#x63A5;&#x5F80;&#x4E0B;&#x4E00;&#x4E2A; middleware &#x8D70;&#xFF0C;&#x5047;&#x5982;&#x6CA1;&#x6709;&#x5C31;&#x8FDB;&#x53BB;reducer
+};
+</code></pre><p>}</p>
+<p>const thunk = createThunkMiddleware();
+thunk.withExtraArgument = createThunkMiddleware;</p>
+<p>export default thunk;</p>
+<pre><code>
+## TODO:Redux-saga
+
+## [Reselect](https://github.com/reduxjs/reselect)
+
+Reselect &#x662F;&#x4E00;&#x4E2A;&#x7528;&#x6765;&#x5B9E;&#x73B0; memoized selector functions &#x7684;&#x5DE5;&#x5177;&#x5E93;&#x3002;
+
+Memoization &#x6307;&#x7684;&#x662F;&#x8BB0;&#x5F55;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x8F93;&#x5165;&#x548C;&#x8FD4;&#x56DE;&#xFF0C;&#x5728;&#x4E0B;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x7684;&#x65F6;&#x5019;&#x5BF9;&#x6BD4;&#x4E24;&#x6B21;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x5982;&#x679C;&#x76F8;&#x540C;&#x90A3;&#x4E48;&#x5C31;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x6B21;&#x7684;&#x8BB0;&#x5F55;&#x7684;&#x8FD4;&#x56DE;&#x3002;
+
+redux &#x7684;&#x6BCF;&#x4E2A; action &#x90FD;&#x4F1A;&#x89E6;&#x53D1;&#x9009;&#x62E9;&#x5668; re-run&#xFF0C;&#x5982;&#x679C;&#x7EC4;&#x4EF6;&#x5F15;&#x7528;&#x7684;`state`&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x90A3;&#x4E48;&#x7EC4;&#x4EF6;&#x5C31;&#x4F1A; re-render&#x3002;memoized selector &#x53EF;&#x4EE5;&#x907F;&#x514D;&#x6CA1;&#x5FC5;&#x8981;&#x7684; re-render&#x3002;
+
+## Normalized`State`Structure
+
+&#x6211;&#x4EEC;&#x7ECF;&#x5E38;&#x6709;&#x9700;&#x8981;&#x5728;&#x4E00;&#x4E2A;&#x957F;&#x5217;&#x8868;&#x4E2D;&#x627E;&#x5230;&#x67D0;&#x4E00;&#x7279;&#x5B9A;&#x9879;&#x76EE;&#x7684;&#x9700;&#x6C42;&#x573A;&#x666F;&#xFF0C;&#x5982;&#x679C;&#x8FD9;&#x4E2A;&#x5217;&#x8868;&#x975E;&#x5E38;&#x957F;&#xFF0C;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x5C06;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x7279;&#x522B;&#x8017;&#x65F6;&#x7684;&#x64CD;&#x4F5C;&#x3002;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x6570;&#x636E;&#x8FDB;&#x884C; Normalizing&#x3002;
+
+Normalizing &#x662F;&#x6307;&#x52A0;&#x5DE5;&#x539F;&#x59CB;&#x6570;&#x636E;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x62EC;&#x4E00;&#x4E2A; ID &#x6570;&#x7EC4;&#xFF0C;&#x4E00;&#x4E2A;&#x4EE5; ID &#x4E3A; key &#x7684; lookup tables&#x3002;
+
+```JavaScript
+// &#x539F;&#x6570;&#x636E;
+const DataArr = [
+  {id: &quot;user1&quot;, firstName, lastName},
+  {id: &quot;user2&quot;, firstName, lastName},
+  {id: &quot;user3&quot;, firstName, lastName},
 ]
-<span class="hljs-comment">// Normalized Data</span>
-<span class="hljs-keyword">const</span> NormalizedData = {
+// Normalized Data
+const NormalizedData = {
   users: {
-    ids: [<span class="hljs-string">&quot;user1&quot;</span>, <span class="hljs-string">&quot;user2&quot;</span>, <span class="hljs-string">&quot;user3&quot;</span>],
+    ids: [&quot;user1&quot;, &quot;user2&quot;, &quot;user3&quot;],
     entities: {
-      <span class="hljs-string">&quot;user1&quot;</span>: {id: <span class="hljs-string">&quot;user1&quot;</span>, firstName, lastName},
-      <span class="hljs-string">&quot;user2&quot;</span>: {id: <span class="hljs-string">&quot;user2&quot;</span>, firstName, lastName},
-      <span class="hljs-string">&quot;user3&quot;</span>: {id: <span class="hljs-string">&quot;user3&quot;</span>, firstName, lastName},
+      &quot;user1&quot;: {id: &quot;user1&quot;, firstName, lastName},
+      &quot;user2&quot;: {id: &quot;user2&quot;, firstName, lastName},
+      &quot;user3&quot;: {id: &quot;user3&quot;, firstName, lastName},
     }
   }
 }
 </code></pre>
-
                                 
                                 </section>
                             
@@ -5082,7 +5106,7 @@ store.dispatch(incrementAsync(<span class="hljs-number">5</span>))
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Redux","level":"1.7.2.5","depth":3,"next":{"title":"Other","level":"1.7.3","depth":2,"path":"05-React/Other.md","ref":"05-React/Other.md","articles":[]},"previous":{"title":"Redux Toolkit","level":"1.7.2.4","depth":3,"path":"05-React/状态管理/Redux%20Toolkit.md","ref":"05-React/状态管理/Redux%20Toolkit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"05-React/状态管理/Redux.md","mtime":"2022-06-15T11:21:21.168Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-07T09:01:19.581Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Redux","level":"1.7.2.5","depth":3,"next":{"title":"Other","level":"1.7.3","depth":2,"path":"05-React/Other.md","ref":"05-React/Other.md","articles":[]},"previous":{"title":"Redux Toolkit","level":"1.7.2.4","depth":3,"path":"05-React/状态管理/Redux%20Toolkit.md","ref":"05-React/状态管理/Redux%20Toolkit.md","articles":[]},"dir":"ltr"},"config":{"plugins":["uml","chapter-fold","splitter","expandable-chapters"],"ignores":["node_modules","docs"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"chapter-fold":{},"splitter":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"uml":{"format":"svg"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"bookname":"个人笔记","variables":{},"catalog":"all","gitbook":"*","unchanged":[]},"file":{"path":"05-React/状态管理/Redux.md","mtime":"2022-07-08T11:50:29.074Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2022-07-09T02:20:35.338Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
