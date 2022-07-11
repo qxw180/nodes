@@ -81,7 +81,7 @@ setTimeout(() => {
   - 用户交互事件：鼠标和键盘事件
   - 定时器：`setTimeout/setInterval`
   - UI 渲染
-  - MessageChannel
+  - 通信：MessageChannel、`postMessage`等
 - 微任务：回调函数会压入**工作队列**，常见的微任务包括：
   - `Promise.then()`
   - `MutationObserver`：DOM 数据变更观测器
