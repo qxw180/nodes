@@ -42,6 +42,7 @@
     "Hmac",
     "httponly",
     "iass",
+    "Idel",
     "IIFE",
     "Immer",
     "instanceof",

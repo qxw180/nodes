@@ -1,4 +1,4 @@
-# [Service Worker](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
+# TODO:[Service Worker](https://developer.mozilla.org/zh-CN/docs/Web/API/Service_Worker_API)
 
 Service Worker 是浏览器和 web 应用程序之间的代理服务器，可以拦截浏览器网络请求、向浏览器发送消息、向服务器发送请求等，设计的目的就是为了实现 website 的离线能力，是 PWA 技术的核心部分，除了处理网络请求还提供入口以推送通知和访问后台同步 API。
 
@@ -24,7 +24,7 @@ Service Worker 和 Web Worker 很像都是一个脚本，独立于页面在后�
 2. 之后更新 service worker 并触发 install 事件，
 3. 此时当前页面仍然运行老的 service worker，新的 service worker 出于 waiting 状态
 4. 页面关闭后老的 service worker 会被干掉，新的 service worker 会接管页面触发 activate 事件，在这个阶段可以清理旧 worker 的缓存
-5. 可以在 install 事件中调用`self.skipWaiting()`方法跳过 waiting 状态，直接进入 activate 状态。接着在 activate 事件发生时执行`_slef.clients.claim()`方法更新所有客户端上的 Service Worker。
+5. 可以在 install 事件中调用`self.skipWaiting()`方法跳过 waiting 状态，直接进入 activate 状态。接着在 activate 事件发生时执行`_self.clients.claim()`方法更新所有客户端上的 Service Worker。
 
 手动更新
 
