@@ -10,14 +10,16 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-  if (s.length === 0) {
-    return 0;
+  const size = s.length;
+  if (size <= 1) {
+    return size;
   }
 
   const map = new Map();
   let start = 0;
   let maxLength = 0;
-  for (let index = 0; index < s.length; index++) {
+
+  for (let index = 0; index < size; index++) {
     const char = s[index];
     if (map.has(char)) {
       maxLength = Math.max(maxLength, index - start);
@@ -26,7 +28,7 @@ var lengthOfLongestSubstring = function (s) {
     }
     map.set(char, index);
   }
-  return Math.max(maxLength, s.length - start);
+  return Math.max(maxLength, size - start);
 };
 
 // @lc code=end

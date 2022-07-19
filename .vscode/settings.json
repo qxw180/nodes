@@ -119,6 +119,7 @@
     "Deglobbing",
     "esxxxx",
     "onorientationchange",
-    "orientationchange"
+    "orientationchange",
+    "strs"
   ]
 }

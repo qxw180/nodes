@@ -1,19 +1,19 @@
 # React 渲染过程和生命周期
 
-- React 会`render()`后会创建一颗由 React 元素生成的 Tre，即 Virtual DOM
+- React 会`render()`后会创建一颗由 React 元素生成的 Tree，即 Virtual DOM
 - 状态变化后再次触发`render()`会生成一颗新树
-- 调度阶段：React 通过 Diff 算法对比两颗树，找出哪些 DOM 需要更新，然后加入到更新队列。这个过程称为 Reconciliation。
+- 调度阶段：React 通过 Diff 算法对比两颗树，找出哪些 DOM 需要更新，然后加入到更新队列。这个过程称为**协调(Reconciliation)**。
 - 渲染阶段：遍历更新队列，将更新聚合**一次性地更新 UI**
 
 ## Virtual DOM
 
-React 是声明式 UI 库，开发者使用组件描述 UI，React 让开发者可以保持相对简单的心智，不需要关心 DOM 操作、事件处理、属性操作等。
+React 是声明式 UI 库，开发者使用组件描述 UI，对数据到 UI 页面的渲染过程进行封装，React 让开发者可以保持相对简单的心智，不需要关心 DOM 操作、事件处理、属性操作等。
 
-React 将组件转化为页面结构(虚拟 DOM)，再转换为真实 DOM 渲染到页面上，并在数据(props、 state、context)改变时自动进行更新，在更新的时候会首先进行协调（Reconciliation），在协调阶段之后会立刻进入 commit 阶段，提交阶段结束后数据的更新就会在页面生效。
+React 将组件转化为页面结构(虚拟 DOM)，再转换为真实 DOM 渲染到页面上，并在数据(props、 state、context)改变时自动进行更新，在更新的时候会首先进行协调(Reconciliation)，在协调阶段之后会立刻进入 commit 阶段，提交阶段结束后数据的更新就会在页面生效。
 
 DOM 更新会导致重绘和重流，DOM 更新策略优化也是前端渲染优化的关键点，React Reconciliation 基于数据的变化计算出新的虚拟 DOM，并对比新旧虚拟 DOM，寻找到最优的更新方案。React 通过 Virtual DOM 对 DOM 更新进行优化，在不做手动优化的情况下提供过得去的性能，保证性能下限。
 
-Virtual DOM 是一个 JS 对象，是对真实 DOM 的抽象，在数据变化后 React 会生成新的 Virtual DOM 和旧的 Virtual DOM 进行对比，React 使用深度优先的方式遍历遍历虚拟 DOM，缩小真实 DOM 更新范围，也会将更新聚合(将多个更新合并，所以 React 状态更新不是同步的)，减少更新次数。
+Virtual DOM 是一个 JS 对象，是对真实 DOM 的抽象，在数据变化后 React 会生成新的 Virtual DOM 和旧的 Virtual DOM 进行对比，React 使用深度优先的方式遍历遍历对比 Virtual DOM，缩小真实 DOM 更新范围，也会将更新聚合(将多个更新合并，所以 React 状态更新不是同步的)，减少更新次数。
 
 Virtual DOM 最初的设计目的是为了跨平台，基于 Virtual DOM 本质是 JavaScript 对象，基于 Virtual DOM 可以区别的定制下游输出，实现不同平台的渲染，如 SSR、跨终端等场景。
 
@@ -53,7 +53,7 @@ React 16 之前架构可以分为两层：
 从 React 16 开始架构分为三层：
 
 - Scheduler（调度器）: 调度任务的优先级，高优任务优先进入 Reconciler；
-- Reconciler（协调器）: 负责找出变化的组件：更新工作从递归变成了可以中断的循环过程。Reconciler 内部采用了 Fiber 的架构；
+- Reconciler（协调器）: 负责找出变化的组件：Reconciler 内部采用了 Fiber 的架构，更新工作从递归变成了可以中断的循环过程。
 - Renderer（渲染器）: 负责将变化的组件渲染到页面上。
 
 JS 是单线程的，默认情况下，JS 运算、页面布局和页面绘制都是运行在浏览器的主线程当中，当 React 状态更新后 React Reconciliation 会遍历所有节点，计算差异，然后再更新 UI。这个过程如果超过 16ms 就容易出现掉帧现象。

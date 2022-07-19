@@ -31,3 +31,5 @@ var hasPathSum = function (root, targetSum) {
   return l1 || l2;
 };
 // @lc code=end
+
+// 思路 DFS Top Down DFS
