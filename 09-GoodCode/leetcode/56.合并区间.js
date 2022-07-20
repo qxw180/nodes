@@ -21,10 +21,11 @@ var merge = function (intervals) {
   const result = [intervals[0]];
 
   for (let index = 1; index < intervals.length; index++) {
-    const target = result[result.length - 1];
+    const curLast = result[result.length - 1];
     const interval = intervals[index];
-    if (interval[0] <= target[1]) {
-      result[result.length - 1] = [target[0], Math.max(target[1], interval[1])];
+    if (interval[0] <= curLast[1]) {
+      // 关键：新区间可能是被包含的
+      curLast[1] = Math.max(curLast[1], interval[1]);
     } else {
       result.push(interval);
     }

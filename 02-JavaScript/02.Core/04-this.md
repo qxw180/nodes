@@ -9,6 +9,8 @@
 3. 显示绑定：使用`call、apply、bind`等方法触发并显示的绑定`this`指向
 4. `new`绑定：使用`new`关键字运行函数会首先创建一个空对象，并将`this`指向这个对象，详见[构造函数](../01.OOP/1.构造函数.md)
 
+除了作为构造函数触发，可以归纳为永远指向调用自己的对象，直接运行实际是通过顶层对象调用。
+
 ## 默认绑定和隐式绑定
 
 ```JavaScript
@@ -121,8 +123,6 @@ if(!('bind' in Function.prototype)){
 
 和普通函数需要根据如何被调用来确定`this`的指向，**箭头函数不会创建自己的`this`，会从自己的作用域链上一层来继承`this`**，即箭头函数的`this`指向最近一层非箭头函数的`this`。
 
-箭头函数`this`的另外一个重要特性是不可变，通过`call`或`apply`调用传入的`this`会被忽略。
-
 因为箭头函数的`this`指向是通过作用域链查找的，所以箭头函数的`this`指针并不是静态的。
 
 ```JavaScript
@@ -139,13 +139,15 @@ let hi = obj.hi;
 let deepHi = hi(); // window
 deepHi(); // window
 
-deepHi = obj.hi(); // obj
-deepHi(); // obj
+deepHi = obj.hi(); // obj {hi: f}
+deepHi(); // obj {hi: f}
+
+// 箭头函数的this为上一层非箭头函数hi的this，hi执行过程中this的变化会影响到箭头函数最终的this
 ```
 
-注意：箭头函数的上下文绑定是不可改变的，不能使用`call`或`apply`改变；
+注意：箭头函数`this`的另外一个重要特性是不可变，箭头函数的上下文绑定是不可改变的，不能使用`call`或`apply`改变，通过`call`或`apply`调用传入的`this`会被忽略。
 
-## 深入 this
+## TODO:深入 this
 
 在[变量声明、赋值](./01-变量声明、赋值.md)中介绍过执行上下文，EC 在创建的时会绑定`this`指向。
 

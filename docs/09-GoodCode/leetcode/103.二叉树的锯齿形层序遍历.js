@@ -22,24 +22,22 @@ var zigzagLevelOrder = function (root) {
     return [];
   }
   const result = [];
-  function traversal(roots, reverse) {
-    if (roots.length > 0) {
-      const values = [];
-      const nodes = [];
-      roots.forEach((root) => {
-        if (reverse) {
-          values.unshift(root.val);
-        } else {
-          values.push(root.val);
-        }
-        root.left && nodes.push(root.left);
-        root.right && nodes.push(root.right);
-      });
-      result.push(values);
-      traversal(nodes, !reverse);
-    }
+  function bfs(roots, reverse) {
+    const values = [];
+    const nodes = [];
+    roots.forEach((root) => {
+      if (reverse) {
+        values.unshift(root.val);
+      } else {
+        values.push(root.val);
+      }
+      root.left && nodes.push(root.left);
+      root.right && nodes.push(root.right);
+    });
+    result.push(values);
+    nodes.length && bfs(nodes, !reverse);
   }
-  traversal([root], false);
+  bfs([root], false);
   return result;
 };
 // @lc code=end

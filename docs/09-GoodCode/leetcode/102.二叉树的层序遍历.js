@@ -23,24 +23,18 @@ var levelOrder = function (root) {
   }
   const result = [];
 
-  function travel(roots) {
+  function bfs(roots) {
     const values = [];
     const nodes = [];
     for (const root of roots) {
       values.push(root.val);
-      if (root.left) {
-        nodes.push(root.left);
-      }
-      if (root.right) {
-        nodes.push(root.right);
-      }
+      root.left && nodes.push(root.left);
+      root.right && nodes.push(root.right);
     }
     result.push(values);
-    if (nodes.length) {
-      travel(nodes);
-    }
+    nodes.length && bfs(nodes);
   }
-  travel([root]);
+  bfs([root]);
 
   return result;
 };

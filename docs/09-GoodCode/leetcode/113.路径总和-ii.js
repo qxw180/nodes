@@ -26,7 +26,7 @@ var pathSum = function (root, targetSum) {
       return;
     }
     const val = node.val;
-    const newPath = [...path, node.val];
+    const newPath = [...path, val];
     if (node.left === null && node.right === null && val === target) {
       result.push(newPath);
       return;
