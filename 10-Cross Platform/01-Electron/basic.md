@@ -1,8 +1,8 @@
 # Electron
 
-![Electron](../assets/images/electron/electron.png)
+![Electron](../../assets/images/electron/electron.png)
 
-![Electron 架构](../assets/images/electron/electron-arch.png)
+![Electron 架构](../../assets/images/electron/electron-arch.png)
 
 - 主进程：Electron 运行 package.json 的`main`脚步的进程称为主进程
   - 每个应用只有一个主进程
