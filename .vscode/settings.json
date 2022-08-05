@@ -79,6 +79,8 @@
     "protobuf",
     "publickey",
     "pubout",
+    "pubspec",
+    "qiankun",
     "Rasterize",
     "Recalc",
     "Referer",
