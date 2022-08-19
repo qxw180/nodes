@@ -112,12 +112,42 @@ export default a;
 export default const a = 1;
 ```
 
+## 命名冲突&模块对象
+
+可以使用关键字`as`对`export`和`import`进行重命名解决命名冲突
+
+```JS
+// in square.mjs
+export {
+  name as squareName,
+  draw as drawSquare,
+};
+
+// in circle.mjs
+export { name, draw };
+
+// in main.mjs
+import { squareName, drawSquare } from '/js-examples/modules/renaming/modules/square.mjs';
+import {
+  name as circleName,
+  draw  as drawCircle } from '/js-examples/modules/renaming/modules/circle.mjs';
+```
+
+可以使用关键字`*`导入整个模块，通过模块调用导出的变量或函数
+
+```JS
+import * as Module from '/modules/module.mjs';
+
+Module.function1();
+Module.function2();
+```
+
 ## Dynamic Import
 
 上面介绍的`import`语句可以导入其它模块`export`的变量，这是一种静态导入，是在代码初始化的时候**全部导入**。
 出于性能的考虑在某些场景下我们需要做按需加载或延迟加载，ECMA 的动态导入方案可以满足这种场景。
 
-`import()`函数可以在代码执行加载的模块返回一个 Promise 对象实例，这是我们就可以使用`.then()`或者`await`语法获取模块内容。
+`import()`函数可以在代码执行加载的模块返回一个 **Promise 对象实例**，这是我们就可以使用`.then()`或者`await`语法获取模块内容。
 
 ```JavaScript
 (async () => {
@@ -126,6 +156,35 @@ export default const a = 1;
   }
 })();
 ```
+
+## TODO:NodeJS 中使用 ESM
+
+## TODO:ESM import 是否是地址引用，export 是否是有状态的
+
+## TODO:import-maps
+
+Node.js 会自动从`node_modules`目录中去加载对应的模块， 但是浏览器默认不会这样做，因为不知道从哪里加载全局模块。`import-maps`就是为了解决浏览器中的全局模块而出现的.
+
+设计目的：简化打包工具，将大部分功能都改造为使用浏览器原生提供能力是一种趋势
+
+```HTML
+
+<script type="importmap">
+{
+  "imports": {
+    "moment": "/node_modules/moment/src/moment.js",
+    "lodash": "/node_modules/lodash-es/lodash.js"
+  }
+}
+</script>
+
+<script>
+  import moment from "/node_modules/moment/src/moment.js";
+  import { partition } from "/node_modules/lodash-es/lodash.js";
+</script>
+```
+
+[浅谈 import-maps](https://juejin.cn/post/6975163620774821895)
 
 ## 参考
 
