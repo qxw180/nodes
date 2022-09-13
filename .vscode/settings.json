@@ -107,6 +107,8 @@
     "userscripts",
     "VARCHAR",
     "Vite",
+    "vmax",
+    "vmin",
     "Vsync",
     "webfont",
     "Webgl",
