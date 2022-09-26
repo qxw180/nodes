@@ -11,20 +11,39 @@
 - 组合式：使用导入的 API 函数来描述组件逻辑。类似于 React 的函数组件+HOOKS
   - 中大型项目推荐使用组合式 API。
 
+## 应用创建和配置
+
+```JS
+import { createApp } from 'vue'
+// 导入根组件
+import App from './App.vue'
+// 使用根组件创建应用实例
+const app = createApp(App)
+// 挂载应用
+app.mount('#app')
+
+// 应用配置
+app.config.errorHandler = (err) => {
+  /* 处理错误 */
+}
+app.component('TodoDeleteButton', TodoDeleteButton) // 注册全局组件
+app.config.globalProperties.msg = 'hello' // 全局属性
+```
+
 ## 模板语法
 
 ```Vue
-<!-- 使用大括号插入文本值 -->
+<!-- 文本插值 使用双大括号 -->
 <span>Message: {{ msg }}</span>
 
-<!-- 使用 JavaScript 表达式 -->
-<span>{{ ok ? 'YES' : 'NO' }}</span>
-
-<!-- 使用v-html指令插入原始HTML -->
+<!-- 原始HTML 使用v-html指令 -->
 <span v-html="rawHtml"></span>
 
-<!-- 属性绑定 -->
+<!-- 属性绑定 使用v-bind指令 -->
 <div v-bind:id="dynamicId"></div>
+
+<!-- 使用 JavaScript 表达式，不仅限于文本插值、v-bind等指令也可以使用 -->
+<span>{{ ok ? 'YES' : 'NO' }}</span>
 
 <!-- 绑定 HTML class -->
 <div
@@ -35,6 +54,15 @@
 
 ## 响应式
 
+选项式：使用`data`属性声明，`data`是一个返回对象的函数，vue 会对对象进行响应式包装并代理到组件实例上，后添加到组件实例的属性变化无法触发响应式更新。
+
+组合式：可以使用`reactive`创建响应式的对象或数组
+
+```JS
+import { reactive } from 'vue'
+const state = reactive({ count: 0 })
+```
+
 ## 异常处理
 
 ## 指令 Directives
@@ -43,64 +71,12 @@
 
 ![Vue Directive](../assets/images/vue/directive.png)
 
-- 指令参数：`<a v-bind:href="url"> ... </a>`
+- 指令参数：`<a v-bind:href="url"> ... </a>` 响应式更新参数
   - 简写`<a :href="url"> ... </a>`
   - 动态参数：`<a v-on:[eventName]="doSomething"> ... </a>`
 - 修饰符：`<form @submit.prevent="onSubmit">...</form>`，思考：这个语法设计好吗？在事件函数中处理是否更聚合
 
 ## 计算属性
-
-## 组件
-
-```vue 组件-属性
-<script>
-export default {
-  // 1. 注册属性
-  props: ["title"],
-  // 1. 时间声明
-  emits: ["enlarge-text"],
-};
-</script>
-
-<template>
-  <!-- 2. 使用属性 -->
-  <h4>{{ title }}</h4>
-  <!-- 3. 使用$emit触发事件 -->
-  <button @click="$emit('enlarge-text')">Enlarge text</button>
-</template>
-
-<!-- 3. 属性传递&事件回调传递 -->
-<BlogPost title="My journey with Vue" @enlarge-text="postFontSize += 0.1" />
-```
-
-```vue 组件使用
-<script>
-// 1. 组件导入
-import ButtonCounter from "./ButtonCounter.vue";
-
-export default {
-  // 2. 组件祖册
-  components: {
-    ButtonCounter,
-  },
-};
-</script>
-
-<template>
-  <h1>Here is a child component!</h1>
-  <!-- 3. 组件使用 -->
-  <ButtonCounter />
-</template>
-```
-
-```vue 插槽 slot，类比react children
-<template>
-  <div class="alert-box">
-    <strong>This is an Error for Demo Purposes</strong>
-    <slot />
-  </div>
-</template>
-```
 
 ## 条件渲染
 
