@@ -4,7 +4,7 @@
 
 安装：`npm install --save-dev eslint`
 初始化：`npx eslint --init`，生成配置文件
-运行：`ellint yourfile.js`
+运行：`eslint <file_path_name>`
 
 ```JSON
 {
@@ -37,10 +37,10 @@ ESLint 有以下类型的信息配置：
 
 ## 配置解析器选项 Parser Options
 
-ESLint 默认安装 ES5 语法进行校验，可以通过 Paser Option 配置来支持其他版本的 JavaScript 和 JSX 等。
+ESLint 默认安装 ES5 语法进行校验，可以通过 Parser Option 配置来支持其他版本的 JavaScript 和 JSX 等。
 
 支持 JSX 并不代表支持 React，React 使用了特殊的语义化 JSX 语法，ESLint 并不认识。推荐使用`eslint-plugin-react`。
-同理支持 ES6 语法不代表 ES6 全局变量(例：Set)，对于 ES6 语法使用`{"parserOptions":{"ecmaVsersion":6}}`配置，对于 ES6 全局变量使用`{"evn":{"es6":true}}`配置(该配置项自动支持 ES6 语法)。
+同理支持 ES6 语法不代表 ES6 全局变量(例：Set)，对于 ES6 语法使用`{"parserOptions":{"ecmaVersion":6}}`配置，对于 ES6 全局变量使用`{"evn":{"es6":true}}`配置(该配置项自动支持 ES6 语法)。
 
 Parser Options 使用`parserOptions`字段来配置，可配置的字段包括：
 

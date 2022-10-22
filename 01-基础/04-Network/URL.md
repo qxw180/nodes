@@ -1,12 +1,42 @@
 # URL
 
-URI(Uniform Resource Identifier)统一资源标志符：用来唯一标识互联网上的信息资源，包含 URL 和 URN。
+## URI 和 URL
 
-- URL(Uniform Resource Locator)统一资源定位器，网址；
-  URL 只能包括英文字母、数字和某些标点符号`$ - _ . + ! * ' ( ) ,`；
-- URN(Uniform Resource Name)永久统一资源定位符，解决资源路径变化后定位问题。
+> 统一资源标志符（英语：Uniform Resource Identifier，缩写：URI）在电脑术语中是用于标志某一互联网资源名称的字符串。
 
-## URL 的组成
+用户可以通过 URI 对网络中的资源使用特定的协议进行交互操作，URI 格式如下：
+
+```text
+                    hierarchical part
+        ┌───────────────────┴─────────────────────┐
+                    authority               path
+        ┌───────────────┴───────────────┐┌───┴────┐
+  abc://username:password@example.com:123/path/data?key=value&key2=value2#fragid1
+  └┬┘   └───────┬───────┘ └────┬────┘ └┬┘           └─────────┬─────────┘ └──┬──┘
+scheme  user information     host     port                  query         fragment
+
+  urn:example:mammal:monotreme:echidna
+  └┬┘ └──────────────┬───────────────┘
+scheme              path
+```
+
+URL 是最常见的 URI 形式
+
+> 统一资源定位符（英语：Uniform Resource Locator，缩写：URL，或称统一资源定位器、定位地址、URL 地址）俗称网页地址，简称网址，是因特网上标准的资源的地址（Address），如同在网络上的门牌。
+
+URL 用于标识互联网资源，缺点是当期资源存储位置发生变化后必须对相应的 URL 进行改变。URN 也是 URI 的实现，通过名称来标识不依赖位置
+
+> 统一资源名称（英语：Uniform Resource Name，缩写：URN）是统一资源标识（URI）的历史名字，它使用 urn:作为 URI scheme。
+
+![URI](../../assets/images/network/uri.jpg)
+
+## TODO:URL 的组成
+
+URL 只能包括英文字母、数字和某些标点符号`$ - _ . + ! * ' ( ) ,`。
+
+URL 标准格式：`[协议类型]://[服务器地址]:[端口号]/[资源层级UNIX文件路径][文件名]?[查询]#[片段ID]`
+URL 完整格式：`[协议类型]://[访问资源需要的凭证信息]@[服务器地址]:[端口号]/[资源层级UNIX文件路径][文件名]?[查询]#[片段ID]`
+其中[访问凭证信息]、[端口号]、[查询]、[片段 ID]都属于选填项。
 
 `http://www.example.com:8042/over/there?name=ferret#nose`
 
