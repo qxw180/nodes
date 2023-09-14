@@ -1,5 +1,7 @@
 # TODO:Web Font
 
+## TODO:移动端字体方案
+
 ## CORS
 
 ```css
@@ -26,3 +28,5 @@ Icon Font 字体库[Font Awesome](https://fontawesome.com)
 
 - Color Font
 - font-variation
+
+https://juejin.cn/post/6844904014866284552
