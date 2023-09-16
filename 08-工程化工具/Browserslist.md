@@ -10,6 +10,10 @@ not IE 11
 maintained node versions
 ```
 
+browserslist 会取各规整的的交集作为最终配置
+
+TODO:browserslist 统计数据源，如何使用适合国内环境的数据源
+
 ## Query List
 
 - `defaults`：`> 0.5%, last 2 versions, Firefox ESR, not dead`
