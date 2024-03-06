@@ -15,12 +15,12 @@ Docker 的主要用途：
 
 ## 命令
 
+- 查看当前系统镜像信息： `docker images`
 - 获取镜像： `docker pull <imageName>[:tag]`
-- 列出镜像： `docker images`
 - 构建镜像： `docker image build -t <imageName>[:tag] <configPath>`
   - `-t` 指定镜像名字
   - 默认 tag 为 latest
-- 运行镜像|创建容器： `docker container run <imageName>[:tag] [cmd]`
+- 运行镜像|创建容器： `docker run <imageName>[:tag] [cmd]`
   - `-p`：端口映射，容器端口:本地端口
   - `-it`：容器的 shell 映射到当前 shell
   - `--rm`：在容器停止运行后自动删除容器文件

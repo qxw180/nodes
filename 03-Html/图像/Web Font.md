@@ -29,4 +29,5 @@ Icon Font 字体库[Font Awesome](https://fontawesome.com)
 - Color Font
 - font-variation
 
-https://juejin.cn/post/6844904014866284552
+[自定义字体知识整理](https://juejin.cn/post/6844904014866284552)
+[撸了那么多代码，你真的了解字体？](https://juejin.cn/post/6844903977658630151)
