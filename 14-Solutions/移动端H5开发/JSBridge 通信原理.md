@@ -6,13 +6,15 @@ JS Bridge 是原生 JS 和客户端(native)通讯的桥梁
 
 ![JS Bridge](../../assets/images/js/js-bridge.png)
 
-## native 调用 webview 能力
+## Native 调用 Webview 能力
+
+Native 向 Web 发送消息基本原理上是在 WebView 容器中动态地执行一段 JS 脚本，通常情况下是调用一个挂载在 window 上全局上下文的方法。
 
 JavaScript 作为解释型语言，可以随时随地地通过解释器执行一段 JS 代码，所以可以将拼接的 JavaScript 代码字符串传入 webView 就可以调用 webview 能力。
 
 ![JS Bridge](../../assets/images/js/js-bridge-call-webview.png)
 
-## webview 调用 native 能力
+## Webview 调用 Native 能力
 
 webview 可以拦截 H5 发送的请求，无论是标准协议（如 http://、https:// 等）还是私有协议（如 weixin:// ），基于这个原理，H5 采用私有协议模拟发起 URL 请求，Native 解析这类 URL 并定制相应的处理函数，这就实现了 H5 调用 Native。
 
@@ -55,3 +57,4 @@ H5 和 Native 之间的调用不都是单向的，由于同时存在 H5 调用 N
 ## 参考文档
 
 [JSBridge 通信原理](https://sevody.github.io/2019/11/10/jsbridge-mechanisms/)
+[前端认知下的 WebView](https://rapidsu.cn/articles/4092)
