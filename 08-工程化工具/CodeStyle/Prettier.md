@@ -120,7 +120,7 @@ lint:
 插件安装：[EditorConfig for VS Code](https://marketplace.visualstudio.com/items?itemName=EditorConfig.EditorConfig)
 配置文件：`.editorconfig`
 
-```conf
+```
 root = true
 
 [*]

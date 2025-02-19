@@ -1,7 +1,7 @@
 {
   "bookname": "个人笔记",
   "catalog": "all",
-  "ignores": ["node_modules", "docs"],
+  "ignores": ["node_modules", "docs", ".vscode"],
   "unchanged": [],
-  "plugins": ["uml", "chapter-fold", "splitter", "expandable-chapters"]
+  "plugins": ["chapter-fold", "splitter", "expandable-chapters"]
 }

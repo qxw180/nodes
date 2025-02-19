@@ -30,7 +30,7 @@ Step2.1 首先开启 SSH 认证
 
 修改 ssh 配置，`vim /etc/ssh/sshd_config`
 
-```conf
+```
 RSAAuthentication yes
 PubkeyAuthentication yes
 AuthorizedKeysFile .ssh/authorized_keys

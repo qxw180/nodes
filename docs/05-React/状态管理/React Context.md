@@ -83,3 +83,7 @@ function ThemedButton() {
 `Consumer`的子组件要求是一个函数，这个函数的参数为`context`的`value`，函数的返回值为 React 组件。
 
 Hook 方式：`const contextValue = useContext(MyContext);`
+
+## TODO:Context 触发 render 机制
+
+## 基于 Context 实现国际化功能

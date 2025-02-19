@@ -1,5 +1,6 @@
 # this
 
+`this`是 JavaScript 中一个**动态绑定**的关键字，它的值**取决于函数的调用方式**，而不是定义位置。
 `this`是一个指针，指向调用函的对象。不同的场景下指向不同：
 
 1. 默认绑定：`this`指向顶层对象`window`，在 Nodejs 环境下为`global`
@@ -100,16 +101,15 @@ b.toString();// 123;
 if(!('bind' in Function.prototype)){
   Function.prototype.bind = function(){
     if (typeof this !== "function") {
-      throw new TypeError("Error");
+      throw new TypeError("Bind must be called on a function");
     }
+
+    const fn = this; // 保存原函数
 
     // 将参数拆解为数组
     const argArr = Array.prototype.slice.call(arguments);
     // 数组第一项为运行时的this对象
     const thisObj = argArr.shift();
-
-    // 运行方法
-    const fn = this;
 
     // 返回一个函数
     return function () {
@@ -119,7 +119,7 @@ if(!('bind' in Function.prototype)){
 }
 ```
 
-## TODO:箭头函数中的`this`
+## 箭头函数中的`this`
 
 和普通函数需要根据如何被调用来确定`this`的指向，**箭头函数不会创建自己的`this`，会从自己的作用域链上一层来继承`this`**，即箭头函数的`this`指向最近一层非箭头函数的`this`。
 

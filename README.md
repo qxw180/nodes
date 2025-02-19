@@ -1,19 +1,13 @@
 # 个人笔记
 
-1. 个人笔记，七七八八比较杂乱，完成度不一
-2. 目录结构随时调整
+1. 个人学习笔记，点滴记录完成度不一
+2. 目录结构会根据个人思维随时调整
 
-## 构建初始化
+## 站点构建
 
-环境要求：`Node v10`
+本站点使用 GitBook 构建，使用 Node V10 版本
 
-安装
-
-`npm install`
-`npm run bootstrap`
-
-目录：`npm run summary`
-
-构建：`npm run build`
-
-预览：`npm run preview`
+- 初始化：`npm run bootstrap`
+- 目录生成：`npm run summary`
+- 构建站点：`npm run build`
+- 预览站点：`npm run preview`

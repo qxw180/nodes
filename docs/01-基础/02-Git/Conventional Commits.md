@@ -81,7 +81,7 @@ Commitizen 是一个可以帮助我们生成 Conventional Commits 的工具，�
 - Step4：执行`git add`将修改添加到 stage，执行`npm run cz`
 - Step5：按照提示填写相关信息
 
-```rc
+```
 <!-- .czrc配置 -->
 {
   "path": "cz-conventional-changelog"
