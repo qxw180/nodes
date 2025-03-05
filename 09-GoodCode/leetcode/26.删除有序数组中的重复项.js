@@ -10,17 +10,16 @@
  * @return {number}
  */
 var removeDuplicates = function (nums) {
-  if (nums.length === 0) {
-    return [];
-  }
-  let validIndex = 0;
-  for (let index = 1; index < nums.length; index++) {
-    if (nums[validIndex] < nums[index]) {
-      validIndex++;
-      nums[validIndex] = nums[index];
+  if (nums.length < 2) return nums.length;
+  let slow = 1;
+  for (let fast = 1; fast < nums.length; fast++) {
+    if (nums[fast] != nums[fast - 1]) {
+      nums[slow] = nums[fast];
+      slow++;
     }
   }
-  return validIndex + 1;
+
+  return slow;
 };
 // @lc code=end
 

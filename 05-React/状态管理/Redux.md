@@ -25,7 +25,7 @@ reduce 是一个纯函数，形式如`(state, action) => newState`，接收当�
 
 - reducer 函数必须是一个纯函数，只有这样才能保证 Redux 的可预测性。
 - **在 reducer 内不能够直接修改 state**，而是使用 immutable updates 返回一个新的 state，直接修改`state`会导致难以定位的 bug。
-- reducer 函数不能是异步的，因为异步函数的执行顺序无法保证，会破坏 redux 的可预测性。
+- reducer 函数**不能是异步的**，因为异步函数的执行顺序无法保证，会破坏 redux 的可预测性。
 
 在实际项目中我们需要写很多的 reducer，这时我们会根据业务逻辑进行拆分，然后另外写一个 reducer 来整合。
 

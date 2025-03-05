@@ -11,25 +11,21 @@
  * @return {number}
  */
 var search = function (nums, target) {
-  const size = nums.length;
+  if (nums.length === 0) return -1;
+
+  let middle = Math.floor(nums.length / 2);
   let start = 0;
-  let end = size - 1;
-  while (end >= start) {
-    if (nums[start] === target) {
-      return start;
-    }
-    if (nums[end] === target) {
-      return end;
-    }
-    const mid = start + Math.floor((end - start) / 2);
-    const midVal = nums[mid];
-    if (target === midVal) {
-      return mid;
-    } else if (target > midVal) {
-      start = mid + 1;
+  let end = nums.length - 1;
+
+  while (start <= end) {
+    if (nums[middle] === target) {
+      return middle
+    } else if (nums[middle] > target) {
+      end = middle - 1;
     } else {
-      end = mid - 1;
+      start = middle + 1;
     }
+    middle = start + Math.floor((end - start) / 2)
   }
 
   return -1;

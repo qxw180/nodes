@@ -16,6 +16,7 @@ function ListNode(val, next) {
  * @return {ListNode}
  */
 var addTwoNumbers = function (l1, l2) {
+  // 进位值
   let carry = 0;
   const head = new ListNode(0);
   let current = head;

@@ -8,7 +8,9 @@
 
 ## Webpack 编译流程
 
-分析入口文件，找到依赖 module，根据 module 类型调用 loader 进行解析，module 加工，然后合并打包输出
+- 分析入口文件，找到依赖 module
+- 根据 module 类型调用 loader 进行解析
+- module 加工，然后合并打包输
 
 ### 依赖分析优化
 

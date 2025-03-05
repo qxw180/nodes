@@ -10,25 +10,22 @@
  * @return {number}
  */
 var lengthOfLongestSubstring = function (s) {
-  const size = s.length;
-  if (size <= 1) {
-    return size;
-  }
+  const set = new Set();
+  let left = 0, maxLength = 0;
 
-  const map = new Map();
-  let start = 0;
-  let maxLength = 0;
-
-  for (let index = 0; index < size; index++) {
-    const char = s[index];
-    if (map.has(char)) {
-      maxLength = Math.max(maxLength, index - start);
-      // 关键 窗口只能向前滑动
-      start = Math.max(start, map.get(char) + 1);
+  for (let right = 0; right < s.length; right++) {
+    // 如果当前字符已经在集合中，移动左指针
+    while (set.has(s[right])) {
+      set.delete(s[left]);
+      left++;
     }
-    map.set(char, index);
+    // 将当前字符加入集合
+    set.add(s[right]);
+    // 更新最大长度
+    maxLength = Math.max(maxLength, right - left + 1);
   }
-  return Math.max(maxLength, size - start);
+
+  return maxLength;
 };
 
 // @lc code=end

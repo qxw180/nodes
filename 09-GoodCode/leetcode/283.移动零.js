@@ -10,17 +10,23 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 var moveZeroes = function (nums) {
-  const length = nums.length;
-  if (length <= 1) {
-    return;
-  }
-  let p = 0;
-  for (let index = 0; index < length; index++) {
-    if (nums[index] !== 0) {
-      const temp = nums[p];
-      nums[p] = nums[index];
-      nums[index] = temp;
-      p++;
+  if (nums.length < 2) return;
+
+  let left = 0, right = 0;
+  while (right < nums.length) {
+    if (nums[right] == 0) {
+      right++;
+      continue;
+    }
+
+    if (left === right) {
+      left++;
+      right++;
+    } else {
+      nums[left] = nums[right];
+      nums[right] = 0;
+      left++;
+      right++;
     }
   }
 };

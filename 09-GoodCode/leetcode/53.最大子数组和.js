@@ -25,12 +25,15 @@ var maxSubArray = function (nums) {
   // }
   // return max;
   // 动态规划算法
-  // let max = nums[0];
-  // let prevMax = 0;
-  // for (const current of nums) {
-  //   prevMax = Math.max(current, current + prevMax);
-  //   max = Math.max(max, prevMax);
-  // }
-  // return max;
+  if (nums.length == 1) return nums[0]
+  const dp = [nums[0], Math.max(nums[1], nums[0] + nums[1])]
+  let max = Math.max(dp[0], dp[1])
+
+  for (let i = 2; i < nums.length; i++) {
+    dp[i] = Math.max(nums[i], nums[i] + dp[i - 1])
+    max = Math.max(dp[i], max)
+  }
+
+  return max;
 };
 // @lc code=end

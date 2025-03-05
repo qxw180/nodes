@@ -8,7 +8,8 @@
 
 var MinStack = function () {
   this.stack = [];
-  this.minStack = [Infinity];
+  this.minStack = [];
+
 };
 
 /**
@@ -17,15 +18,19 @@ var MinStack = function () {
  */
 MinStack.prototype.push = function (val) {
   this.stack.push(val);
-  this.minStack.push(Math.min(this.minStack[this.minStack.length - 1], val));
+  if (this.minStack.length === 0 || this.minStack[this.minStack.length - 1] >= val) {
+    this.minStack.push(val);
+  }
 };
 
 /**
  * @return {void}
  */
 MinStack.prototype.pop = function () {
-  this.stack.pop();
-  this.minStack.pop();
+  const popValue = this.stack.pop();
+  if (popValue === this.minStack[this.minStack.length - 1]) {
+    this.minStack.pop();
+  }
 };
 
 /**

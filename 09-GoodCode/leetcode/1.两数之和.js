@@ -11,14 +11,16 @@
  * @return {number[]}
  */
 var twoSum = function (numberArray, target) {
-  const numberMap = new Map();
+  const numMap = new Map();
   for (let index = 0; index < numberArray.length; index++) {
-    const currentNumber = numberArray[index];
-    const wantNumber = target - currentNumber;
-    if (numberMap.has(wantNumber)) {
-      return [index, numberMap.get(wantNumber)];
+    const current = numberArray[index];
+    const diff = target - current;
+
+    if (numMap.has(diff)) {
+      return [numMap.get(diff), index];
     }
-    numberMap.set(currentNumber, index);
+
+    numMap.set(current, index);
   }
 };
 // @lc code=end

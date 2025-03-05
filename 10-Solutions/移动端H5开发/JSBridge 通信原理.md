@@ -8,7 +8,7 @@ JS Bridge 是原生 JS 和客户端(native)通讯的桥梁
 
 ## Native 调用 Webview 能力
 
-Native 向 Web 发送消息基本原理上是在 WebView 容器中动态地执行一段 JS 脚本，通常情况下是调用一个挂载在 window 上全局上下文的方法。
+Native 向 Web 发送消息基本原理上是在 WebView 容器中动态地执行一段 JS 脚本，类似`eval`，通常情况下是调用一个挂载在 window 上全局上下文的方法。
 
 JavaScript 作为解释型语言，可以随时随地地通过解释器执行一段 JS 代码，所以可以将拼接的 JavaScript 代码字符串传入 webView 就可以调用 webview 能力。
 
@@ -44,7 +44,7 @@ function iosBridge(action, param) {
 
 ### 方案二：通过 API 全局注入
 
-App 将 Native 的相关接口注入到 JS 的 Context（window）的对象中，Web 端就可以直接在全局 window 下使用这个全局 JS 对象，进而调用原生端的方法
+App 将 Native 的相关接口注入到 JS 的 Context（window）的对象中，Web 端就可以直接在全局 window 下使用这个全局 JS 对象，进而调用原生端的方法，而且**可以实现同步调用**
 
 ## 双向通信
 

@@ -10,27 +10,29 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-  const pair = {
-    "(": ")",
-    "[": "]",
-    "{": "}",
+  if (s.length % 2 != 0) return false;
+
+  const tagConfig = {
+    '(': ')',
+    '{': '}',
+    '[': ']'
   };
-  const size = s.length;
-  if (size % 2 !== 0) {
-    return false;
-  }
-  const stack = [];
-  for (const char of s) {
-    const match = pair[char];
-    if (match) {
-      stack.push(char);
-    } else {
-      const head = stack.pop();
-      if (pair[head] !== char) {
-        return false;
-      }
+
+  let tagStack = [];
+
+  for (let index = 0; index < s.length; index++) {
+    const tag = s[index];
+    if (tagConfig[tag]) {
+      tagStack.push(tag);
+      continue;
     }
+
+    let top = tagStack.pop()
+    if (tagConfig[top] != tag) return false;
+
   }
-  return stack.length === 0;
+
+  return tagStack.length === 0;
+
 };
 // @lc code=end
