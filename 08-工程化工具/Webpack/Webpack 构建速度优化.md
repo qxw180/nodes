@@ -1,36 +1,25 @@
 # TODO:Webpack 编译优化
 
+Webpack 编译流程
+
+- 分析入口文件，找到依赖 module
+- 根据 module 类型调用 loader 进行解析
+- module 加工，然后合并打包输
+
 ## 编译速度统计
 
 [Speed Measure Plugin](https://www.npmjs.com/package/speed-measure-webpack-plugin)
 
 ![Speed Measure](https://raw.githubusercontent.com/stephencookdev/speed-measure-webpack-plugin/HEAD/preview.png)
 
-## Webpack 编译流程
+## 缩小构建范围
 
-- 分析入口文件，找到依赖 module
-- 根据 module 类型调用 loader 进行解析
-- module 加工，然后合并打包输
+- 合理设置`include`和`exclude`：在`loader`中，通过设置`include`和`exclude`，仅处理必要的文件，减少不必要的处理。
+- 使用`resolve.alias`：为常用模块设置别名，减少路径解析时间。
 
-### 依赖分析优化
+## TODO:使用 DLLPlugin 将不常变化的库提前打包，减少每次构建的时间
 
-- 优化`resolve.module`配置
-- 优化`resolve.alias`配置
-- 优化`resolve.extensions`配置
-
-### 依赖解析优化
-
-- 使用`include`或`exclude`缩小打包文件范围
-- 使用`oneOf`方式配置，提升 loader 匹配速度，Webpack 在使用 Loader 加载文件是会从上到下遍历`rules`中配置的规整，使用`oneOf`配置可以优化匹配执行效率
-- 模块拆分：如果有单个模块过大可以根据实际场景进行拆分，这不仅有利于编译性能，线上运行效果也有意义
-- noParse 配置，如果一些第三方模块没有 AMD/CommonJS 规范版本，可以使用`noParse`来标识这个模块
-- Cache
-  - babel-loader 缓存
-  - eslint-loader 缓存
-  - terser-webpack-plugin 缓存
-  - SourceMap 缓存
-
-### 打包时间优化
+## TODO:使用缓存
 
 ## TODO:多线程
 

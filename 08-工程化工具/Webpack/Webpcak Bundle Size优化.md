@@ -11,6 +11,7 @@ Webpack Bundle 分析工具可以帮助我们发现问题、验证优化效果�
 
 ## TODO:静态文件加载和优化
 
+代码压缩：TerserPlugin
 使用[url-loader](https://webpack.js.org/loaders/url-loader/)进行静态文件加载，体积较小的文件会以 DataURL 的形式嵌入到页面文件中，减少 HTTP 请求。
 图片压缩：[ImageMinimizerWebpackPlugin](https://webpack.js.org/plugins/image-minimizer-webpack-plugin/)
 
@@ -19,7 +20,7 @@ Webpack Bundle 分析工具可以帮助我们发现问题、验证优化效果�
 提取 CSS 到单独的文件：[MiniCssExtractPlugin](https://webpack.js.org/plugins/mini-css-extract-plugin/)
 CSS 压缩插件：[CssMinimizerWebpackPlugin](https://webpack.js.org/plugins/css-minimizer-webpack-plugin/)
 
-## 降低 Bundle 体积
+## Tree Shaking 降低 Bundle 体积
 
 Tree Shaking：移除 JS 中没有使用的代码，依赖 ES Module，Webpack 默认开启，需要注意模块引入的方式。TODO:引入方式
 
